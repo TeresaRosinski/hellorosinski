@@ -1,0 +1,62 @@
+/*
+  Brand tokens for hellorosinski.com.
+  Source of truth: Teresa's Design System. See BRAND.md for how to use these.
+  Load the fonts in each page's <head>:
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap">
+*/
+
+:root {
+  /* Color: neutrals */
+  --surface: #FFFFFF;
+  --surface-mist: #F5F5F7;
+  --ink: #1D1D1F;
+  --ink-soft: #6E6E73;
+
+  /* Color: plum (identity) */
+  --plum: #5B2152;
+  --plum-deep: #2A0F27;
+  --plum-soft: #EFE3EC;
+  --plum-bright: #D58CC2;
+
+  /* Color: green (quiet accent on the portfolio; primary interactive color in tools) */
+  --green: #3F5A44;
+  --green-deep: #1F2F22;
+  --green-soft: #E3EAE1;
+  --green-bright: #6FA179; /* not for small text on white */
+
+  /* Type: families */
+  --font-display: "Montserrat", -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+
+  /* Type: display (Montserrat 700) */
+  --text-hero: 700 64px/1.0 var(--font-display);
+  --text-section: 700 40px/1.1 var(--font-display);
+  --text-tile: 700 32px/1.1 var(--font-display);
+  --text-tile-half: 700 26px/1.15 var(--font-display);
+
+  /* Type: body and UI (Inter) */
+  --text-lede: 500 20px/1.35 var(--font-body);
+  --text-body: 400 17px/1.5 var(--font-body);
+  --text-caption: 400 14px/1.4 var(--font-body);
+  --text-label: 600 13px/1.3 var(--font-body);
+  --text-button: 500 16px/1.2 var(--font-body);
+  --text-control: 400 15px/1.4 var(--font-body);
+
+  /* Spacing (8px base) */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 980px;
+
+  color-scheme: light;
+}
