@@ -20,6 +20,7 @@ Keep notes, drafts, and config out of `public/`.
 - A merge to `main` deploys to hellorosinski.com.
 - Every other branch gets its own preview link.
 - Teresa reviews the preview and merges through a pull request. Never push to `main` directly, and never merge on her behalf.
+- Before saying a branch is ready to merge, check the items in `.github/pull_request_template.md` that can be checked from the code (links, alt text, titles and descriptions, copy accuracy) and report what passed and what needs her eyes on the preview.
 
 ## Workflow rules
 
