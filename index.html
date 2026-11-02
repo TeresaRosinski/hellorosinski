@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teresa Rosinski</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --surface: #FFFFFF;
+            --surface-mist: #F5F5F7;
+            --ink: #1D1D1F;
+            --ink-soft: #6E6E73;
+            --plum: #5B2152;
+            --plum-soft: #EFE3EC;
+            --green: #3F5A44;
+            --green-soft: #E3EAE1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 20%, var(--plum-soft) 0%, var(--surface-mist) 45%, var(--surface) 100%);
+            color: var(--ink);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(0px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .blob--plum {
+            width: 260px;
+            height: 260px;
+            background: var(--plum-soft);
+            top: -60px;
+            right: -60px;
+        }
+
+        .blob--green {
+            width: 180px;
+            height: 180px;
+            background: var(--green-soft);
+            bottom: -40px;
+            left: -40px;
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 480px;
+        }
+
+        .wordmark {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--plum);
+            margin-bottom: 48px;
+            letter-spacing: 0.02em;
+        }
+
+        .wordmark span {
+            color: var(--plum);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 980px;
+            margin-bottom: 24px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 40px;
+            line-height: 1.15;
+            margin: 0 0 16px;
+            color: var(--ink);
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob--plum"></div>
+    <div class="blob blob--green"></div>
+
+    <main class="card">
+        <div class="wordmark">Teresa<span>.</span></div>
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Under construction
+        </div>
+        <h1>Something's brewing here.</h1>
+        <p>This spot is just a placeholder while the real page comes together. Thanks for stopping by — check back soon!</p>
+    </main>
+</body>
+</html>
