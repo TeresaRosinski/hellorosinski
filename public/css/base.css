@@ -1,0 +1,66 @@
+/*
+  Base styles: how plain elements look before any layout or component styles.
+  All values come from tokens.css, so load that file first.
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Keyboard focus ring. Plum keeps strong contrast on light backgrounds;
+   dark tiles switch it to --plum-bright in their own styles. */
+:focus-visible {
+  outline: 3px solid var(--plum);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* "Skip to content" link: hidden until a keyboard user tabs to it. */
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--plum);
+  color: var(--surface);
+  font: var(--text-button);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
