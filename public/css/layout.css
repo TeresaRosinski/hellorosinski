@@ -1,0 +1,45 @@
+/*
+  Layout: the parts of the page that frame the content (nav, hero, footer).
+*/
+
+/* ---------- Nav ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--surface);
+  border-bottom: 1px solid var(--surface-mist);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--space-12);
+  padding-inline: var(--space-4);
+}
+
+.nav-brand {
+  font: var(--text-button);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Section links are filled in from the project list in a later step. */
+.nav-links {
+  display: flex;
+  gap: var(--space-6);
+  font: var(--text-caption);
+}
+
+.nav-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--plum);
+}
