@@ -41,8 +41,8 @@ img {
 /* Keyboard focus ring. Plum keeps strong contrast on light backgrounds;
    dark tiles switch it to --plum-bright in their own styles. */
 :focus-visible {
-  outline: 3px solid var(--plum);
-  outline-offset: 3px;
+  outline: var(--focus-ring) solid var(--plum);
+  outline-offset: var(--focus-ring);
   border-radius: var(--radius-sm);
 }
 
