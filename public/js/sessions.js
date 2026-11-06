@@ -59,11 +59,10 @@ var SERIES = {
         "Work in the agent builder with enough familiarity to keep exploring on their own."
       ],
       details: [
-        "The session opened with interactive questions and discussion to get learners talking about AI agents. Relating agents to assistants helped them brainstorm more tangible ideas for how they could use one.",
-        "Learners then voted on one of three types of agent to build, giving them agency and control as the session moved forward.",
-        "To prevent information overload, learners got only the essentials of how to build an agent, along with tools to work through the process themselves. The aim was familiarity with the process and the means to do it on their own, so they could build further skills from there.",
-        "We discussed why instructions matter, since they are the foundation of an agent. Rather than writing instructions from scratch, learners answered a few questions in a pre-created prompt and gave it to Copilot, which wrote the instructions for them. They then used those instructions to create their agent.",
-        "The session walked learners through the agent-building process end to end, using assisted tools so they could get familiar with new technology in a low-key setting."
+        "Discussion and interactive questions helped learners relate AI agents to assistants and brainstorm tangible uses.",
+        "Learners voted on one of three agents to build, giving them control over the session.",
+        "To prevent overload, they learned only the essentials, with tools to work through the build themselves in a low-key setting.",
+        "Rather than write instructions from scratch, they filled in a pre-created prompt and had Copilot write them."
       ],
       mentimeter: {
         link: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/view?question=ia77d66nx96m",
