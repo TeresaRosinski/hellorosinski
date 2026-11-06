@@ -93,6 +93,18 @@ An 8px-based scale, kept small on purpose — a portfolio and a handful of small
 | `radius-lg` | `20px` | Image corners inside tiles |
 | `radius-pill` | `980px` | Buttons — the full-pill CTA shape used across the portfolio |
 
+### Layout
+
+Widths and line weights, so pages line up and text stays comfortable to read.
+
+| Token | Value | Use |
+|---|---|---|
+| `content-max` | `1020px` | Widest the page content gets on large screens; nav, section heads and tiles line up to it |
+| `measure` | `60ch` | Line length for ledes and intro copy |
+| `measure-narrow` | `46ch` | Line length for supporting paragraphs |
+| `border-hairline` | `1px` | Thin dividers, like the line under the nav |
+| `focus-ring` | `3px` | Keyboard focus outline thickness, and its gap from the element |
+
 ## Usage by surface
 
 **Portfolio** — plum-led. Green appears once or twice per page at most: a tag, a hover, a small detail. If green starts showing up more than that here, it's taking identity's job.
