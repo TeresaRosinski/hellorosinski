@@ -38,7 +38,7 @@
 .nav-links {
   display: flex;
   gap: var(--space-6);
-  font: var(--text-caption);
+  font: var(--text-label);
 }
 
 .nav-links a {
