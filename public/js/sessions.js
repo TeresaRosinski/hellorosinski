@@ -45,6 +45,7 @@
 var SERIES = {
   title: "AI + Learning series",
   intro: "Helping the creative team at Epsilon learn to work with AI.",
+  summary: "I initiated, planned, and led 9 discussion and learning sessions from 2023 to 2026.",
   sessions: [
     {
       number: 9,
