@@ -21,11 +21,17 @@
   padding-inline: var(--space-4);
 }
 
+/* The wordmark: "Teresa" in Montserrat Bold with a plum period (see BRAND.md, Logo). */
 .nav-brand {
   font: var(--text-button);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   color: var(--ink);
   text-decoration: none;
+}
+
+.nav-brand span {
+  color: var(--plum);
 }
 
 /* Section links are filled in from the project list in a later step. */
