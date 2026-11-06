@@ -18,6 +18,8 @@
   justify-content: space-between;
   gap: var(--space-4);
   min-height: var(--space-12);
+  max-width: var(--content-max);
+  margin-inline: auto;
   padding-inline: var(--space-4);
 }
 
