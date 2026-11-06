@@ -83,3 +83,18 @@
   color: var(--ink-soft);
   text-wrap: balance;
 }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  padding: var(--space-6) var(--space-4) var(--space-12);
+  background: var(--surface-mist);
+  color: var(--ink-soft);
+  font: var(--text-caption);
+  text-align: center;
+}
+
+.footer p {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
