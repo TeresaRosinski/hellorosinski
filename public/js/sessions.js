@@ -37,7 +37,7 @@
 */
 var SERIES = {
   title: "AI + Learning series",
-  intro: "Helping a creative team learn to work with AI.",
+  intro: "Helping the creative team at Epsilon learn to work with AI.",
   sessions: [
     {
       number: 9,
