@@ -118,3 +118,8 @@
 .footer-links a:hover {
   text-decoration: underline;
 }
+
+/* The plain email address beside "Email Teresa", so people can copy it. */
+.footer-email {
+  margin-inline-start: var(--space-2);
+}
