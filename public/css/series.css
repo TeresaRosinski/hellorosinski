@@ -3,10 +3,11 @@
   Content comes from js/sessions.js; series.js builds the markup.
 */
 
+/* A full-width gray band; the side padding keeps the content within --content-max. */
 .series {
-  max-width: var(--content-max);
-  margin-inline: auto;
-  padding: var(--space-16) var(--space-4);
+  padding-block: var(--space-16);
+  padding-inline: max(var(--space-4), calc((100% - var(--content-max)) / 2));
+  background: var(--surface-mist);
   scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
 }
 
@@ -58,7 +59,7 @@
   padding: var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--surface-mist);
+  background: var(--surface);
   color: var(--ink);
   font: var(--text-body);
   text-align: left;
@@ -130,7 +131,7 @@
   margin-top: var(--space-6);
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
-  background: var(--surface-mist);
+  background: var(--surface);
 }
 
 .series-panel-title {
@@ -182,7 +183,7 @@
   gap: var(--space-3);
   padding: var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-mist);
 }
 
 .series-resource h4 {
