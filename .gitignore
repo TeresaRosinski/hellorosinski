@@ -1,0 +1,5 @@
+# Cloudflare Wrangler local cache
+.wrangler/
+
+# macOS folder settings
+.DS_Store
