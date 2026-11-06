@@ -120,6 +120,10 @@
     panel.setAttribute("aria-labelledby", "session-tab-" + s.number);
     panel.appendChild(el("h3", "series-panel-title", "Session " + s.number + ": " + s.title));
     panel.appendChild(el("p", "series-panel-goal", s.goal));
+    if (s.role) {
+      panel.appendChild(el("h4", "series-panel-heading", "My role"));
+      panel.appendChild(el("p", "series-panel-text", s.role));
+    }
     if (s.objectives && s.objectives.length) {
       panel.appendChild(el("h4", "series-panel-heading", "Learning objectives"));
       panel.appendChild(el("p", "series-panel-text", "By the end of the session, learners can:"));

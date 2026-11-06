@@ -8,6 +8,7 @@
     number      shown as "Session 1"; also its link, like hellorosinski.com/#session-1
     title       the card and panel heading
     goal        one line, shown on the card and under the panel heading
+    role        optional: what Teresa did in this session, shown under "My role"
     objectives  optional: what learners can do by the end, one string per objective
     details     the process, one string per paragraph (shown under "Process")
     mentimeter  link:  the public view link ("" shows "coming soon")
@@ -22,6 +23,7 @@
       number: 8,
       title: "",
       goal: "",
+      role: "",
       objectives: [""],
       details: [""],
       mentimeter: { link: "", embed: "" },
