@@ -70,6 +70,13 @@ var SERIES = {
       mentimeter: {
         link: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/view?question=ia77d66nx96m",
         embed: ""
+      },
+      tool: {
+        title: "Make it your agent",
+        objective: "Generate agent instructions with Copilot and a guided prompt.",
+        builtWith: ["HTML", "CSS", "JavaScript", "Claude"],
+        credit: "Designed by Teresa; built with AI coding assistance.",
+        url: "tools/make-it-your-agent/"
       }
     }
   ]
