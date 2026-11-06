@@ -63,7 +63,7 @@
 
 .hero-lede {
   font: var(--text-lede);
-  max-width: 30ch;
+  max-width: 60ch;
   margin-inline: auto;
   text-wrap: balance;
 }
