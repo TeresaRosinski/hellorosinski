@@ -27,6 +27,13 @@
   color: var(--ink-soft);
 }
 
+/* The line under the intro: scope and dates for the whole series. */
+.series-head .series-summary {
+  margin-top: var(--space-3);
+  font: var(--text-body);
+  color: var(--ink);
+}
+
 /* ---------- Session cards (the swipeable row) ---------- */
 
 .series-cards {

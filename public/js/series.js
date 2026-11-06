@@ -36,6 +36,9 @@
 
   section.querySelector("#series-title").textContent = SERIES.title;
   section.querySelector("#series-intro").textContent = SERIES.intro;
+  if (SERIES.summary) {
+    section.querySelector(".series-head").appendChild(el("p", "series-summary", SERIES.summary));
+  }
 
   // ---------- Session cards ----------
 

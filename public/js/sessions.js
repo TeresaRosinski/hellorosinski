@@ -4,6 +4,11 @@
   Sessions show newest first (highest number on the left), so they can be listed in any order.
   series.js builds the session cards and the detail panel from this list.
 
+  The series:
+    title       the section heading
+    intro       one line under the heading
+    summary     optional: one line under the intro, like scope and dates
+
   Each session:
     number      shown as "Session 1"; also its link, like hellorosinski.com/#session-1
     title       the card and panel heading
