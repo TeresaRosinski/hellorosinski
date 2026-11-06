@@ -1,6 +1,7 @@
 /*
   AI + Learning series: the content for the series section on the home page.
-  To edit a session, change its entry below. To add one, copy an entry.
+  To edit a session, change its entry below. To add one, copy the template at the end of this note.
+  Sessions show newest first (highest number on the left), so they can be listed in any order.
   series.js builds the session cards and the detail panel from this list.
 
   Each session:

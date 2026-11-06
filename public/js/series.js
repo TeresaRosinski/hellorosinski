@@ -10,7 +10,8 @@
   var section = document.getElementById("ai-learning");
   if (!section || typeof SERIES === "undefined") return;
 
-  var sessions = SERIES.sessions;
+  // Newest first: highest session number on the left, whatever order sessions.js lists them in.
+  var sessions = SERIES.sessions.slice().sort(function (a, b) { return b.number - a.number; });
   var tabs = [];
 
   // Make an element with an optional class and text.
