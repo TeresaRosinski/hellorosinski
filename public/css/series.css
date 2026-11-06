@@ -26,6 +26,7 @@
   margin-inline: auto;
   font: var(--text-lede);
   color: var(--ink-soft);
+  text-wrap: balance;
 }
 
 /* The line under the intro: scope and dates for the whole series. */
