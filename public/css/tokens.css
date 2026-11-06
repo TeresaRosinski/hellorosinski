@@ -58,5 +58,12 @@
   --radius-lg: 20px;
   --radius-pill: 980px;
 
+  /* Layout */
+  --content-max: 1020px;   /* widest the page content gets on large screens */
+  --measure: 60ch;         /* line length for ledes and intro copy */
+  --measure-narrow: 46ch;  /* line length for supporting paragraphs */
+  --border-hairline: 1px;  /* thin dividers, like the line under the nav */
+  --focus-ring: 3px;       /* keyboard focus outline thickness and gap */
+
   color-scheme: light;
 }
