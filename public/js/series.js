@@ -22,13 +22,16 @@
     return node;
   }
 
-  // A pill button that opens a link in a new tab.
+  // A pill button. Links to other sites open in a new tab with a ↗;
+  // links within this site (like tools/…) open in the same tab.
   function button(href, text) {
     var a = el("a", "series-button", text);
     a.href = href;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.appendChild(el("span", "", " ↗")).setAttribute("aria-hidden", "true");
+    if (/^https?:/.test(href)) {
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.appendChild(el("span", "", " ↗")).setAttribute("aria-hidden", "true");
+    }
     return a;
   }
 
