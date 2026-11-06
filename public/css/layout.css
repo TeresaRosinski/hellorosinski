@@ -92,7 +92,7 @@
 
 .footer {
   padding: var(--space-6) var(--space-4) var(--space-12);
-  background: var(--surface-mist);
+  background: var(--surface);
   color: var(--ink-soft);
   font: var(--text-caption);
   text-align: center;
