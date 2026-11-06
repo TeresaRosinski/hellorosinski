@@ -57,7 +57,7 @@ var SERIES = {
         "The session walked learners through the agent-building process end to end, using assisted tools so they could get familiar with new technology in a low-key setting."
       ],
       mentimeter: {
-        link: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/view?question=627aka2dfbb2",
+        link: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/view?question=ia77d66nx96m",
         embed: ""
       }
     }
