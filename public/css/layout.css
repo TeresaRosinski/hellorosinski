@@ -69,6 +69,10 @@
   color: var(--plum);
 }
 
+.hero-divider {
+  color: var(--plum);
+}
+
 .hero-lede {
   font: var(--text-lede);
   max-width: var(--measure);
