@@ -1,0 +1,200 @@
+/*
+  AI + Learning series: the row of session cards and the detail panel below it.
+  Content comes from js/sessions.js; series.js builds the markup.
+*/
+
+.series {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-16) var(--space-4);
+  scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
+}
+
+.series-head {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.series-head h2 {
+  font: var(--text-section);
+  margin-bottom: var(--space-3);
+}
+
+.series-head p {
+  max-width: var(--measure);
+  margin-inline: auto;
+  font: var(--text-lede);
+  color: var(--ink-soft);
+}
+
+/* ---------- Session cards (the swipeable row) ---------- */
+
+.series-cards {
+  position: relative;
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Room so the focus ring and scrollbar aren't clipped. */
+  padding: var(--space-2) calc(var(--focus-ring) * 2) var(--space-4);
+  scroll-padding-inline: calc(var(--focus-ring) * 2);
+}
+
+/* About four cards across on desktop; on phones, most of one card with the next peeking in. */
+.series-card {
+  flex: 0 0 min(80%, calc(var(--content-max) / 4));
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--surface-mist);
+  color: var(--ink);
+  font: var(--text-body);
+  text-align: left;
+  cursor: pointer;
+}
+
+.series-card:hover {
+  background: var(--plum-soft);
+}
+
+.series-card-number {
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.series-card-title {
+  font-weight: 600;
+}
+
+.series-card-goal {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* Pushes the "Tool" tag to the bottom so tags line up across cards. */
+.series-card-tag {
+  margin-top: auto;
+}
+
+/* The selected session. */
+.series-card[aria-selected="true"] {
+  background: var(--plum);
+  color: var(--surface);
+}
+
+.series-card[aria-selected="true"] .series-card-number,
+.series-card[aria-selected="true"] .series-card-goal {
+  color: var(--plum-soft);
+}
+
+.series-card[aria-selected="true"] .series-tag {
+  background: var(--surface);
+}
+
+/* ---------- Tags ("Tool" on cards, tech in "Built with") ---------- */
+
+.series-tag {
+  display: inline-block;
+  padding: calc(var(--space-2) / 2) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--plum-soft);
+  color: var(--plum);
+  font: var(--text-label);
+}
+
+.series-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Detail panel ---------- */
+
+.series-panel {
+  margin-top: var(--space-6);
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--surface-mist);
+}
+
+.series-panel-title {
+  font: var(--text-tile-half);
+  margin-bottom: var(--space-2);
+}
+
+.series-panel-goal {
+  font: var(--text-lede);
+  margin-bottom: var(--space-4);
+}
+
+.series-panel-text {
+  max-width: var(--measure);
+  margin-bottom: var(--space-3);
+}
+
+/* Mentimeter and tool side by side when both fit; stacked on phones.
+   With no tool, the Mentimeter takes the full width. */
+.series-resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--content-max) / 3)), 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.series-resource {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.series-resource h4 {
+  margin: 0;
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.series-tool-title {
+  font: var(--text-lede);
+}
+
+.series-meta,
+.series-soon {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+.series-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Pill button for "Open in Mentimeter" and "Try the tool". */
+.series-button {
+  margin-top: auto;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  background: var(--plum);
+  color: var(--surface);
+  font: var(--text-button);
+  text-decoration: none;
+}
+
+.series-button:hover {
+  background: var(--plum-deep);
+}
