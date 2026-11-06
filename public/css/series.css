@@ -141,6 +141,24 @@
   margin-bottom: var(--space-3);
 }
 
+/* "Learning objectives" and "Process" labels. */
+.series-panel-heading {
+  margin: var(--space-6) 0 var(--space-2);
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.series-objectives {
+  max-width: var(--measure);
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.series-objectives li + li {
+  margin-top: var(--space-2);
+}
+
 /* Mentimeter and tool side by side when both fit; stacked on phones.
    With no tool, the Mentimeter takes the full width. */
 .series-resources {

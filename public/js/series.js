@@ -120,9 +120,19 @@
     panel.setAttribute("aria-labelledby", "session-tab-" + s.number);
     panel.appendChild(el("h3", "series-panel-title", "Session " + s.number + ": " + s.title));
     panel.appendChild(el("p", "series-panel-goal", s.goal));
-    (s.details || []).forEach(function (text) {
-      panel.appendChild(el("p", "series-panel-text", text));
-    });
+    if (s.objectives && s.objectives.length) {
+      panel.appendChild(el("h4", "series-panel-heading", "Learning objectives"));
+      panel.appendChild(el("p", "series-panel-text", "By the end of the session, learners can:"));
+      var items = el("ul", "series-objectives");
+      s.objectives.forEach(function (text) { items.appendChild(el("li", "", text)); });
+      panel.appendChild(items);
+    }
+    if (s.details && s.details.length) {
+      panel.appendChild(el("h4", "series-panel-heading", "Process"));
+      s.details.forEach(function (text) {
+        panel.appendChild(el("p", "series-panel-text", text));
+      });
+    }
     var resources = el("div", "series-resources");
     resources.appendChild(mentimeterBlock(s));
     if (s.tool) resources.appendChild(toolBlock(s.tool));

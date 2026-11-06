@@ -8,7 +8,8 @@
     number      shown as "Session 1"; also its link, like hellorosinski.com/#session-1
     title       the card and panel heading
     goal        one line, shown on the card and under the panel heading
-    details     paragraphs about the process and learning goals, one string per paragraph
+    objectives  optional: what learners can do by the end, one string per objective
+    details     the process, one string per paragraph (shown under "Process")
     mentimeter  link:  the public view link ("" shows "coming soon")
                 embed: the embed link, if it has one ("" shows a button to the link instead)
     tool        optional: leave it out if the session has no tool
@@ -21,6 +22,7 @@
       number: 8,
       title: "",
       goal: "",
+      objectives: [""],
       details: [""],
       mentimeter: { link: "", embed: "" },
       tool: {
