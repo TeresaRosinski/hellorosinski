@@ -42,9 +42,9 @@ var SERIES = {
     {
       number: 9,
       title: "AI Agent Building Session",
-      goal: "Learners build and personalize their own AI agent in Microsoft's agent builder.",
+      goal: "Learners build and personalize their own AI agent in the agent builder in Microsoft 365 Copilot.",
       objectives: [
-        "Build and personalize an AI agent using Microsoft's agent builder.",
+        "Build and personalize an AI agent using the agent builder in Microsoft 365 Copilot.",
         "Explain why instructions are the foundation of an AI agent.",
         "Use Copilot and a guided prompt to generate instructions for their agent.",
         "Work in the agent builder with enough familiarity to keep exploring on their own."
