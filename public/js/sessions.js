@@ -53,10 +53,10 @@ var SERIES = {
       goal: "A hands-on introduction to building AI agents in Microsoft 365 Copilot.",
       role: "Ideated, planned, and led the session.",
       objectives: [
-        "Build and personalize an AI agent using the agent builder in Microsoft 365 Copilot.",
         "Explain why instructions are the foundation of an AI agent.",
-        "Use Copilot and a guided prompt to generate instructions for their agent.",
-        "Work in the agent builder with enough familiarity to keep exploring on their own."
+        "Generate agent instructions with Copilot and a guided prompt.",
+        "Build and personalize their own agent in the agent builder.",
+        "Keep building agents on their own after the session."
       ],
       details: [
         "Discussion and interactive questions helped learners relate AI agents to assistants and brainstorm tangible uses.",
