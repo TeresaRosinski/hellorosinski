@@ -15,82 +15,29 @@
                   title, objective, builtWith (a list of tech), credit (one line),
                   url ("" shows "coming soon")
 
-  PLACEHOLDERS: everything below is placeholder text until the real content is ready.
+  Template for a new session (paste it inside "sessions: [ ... ]", with a comma between entries):
+
+    {
+      number: 8,
+      title: "",
+      goal: "",
+      details: [""],
+      mentimeter: { link: "", embed: "" },
+      tool: {
+        title: "",
+        objective: "",
+        builtWith: ["HTML", "CSS", "JavaScript"],
+        credit: "Designed by Teresa; built with AI coding assistance.",
+        url: ""
+      }
+    }
+
+  PLACEHOLDERS: Session 9's text is placeholder until its materials are ready.
 */
 var SERIES = {
   title: "AI + Learning series",
   intro: "Helping a creative team learn to work with AI.",
   sessions: [
-    {
-      number: 1,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" },
-      tool: {
-        title: "Tool name coming soon",
-        objective: "Learning objective coming soon.",
-        builtWith: ["HTML", "CSS", "JavaScript", "Claude"],
-        credit: "Designed by Teresa; built with AI coding assistance.",
-        url: ""
-      }
-    },
-    {
-      number: 2,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" }
-    },
-    {
-      number: 3,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" },
-      tool: {
-        title: "Tool name coming soon",
-        objective: "Learning objective coming soon.",
-        builtWith: ["HTML", "CSS", "JavaScript", "Claude"],
-        credit: "Designed by Teresa; built with AI coding assistance.",
-        url: ""
-      }
-    },
-    {
-      number: 4,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" }
-    },
-    {
-      number: 5,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" }
-    },
-    {
-      number: 6,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" }
-    },
-    {
-      number: 7,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" }
-    },
-    {
-      number: 8,
-      title: "Session title coming soon",
-      goal: "One-line session goal coming soon.",
-      details: ["Process and learning goals for this session coming soon."],
-      mentimeter: { link: "", embed: "" }
-    },
     {
       number: 9,
       title: "Session title coming soon",
