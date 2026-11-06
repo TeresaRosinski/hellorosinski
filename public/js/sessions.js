@@ -14,6 +14,7 @@
     title       the card and panel heading
     goal        one line, shown on the card and under the panel heading
     role        optional: what Teresa did in this session, shown under "My role"
+    audience    optional: who the session was for and their starting point, shown under "Audience"
     objectives  optional: what learners can do by the end, one string per objective
     details     the process, one string per paragraph (shown under "Process")
     mentimeter  link:  the public view link ("" shows "coming soon")
@@ -29,6 +30,7 @@
       title: "",
       goal: "",
       role: "",
+      audience: "",
       objectives: [""],
       details: [""],
       mentimeter: { link: "", embed: "" },

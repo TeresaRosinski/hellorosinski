@@ -127,6 +127,10 @@
       panel.appendChild(el("h4", "series-panel-heading", "My role"));
       panel.appendChild(el("p", "series-panel-text", s.role));
     }
+    if (s.audience) {
+      panel.appendChild(el("h4", "series-panel-heading", "Audience"));
+      panel.appendChild(el("p", "series-panel-text", s.audience));
+    }
     if (s.objectives && s.objectives.length) {
       panel.appendChild(el("h4", "series-panel-heading", "Learning objectives"));
       panel.appendChild(el("p", "series-panel-text", "By the end of the session, learners can:"));
