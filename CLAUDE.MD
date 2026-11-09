@@ -9,7 +9,8 @@ The site is plain HTML, CSS, and JavaScript. There is no build step and no frame
 - `public/`: everything that gets published. Only files in here go live.
   - `public/css/tokens.css`: brand tokens (colors, fonts, spacing, radius). The only source of design values.
 - `wrangler.jsonc`: Cloudflare Worker deploy settings. Don't change it without asking; a mistake here can break deploys or branch previews.
-- `BRAND.md`: why the brand looks the way it does. Read it before any visual change.- `CLAUDE.md`: this file.
+- `BRAND.md`: why the brand looks the way it does. Read it before any visual change.
+- `content/`: drafts and writing references (not published). `content/gold-example-ai-agent-building.md` is the benchmark for how a session write-up should read.- `CLAUDE.md`: this file.
 
 Keep notes, drafts, and config out of `public/`.
 
