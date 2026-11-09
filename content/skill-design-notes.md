@@ -7,6 +7,7 @@
    - Metadata line: format (live/self-paced, virtual/in person) · Month Year · duration · participants · audience · tool
    - The situation
    - Who was in the room
+   - Learning objectives (2–3, measurable: what learners can do by the end, with action verbs)
    - The challenge (optional: only if it adds something the title and metadata don't)
    - Design choices (bold label + what I did + why)
    - Results

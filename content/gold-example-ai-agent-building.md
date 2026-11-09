@@ -1,6 +1,6 @@
 <!-- Section intro (appears once, at the top of the program section) -->
-## AI Peer-Learning Program · 2023–2026
-From 2023 to 2026, I designed and led nine AI workshops to help my colleagues learn from each other. It began with one question to the creative technology team: *What do we want to learn together?* AI came up again and again, and my director agreed it should be our focus. After six sessions, I opened the series to the whole creative team.
+## AI Learning Series · 2023–2026
+From 2023 to 2026, I initiated, designed, and led nine AI discussion and learning sessions to help my colleagues at Epsilon learn from each other. It began with one question to the creative technology team: *What do we want to learn together?* AI came up again and again, and my director agreed it should be our focus. After six sessions, I opened the series to the whole creative team.
 
 ---
 
@@ -13,6 +13,12 @@ Two weeks earlier, the company had given every employee access to Copilot Agent 
 
 **Who was in the room**
 27 creatives (art directors, copywriters, front-end developers, producers), from associates to directors, mostly first-timers with agents. And AI replacing people's work was a constant topic, in the news and in conversations at work.
+
+**Learning objectives**
+By the end of the session, learners can:
+- Generate agent instructions by answering three guiding questions with a ready-made Copilot prompt.
+- Build and personalize their own agent in Copilot Agent Builder.
+- Share their agent with colleagues.
 
 **Design choices**
 - **Start with "assistant," not "agent."** "Agent" can sound like a replacement; "assistant" sounds like help. So I opened with: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share.
@@ -40,8 +46,8 @@ Two weeks earlier, the company had given every employee access to Copilot Agent 
 - **ADKAR:** strongest at *Desire* and *Knowledge*, with first practice toward *Ability*. *Reinforcement* would come from follow-up, which participants asked for.
 
 **See it**
-- **Workshop (Mentimeter):** the full session flow, including the live polls. [link]
-- **Agent instructions builder:** a digital tool I built afterwards that walks learners through the three questions. [link]
+- **Workshop (Mentimeter):** the full session flow, including the live polls. https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/view?question=ia77d66nx96m
+- **Agent instructions builder:** a digital tool I built afterwards that walks learners through the three questions. tools/make-it-your-agent/
 
 **What I'd do next**
 - **Follow up with a quick poll:** how many people built a working agent, what would make a follow-up session valuable, and what questions or confusion remain. It would give me a real completion number and start the reinforcement participants asked for.
