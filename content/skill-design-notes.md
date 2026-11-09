@@ -21,6 +21,7 @@
 - Who was in the room (roles, levels, number, format)?
 - How did you know that? Observed, heard, or assumed?
 - What's your usual practice, and what did you change this time?
+- Walk me through the session in order: what were the exact questions you asked, word for word? (Don't let a draft say "I opened with…" until the opening is confirmed.)
 - How many finished? What did you actually observe?
 - What happened afterwards (quotes, requests, later evidence)?
 - What would you change next time?
