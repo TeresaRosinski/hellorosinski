@@ -103,12 +103,12 @@ var SERIES = {
       ],
       designChoices: [
         {
-          label: "Start with \"assistant,\" not \"agent.\"",
-          text: "\"Agent\" can sound like a replacement; \"assistant\" sounds like help. So I opened with: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
+          label: "Read the room, then set the pace.",
+          text: "I opened with two questions: *When you hear \"AI agents,\" what thoughts come to mind?* and *Have you experimented with creating AI agents?* To the second, 19 people answered: 3 yes, 14 no, 2 maybe. I usually open the floor every few slides and wait for three people to share before moving on, so the group learns from each other. With mostly first-timers, there was less experience to draw on, so I waited for one or two and kept the build moving."
         },
         {
-          label: "Read the room, then set the pace.",
-          text: "A quick poll asked who had built an agent before. Of 19 responses: 3 yes, 14 no, 2 maybe. I usually open the floor every few slides and wait for three people to share before moving on, so the group learns from each other. With mostly first-timers, there was less experience to draw on, so I waited for one or two and kept the build moving."
+          label: "Reframe \"agent\" as \"assistant.\"",
+          text: "\"Agent\" can sound like a replacement; \"assistant\" sounds like help. So next I asked: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
         },
         {
           label: "Let the group choose.",
