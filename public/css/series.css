@@ -1,5 +1,5 @@
 /*
-  AI + Learning series: the row of session cards and the detail panel below it.
+  AI Learning Series: the row of session cards and the detail panel below it.
   Content comes from js/sessions.js; series.js builds the markup.
 */
 
@@ -150,7 +150,13 @@
   margin-bottom: var(--space-3);
 }
 
-/* "Learning objectives" and "Process" labels. */
+/* The facts line under the promise: format, date, length, participants, tools. */
+.series-panel-meta {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* Section labels like "The situation" and "Design choices". */
 .series-panel-heading {
   margin: var(--space-6) 0 var(--space-2);
   font: var(--text-label);
@@ -158,14 +164,73 @@
   color: var(--plum);
 }
 
-.series-objectives {
+.series-list,
+.series-results {
   max-width: var(--measure);
   margin: 0;
   padding-left: var(--space-6);
 }
 
-.series-objectives li + li {
+.series-list > li + li {
+  margin-top: var(--space-3);
+}
+
+/* Numbered steps inside a design choice, and the questions under a step. */
+.series-steps {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-6);
+}
+
+.series-steps li + li {
   margin-top: var(--space-2);
+}
+
+.series-steps ul {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-6);
+}
+
+/* Results: plain list, with quotes set off and one standout result. */
+.series-results {
+  padding-left: 0;
+  list-style: none;
+}
+
+.series-result + .series-result {
+  margin-top: var(--space-4);
+}
+
+.series-quote {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-4);
+  border-left: var(--focus-ring) solid var(--plum-soft);
+}
+
+.series-quote blockquote {
+  margin: 0;
+  font-style: italic;
+}
+
+.series-quote figcaption {
+  margin-top: calc(var(--space-2) / 2);
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+.series-result-highlight {
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--plum-soft);
+}
+
+.series-result-highlight .series-quote {
+  border-left-color: var(--plum);
+}
+
+.series-result-highlight blockquote {
+  font: var(--text-lede);
+  font-style: italic;
+  color: var(--plum);
 }
 
 /* Mentimeter and tool side by side when both fit; stacked on phones.
@@ -187,7 +252,7 @@
   background: var(--surface-mist);
 }
 
-.series-resource h4 {
+.series-resource h5 {
   margin: 0;
   font: var(--text-label);
   text-transform: uppercase;
