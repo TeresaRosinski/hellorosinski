@@ -153,8 +153,18 @@
     panel.appendChild(el("h4", "series-panel-heading", text));
   }
 
-  function paragraph(text) {
-    panel.appendChild(rich(el("p", "series-panel-text"), text));
+  function paragraph(text, parent) {
+    (parent || panel).appendChild(rich(el("p", "series-panel-text"), text));
+  }
+
+  // A section that starts closed: its label opens it. Used for detail a skimmer can skip.
+  function fold(text) {
+    var details = el("details", "series-fold");
+    var summary = el("summary");
+    summary.appendChild(el("h4", "series-panel-heading", text));
+    details.appendChild(summary);
+    panel.appendChild(details);
+    return details;
   }
 
   // "Live virtual workshop · March 2026 · 60 min · 27 participants · …"
@@ -166,8 +176,15 @@
     return parts.length ? el("p", "series-panel-meta", parts.join(" · ")) : null;
   }
 
+  // Each design choice shows its label; the explanation, steps and image open on click.
   function designChoice(choice) {
-    var li = leadIn("li", "", choice.label, choice.text);
+    var li = el("li");
+    var details = el("details", "series-choice");
+    var summary = el("summary");
+    summary.appendChild(el("strong", "", choice.label));
+    details.appendChild(summary);
+    var body = el("div", "series-choice-body");
+    if (choice.text) body.appendChild(rich(el("p"), choice.text));
     if (choice.steps && choice.steps.length) {
       var steps = el("ol", "series-steps");
       choice.steps.forEach(function (step) {
@@ -179,9 +196,11 @@
         }
         steps.appendChild(item);
       });
-      li.appendChild(steps);
+      body.appendChild(steps);
     }
-    if (choice.image) li.appendChild(figure(choice.image));
+    if (choice.image) body.appendChild(figure(choice.image));
+    details.appendChild(body);
+    li.appendChild(details);
     return li;
   }
 
@@ -214,11 +233,11 @@
   }
 
   // A bulleted list from entries, built by makeItem.
-  function bulletList(entries, className, makeItem) {
+  function bulletList(entries, className, makeItem, parent) {
     if (!entries || !entries.length) return;
     var ul = el("ul", className);
     entries.forEach(function (entry) { ul.appendChild(makeItem(entry)); });
-    panel.appendChild(ul);
+    (parent || panel).appendChild(ul);
   }
 
   function showPanel(s) {
@@ -230,30 +249,31 @@
       var meta = metaLine(s.meta);
       if (meta) panel.appendChild(meta);
     }
+    // Always visible: the situation, the design-choice labels, the results and the links.
+    // Folded: detail a skimmer can skip (who was there, objectives, theory, next steps).
     if (s.situation) { heading("The situation"); paragraph(s.situation); }
     if (s.role) { heading("My role"); paragraph(s.role); }
-    if (s.audience) { heading("Who was in the room"); paragraph(s.audience); }
+    if (s.audience) { paragraph(s.audience, fold("Who was in the room")); }
     if (s.objectives && s.objectives.length) {
-      heading("Learning objectives");
-      paragraph("By the end of the session, learners can:");
-      bulletList(s.objectives, "series-list", function (text) { return rich(el("li"), text); });
+      var objectives = fold("Learning objectives");
+      paragraph("By the end of the session, learners can:", objectives);
+      bulletList(s.objectives, "series-list", function (text) { return rich(el("li"), text); }, objectives);
     }
     if (s.designChoices && s.designChoices.length) {
       heading("Design choices");
-      bulletList(s.designChoices, "series-list", designChoice);
+      bulletList(s.designChoices, "series-choices", designChoice);
     }
     // Older entries describe the session as plain paragraphs instead of design choices.
     if (s.details && s.details.length) {
       heading("Process");
-      s.details.forEach(paragraph);
+      s.details.forEach(function (text) { paragraph(text); });
     }
     if (s.results && s.results.length) {
       heading("Results");
       bulletList(s.results, "series-results", result);
     }
     if (s.foundations && s.foundations.length) {
-      heading("Learning foundations");
-      bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); });
+      bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); }, fold("Learning foundations"));
     }
     heading("See it");
     var resources = el("div", "series-resources");
@@ -261,8 +281,7 @@
     if (s.tool) resources.appendChild(toolBlock(s.tool));
     panel.appendChild(resources);
     if (s.nextSteps && s.nextSteps.length) {
-      heading("What I'd do next");
-      bulletList(s.nextSteps, "series-list", function (n) { return leadIn("li", "", n.label, n.text); });
+      bulletList(s.nextSteps, "series-list", function (n) { return leadIn("li", "", n.label, n.text); }, fold("What I'd do next"));
     }
   }
 
