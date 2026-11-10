@@ -43,7 +43,8 @@
                   embed: the embed link, if it has one ("" shows a button to the link instead)
                   note:  optional one line about what's in it
     tool          optional: leave it out if the session has no tool
-                    title, objective, builtWith (a list of tech), credit (one line),
+                    title, description (optional: one line on what it is and why I built it),
+                    objective, builtWith (a list of tech), credit (one line),
                     url ("" shows "coming soon")
     nextSteps     what I'd do next time: { label, text }
 

@@ -84,7 +84,7 @@
     tab.appendChild(el("span", "series-card-number", "Session " + s.number));
     tab.appendChild(el("span", "series-card-title", s.title));
     tab.appendChild(el("span", "series-card-goal", s.goal));
-    if (s.tool) tab.appendChild(el("span", "series-tag series-card-tag", "Tool"));
+    if (s.tool) tab.appendChild(el("span", "series-tag series-card-tag", "+ Custom tool I built"));
 
     tab.addEventListener("click", function () { select(i, true); });
     tab.addEventListener("keydown", function (e) {
@@ -131,8 +131,9 @@
   function toolBlock(tool) {
     var box = el("div", "series-resource series-tool");
     var info = el("div", "series-tool-info");
-    info.appendChild(el("h5", "", "Tool"));
+    info.appendChild(el("h5", "", "Custom tool"));
     info.appendChild(el("p", "series-tool-title", tool.title));
+    if (tool.description) info.appendChild(rich(el("p"), tool.description));
     info.appendChild(el("p", "", "Supports: " + tool.objective));
     if (tool.builtWith && tool.builtWith.length) {
       info.appendChild(el("p", "series-meta", "Built with"));
