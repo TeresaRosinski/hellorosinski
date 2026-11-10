@@ -98,7 +98,7 @@ var SERIES = {
         audience: "Creative team",
         tools: ["Microsoft Copilot Agent Builder"]
       },
-      situation: "Two weeks earlier, every employee had been given Copilot Agent Builder, with a clear message from leadership: bring AI into everything. What I kept hearing from my team: *we don't know where to start.* So I designed this session, and because it was my second-to-last day at the company, I built it to work without me.",
+      situation: "Two weeks earlier, every employee had been given Copilot Agent Builder, with a clear message from leadership: bring AI into everything. What I kept hearing from my team: *we don't know where to start.* So I designed this session and led it on my second-to-last day at Epsilon.",
       audience: "27 creatives (art directors, copywriters, front-end developers, producers), from associates to directors, mostly first-timers with agents. AI replacing people's work was a constant topic, at work and in the news.",
       objectives: [
         "Generate agent instructions by answering three guiding questions with a ready-made Copilot prompt.",

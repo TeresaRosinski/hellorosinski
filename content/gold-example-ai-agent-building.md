@@ -9,7 +9,7 @@ From 2023 to 2026, I initiated, designed, and led nine AI discussion and learnin
 *Session 9 · Live virtual workshop · March 2026 · 60 min · 27 participants · Creative team · Microsoft Copilot Agent Builder*
 
 **The situation**
-Two weeks earlier, every employee had been given Copilot Agent Builder, with a clear message from leadership: bring AI into everything. What I kept hearing from my team: *we don't know where to start.* So I designed this session, and because it was my second-to-last day at the company, I built it to work without me.
+Two weeks earlier, every employee had been given Copilot Agent Builder, with a clear message from leadership: bring AI into everything. What I kept hearing from my team: *we don't know where to start.* So I designed this session and led it on my second-to-last day at Epsilon.
 
 **Who was in the room**
 27 creatives (art directors, copywriters, front-end developers, producers), from associates to directors, mostly first-timers with agents. AI replacing people's work was a constant topic, at work and in the news.
