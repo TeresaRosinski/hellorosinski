@@ -108,11 +108,11 @@ var SERIES = {
         },
         {
           label: "Reframe \"agent\" as \"assistant.\"",
-          text: "In the opening word cloud, the biggest answers were \"assistant\" and \"helper,\" next to \"suspicious,\" \"insecurity,\" \"confusion,\" and \"Agent Smith from The Matrix.\" The next question built on the helpful side: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
+          text: "In the opening word cloud, the most common answers were \"assistant\" and \"helper,\" next to \"suspicious,\" \"insecurity,\" \"confusion,\" and \"Agent Smith from The Matrix.\" The next question built on the helpful side: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
         },
         {
           label: "Let the group choose.",
-          text: "In a 60-second live poll, participants voted on which of three agents to build. We built the winning agent together, and each person made it their own."
+          text: "In a 60-second live poll, participants chose between three agents: a *Skill Sidekick* to help you improve something you want to learn, a *Deadline Therapist* for those \"how is this due tomorrow?\" moments, or a *Creative Partner* for ideas, writing, or design inspiration. The Skill Sidekick won. We built it together, and each person made it their own."
         },
         {
           label: "Skip the lecture, start building.",
