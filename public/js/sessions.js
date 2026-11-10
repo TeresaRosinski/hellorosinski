@@ -112,11 +112,25 @@ var SERIES = {
         },
         {
           label: "Reframe \"agent\" as \"assistant.\"",
-          text: "In the opening word cloud, the most common answers were \"assistant\" and \"helper,\" next to \"suspicious,\" \"insecurity,\" \"confusion,\" and \"Agent Smith from The Matrix.\" The next question built on the helpful side: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
+          text: "In the opening word cloud, the most common answers were \"assistant\" and \"helper,\" next to \"suspicious,\" \"insecurity,\" \"confusion,\" and \"Agent Smith from The Matrix.\" The next question built on the helpful side: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share.",
+          image: {
+            src: "images/session-9/word-cloud.jpg",
+            alt: "Mentimeter word cloud for the question: When you hear \"AI Agents\", what thoughts come to mind? The largest words are assistant and helper. Other answers include personal assistant, quick help, task helper, automation, suspicious, confusion, insecurity, hallucinations, clippy, James Bond, the Matrix and Agent Smith from the Matrix.",
+            caption: "The opening word cloud, with participants' anonymous answers.",
+            width: 786,
+            height: 404
+          }
         },
         {
           label: "Let the group choose.",
-          text: "In a 60-second live poll, participants chose between three agents: a *Skill Sidekick* to help you improve something you want to learn, a *Deadline Therapist* for those \"how is this due tomorrow?\" moments, or a *Creative Partner* for ideas, writing, or design inspiration. The Skill Sidekick won. We built it together, and each person made it their own."
+          text: "In a 60-second live poll, participants chose between three agents: a *Skill Sidekick* to help you improve something you want to learn, a *Deadline Therapist* for those \"how is this due tomorrow?\" moments, or a *Creative Partner* for ideas, writing, or design inspiration. The Skill Sidekick won. We built it together, and each person made it their own.",
+          image: {
+            src: "images/session-9/agent-vote.jpg",
+            alt: "Mentimeter ranking results for: Out of these options, which Agent would you like to create? First, a Skill Sidekick to help you improve something you want to learn. Second, a Deadline Therapist for those how-is-this-due-tomorrow moments. Third, a Creative Partner for ideas, writing, or design inspiration.",
+            caption: "The group's ranking: the Skill Sidekick came first.",
+            width: 786,
+            height: 408
+          }
         },
         {
           label: "Skip the lecture, start building.",
@@ -136,7 +150,14 @@ var SERIES = {
             },
             { text: "Gave those answers to Copilot with a ready-made prompt, and Copilot wrote the agent's instructions for them." },
             { text: "Pasted the instructions into Agent Builder, added extra context, and learned how to share the agent with colleagues." }
-          ]
+          ],
+          image: {
+            src: "images/session-9/skill-sidekick-examples.jpg",
+            alt: "Slide titled Skill Sidekick listing example answers: when I'm learning something new, when I don't understand a concept, when I'm stuck on a problem, when I want to practice a skill, when I need help studying, when I want to improve at something, when I make mistakes and need help fixing them, when I need help understanding code, when I want to review something, when I want to get better over time.",
+            caption: "Example answers for *When would this agent be helpful?*, shown for the Skill Sidekick.",
+            width: 786,
+            height: 404
+          }
         }
       ],
       results: [
