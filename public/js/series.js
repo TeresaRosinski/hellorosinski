@@ -129,17 +129,19 @@
   }
 
   function toolBlock(tool) {
-    var box = el("div", "series-resource");
-    box.appendChild(el("h5", "", "Tool"));
-    box.appendChild(el("p", "series-tool-title", tool.title));
-    box.appendChild(el("p", "", "Supports: " + tool.objective));
+    var box = el("div", "series-resource series-tool");
+    var info = el("div", "series-tool-info");
+    info.appendChild(el("h5", "", "Tool"));
+    info.appendChild(el("p", "series-tool-title", tool.title));
+    info.appendChild(el("p", "", "Supports: " + tool.objective));
     if (tool.builtWith && tool.builtWith.length) {
-      box.appendChild(el("p", "series-meta", "Built with"));
+      info.appendChild(el("p", "series-meta", "Built with"));
       var tags = el("ul", "series-tags");
       tool.builtWith.forEach(function (tech) { tags.appendChild(el("li", "series-tag", tech)); });
-      box.appendChild(tags);
+      info.appendChild(tags);
     }
-    if (tool.credit) box.appendChild(el("p", "series-meta", tool.credit));
+    if (tool.credit) info.appendChild(el("p", "series-meta", tool.credit));
+    box.appendChild(info);
     if (tool.url) {
       box.appendChild(button(tool.url, "Try the tool"));
     } else {
@@ -147,6 +149,7 @@
     }
     return box;
   }
+
 
   // A section label inside the panel, like "The situation".
   function heading(text) {
@@ -252,7 +255,8 @@
     // Always visible: the links, the situation, the design-choice labels and the results.
     // Folded: detail a skimmer can skip (who was there, objectives, theory, next steps).
     heading("See it");
-    var resources = el("div", "series-resources");
+    // With a Mentimeter embed, the resources stack: the embed, then the tool as a full-width strip.
+    var resources = el("div", s.mentimeter && s.mentimeter.embed ? "series-resources series-resources-stacked" : "series-resources");
     resources.appendChild(mentimeterBlock(s));
     if (s.tool) resources.appendChild(toolBlock(s.tool));
     panel.appendChild(resources);

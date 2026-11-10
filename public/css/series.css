@@ -352,6 +352,37 @@
   align-self: flex-start;
 }
 
+/* The tool's text, stacked; the button sits after it. */
+.series-tool-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Under a full-width embed, everything takes the full width. The tool becomes a strip:
+   details on the left, button on the right; on narrow screens the button wraps below. */
+.series-resources-stacked {
+  grid-template-columns: 1fr;
+}
+
+.series-resources-stacked .series-tool {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+}
+
+.series-resources-stacked .series-tool-info {
+  flex: 1 1 calc(var(--content-max) / 3);
+}
+
+.series-resources-stacked .series-tool .series-button {
+  flex: none;
+  margin-top: 0;
+}
+
 .series-tool-title {
   font: var(--text-lede);
 }
