@@ -1,6 +1,6 @@
 # hellorosinski.com
 
-Teresa Rosinski's portfolio site. It's read by hiring managers in instructional design, edtech, and sustainability-focused roles.
+Teresa Rosinski's portfolio site. It's read by hiring managers in instructional design, learning and development (L&D), AI enablement, change management, edtech, and sustainability-focused roles.
 
 The site is plain HTML, CSS, and JavaScript. There is no build step and no framework. Don't add a framework, bundler, or npm dependency without asking first.
 
@@ -10,7 +10,7 @@ The site is plain HTML, CSS, and JavaScript. There is no build step and no frame
   - `public/css/tokens.css`: brand tokens (colors, fonts, spacing, radius). The only source of design values.
 - `wrangler.jsonc`: Cloudflare Worker deploy settings. Don't change it without asking; a mistake here can break deploys or branch previews.
 - `BRAND.md`: why the brand looks the way it does. Read it before any visual change.
-- `CLAUDE.md`: this file.
+- `content/`: drafts and writing references (not published). `content/gold-example-ai-agent-building.md` is the benchmark for how a session write-up should read.- `CLAUDE.md`: this file.
 
 Keep notes, drafts, and config out of `public/`.
 

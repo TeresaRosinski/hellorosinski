@@ -32,6 +32,7 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 | `green-deep` | `#1F2F22` | Dark tool surfaces, pressed/active states |
 | `green-soft` | `#E3EAE1` | Tool backgrounds, completed-step fill, success banners |
 | `green-bright` | `#6FA179` | Hover/active state on dark tool surfaces — too light for small text directly on white, so keep it to non-text use or large/bold text there |
+| `error` | `#A3302E` | Error messages and invalid input in tools — a status color, never decorative |
 
 ## Typography
 

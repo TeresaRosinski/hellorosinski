@@ -1,5 +1,5 @@
 /*
-  Builds the AI + Learning series section from SERIES in sessions.js.
+  Builds the AI Learning Series section from SERIES in sessions.js.
   To change content, edit sessions.js; this file only handles how it's shown.
 
   The session cards work like tabs: choosing one shows its details in the panel below.
@@ -22,6 +22,27 @@
     return node;
   }
 
+  // Fill a node with text, showing *asterisk-wrapped* words in italics.
+  // Builds text nodes and <em> elements only, so content is never read as HTML.
+  function rich(node, text) {
+    String(text).split(/\*([^*]+)\*/).forEach(function (part, i) {
+      if (!part) return;
+      node.appendChild(i % 2 ? el("em", "", part) : document.createTextNode(part));
+    });
+    return node;
+  }
+
+  // A paragraph or list item with an optional bold lead-in, like "Afterwards: …".
+  function leadIn(tag, className, label, text) {
+    var node = el(tag, className);
+    if (label) {
+      node.appendChild(el("strong", "", label));
+      if (text) node.appendChild(document.createTextNode(" "));
+    }
+    if (text) rich(node, text);
+    return node;
+  }
+
   // A pill button. Links to other sites open in a new tab with a ↗;
   // links within this site (like tools/…) open in the same tab.
   function button(href, text) {
@@ -40,7 +61,7 @@
   section.querySelector("#series-title").textContent = SERIES.title;
   section.querySelector("#series-intro").textContent = SERIES.intro;
   if (SERIES.summary) {
-    section.querySelector(".series-head").appendChild(el("p", "series-summary", SERIES.summary));
+    section.querySelector(".series-head").appendChild(rich(el("p", "series-summary"), SERIES.summary));
   }
 
   // ---------- Session cards ----------
@@ -82,16 +103,22 @@
   // ---------- Detail panel ----------
 
   function mentimeterBlock(s) {
-    var box = el("div", "series-resource");
-    box.appendChild(el("h4", "", "Mentimeter"));
     var m = s.mentimeter || {};
+    // With an embed, the box takes the full width so the slides are readable.
+    var box = el("div", m.embed ? "series-resource series-resource-wide" : "series-resource");
+    box.appendChild(el("h5", "", "Mentimeter"));
+    if (m.note) box.appendChild(rich(el("p", ""), m.note));
     if (m.embed) {
       var frame = el("iframe", "series-embed");
+      frame.setAttribute("allow", "fullscreen");
       frame.src = m.embed;
       frame.title = "Mentimeter for session " + s.number + ": " + s.title;
       frame.loading = "lazy";
       frame.allowFullscreen = true;
-      box.appendChild(frame);
+      // Mentimeter's player is a 16:9 slide plus a control bar, so the frame sits in a sized wrapper.
+      var wrap = el("div", "series-embed-frame");
+      wrap.appendChild(frame);
+      box.appendChild(wrap);
     }
     if (m.link) {
       box.appendChild(button(m.link, "Open in Mentimeter"));
@@ -103,7 +130,7 @@
 
   function toolBlock(tool) {
     var box = el("div", "series-resource");
-    box.appendChild(el("h4", "", "Tool"));
+    box.appendChild(el("h5", "", "Tool"));
     box.appendChild(el("p", "series-tool-title", tool.title));
     box.appendChild(el("p", "", "Supports: " + tool.objective));
     if (tool.builtWith && tool.builtWith.length) {
@@ -121,36 +148,122 @@
     return box;
   }
 
+  // A section label inside the panel, like "The situation".
+  function heading(text) {
+    panel.appendChild(el("h4", "series-panel-heading", text));
+  }
+
+  function paragraph(text) {
+    panel.appendChild(rich(el("p", "series-panel-text"), text));
+  }
+
+  // "Live virtual workshop · March 2026 · 60 min · 27 participants · …"
+  function metaLine(meta) {
+    var parts = [meta.format, meta.date, meta.duration];
+    if (meta.participants) parts.push(meta.participants + " participants");
+    parts.push(meta.audience);
+    parts = parts.concat(meta.tools || []).filter(Boolean);
+    return parts.length ? el("p", "series-panel-meta", parts.join(" · ")) : null;
+  }
+
+  function designChoice(choice) {
+    var li = leadIn("li", "", choice.label, choice.text);
+    if (choice.steps && choice.steps.length) {
+      var steps = el("ol", "series-steps");
+      choice.steps.forEach(function (step) {
+        var item = rich(el("li"), step.text);
+        if (step.items && step.items.length) {
+          var sub = el("ul");
+          step.items.forEach(function (text) { sub.appendChild(rich(el("li"), text)); });
+          item.appendChild(sub);
+        }
+        steps.appendChild(item);
+      });
+      li.appendChild(steps);
+    }
+    if (choice.image) li.appendChild(figure(choice.image));
+    return li;
+  }
+
+  // A slide or screenshot with alt text and an optional caption.
+  function figure(image) {
+    var fig = el("figure", "series-figure");
+    var img = el("img");
+    img.src = image.src;
+    img.alt = image.alt || "";
+    img.loading = "lazy";
+    if (image.width && image.height) {
+      img.width = image.width;
+      img.height = image.height;
+    }
+    fig.appendChild(img);
+    if (image.caption) fig.appendChild(rich(el("figcaption"), image.caption));
+    return fig;
+  }
+
+  function result(r) {
+    var li = el("li", r.highlight ? "series-result series-result-highlight" : "series-result");
+    if (r.label || r.text) li.appendChild(leadIn("p", "", r.label, r.text));
+    if (r.quote) {
+      var figure = el("figure", "series-quote");
+      figure.appendChild(rich(el("blockquote"), "\u201C" + r.quote + "\u201D"));
+      if (r.source) figure.appendChild(el("figcaption", "", "\u2014 " + r.source));
+      li.appendChild(figure);
+    }
+    return li;
+  }
+
+  // A bulleted list from entries, built by makeItem.
+  function bulletList(entries, className, makeItem) {
+    if (!entries || !entries.length) return;
+    var ul = el("ul", className);
+    entries.forEach(function (entry) { ul.appendChild(makeItem(entry)); });
+    panel.appendChild(ul);
+  }
+
   function showPanel(s) {
     panel.replaceChildren();
     panel.setAttribute("aria-labelledby", "session-tab-" + s.number);
     panel.appendChild(el("h3", "series-panel-title", "Session " + s.number + ": " + s.title));
-    panel.appendChild(el("p", "series-panel-goal", s.goal));
-    if (s.role) {
-      panel.appendChild(el("h4", "series-panel-heading", "My role"));
-      panel.appendChild(el("p", "series-panel-text", s.role));
+    panel.appendChild(rich(el("p", "series-panel-goal"), s.goal));
+    if (s.meta) {
+      var meta = metaLine(s.meta);
+      if (meta) panel.appendChild(meta);
     }
-    if (s.audience) {
-      panel.appendChild(el("h4", "series-panel-heading", "Audience"));
-      panel.appendChild(el("p", "series-panel-text", s.audience));
-    }
+    if (s.situation) { heading("The situation"); paragraph(s.situation); }
+    if (s.role) { heading("My role"); paragraph(s.role); }
+    if (s.audience) { heading("Who was in the room"); paragraph(s.audience); }
     if (s.objectives && s.objectives.length) {
-      panel.appendChild(el("h4", "series-panel-heading", "Learning objectives"));
-      panel.appendChild(el("p", "series-panel-text", "By the end of the session, learners can:"));
-      var items = el("ul", "series-objectives");
-      s.objectives.forEach(function (text) { items.appendChild(el("li", "", text)); });
-      panel.appendChild(items);
+      heading("Learning objectives");
+      paragraph("By the end of the session, learners can:");
+      bulletList(s.objectives, "series-list", function (text) { return rich(el("li"), text); });
     }
+    if (s.designChoices && s.designChoices.length) {
+      heading("Design choices");
+      bulletList(s.designChoices, "series-list", designChoice);
+    }
+    // Older entries describe the session as plain paragraphs instead of design choices.
     if (s.details && s.details.length) {
-      panel.appendChild(el("h4", "series-panel-heading", "Process"));
-      s.details.forEach(function (text) {
-        panel.appendChild(el("p", "series-panel-text", text));
-      });
+      heading("Process");
+      s.details.forEach(paragraph);
     }
+    if (s.results && s.results.length) {
+      heading("Results");
+      bulletList(s.results, "series-results", result);
+    }
+    if (s.foundations && s.foundations.length) {
+      heading("Learning foundations");
+      bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); });
+    }
+    heading("See it");
     var resources = el("div", "series-resources");
     resources.appendChild(mentimeterBlock(s));
     if (s.tool) resources.appendChild(toolBlock(s.tool));
     panel.appendChild(resources);
+    if (s.nextSteps && s.nextSteps.length) {
+      heading("What I'd do next");
+      bulletList(s.nextSteps, "series-list", function (n) { return leadIn("li", "", n.label, n.text); });
+    }
   }
 
   // ---------- Choosing a session ----------
