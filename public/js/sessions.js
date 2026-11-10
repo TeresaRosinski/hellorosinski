@@ -103,6 +103,7 @@ var SERIES = {
       objectives: [
         "Generate agent instructions by answering three guiding questions with a ready-made Copilot prompt.",
         "Build and personalize their own agent in Copilot Agent Builder.",
+        "Test their agent and refine its instructions to improve the output.",
         "Share their agent with colleagues."
       ],
       designChoices: [

@@ -18,6 +18,7 @@ Two weeks earlier, the company had given every employee access to Copilot Agent 
 By the end of the session, learners can:
 - Generate agent instructions by answering three guiding questions with a ready-made Copilot prompt.
 - Build and personalize their own agent in Copilot Agent Builder.
+- Test their agent and refine its instructions to improve the output.
 - Share their agent with colleagues.
 
 **Design choices**
