@@ -103,17 +103,22 @@
   // ---------- Detail panel ----------
 
   function mentimeterBlock(s) {
-    var box = el("div", "series-resource");
-    box.appendChild(el("h5", "", "Mentimeter"));
     var m = s.mentimeter || {};
+    // With an embed, the box takes the full width so the slides are readable.
+    var box = el("div", m.embed ? "series-resource series-resource-wide" : "series-resource");
+    box.appendChild(el("h5", "", "Mentimeter"));
     if (m.note) box.appendChild(rich(el("p", ""), m.note));
     if (m.embed) {
       var frame = el("iframe", "series-embed");
+      frame.setAttribute("allow", "fullscreen");
       frame.src = m.embed;
       frame.title = "Mentimeter for session " + s.number + ": " + s.title;
       frame.loading = "lazy";
       frame.allowFullscreen = true;
-      box.appendChild(frame);
+      // Mentimeter's player is a 16:9 slide plus a control bar, so the frame sits in a sized wrapper.
+      var wrap = el("div", "series-embed-frame");
+      wrap.appendChild(frame);
+      box.appendChild(wrap);
     }
     if (m.link) {
       box.appendChild(button(m.link, "Open in Mentimeter"));
