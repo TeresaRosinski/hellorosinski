@@ -181,7 +181,24 @@
       });
       li.appendChild(steps);
     }
+    if (choice.image) li.appendChild(figure(choice.image));
     return li;
+  }
+
+  // A slide or screenshot with alt text and an optional caption.
+  function figure(image) {
+    var fig = el("figure", "series-figure");
+    var img = el("img");
+    img.src = image.src;
+    img.alt = image.alt || "";
+    img.loading = "lazy";
+    if (image.width && image.height) {
+      img.width = image.width;
+      img.height = image.height;
+    }
+    fig.appendChild(img);
+    if (image.caption) fig.appendChild(rich(el("figcaption"), image.caption));
+    return fig;
   }
 
   function result(r) {

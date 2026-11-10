@@ -27,6 +27,10 @@
                     text    the explanation
                     steps   optional: numbered steps; each is { text, items } where items is
                             an optional list shown under that step
+                    image   optional: a slide or screenshot shown under the choice:
+                            { src, alt, caption, width, height }. Keep images in
+                            public/images/session-N/, compressed, with alt text that says
+                            what the image shows.
     results       what happened, one entry each. Use any of:
                     label      optional bold lead-in, like "Afterwards:"
                     text       the result in my words
