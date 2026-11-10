@@ -270,7 +270,10 @@
     }
     if (s.results && s.results.length) {
       heading("Results");
-      bulletList(s.results, "series-results", result);
+      // The standout result goes first, whatever order sessions.js lists them in.
+      var ordered = s.results.filter(function (r) { return r.highlight; })
+        .concat(s.results.filter(function (r) { return !r.highlight; }));
+      bulletList(ordered, "series-results", result);
     }
     if (s.foundations && s.foundations.length) {
       bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); }, fold("Learning foundations"));
