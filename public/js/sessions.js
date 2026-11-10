@@ -174,8 +174,8 @@ var SERIES = {
         }
       ],
       mentimeter: {
-        link: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/view?question=ia77d66nx96m",
-        embed: "",
+        link: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/embed",
+        embed: "https://www.mentimeter.com/app/presentation/alvc2e8sjr76qr4f512i2kni1fwgevh5/embed",
         note: "The full session flow, including the live polls."
       },
       tool: {
