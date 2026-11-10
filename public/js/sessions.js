@@ -208,9 +208,10 @@ var SERIES = {
       },
       tool: {
         title: "Make it your agent",
+        description: "I built this after the session to turn the template and prompt into a guided, step-by-step tool for future learners.",
         objective: "Generate agent instructions with Copilot and a guided prompt.",
         builtWith: ["HTML", "CSS", "JavaScript", "Claude"],
-        credit: "Designed by Teresa after the session; built with AI coding assistance.",
+        credit: "Designed by Teresa; built with AI coding assistance.",
         url: "tools/make-it-your-agent/"
       },
       nextSteps: [
