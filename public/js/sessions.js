@@ -149,7 +149,8 @@ var SERIES = {
               ]
             },
             { text: "Gave those answers to Copilot with a ready-made prompt, and Copilot wrote the agent's instructions for them." },
-            { text: "Pasted the instructions into Agent Builder, added extra context, and learned how to share the agent with colleagues." }
+            { text: "Pasted the instructions into Agent Builder, added extra context, and learned how to share the agent with colleagues." },
+            { text: "Tested their agents together." }
           ],
           image: {
             src: "images/session-9/skill-sidekick-examples.jpg",

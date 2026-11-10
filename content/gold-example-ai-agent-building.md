@@ -32,6 +32,7 @@ By the end of the session, learners can:
      - *How should it respond when helping you?*
   2. Gave those answers to Copilot with a ready-made prompt, and Copilot wrote the agent's instructions for them.
   3. Pasted the instructions into Agent Builder, added extra context, and learned how to share the agent with colleagues.
+  4. Tested their agents together.
 
 **Results**
 - We completed every step together within the hour, so everyone who followed along left with a working agent and knew how to share it. *"That was amazing. In one hour I built my own agent start to finish."* (participant)
