@@ -249,8 +249,13 @@
       var meta = metaLine(s.meta);
       if (meta) panel.appendChild(meta);
     }
-    // Always visible: the situation, the design-choice labels, the results and the links.
+    // Always visible: the links, the situation, the design-choice labels and the results.
     // Folded: detail a skimmer can skip (who was there, objectives, theory, next steps).
+    heading("See it");
+    var resources = el("div", "series-resources");
+    resources.appendChild(mentimeterBlock(s));
+    if (s.tool) resources.appendChild(toolBlock(s.tool));
+    panel.appendChild(resources);
     if (s.situation) { heading("The situation"); paragraph(s.situation); }
     if (s.role) { heading("My role"); paragraph(s.role); }
     if (s.audience) { paragraph(s.audience, fold("Who was in the room")); }
@@ -278,11 +283,6 @@
     if (s.foundations && s.foundations.length) {
       bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); }, fold("Learning foundations"));
     }
-    heading("See it");
-    var resources = el("div", "series-resources");
-    resources.appendChild(mentimeterBlock(s));
-    if (s.tool) resources.appendChild(toolBlock(s.tool));
-    panel.appendChild(resources);
     if (s.nextSteps && s.nextSteps.length) {
       bulletList(s.nextSteps, "series-list", function (n) { return leadIn("li", "", n.label, n.text); }, fold("What I'd do next"));
     }
