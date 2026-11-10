@@ -108,7 +108,7 @@ var SERIES = {
         },
         {
           label: "Reframe \"agent\" as \"assistant.\"",
-          text: "\"Agent\" can sound like a replacement; \"assistant\" sounds like help. So next I asked: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
+          text: "In the opening word cloud, the biggest answers were \"assistant\" and \"helper,\" next to \"suspicious,\" \"insecurity,\" \"confusion,\" and \"Agent Smith from The Matrix.\" The next question built on the helpful side: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share."
         },
         {
           label: "Let the group choose.",
