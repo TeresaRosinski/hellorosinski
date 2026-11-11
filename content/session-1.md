@@ -1,5 +1,5 @@
 ## Kickoff: What Should We Learn Together?
-**Sparking AI curiosity, then letting the team set what we'd learn next.**
+**A real AI story, open questions, and an agenda built on team input.**
 *Session 1 · Live virtual discussion · September 2023 · 60 min · 6 participants · Creative technology team · Mentimeter*
 
 **The situation**
@@ -12,7 +12,7 @@ Six front-end developers on Epsilon's creative technology team. Our roles went b
 By the end of the session, learners can:
 - Describe a real AI use case from their own industry: an ad that recreated a late performer with AI.
 - Identify the creative possibilities and ethical questions that use case raises.
-- Choose the topics, format, and frequency for the team's future learning sessions.
+- Suggest topics, and choose the format and frequency, for the team's future learning sessions.
 
 **Design choices**
 - **Start with a story from our own industry.** Since the team saw AI as mostly for creative writing, I started with a creative use of AI from our own field: a Guardian article about a 2023 Volkswagen Brazil ad that recreated the late singer Elis Regina. Our roles included ideas for digital ads, so it was directly relevant. Everyone took 10 minutes to read it and watch the ad.
@@ -23,7 +23,7 @@ By the end of the session, learners can:
   3. *Can AI-generated art and performances evoke the same emotional connections and artistic value as those created by living artists?* (open answers)
   [image: the reaction word cloud]
 - **Let learners do the talking.** I follow a 75/25 rule: I speak 25% of the time or less, and learners speak 75% or more.
-- **Let the team set the agenda.** In the last 15 minutes, the team chose what to learn next, how to meet, and how often.
+- **Ask the team what to learn next.** In the last 15 minutes, the team suggested topics and voted on how and how often to meet.
   [image: the topics word cloud]
 
 **Results**
@@ -36,8 +36,8 @@ By the end of the session, learners can:
 - **Afterwards:** my director reached out to say he loved the session. I sent a follow-up form to confirm which topics the team wanted to go deeper on, and chose to focus the series on AI.
 
 **Learning foundations**
-- **Adult learning principles (Knowles):** an ad-industry story connected AI to the team's real work, and the team directed what came next.
-- **Self-determination theory:** *autonomy* (the team chose topics, format, and frequency) and *relatedness* (a shared discussion where colleagues heard each other's views).
+- **Adult learning principles (Knowles):** an ad-industry story connected AI to the team's real work, and the team's input shaped what came next.
+- **Self-determination theory:** *autonomy* (the team suggested topics and chose the format and frequency) and *relatedness* (a shared discussion where colleagues heard each other's views).
 - **Psychological safety (Edmondson):** I chose a topic with no clear right answer, so everyone could speak up without risk of being wrong.
 
 **See it**
@@ -64,7 +64,7 @@ Not in `public/js/sessions.js` yet. Added only after Teresa approves. The two im
 {
   number: 1,
   title: "Kickoff: What Should We Learn Together?",
-  goal: "Sparking AI curiosity, then letting the team set what we'd learn next.",
+  goal: "A real AI story, open questions, and an agenda built on team input.",
   meta: {
     format: "Live virtual discussion",
     date: "September 2023",
@@ -78,7 +78,7 @@ Not in `public/js/sessions.js` yet. Added only after Teresa approves. The two im
   objectives: [
     "Describe a real AI use case from their own industry: an ad that recreated a late performer with AI.",
     "Identify the creative possibilities and ethical questions that use case raises.",
-    "Choose the topics, format, and frequency for the team's future learning sessions."
+    "Suggest topics, and choose the format and frequency, for the team's future learning sessions."
   ],
   designChoices: [
     {
@@ -108,8 +108,8 @@ Not in `public/js/sessions.js` yet. Added only after Teresa approves. The two im
       text: "I follow a 75/25 rule: I speak 25% of the time or less, and learners speak 75% or more."
     },
     {
-      label: "Let the team set the agenda.",
-      text: "In the last 15 minutes, the team chose what to learn next, how to meet, and how often.",
+      label: "Ask the team what to learn next.",
+      text: "In the last 15 minutes, the team suggested topics and voted on how and how often to meet.",
       image: {
         src: "images/session-1/topics-word-cloud.jpg",
         alt: "Mentimeter word cloud for: What are 3 (or more) topics, ideas, or things you'd be curious to discuss as a team? Answers include ai, ai generated code, ai use cases, ad industry, augmented reality, big data, css, javascript, javascript frameworks, our competition, python, team pain points, the qr code, third party cookies, topics in codepen emails, and ui current trends.",
@@ -139,8 +139,8 @@ Not in `public/js/sessions.js` yet. Added only after Teresa approves. The two im
     }
   ],
   foundations: [
-    { name: "Adult learning principles (Knowles)", text: "an ad-industry story connected AI to the team's real work, and the team directed what came next." },
-    { name: "Self-determination theory", text: "*autonomy* (the team chose topics, format, and frequency) and *relatedness* (a shared discussion where colleagues heard each other's views)." },
+    { name: "Adult learning principles (Knowles)", text: "an ad-industry story connected AI to the team's real work, and the team's input shaped what came next." },
+    { name: "Self-determination theory", text: "*autonomy* (the team suggested topics and chose the format and frequency) and *relatedness* (a shared discussion where colleagues heard each other's views)." },
     { name: "Psychological safety (Edmondson)", text: "I chose a topic with no clear right answer, so everyone could speak up without risk of being wrong." }
   ],
   mentimeter: {
