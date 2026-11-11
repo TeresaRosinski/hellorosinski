@@ -190,7 +190,7 @@ var SERIES = {
         },
         {
           name: "Self-determination theory",
-          text: "*autonomy* (the group vote, then personal choices), *competence* (a working agent in one hour), *connection* (sharing ideas live and sharing agents with colleagues)."
+          text: "*autonomy* (the group vote, then personal choices), *competence* (a working agent in one hour), *relatedness* (sharing ideas live and sharing agents with colleagues)."
         },
         {
           name: "Worked examples (cognitive load theory)",
