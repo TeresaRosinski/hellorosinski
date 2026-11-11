@@ -84,7 +84,7 @@
     tab.appendChild(el("span", "series-card-number", "Session " + s.number));
     tab.appendChild(el("span", "series-card-title", s.title));
     tab.appendChild(el("span", "series-card-goal", s.goal));
-    if (s.tool) tab.appendChild(el("span", "series-tag series-card-tag", "Tool"));
+    if (s.tool) tab.appendChild(el("span", "series-tag series-card-tag", "+ Custom tool I built"));
 
     tab.addEventListener("click", function () { select(i, true); });
     tab.addEventListener("keydown", function (e) {
@@ -129,17 +129,20 @@
   }
 
   function toolBlock(tool) {
-    var box = el("div", "series-resource");
-    box.appendChild(el("h5", "", "Tool"));
-    box.appendChild(el("p", "series-tool-title", tool.title));
-    box.appendChild(el("p", "", "Supports: " + tool.objective));
+    var box = el("div", "series-resource series-tool");
+    var info = el("div", "series-tool-info");
+    info.appendChild(el("h5", "", "Custom tool"));
+    info.appendChild(el("p", "series-tool-title", tool.title));
+    if (tool.description) info.appendChild(rich(el("p"), tool.description));
+    info.appendChild(el("p", "", "Supports: " + tool.objective));
     if (tool.builtWith && tool.builtWith.length) {
-      box.appendChild(el("p", "series-meta", "Built with"));
+      info.appendChild(el("p", "series-meta", "Built with"));
       var tags = el("ul", "series-tags");
       tool.builtWith.forEach(function (tech) { tags.appendChild(el("li", "series-tag", tech)); });
-      box.appendChild(tags);
+      info.appendChild(tags);
     }
-    if (tool.credit) box.appendChild(el("p", "series-meta", tool.credit));
+    if (tool.credit) info.appendChild(el("p", "series-meta", tool.credit));
+    box.appendChild(info);
     if (tool.url) {
       box.appendChild(button(tool.url, "Try the tool"));
     } else {
@@ -148,13 +151,24 @@
     return box;
   }
 
+
   // A section label inside the panel, like "The situation".
   function heading(text) {
     panel.appendChild(el("h4", "series-panel-heading", text));
   }
 
-  function paragraph(text) {
-    panel.appendChild(rich(el("p", "series-panel-text"), text));
+  function paragraph(text, parent) {
+    (parent || panel).appendChild(rich(el("p", "series-panel-text"), text));
+  }
+
+  // A section that starts closed: its label opens it. Used for detail a skimmer can skip.
+  function fold(text) {
+    var details = el("details", "series-fold");
+    var summary = el("summary");
+    summary.appendChild(el("h4", "series-panel-heading", text));
+    details.appendChild(summary);
+    panel.appendChild(details);
+    return details;
   }
 
   // "Live virtual workshop · March 2026 · 60 min · 27 participants · …"
@@ -166,8 +180,15 @@
     return parts.length ? el("p", "series-panel-meta", parts.join(" · ")) : null;
   }
 
+  // Each design choice shows its label; the explanation, steps and image open on click.
   function designChoice(choice) {
-    var li = leadIn("li", "", choice.label, choice.text);
+    var li = el("li");
+    var details = el("details", "series-choice");
+    var summary = el("summary");
+    summary.appendChild(el("strong", "", choice.label));
+    details.appendChild(summary);
+    var body = el("div", "series-choice-body");
+    if (choice.text) body.appendChild(rich(el("p"), choice.text));
     if (choice.steps && choice.steps.length) {
       var steps = el("ol", "series-steps");
       choice.steps.forEach(function (step) {
@@ -179,9 +200,11 @@
         }
         steps.appendChild(item);
       });
-      li.appendChild(steps);
+      body.appendChild(steps);
     }
-    if (choice.image) li.appendChild(figure(choice.image));
+    if (choice.image) body.appendChild(figure(choice.image));
+    details.appendChild(body);
+    li.appendChild(details);
     return li;
   }
 
@@ -214,11 +237,11 @@
   }
 
   // A bulleted list from entries, built by makeItem.
-  function bulletList(entries, className, makeItem) {
+  function bulletList(entries, className, makeItem, parent) {
     if (!entries || !entries.length) return;
     var ul = el("ul", className);
     entries.forEach(function (entry) { ul.appendChild(makeItem(entry)); });
-    panel.appendChild(ul);
+    (parent || panel).appendChild(ul);
   }
 
   function showPanel(s) {
@@ -230,39 +253,43 @@
       var meta = metaLine(s.meta);
       if (meta) panel.appendChild(meta);
     }
+    // Always visible: the links, the situation, the design-choice labels and the results.
+    // Folded: detail a skimmer can skip (who was there, objectives, theory, next steps).
+    heading("See it");
+    // With a Mentimeter embed, the resources stack: the embed, then the tool as a full-width strip.
+    var resources = el("div", s.mentimeter && s.mentimeter.embed ? "series-resources series-resources-stacked" : "series-resources");
+    resources.appendChild(mentimeterBlock(s));
+    if (s.tool) resources.appendChild(toolBlock(s.tool));
+    panel.appendChild(resources);
     if (s.situation) { heading("The situation"); paragraph(s.situation); }
     if (s.role) { heading("My role"); paragraph(s.role); }
-    if (s.audience) { heading("Who was in the room"); paragraph(s.audience); }
+    if (s.audience) { paragraph(s.audience, fold("Who was in the room")); }
     if (s.objectives && s.objectives.length) {
-      heading("Learning objectives");
-      paragraph("By the end of the session, learners can:");
-      bulletList(s.objectives, "series-list", function (text) { return rich(el("li"), text); });
+      var objectives = fold("Learning objectives");
+      paragraph("By the end of the session, learners can:", objectives);
+      bulletList(s.objectives, "series-list", function (text) { return rich(el("li"), text); }, objectives);
     }
     if (s.designChoices && s.designChoices.length) {
       heading("Design choices");
-      bulletList(s.designChoices, "series-list", designChoice);
+      bulletList(s.designChoices, "series-choices", designChoice);
     }
     // Older entries describe the session as plain paragraphs instead of design choices.
     if (s.details && s.details.length) {
       heading("Process");
-      s.details.forEach(paragraph);
+      s.details.forEach(function (text) { paragraph(text); });
     }
     if (s.results && s.results.length) {
       heading("Results");
-      bulletList(s.results, "series-results", result);
+      // The standout result goes first, whatever order sessions.js lists them in.
+      var ordered = s.results.filter(function (r) { return r.highlight; })
+        .concat(s.results.filter(function (r) { return !r.highlight; }));
+      bulletList(ordered, "series-results", result);
     }
     if (s.foundations && s.foundations.length) {
-      heading("Learning foundations");
-      bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); });
+      bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); }, fold("Learning foundations"));
     }
-    heading("See it");
-    var resources = el("div", "series-resources");
-    resources.appendChild(mentimeterBlock(s));
-    if (s.tool) resources.appendChild(toolBlock(s.tool));
-    panel.appendChild(resources);
     if (s.nextSteps && s.nextSteps.length) {
-      heading("What I'd do next");
-      bulletList(s.nextSteps, "series-list", function (n) { return leadIn("li", "", n.label, n.text); });
+      bulletList(s.nextSteps, "series-list", function (n) { return leadIn("li", "", n.label, n.text); }, fold("What I'd do next"));
     }
   }
 

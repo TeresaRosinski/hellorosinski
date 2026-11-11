@@ -175,6 +175,70 @@
   margin-top: var(--space-3);
 }
 
+/* ---------- Folding (expand and collapse) ---------- */
+
+/* Shared look for every toggle: no browser triangle, our own plus/minus sign instead. */
+.series-fold > summary,
+.series-choice > summary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  list-style: none;
+  cursor: pointer;
+}
+
+.series-fold > summary::-webkit-details-marker,
+.series-choice > summary::-webkit-details-marker {
+  display: none;
+}
+
+.series-fold > summary::before,
+.series-choice > summary::before {
+  content: "+";
+  flex: none;
+  width: 1ch;
+  font: var(--text-label);
+  color: var(--plum);
+}
+
+.series-fold[open] > summary::before,
+.series-choice[open] > summary::before {
+  content: "\2212"; /* minus sign */
+}
+
+/* A folded section: its label reads like the other section labels. */
+.series-fold > summary .series-panel-heading {
+  margin: 0;
+}
+
+.series-fold {
+  margin: var(--space-6) 0 var(--space-2);
+}
+
+.series-fold > :not(summary) {
+  margin-top: var(--space-2);
+}
+
+/* Design choices: a scannable list of labels; each opens to show the detail. */
+.series-choices {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.series-choices > li + li {
+  margin-top: var(--space-3);
+}
+
+.series-choice > summary:hover strong {
+  color: var(--plum);
+}
+
+.series-choice-body {
+  margin: var(--space-2) 0 var(--space-2) calc(1ch + var(--space-2));
+}
+
 /* Numbered steps inside a design choice, and the questions under a step. */
 .series-steps {
   margin: var(--space-2) 0 0;
@@ -286,6 +350,37 @@
 
 .series-resource-wide .series-button {
   align-self: flex-start;
+}
+
+/* The tool's text, stacked; the button sits after it. */
+.series-tool-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Under a full-width embed, everything takes the full width. The tool becomes a strip:
+   details on the left, button on the right; on narrow screens the button wraps below. */
+.series-resources-stacked {
+  grid-template-columns: 1fr;
+}
+
+.series-resources-stacked .series-tool {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+}
+
+.series-resources-stacked .series-tool-info {
+  flex: 1 1 calc(var(--content-max) / 3);
+}
+
+.series-resources-stacked .series-tool .series-button {
+  flex: none;
+  margin-top: 0;
 }
 
 .series-tool-title {

@@ -43,7 +43,8 @@
                   embed: the embed link, if it has one ("" shows a button to the link instead)
                   note:  optional one line about what's in it
     tool          optional: leave it out if the session has no tool
-                    title, objective, builtWith (a list of tech), credit (one line),
+                    title, description (optional: one line on what it is and why I built it),
+                    objective, builtWith (a list of tech), credit (one line),
                     url ("" shows "coming soon")
     nextSteps     what I'd do next time: { label, text }
 
@@ -98,8 +99,8 @@ var SERIES = {
         audience: "Creative team",
         tools: ["Microsoft Copilot Agent Builder"]
       },
-      situation: "Two weeks earlier, the company had given every employee access to Copilot Agent Builder, and leadership's message was clear: bring AI into everything. But when I talked with my team, I kept hearing the same thing: *we don't know where to start.* So I designed this session. I ran it on my second-to-last day at the company, so I built it to work without me.",
-      audience: "27 creatives (art directors, copywriters, front-end developers, producers), from associates to directors, mostly first-timers with agents. And AI replacing people's work was a constant topic, in the news and in conversations at work.",
+      situation: "Two weeks earlier, every employee had been given Copilot Agent Builder, with a clear message from leadership: bring AI into everything. What I kept hearing from my team: *we don't know where to start.* So I designed this session and led it on my second-to-last day at Epsilon.",
+      audience: "27 creatives (art directors, copywriters, front-end developers, producers), from associates to directors, mostly first-timers with agents. AI replacing people's work was a constant topic, at work and in the news.",
       objectives: [
         "Generate agent instructions by answering three guiding questions with a ready-made Copilot prompt.",
         "Build and personalize their own agent in Copilot Agent Builder.",
@@ -109,7 +110,7 @@ var SERIES = {
       designChoices: [
         {
           label: "Read the room, then set the pace.",
-          text: "I opened with two questions: *When you hear \"AI agents,\" what thoughts come to mind?* and *Have you experimented with creating AI agents?* To the second, 19 people answered: 3 yes, 14 no, 2 maybe. I usually open the floor every few slides and wait for three people to share before moving on, so the group learns from each other. With mostly first-timers, there was less experience to draw on, so I waited for one or two and kept the build moving."
+          text: "I opened with two questions: *When you hear \"AI agents,\" what thoughts come to mind?* and *Have you experimented with creating AI agents?* To the second, 19 people answered: 3 yes, 14 no, 2 maybe. I usually open the floor every few slides and wait for three people to share, so the group learns from each other. With mostly first-timers, I waited for one or two and kept the build moving."
         },
         {
           label: "Reframe \"agent\" as \"assistant.\"",
@@ -139,7 +140,7 @@ var SERIES = {
         },
         {
           label: "Remove the biggest barrier.",
-          text: "From my own experience and conversations with colleagues, I knew where people struggled with AI: explaining clearly what they need. Writing clear instructions takes time, and it's hard to know what to focus on or how to structure them. So I took that off their plate. Each participant:",
+          text: "From my own experience and conversations with colleagues, I knew where people struggled with AI: explaining clearly what they need. Clear instructions take time, and it's hard to know what to focus on or how to structure them. So I took that off their plate. Each participant:",
           steps: [
             {
               text: "Answered three simple questions in a shared template, with example answers to keep things moving:",
@@ -207,9 +208,10 @@ var SERIES = {
       },
       tool: {
         title: "Make it your agent",
+        description: "I built this after the session to turn the template and prompt into a guided, step-by-step tool for future learners.",
         objective: "Generate agent instructions with Copilot and a guided prompt.",
         builtWith: ["HTML", "CSS", "JavaScript", "Claude"],
-        credit: "Designed by Teresa after the session; built with AI coding assistance.",
+        credit: "Designed by Teresa; built with AI coding assistance.",
         url: "tools/make-it-your-agent/"
       },
       nextSteps: [
