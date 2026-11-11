@@ -15,7 +15,7 @@ For each theory: what it says in one line, what counts as evidence in a session,
 ## Self-determination theory (Deci & Ryan)
 **Idea:** motivation grows when people feel *autonomy* (choice), *competence* (a real win), and *relatedness* (connection to others).
 **Evidence:** name which of the three each design choice supports, e.g. a vote (autonomy), a working result in the session (competence), sharing with peers (relatedness).
-**Avoid:** claiming all three without a choice for each.
+**Avoid:** claiming all three without a choice for each. Use the theory's own terms: *autonomy*, *competence*, *relatedness* (not "connection").
 
 ## Cognitive load theory / worked examples (Sweller)
 **Idea:** working memory is limited; worked examples, templates, and removing unnecessary steps free attention for the actual learning.
@@ -31,6 +31,11 @@ For each theory: what it says in one line, what counts as evidence in a session,
 **Idea:** people learn by watching and interacting with others; communities sustain learning over time.
 **Evidence:** peers sharing on mic, learning from each other's examples, an ongoing peer-learning series, people helping each other after the session.
 **Avoid:** calling a single session a community of practice.
+
+## Psychological safety (Edmondson)
+**Idea:** people speak up, ask questions, and take risks when they believe they won't be embarrassed or punished for it.
+**Evidence:** deliberate choices that lower the risk of being wrong, e.g. a topic with no right answer, anonymous polls, normalizing questions.
+**Avoid:** claiming people *felt* safe without evidence; describe the design choice and its intent.
 
 ## ADKAR (Prosci)
 **Idea:** individual change needs Awareness, Desire, Knowledge, Ability, and Reinforcement, in that order.

@@ -30,6 +30,7 @@ Use the reference list in `references/theories.md`. Each theory there says what 
 - **"Aligned with", not "designed around."** Only say she designed around a theory if she says it was deliberate at the time.
 - **Evidence or nothing.** Every claim names a specific design choice, quote, or result.
 - **Use each theory in its correct sense.** The reference file lists the common misreadings; avoid them.
+- **Check the activities, not just the objectives.** If the session asked learners to judge or reflect, a theory line that says it "stayed at" a lower level is wrong (e.g. Bloom's).
 - **Partial is honest.** "Strongest at *Desire* and *Knowledge*, with first practice toward *Ability*" is better than claiming all five ADKAR stages.
 - **Plain language.** One clause of explanation per theory so a non-L&D reader follows it.
 
