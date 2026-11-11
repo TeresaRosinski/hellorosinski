@@ -49,6 +49,12 @@
     <!-- More project sections go here. -->
   </main>
 
+  <!-- Content first, then the script that builds the series section from it.
+       These sit before the footer on purpose: the footer isn't drawn until the series is built,
+       so it doesn't jump down the page as it fills in. -->
+  <script src="js/sessions.js"></script>
+  <script src="js/series.js"></script>
+
   <!-- Footer: edit the closing note here. -->
   <footer class="footer">
     <!-- Contact links: add, remove or reorder them here. -->
@@ -59,8 +65,5 @@
     <p>More projects coming soon. Instructional design, content and interaction design by Teresa; custom code written with AI coding assistance, then reviewed, tested and refined.</p>
   </footer>
 
-  <!-- Content first, then the script that builds the series section from it. -->
-  <script src="js/sessions.js"></script>
-  <script src="js/series.js"></script>
 </body>
 </html>
