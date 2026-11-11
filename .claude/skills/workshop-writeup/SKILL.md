@@ -71,3 +71,4 @@ Follow `references/synthesis.md`:
 - "Many felt a quiet fear" stated feelings as fact. Say what she observed (the word cloud, what she heard).
 - The tool was built *after* the session. Check when artifacts were made before saying they were used in the room.
 - A reviewer flag was once silently kept. That's why the flag checklist exists.
+- "The team set the agenda" overstated a vote. Separate what learners *decided* (a vote) from what they *suggested* and she decided.
