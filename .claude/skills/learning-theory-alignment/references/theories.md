@@ -55,4 +55,5 @@ For each theory: what it says in one line, what counts as evidence in a session,
 ## Bloom's taxonomy (revised, Anderson & Krathwohl)
 **Idea:** learning objectives range from remember and understand up to apply, analyze, evaluate, and create.
 **Evidence:** objectives use observable action verbs; activities match the level (e.g. "build" and "refine" are apply/create).
-**Use mainly** to check that learning objectives are measurable, rather than as a "Learning foundations" line.
+**Sequencing (Teresa's rule): foundation before explanation.** Learners need information before they can explain, evaluate, or create. A first or introductory session usually belongs at *remember* and *understand* (describe, identify), with first steps toward *analyze*. Flag objectives that ask for *explain* or *evaluate* when the session only introduced the material.
+**Use mainly** to check that learning objectives are measurable and pitched at the right level. It can be a "Learning foundations" line when the sequencing was a deliberate choice.
