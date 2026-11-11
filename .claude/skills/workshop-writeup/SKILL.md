@@ -49,9 +49,12 @@ Follow `references/synthesis.md`:
 - Where reviewers disagree, or a fix needs a fact only Teresa has, ask her, one question at a time.
 - Questions that need new facts go back to her as interview questions. Never fill the gap yourself.
 
-### 5. Revise
+### 5. Revise, then tighten
 
-Apply the agreed fixes. Re-check the final text against the flag checklist before calling it done. Show her the result and the list of what changed.
+- Apply the agreed fixes.
+- Run Teresa's personal `clear-and-direct` skill on the whole write-up (edit mode), using its portfolio length targets. Show the before/after word counts and the "kept on purpose" list. If that skill isn't available, apply `references/voice-guide.md` and keep "The situation" to 50 words or fewer.
+- Re-check the final text against the flag checklist. Tightening must not undo an accuracy fix (e.g. dropping a qualifier like "more than six months").
+- Show her the result and the list of what changed.
 
 ### 6. Save for approval (don't touch the live data)
 
