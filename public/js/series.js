@@ -16,9 +16,13 @@
 
   // Motion (see BRAND.md, Motion). GSAP and Flip are optional: without them, or when a visitor's
   // system asks for less motion, everything still works and simply changes instantly.
+  // GSAP loads in the background (index.html), so check for it when it's needed, not up front.
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var canAnimate = !reduceMotion && typeof gsap !== "undefined" && typeof Flip !== "undefined";
-  if (canAnimate) gsap.registerPlugin(Flip);
+  function canAnimate() {
+    if (reduceMotion || typeof gsap === "undefined" || typeof Flip === "undefined") return false;
+    gsap.registerPlugin(Flip);
+    return true;
+  }
   var EASE = "expo.out";   // matches --ease-settle
   var QUICK = 0.45;        // seconds; close to --duration-quick, a touch longer for the slide
 
@@ -314,7 +318,8 @@
   // animate: true when a visitor picks a session (not on first load).
   function select(i, updateLink, animate) {
     var tab = tabs[i];
-    var moving = animate && canAnimate && indicator.parentNode && indicator.parentNode !== tab;
+    animate = animate && canAnimate();
+    var moving = animate && indicator.parentNode && indicator.parentNode !== tab;
     var indicatorState = moving ? Flip.getState(indicator) : null;
     var oldHeight = panel.offsetHeight;
 
@@ -328,7 +333,7 @@
     showPanel(sessions[i]);
     if (updateLink) history.replaceState(null, "", "#session-" + sessions[i].number);
 
-    if (!animate || !canAnimate) return;
+    if (!animate) return;
     // The highlight slides to the new card.
     if (indicatorState) Flip.from(indicatorState, { duration: QUICK, ease: EASE });
     // The panel eases to its new height, and its contents rise in, top to bottom.
