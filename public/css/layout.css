@@ -73,6 +73,11 @@
   color: var(--plum);
 }
 
+/* Keeps "Creative Technologist ." together, so lines break between roles, not before a dot. */
+.hero-role {
+  white-space: nowrap;
+}
+
 .hero-lede {
   font: var(--text-lede);
   max-width: var(--measure);
