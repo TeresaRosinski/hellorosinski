@@ -73,9 +73,133 @@
   color: var(--plum);
 }
 
-/* Keeps "Creative Technologist ." together, so lines break between roles, not before a dot. */
+/* Keeps each role and its flower together, so lines break between roles, not before a flower. */
 .hero-role {
   white-space: nowrap;
+}
+
+/* ---------- Hero entrance ----------
+   One choreography for the whole hero, sharing the flowers' easing so it all moves as one:
+   the name rises in and its plum period pops like a seed; each role rises in just before
+   its peony blooms (role, bloom, role, bloom, role); the intro line settles in last.
+   Uses only fade, rise, and a light blur, so nothing on the page shifts around. */
+
+.hero h1,
+.hero-role,
+.hero-sub {
+  animation: hero-rise var(--duration-enter) var(--ease-settle) both;
+}
+
+.hero-role {
+  display: inline-block;
+}
+
+.hero-role:nth-child(1) { animation-delay: 250ms; }
+.hero-role:nth-child(2) { animation-delay: 850ms; }
+.hero-role:nth-child(3) { animation-delay: 1450ms; }
+
+/* Starts almost (not fully) transparent, so browsers still count it as the page's main content right away. */
+.hero-sub {
+  animation-name: hero-rise-soft;
+  animation-delay: 1100ms;
+  animation-duration: 1100ms;
+}
+
+/* The plum period after "Teresa" pops in like a seed, echoing the peonies. */
+.hero h1 span {
+  display: inline-block;
+  transform-origin: 50% 85%;
+  animation: hero-seed 700ms var(--ease-pop) 550ms both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes hero-rise-soft {
+  from {
+    opacity: 0.01;
+    transform: translateY(0.6em);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes hero-seed {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ---------- Hero flowers ----------
+   A peony between the roles (drawing: brand/flowers/plum-peony.svg, stored once in index.html).
+   On load, each peony opens from its center outward, easing in with a slight settling turn.
+   Plays once; the second follows as the first finishes. Color comes from tokens.css. */
+
+/* Holds the reusable drawings; takes no space on the page. */
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.hero-flower {
+  width: 1.2em;
+  height: 1.02em;
+  margin-inline: 0.35em;
+  vertical-align: -0.16em;
+  fill: var(--plum);
+  transform-origin: 50% 55%;
+  animation: hero-bloom var(--duration-bloom) var(--ease-settle) 550ms both;
+}
+
+.hero-flower-second {
+  animation-delay: 1150ms;
+}
+
+/* Opens from the center outward (like petals unfurling), fading in and turning gently into place. */
+@keyframes hero-bloom {
+  from {
+    clip-path: circle(0% at 50% 55%);
+    transform: rotate(-10deg) scale(0.85);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    clip-path: circle(75% at 50% 55%);
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* People who ask their system for less motion see the finished flowers, with no animation. */
+@media (prefers-reduced-motion: reduce) {
+  .hero h1,
+  .hero h1 span,
+  .hero-role,
+  .hero-sub,
+  .hero-flower {
+    animation: none;
+  }
 }
 
 .hero-lede {
