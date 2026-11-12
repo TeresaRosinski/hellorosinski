@@ -61,12 +61,14 @@
   --radius-lg: 20px;
   --radius-pill: 980px;
 
-  /* Motion (see BRAND.md, Motion) */
-  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1); /* the default: fast start, long soft finish */
-  --ease-pop: cubic-bezier(0.34, 1.4, 0.64, 1);  /* small accents only; slight overshoot */
-  --duration-quick: 300ms;
-  --duration-enter: 900ms;
-  --duration-bloom: 1400ms;
+  /* Motion (see BRAND.md, Motion): lift into place and linger. js/hero.js and js/series.js read these too. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1); /* the default: fast start, long soft finish ("expo.out" in GSAP) */
+  --duration-linger: 2500ms; /* page-load entrances: hero text, words, flowers */
+  --duration-enter: 1200ms;  /* content that appears after a click */
+  --duration-quick: 450ms;   /* direct feedback to a click or key */
+  --motion-blur: 1px;        /* the most blur anything starts with: crisp, not dreamy */
+  --motion-rise: 0.55em;     /* how far things lift into place */
+  --stagger-words: 70ms;     /* gap between words or small items: arrives as a wave */
 
   /* Layout */
   --content-max: 1020px;   /* widest the page content gets on large screens */
