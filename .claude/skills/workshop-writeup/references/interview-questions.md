@@ -30,3 +30,4 @@ Ask **one question per message**. Adapt the wording to what she's already said; 
 - "Is that one person's story or a pattern you saw more widely?"
 - "Was that intentional at the time, or something you see looking back?"
 - "When did that happen: before, during, or after the session?"
+- "Did the group decide that, or give input and you decided?"
