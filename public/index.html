@@ -45,12 +45,14 @@
 
   <!-- Hero: edit the intro text here. -->
   <header class="hero" id="top">
-    <h1>Teresa<span>.</span></h1>
-    <!-- Each role stays on one line, with a peony after it. On load, each peony opens from its center
-         (styles in css/layout.css, "Hero flowers"). Screen readers skip the flowers. -->
+    <!-- The name ends in a plum peony instead of a period: it blooms on load (css/layout.css, "Hero flowers").
+         Only here; the nav logo and favicon keep the classic plum period. -->
+    <h1>Teresa<svg class="hero-flower hero-name-flower" aria-hidden="true" focusable="false"><use href="#flower-peony"/></svg></h1>
+    <!-- Each role stays on one line, with its plum dot after it, so a wrapped line never starts with a dot.
+         Each dot grows in like a seed as its role arrives. -->
     <p class="hero-lede">
-      <span class="hero-role">Creative Technologist<span class="hero-divider" aria-hidden="true"><svg class="hero-flower" focusable="false"><use href="#flower-peony"/></svg></span></span>
-      <span class="hero-role">Educator<span class="hero-divider" aria-hidden="true"><svg class="hero-flower hero-flower-second" focusable="false"><use href="#flower-peony"/></svg></span></span>
+      <span class="hero-role">Creative Technologist<span class="hero-divider" aria-hidden="true">.</span></span>
+      <span class="hero-role">Educator<span class="hero-divider" aria-hidden="true">.</span></span>
       <span class="hero-role">Learner</span>
     </p>
     <p class="hero-sub">I empower people to reach their goals, through digital tools I build and live workshops I lead, including helping teams learn to use AI.</p>
