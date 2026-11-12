@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Teresa's mark: plum square, white "T" (see BRAND.md, Logo). The T is drawn as shapes so it needs no font. -->
+  <rect width="512" height="512" fill="#5B2152"/>
+  <rect x="140" y="120" width="232" height="58" fill="#FFFFFF"/>
+  <rect x="227" y="120" width="58" height="272" fill="#FFFFFF"/>
+</svg>
