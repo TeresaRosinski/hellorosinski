@@ -64,22 +64,25 @@
   margin-bottom: var(--space-4);
 }
 
-/* The plum dot after each role. */
-.hero-divider {
-  display: inline-block;
-  margin-left: 0.3em;
+/* The plum period after the name. */
+.hero h1 span {
   color: var(--plum);
 }
 
-/* Keeps each role and its dot together, so lines break between roles, not before a dot. */
+.hero-divider {
+  color: var(--plum);
+}
+
+/* Keeps each role and its flower together, so lines break between roles, not before a flower. */
 .hero-role {
   white-space: nowrap;
 }
 
 /* ---------- Hero entrance ----------
    One choreography for the whole hero, sharing the flowers' easing so it all moves as one:
-   the name rises in and its peony blooms; each role rises in and its plum dot grows like a seed
-   (role, seed, role, seed, role); then the intro line arrives word by word (js/hero.js, GSAP SplitText).
+   the name rises in and its plum period pops like a seed; each role rises in just before
+   its peony blooms (role, bloom, role, bloom, role); then the intro line arrives word by word
+   (js/hero.js, using GSAP SplitText).
    Everything lifts into place and lingers, arriving crisp (BRAND.md, Motion; tokens in tokens.css).
    Uses only fade, rise, and a faint blur, so nothing on the page shifts around. */
 
@@ -108,14 +111,12 @@
   animation: none;
 }
 
-/* Each role's plum dot grows in like a seed, just after its role arrives. */
-.hero-divider {
+/* The plum period after "Teresa" grows in like a seed, echoing the peonies. */
+.hero h1 span {
+  display: inline-block;
   transform-origin: 50% 85%;
-  animation: hero-seed var(--duration-linger) var(--ease-settle) both;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) 550ms both;
 }
-
-.hero-role:nth-child(1) .hero-divider { animation-delay: 550ms; }
-.hero-role:nth-child(2) .hero-divider { animation-delay: 1150ms; }
 
 @keyframes hero-rise {
   from {
@@ -146,9 +147,9 @@
 }
 
 /* ---------- Hero flowers ----------
-   The peony that ends the name "Teresa" (drawing: brand/flowers/plum-peony.svg, stored once in
-   index.html). On load it opens from its center outward, easing in with a slight settling turn.
-   Plays once. Color comes from tokens.css. */
+   A peony between the roles (drawing: brand/flowers/plum-peony.svg, stored once in index.html).
+   On load, each peony opens from its center outward, easing in with a slight settling turn.
+   Plays once; the second follows as the first finishes. Color comes from tokens.css. */
 
 /* Holds the reusable drawings; takes no space on the page. */
 .sprite {
@@ -159,17 +160,17 @@
 }
 
 .hero-flower {
+  width: 1.2em;
+  height: 1.02em;
+  margin-inline: 0.35em;
+  vertical-align: -0.16em;
   fill: var(--plum);
   transform-origin: 50% 55%;
   animation: hero-bloom var(--duration-linger) var(--ease-settle) 550ms both;
 }
 
-/* Sized and placed like a period after the name: a little larger so the petals read. */
-.hero-name-flower {
-  width: 0.52em;
-  height: 0.44em;
-  margin-left: 0.05em;
-  vertical-align: baseline;
+.hero-flower-second {
+  animation-delay: 1150ms;
 }
 
 /* Opens from the center outward (like petals unfurling), fading in and turning gently into place. */
@@ -192,7 +193,7 @@
 /* People who ask their system for less motion see the finished flowers, with no animation. */
 @media (prefers-reduced-motion: reduce) {
   .hero h1,
-  .hero-divider,
+  .hero h1 span,
   .hero-role,
   .hero-sub,
   .hero-flower {
