@@ -23,8 +23,19 @@
     gsap.registerPlugin(Flip);
     return true;
   }
-  var EASE = "expo.out";   // matches --ease-settle
-  var QUICK = 0.45;        // seconds; close to --duration-quick, a touch longer for the slide
+  // Timing comes from the motion tokens in css/tokens.css (BRAND.md, Motion): the highlight
+  // answers a click quickly; the new panel content lifts in and lingers, as a gentle wave.
+  var css = getComputedStyle(document.documentElement);
+  function seconds(name, fallback) {
+    var v = parseFloat(css.getPropertyValue(name));
+    return isNaN(v) ? fallback : v / 1000;
+  }
+  var EASE = "expo.out";                           // matches --ease-settle
+  var QUICK = seconds("--duration-quick", 0.45);   // the sliding highlight and panel height
+  var ENTER = seconds("--duration-enter", 1.2);    // the new panel content
+  var STAGGER = seconds("--stagger-words", 0.07);
+  var BLUR = css.getPropertyValue("--motion-blur").trim() || "1px";
+  var RISE = css.getPropertyValue("--motion-rise").trim() || "0.55em";
 
   // Make an element with an optional class and text.
   function el(tag, className, text) {
@@ -341,8 +352,11 @@
       height: panel.offsetHeight, duration: QUICK, ease: EASE,
       clearProps: "height"
     });
+    var rise = parseFloat(RISE) * parseFloat(getComputedStyle(panel).fontSize); // em to pixels
     gsap.from(panel.children, {
-      opacity: 0, y: 12, duration: 0.6, ease: EASE, stagger: 0.035, clearProps: "opacity,transform"
+      opacity: 0, y: rise, filter: "blur(" + BLUR + ")",
+      duration: ENTER, ease: EASE, stagger: STAGGER,
+      clearProps: "opacity,transform,filter"
     });
   }
 
