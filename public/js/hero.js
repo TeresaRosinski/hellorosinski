@@ -16,7 +16,7 @@
   if (!sub || reduceMotion || typeof gsap === "undefined" || typeof SplitText === "undefined") return;
 
   var START = 1.9;
-  var STAGGER = 0.06;
+  var STAGGER = 0.07;
 
   gsap.registerPlugin(SplitText);
   sub.classList.add("is-split"); // hands the line over from the CSS fallback to this script
@@ -33,9 +33,9 @@
       gsap.set(sub, { opacity: 1 });
       return gsap.from(self.words, {
         opacity: 0,
-        yPercent: 45,
-        filter: "blur(6px)",
-        duration: 1,
+        yPercent: 55,
+        filter: "blur(1px)",
+        duration: 2.5,
         ease: "expo.out",  // matches --ease-settle
         stagger: STAGGER,
         delay: delay
