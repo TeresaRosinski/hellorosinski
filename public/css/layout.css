@@ -261,7 +261,17 @@
   font: var(--text-button);
   text-decoration: none;
   transition: background-color var(--duration-quick) var(--ease-settle),
-              color var(--duration-quick) var(--ease-settle);
+              color var(--duration-quick) var(--ease-settle),
+              transform var(--duration-quick) var(--ease-settle);
+}
+
+/* On hover or keyboard focus, every button lifts slightly, so the change is clear even on
+   low-res screens where subtle color shifts are hard to see. */
+@media (prefers-reduced-motion: no-preference) {
+  .button:hover,
+  .button:focus-visible {
+    transform: translateY(calc(var(--space-2) / -4));
+  }
 }
 
 .button-primary {
@@ -329,8 +339,10 @@
   color: var(--plum-deep);
 }
 
-.button-on-dark:hover {
-  background: var(--plum-soft);
+/* Hover turns it bright plum: a clear color change on the dark band, with dark text still readable. */
+.button-on-dark:hover,
+.button-on-dark:focus-visible {
+  background: var(--plum-bright);
 }
 
 .button-on-dark-outline {
