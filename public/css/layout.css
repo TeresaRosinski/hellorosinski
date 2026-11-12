@@ -122,6 +122,12 @@
   animation: none;
 }
 
+/* The buttons lift in as the intro's word-wave is finishing: the hero's last beat.
+   They're clickable the whole time. */
+.hero-actions {
+  animation: hero-rise var(--duration-linger) var(--ease-settle) 2900ms both;
+}
+
 /* The plum period after "Teresa" grows in like a seed, echoing the peonies. */
 .hero h1 span {
   display: inline-block;
@@ -203,6 +209,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero h1,
   .hero h1 span,
+  .hero-actions,
   .hero-role,
   .hero-sub,
   .hero-flower {
@@ -227,6 +234,54 @@
   max-width: var(--measure-narrow);
   color: var(--ink-soft);
   text-wrap: balance;
+}
+
+/* ---------- Hero buttons ---------- */
+
+/* "Explore my work" and "Let's talk" glide down the page, unless a visitor prefers less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+/* Pill buttons (BRAND.md: plum is the primary CTA on light surfaces). */
+.button {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  font: var(--text-button);
+  text-decoration: none;
+  transition: background-color var(--duration-quick) var(--ease-settle),
+              color var(--duration-quick) var(--ease-settle);
+}
+
+.button-primary {
+  background: var(--plum);
+  color: var(--surface);
+}
+
+.button-primary:hover {
+  background: var(--plum-deep);
+}
+
+/* Outlined: same shape, quieter, so "Explore my work" stays the first choice. */
+.button-secondary {
+  background: var(--surface);
+  color: var(--plum);
+  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--plum);
+}
+
+.button-secondary:hover {
+  background: var(--plum-soft);
 }
 
 /* ---------- Footer ---------- */
