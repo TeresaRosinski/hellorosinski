@@ -4,8 +4,8 @@
 
   To adjust:
     START   when the first word begins, in seconds from page load (the roles finish around 1.9s)
-    STAGGER the gap between words
-    the "from" values below: how far each word rises and how blurred it starts
+    Everything else (how long words linger, the gap between them, blur, and lift) comes from the
+    motion tokens in css/tokens.css, so change it there to change all motion together.
 
   If GSAP doesn't load, or a visitor's system asks for less motion, this does nothing and the
   CSS in layout.css shows the line instead.
@@ -16,7 +16,17 @@
   if (!sub || reduceMotion || typeof gsap === "undefined" || typeof SplitText === "undefined") return;
 
   var START = 1.9;
-  var STAGGER = 0.07;
+
+  // Motion tokens from tokens.css, so the words match everything else (BRAND.md, Motion).
+  var css = getComputedStyle(document.documentElement);
+  function seconds(name, fallback) {
+    var v = parseFloat(css.getPropertyValue(name));
+    return isNaN(v) ? fallback : v / 1000;
+  }
+  var LINGER = seconds("--duration-linger", 2.5);
+  var STAGGER = seconds("--stagger-words", 0.07);
+  var BLUR = css.getPropertyValue("--motion-blur").trim() || "1px";
+  var RISE = (parseFloat(css.getPropertyValue("--motion-rise")) || 0.55) * 100; // 0.55em, as a % of each word's height
 
   gsap.registerPlugin(SplitText);
   sub.classList.add("is-split"); // hands the line over from the CSS fallback to this script
@@ -33,9 +43,9 @@
       gsap.set(sub, { opacity: 1 });
       return gsap.from(self.words, {
         opacity: 0,
-        yPercent: 55,
-        filter: "blur(1px)",
-        duration: 2.5,
+        yPercent: RISE,
+        filter: "blur(" + BLUR + ")",
+        duration: LINGER,
         ease: "expo.out",  // matches --ease-settle
         stagger: STAGGER,
         delay: delay

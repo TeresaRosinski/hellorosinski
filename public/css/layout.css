@@ -83,11 +83,12 @@
    the name rises in and its plum period pops like a seed; each role rises in just before
    its peony blooms (role, bloom, role, bloom, role); then the intro line arrives word by word
    (js/hero.js, using GSAP SplitText).
-   Uses only fade, rise, and a light blur, so nothing on the page shifts around. */
+   Everything lifts into place and lingers, arriving crisp (BRAND.md, Motion; tokens in tokens.css).
+   Uses only fade, rise, and a faint blur, so nothing on the page shifts around. */
 
 .hero h1,
 .hero-role {
-  animation: hero-rise var(--duration-enter) var(--ease-settle) both;
+  animation: hero-rise var(--duration-linger) var(--ease-settle) both;
 }
 
 .hero-role {
@@ -103,25 +104,25 @@
    Fallback: if the script doesn't run, the line fades in on its own at 3 seconds. */
 .hero-sub {
   opacity: 0.01;
-  animation: hero-sub-fallback var(--duration-enter) var(--ease-settle) 3s forwards;
+  animation: hero-sub-fallback var(--duration-linger) var(--ease-settle) 3s forwards;
 }
 
 .hero-sub.is-split {
   animation: none;
 }
 
-/* The plum period after "Teresa" pops in like a seed, echoing the peonies. */
+/* The plum period after "Teresa" grows in like a seed, echoing the peonies. */
 .hero h1 span {
   display: inline-block;
   transform-origin: 50% 85%;
-  animation: hero-seed 700ms var(--ease-pop) 550ms both;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) 550ms both;
 }
 
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(0.45em);
-    filter: blur(6px);
+    transform: translateY(var(--motion-rise));
+    filter: blur(var(--motion-blur));
   }
   to {
     opacity: 1;
@@ -165,7 +166,7 @@
   vertical-align: -0.16em;
   fill: var(--plum);
   transform-origin: 50% 55%;
-  animation: hero-bloom var(--duration-bloom) var(--ease-settle) 550ms both;
+  animation: hero-bloom var(--duration-linger) var(--ease-settle) 550ms both;
 }
 
 .hero-flower-second {
