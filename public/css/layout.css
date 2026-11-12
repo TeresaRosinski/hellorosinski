@@ -284,10 +284,75 @@
   background: var(--plum-soft);
 }
 
+/* ---------- Contact ("Let's talk") ----------
+   A full-width deep-plum band (BRAND.md: plum-deep for full-bleed tone sections), so the hero's
+   "Let's talk" button lands somewhere clear. */
+
+.contact {
+  padding: var(--space-16) var(--space-4);
+  background: var(--plum-deep);
+  color: var(--surface);
+  text-align: center;
+  scroll-margin-top: var(--space-12); /* stays clear of the sticky nav */
+}
+
+.contact h2 {
+  font: var(--text-section);
+  margin: 0 0 var(--space-3);
+}
+
+.contact-lede {
+  max-width: var(--measure);
+  margin: 0 auto;
+  font: var(--text-lede);
+  color: var(--plum-soft);
+  text-wrap: balance;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.contact-email {
+  margin: var(--space-4) 0 0;
+  font: var(--text-caption);
+  color: var(--plum-soft);
+}
+
+/* Buttons on the dark band: a solid white primary, and white outlines for the rest. */
+.button-on-dark {
+  background: var(--surface);
+  color: var(--plum-deep);
+}
+
+.button-on-dark:hover {
+  background: var(--plum-soft);
+}
+
+.button-on-dark-outline {
+  border: 0;
+  background: transparent;
+  color: var(--surface);
+  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--surface);
+  cursor: pointer;
+}
+
+.button-on-dark-outline:hover {
+  background: var(--plum);
+}
+
+/* Keyboard focus that shows up on the dark band. */
+.contact :focus-visible {
+  outline-color: var(--plum-bright);
+}
+
 /* ---------- Footer ---------- */
 
 .footer {
-  scroll-margin-top: var(--space-12); /* keeps it clear of the sticky nav when "Contact" is clicked */
   padding: var(--space-6) var(--space-4) var(--space-12);
   background: var(--surface);
   color: var(--ink-soft);
@@ -298,29 +363,4 @@
 .footer p {
   max-width: var(--measure);
   margin-inline: auto;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-2) var(--space-6);
-  margin: 0 0 var(--space-3);
-  padding: 0;
-  list-style: none;
-}
-
-.footer-links a {
-  color: var(--plum);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* The plain email address beside "Email Teresa", so people can copy it. */
-.footer-email {
-  margin-inline-start: var(--space-2);
 }
