@@ -95,6 +95,17 @@
   display: inline-block;
 }
 
+/* Smooth motion on low-res screens: the browser draws these on the graphics card while they
+   animate, so slow sub-pixel movement glides instead of stepping pixel by pixel.
+   js/hero.js switches this off once the entrance has finished, to free the memory. */
+.hero h1,
+.hero-role,
+.hero-flower,
+.hero-word {
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
 .hero-role:nth-child(1) { animation-delay: 250ms; }
 .hero-role:nth-child(2) { animation-delay: 850ms; }
 .hero-role:nth-child(3) { animation-delay: 1450ms; }
@@ -121,7 +132,7 @@
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(var(--motion-rise));
+    transform: translate3d(0, var(--motion-rise), 0);
     filter: blur(var(--motion-blur));
   }
   to {

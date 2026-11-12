@@ -31,6 +31,11 @@
   gsap.registerPlugin(SplitText);
   sub.classList.add("is-split"); // hands the line over from the CSS fallback to this script
 
+  // Once everything has landed, let the browser stop treating the hero as "about to animate".
+  function releaseLayers() {
+    gsap.set(".hero h1, .hero-role, .hero-flower, .hero-word", { willChange: "auto", backfaceVisibility: "visible" });
+  }
+
   // Start on schedule however long the page took to get here.
   var delay = Math.max(0, START - performance.now() / 1000);
 
@@ -48,7 +53,9 @@
         duration: LINGER,
         ease: "expo.out",  // matches --ease-settle
         stagger: STAGGER,
-        delay: delay
+        delay: delay,
+        force3D: true,     // keeps each word on the graphics card while it moves (smoother on low-res screens)
+        onComplete: releaseLayers
       });
     }
   });
