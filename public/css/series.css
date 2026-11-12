@@ -1,0 +1,428 @@
+/*
+  AI Learning Series: the row of session cards and the detail panel below it.
+  Content comes from js/sessions.js; series.js builds the markup.
+*/
+
+/* A full-width gray band; the side padding keeps the content within --content-max. */
+.series {
+  padding-block: var(--space-16);
+  padding-inline: max(var(--space-4), calc((100% - var(--content-max)) / 2));
+  background: var(--surface-mist);
+  scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
+}
+
+.series-head {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.series-head h2 {
+  font: var(--text-section);
+  margin-bottom: var(--space-3);
+}
+
+.series-head p {
+  max-width: var(--measure);
+  margin-inline: auto;
+  font: var(--text-lede);
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
+/* The line under the intro: scope and dates for the whole series. */
+.series-head .series-summary {
+  margin-top: var(--space-3);
+  font: var(--text-body);
+  color: var(--ink);
+}
+
+/* ---------- Session cards (the swipeable row) ---------- */
+
+.series-cards {
+  position: relative;
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Room so the focus ring and scrollbar aren't clipped. */
+  padding: var(--space-2) calc(var(--focus-ring) * 2) var(--space-4);
+  scroll-padding-inline: calc(var(--focus-ring) * 2);
+}
+
+/* About four cards across on desktop; on phones, most of one card with the next peeking in. */
+.series-card {
+  flex: 0 0 min(80%, calc(var(--content-max) / 4));
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  font: var(--text-body);
+  text-align: left;
+  cursor: pointer;
+}
+
+.series-card:hover {
+  background: var(--plum-soft);
+}
+
+.series-card-number {
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.series-card-title {
+  font-weight: 600;
+}
+
+.series-card-goal {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* Pushes the "Tool" tag to the bottom so tags line up across cards. */
+.series-card-tag {
+  margin-top: auto;
+}
+
+/* The selected session. */
+.series-card[aria-selected="true"] {
+  background: var(--plum);
+  color: var(--surface);
+}
+
+.series-card[aria-selected="true"] .series-card-number,
+.series-card[aria-selected="true"] .series-card-goal {
+  color: var(--plum-soft);
+}
+
+.series-card[aria-selected="true"] .series-tag {
+  background: var(--surface);
+}
+
+/* ---------- Tags ("Tool" on cards, tech in "Built with") ---------- */
+
+.series-tag {
+  display: inline-block;
+  padding: calc(var(--space-2) / 2) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--plum-soft);
+  color: var(--plum);
+  font: var(--text-label);
+}
+
+.series-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Detail panel ---------- */
+
+.series-panel {
+  margin-top: var(--space-6);
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.series-panel-title {
+  font: var(--text-tile-half);
+  margin-bottom: var(--space-2);
+}
+
+.series-panel-goal {
+  font: var(--text-lede);
+  margin-bottom: var(--space-4);
+}
+
+.series-panel-text {
+  max-width: var(--measure);
+  margin-bottom: var(--space-3);
+}
+
+/* The facts line under the promise: format, date, length, participants, tools. */
+.series-panel-meta {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* Section labels like "The situation" and "Design choices". */
+.series-panel-heading {
+  margin: var(--space-6) 0 var(--space-2);
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.series-list,
+.series-results {
+  max-width: var(--measure);
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.series-list > li + li {
+  margin-top: var(--space-3);
+}
+
+/* ---------- Folding (expand and collapse) ---------- */
+
+/* Shared look for every toggle: no browser triangle, our own plus/minus sign instead. */
+.series-fold > summary,
+.series-choice > summary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  list-style: none;
+  cursor: pointer;
+}
+
+.series-fold > summary::-webkit-details-marker,
+.series-choice > summary::-webkit-details-marker {
+  display: none;
+}
+
+.series-fold > summary::before,
+.series-choice > summary::before {
+  content: "+";
+  flex: none;
+  width: 1ch;
+  font: var(--text-label);
+  color: var(--plum);
+}
+
+.series-fold[open] > summary::before,
+.series-choice[open] > summary::before {
+  content: "\2212"; /* minus sign */
+}
+
+/* A folded section: its label reads like the other section labels. */
+.series-fold > summary .series-panel-heading {
+  margin: 0;
+}
+
+.series-fold {
+  margin: var(--space-6) 0 var(--space-2);
+}
+
+.series-fold > :not(summary) {
+  margin-top: var(--space-2);
+}
+
+/* Design choices: a scannable list of labels; each opens to show the detail. */
+.series-choices {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.series-choices > li + li {
+  margin-top: var(--space-3);
+}
+
+.series-choice > summary:hover strong {
+  color: var(--plum);
+}
+
+.series-choice-body {
+  margin: var(--space-2) 0 var(--space-2) calc(1ch + var(--space-2));
+}
+
+/* Numbered steps inside a design choice, and the questions under a step. */
+.series-steps {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-6);
+}
+
+.series-steps li + li {
+  margin-top: var(--space-2);
+}
+
+.series-steps ul {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-6);
+}
+
+/* A slide image under a design choice. */
+.series-figure {
+  margin: var(--space-3) 0 0;
+}
+
+.series-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--border-hairline) solid var(--surface-mist);
+  border-radius: var(--radius-sm);
+}
+
+.series-figure figcaption {
+  margin-top: var(--space-2);
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* Results: plain list, with quotes set off and one standout result. */
+.series-results {
+  padding-left: 0;
+  list-style: none;
+}
+
+.series-result + .series-result {
+  margin-top: var(--space-4);
+}
+
+.series-quote {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-4);
+  border-left: var(--focus-ring) solid var(--plum-soft);
+}
+
+.series-quote blockquote {
+  margin: 0;
+  font-style: italic;
+}
+
+.series-quote figcaption {
+  margin-top: calc(var(--space-2) / 2);
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+.series-result-highlight {
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--plum-soft);
+}
+
+.series-result-highlight .series-quote {
+  border-left-color: var(--plum);
+}
+
+.series-result-highlight blockquote {
+  font: var(--text-lede);
+  font-style: italic;
+  color: var(--plum);
+}
+
+/* Mentimeter and tool side by side when both fit; stacked on phones.
+   With no tool, the Mentimeter takes the full width. */
+.series-resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--content-max) / 3)), 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.series-resource {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-mist);
+}
+
+.series-resource h5 {
+  margin: 0;
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+/* A Mentimeter box with an embed spans the whole row; the tool card goes below it. */
+.series-resource-wide {
+  grid-column: 1 / -1;
+  align-items: stretch;
+}
+
+.series-resource-wide .series-button {
+  align-self: flex-start;
+}
+
+/* The tool's text, stacked; the button sits after it. */
+.series-tool-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Under a full-width embed, everything takes the full width. The tool becomes a strip:
+   details on the left, button on the right; on narrow screens the button wraps below. */
+.series-resources-stacked {
+  grid-template-columns: 1fr;
+}
+
+.series-resources-stacked .series-tool {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+}
+
+.series-resources-stacked .series-tool-info {
+  flex: 1 1 calc(var(--content-max) / 3);
+}
+
+.series-resources-stacked .series-tool .series-button {
+  flex: none;
+  margin-top: 0;
+}
+
+.series-tool-title {
+  font: var(--text-lede);
+}
+
+.series-meta,
+.series-soon {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* 16:9 for the slide, plus room for Mentimeter's control bar so the player doesn't scroll. */
+.series-embed-frame {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: var(--space-12);
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.series-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Pill button for "Open in Mentimeter" and "Try the tool". */
+.series-button {
+  margin-top: auto;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  background: var(--plum);
+  color: var(--surface);
+  font: var(--text-button);
+  text-decoration: none;
+}
+
+.series-button:hover {
+  background: var(--plum-deep);
+}

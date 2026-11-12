@@ -1,154 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teresa Rosinski</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap">
-    <style>
-        :root {
-            --surface: #FFFFFF;
-            --surface-mist: #F5F5F7;
-            --ink: #1D1D1F;
-            --ink-soft: #6E6E73;
-            --plum: #5B2152;
-            --plum-soft: #EFE3EC;
-            --green: #3F5A44;
-            --green-soft: #E3EAE1;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            box-sizing: border-box;
-        }
+  <!-- How the page looks when the link is shared or shows up in search. -->
+  <title>Teresa Rosinski | Creative Technologist | Educator | Learner</title>
+  <meta name="description" content="Teresa Rosinski empowers people to reach their goals through digital tools she builds and live workshops she leads, including helping teams learn to use AI.">
 
-        html, body {
-            margin: 0;
-            height: 100%;
-        }
+  <!-- Browser-tab and home-screen icon: the plum "T" mark (brand/logo-mark.svg). -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 20% 20%, var(--plum-soft) 0%, var(--surface-mist) 45%, var(--surface) 100%);
-            color: var(--ink);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            overflow: hidden;
-            position: relative;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap">
 
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(0px);
-            opacity: 0.6;
-            z-index: 0;
-        }
-
-        .blob--plum {
-            width: 260px;
-            height: 260px;
-            background: var(--plum-soft);
-            top: -60px;
-            right: -60px;
-        }
-
-        .blob--green {
-            width: 180px;
-            height: 180px;
-            background: var(--green-soft);
-            bottom: -40px;
-            left: -40px;
-        }
-
-        .card {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 480px;
-        }
-
-        .wordmark {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 22px;
-            color: var(--plum);
-            margin-bottom: 48px;
-            letter-spacing: 0.02em;
-        }
-
-        .wordmark span {
-            color: var(--plum);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--green-soft);
-            color: var(--green);
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            padding: 8px 16px;
-            border-radius: 980px;
-            margin-bottom: 24px;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--green);
-            animation: pulse 1.8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.8); }
-        }
-
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 40px;
-            line-height: 1.15;
-            margin: 0 0 16px;
-            color: var(--ink);
-        }
-
-        p {
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 1.5;
-            color: var(--ink-soft);
-            margin: 0;
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 32px; }
-        }
-    </style>
+  <!-- Order matters: tokens first, then base, then layout and components. -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/series.css">
 </head>
 <body>
-    <div class="blob blob--plum"></div>
-    <div class="blob blob--green"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <main class="card">
-        <div class="wordmark">Teresa<span>.</span></div>
-        <div class="badge">
-            <span class="badge-dot"></span>
-            Under construction
-        </div>
-        <h1>Something's brewing here.</h1>
-        <p>This spot is just a placeholder while the real page comes together. Thanks for stopping by — more to come soon!</p>
-    </main>
+  <nav class="nav" aria-label="Main">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">Teresa<span>.</span></a>
+      <!-- Nav links: one per section on the page. Add a link here when you add a section. -->
+      <div class="nav-links" id="nav-links">
+        <a href="#ai-learning">AI Learning Series</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero: edit the intro text here. -->
+  <header class="hero" id="top">
+    <h1>Teresa<span>.</span></h1>
+    <!-- Each role stays on one line; its dot sits at the end, so a wrapped line never starts with a dot. -->
+    <p class="hero-lede">
+      <span class="hero-role">Creative Technologist<span class="hero-divider" aria-hidden="true"> .</span></span>
+      <span class="hero-role">Educator<span class="hero-divider" aria-hidden="true"> .</span></span>
+      <span class="hero-role">Learner</span>
+    </p>
+    <p class="hero-sub">I empower people to reach their goals, through digital tools I build and live workshops I lead, including helping teams learn to use AI.</p>
+  </header>
+
+  <main id="main">
+    <!-- AI Learning Series: edit the content in js/sessions.js. -->
+    <section class="series" id="ai-learning" aria-labelledby="series-title">
+      <div class="series-head">
+        <h2 id="series-title"></h2>
+        <p id="series-intro"></p>
+      </div>
+    </section>
+
+    <!-- More project sections go here. -->
+  </main>
+
+  <!-- Content first, then the script that builds the series section from it.
+       These sit before the footer on purpose: the footer isn't drawn until the series is built,
+       so it doesn't jump down the page as it fills in. -->
+  <script src="js/sessions.js"></script>
+  <script src="js/series.js"></script>
+
+  <!-- Footer: edit the closing note here. -->
+  <footer class="footer" id="contact">
+    <!-- Contact links: add, remove or reorder them here. -->
+    <ul class="footer-links">
+      <li><a href="mailto:trosinski89@gmail.com">Email Teresa</a><span class="footer-email">trosinski89@gmail.com</span></li>
+      <li><a href="https://www.linkedin.com/in/teresarosinski/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <p>More projects coming soon. Instructional design, content and interaction design by Teresa; custom code written with AI coding assistance, then reviewed, tested and refined.</p>
+  </footer>
+
 </body>
 </html>

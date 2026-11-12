@@ -1,0 +1,8 @@
+# Cloudflare Wrangler local cache
+.wrangler/
+
+# macOS folder settings
+.DS_Store
+
+# Local preview server settings (per machine)
+.claude/launch.json
