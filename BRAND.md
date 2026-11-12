@@ -108,7 +108,7 @@ Widths and line weights, so pages line up and text stays comfortable to read.
 
 ## Motion
 
-Things **lift into place and linger.** Motion should feel like a calm, buoyant drift: elements arrive **crisp and clear** (not out of a dreamy blur), rise a little, and take their time to settle, so they feel unhurried and premium. It should help people understand the page faster, never make them wait.
+Things **lift into place and linger.** Motion should feel like a calm, buoyant drift: elements arrive **crisp and clear** (no blur at all), rise a little, and take their time to settle, so they feel unhurried and premium. It should help people understand the page faster, never make them wait.
 
 **Personality:** calm, buoyant, crisp, deliberate. Closer to a film's title card than an app's UI.
 
@@ -117,7 +117,7 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 | Quality | What it means | Ask for more with | Setting |
 |---|---|---|---|
 | **Linger** | A long settle. With `ease-settle`, most movement happens early, then the element glides slowly into its final spot. | "longer settle", "more linger" | duration |
-| **Crisp** | Arrives in focus, with at most a whisper of blur. Reads as confident and editorial. | "crisper", "less dreamy" | blur |
+| **Crisp** | Arrives fully in focus, with no blur. Reads as confident and editorial. (Even a 1px blur shimmered on low-res screens, so it's gone.) | "crisper", "less dreamy" | no blur |
 | **Lift** | Rises just enough that you notice it floating up (about half its own height). | "more lift", "more float" | rise distance |
 | **Wave** | Items start close together but each settles slowly, so many move at once and a group arrives as one gentle wave, not tick, tick, tick. | "more wave" (shorter gap) or "more cadence" (longer gap) | stagger compared with duration |
 
@@ -129,7 +129,6 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 | `duration-linger` | `2000ms` | Page-load entrances: hero text, words, flowers. The signature feel. |
 | `duration-enter` | `1200ms` | Content appearing after someone clicks (a session panel). Lingers, but doesn't make them wait. |
 | `duration-quick` | `450ms` | Direct feedback to a click or key: the sliding card highlight, hover. Must feel instant to the hand. |
-| `motion-blur` | `1px` | The most blur anything starts with. |
 | `motion-rise` | `0.55em` (or `55%` of a word's height) | How far things lift into place. |
 | `stagger-words` | `70ms` | The gap between words or small items. |
 
@@ -139,7 +138,7 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 
 ### Rules
 - **Plays once.** No loops, no motion that repeats while someone is reading.
-- **What moves:** opacity, position, scale, rotation, and the faint blur. Never width, height, or margins in a way that pushes other content around (it causes layout shift and costs Lighthouse points).
+- **What moves:** opacity, position, scale, and rotation. No blur: it redraws every frame and shimmers on low-res screens. Never width, height, or margins in a way that pushes other content around (it causes layout shift and costs Lighthouse points).
 - **Content works without motion.** Text is readable if scripts fail to load; animation only adds to it.
 - **Respect reduced motion.** When a visitor's system asks for less motion, show the finished state with no animation.
 - **Keep the main content fast.** The largest text on the page starts at 1% opacity, not 0, so it still counts as loaded right away. Readable well before it finishes settling is fine.
