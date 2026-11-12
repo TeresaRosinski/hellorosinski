@@ -126,7 +126,7 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 | Token | Value | Use |
 |---|---|---|
 | `ease-settle` | `cubic-bezier(0.16, 1, 0.3, 1)` | The default for everything. In GSAP, `"expo.out"`. |
-| `duration-linger` | `2500ms` | Page-load entrances: hero text, words, flowers. The signature feel. |
+| `duration-linger` | `2000ms` | Page-load entrances: hero text, words, flowers. The signature feel. |
 | `duration-enter` | `1200ms` | Content appearing after someone clicks (a session panel). Lingers, but doesn't make them wait. |
 | `duration-quick` | `450ms` | Direct feedback to a click or key: the sliding card highlight, hover. Must feel instant to the hand. |
 | `motion-blur` | `1px` | The most blur anything starts with. |

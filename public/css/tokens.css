@@ -63,7 +63,7 @@
 
   /* Motion (see BRAND.md, Motion): lift into place and linger. js/hero.js and js/series.js read these too. */
   --ease-settle: cubic-bezier(0.16, 1, 0.3, 1); /* the default: fast start, long soft finish ("expo.out" in GSAP) */
-  --duration-linger: 2500ms; /* page-load entrances: hero text, words, flowers */
+  --duration-linger: 2000ms; /* page-load entrances: hero text, words, flowers */
   --duration-enter: 1200ms;  /* content that appears after a click */
   --duration-quick: 450ms;   /* direct feedback to a click or key */
   --motion-blur: 1px;        /* the most blur anything starts with: crisp, not dreamy */
