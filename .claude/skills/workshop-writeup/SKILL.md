@@ -60,7 +60,7 @@ Follow `references/synthesis.md`:
 
 - Save the final write-up to `content/session-N.md` (and delete `content/session-N-draft.md`).
 - Write the proposed `sessions.js` entry into the same file, under a heading "Proposed sessions.js entry", as a code block.
-- **Do not edit `public/js/sessions.js`** until Teresa says the write-up is approved. When she does, follow CLAUDE.md: a `content/<name>` branch, one change per commit, and she merges.
+- **Do not edit `public/js/sessions.js`** until Teresa says the write-up is approved. When she does, follow CLAUDE.md: a `content/<name>` branch **cut from `main`**, one change per commit, and she merges. Give her the pull request link with the base set explicitly: `https://github.com/TeresaRosinski/hellorosinski/compare/main...<branch>?expand=1`. Merging to `main` publishes to hellorosinski.com, so she reviews the preview first.
 
 ## Lessons already learned (don't repeat these mistakes)
 
