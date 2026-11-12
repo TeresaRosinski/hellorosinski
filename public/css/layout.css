@@ -79,13 +79,13 @@
 }
 
 /* ---------- Hero flowers ----------
-   Original folk-art flowers between the roles: eight pointed petals with paper-cut veins.
-   On load, each opens from its center and turns one petal's width into place.
+   Original folk-art flowers between the roles: five notched petals, each with a paper-cut teardrop.
+   On load, each opens from its center and turns half a petal into place.
    Plays once; the second flower follows a beat later. Colors come from tokens.css. */
 
 .hero-flower {
-  width: 1.05em;
-  height: 1.05em;
+  width: 1.1em;
+  height: 1.1em;
   margin-inline: 0.3em;
   vertical-align: -0.16em;
   overflow: visible;
@@ -96,12 +96,6 @@
 }
 
 /* The "cut-out" parts match the page background, like paper cutting. */
-.hero-flower-veins {
-  stroke: var(--surface);
-  stroke-width: 0.7;
-  stroke-linecap: round;
-}
-
 .hero-flower-cut {
   fill: var(--surface);
 }
@@ -138,9 +132,9 @@
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Turns one petal's width (45 degrees) and lands in its resting position. */
+/* Turns half a petal (36 degrees) and lands in its resting position. */
 @keyframes hero-turn {
-  from { transform: rotate(-45deg); }
+  from { transform: rotate(-36deg); }
   to { transform: rotate(0deg); }
 }
 
