@@ -16,11 +16,25 @@
 
   // Motion (see BRAND.md, Motion). GSAP and Flip are optional: without them, or when a visitor's
   // system asks for less motion, everything still works and simply changes instantly.
+  // GSAP loads in the background (index.html), so check for it when it's needed, not up front.
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var canAnimate = !reduceMotion && typeof gsap !== "undefined" && typeof Flip !== "undefined";
-  if (canAnimate) gsap.registerPlugin(Flip);
-  var EASE = "expo.out";   // matches --ease-settle
-  var QUICK = 0.45;        // seconds; close to --duration-quick, a touch longer for the slide
+  function canAnimate() {
+    if (reduceMotion || typeof gsap === "undefined" || typeof Flip === "undefined") return false;
+    gsap.registerPlugin(Flip);
+    return true;
+  }
+  // Timing comes from the motion tokens in css/tokens.css (BRAND.md, Motion): the highlight
+  // answers a click quickly; the new panel content lifts in and lingers, as a gentle wave.
+  var css = getComputedStyle(document.documentElement);
+  function seconds(name, fallback) {
+    var v = parseFloat(css.getPropertyValue(name));
+    return isNaN(v) ? fallback : v / 1000;
+  }
+  var EASE = "expo.out";                           // matches --ease-settle
+  var QUICK = seconds("--duration-quick", 0.45);   // the sliding highlight and panel height
+  var ENTER = seconds("--duration-enter", 1.2);    // the new panel content
+  var STAGGER = seconds("--stagger-words", 0.07);
+  var RISE = css.getPropertyValue("--motion-rise").trim() || "0.55em";
 
   // Make an element with an optional class and text.
   function el(tag, className, text) {
@@ -314,7 +328,8 @@
   // animate: true when a visitor picks a session (not on first load).
   function select(i, updateLink, animate) {
     var tab = tabs[i];
-    var moving = animate && canAnimate && indicator.parentNode && indicator.parentNode !== tab;
+    animate = animate && canAnimate();
+    var moving = animate && indicator.parentNode && indicator.parentNode !== tab;
     var indicatorState = moving ? Flip.getState(indicator) : null;
     var oldHeight = panel.offsetHeight;
 
@@ -328,7 +343,7 @@
     showPanel(sessions[i]);
     if (updateLink) history.replaceState(null, "", "#session-" + sessions[i].number);
 
-    if (!animate || !canAnimate) return;
+    if (!animate) return;
     // The highlight slides to the new card.
     if (indicatorState) Flip.from(indicatorState, { duration: QUICK, ease: EASE });
     // The panel eases to its new height, and its contents rise in, top to bottom.
@@ -336,8 +351,11 @@
       height: panel.offsetHeight, duration: QUICK, ease: EASE,
       clearProps: "height"
     });
+    var rise = parseFloat(RISE) * parseFloat(getComputedStyle(panel).fontSize); // em to pixels
     gsap.from(panel.children, {
-      opacity: 0, y: 12, duration: 0.6, ease: EASE, stagger: 0.035, clearProps: "opacity,transform"
+      opacity: 0, y: rise,
+      duration: ENTER, ease: EASE, stagger: STAGGER,
+      clearProps: "opacity,transform"
     });
   }
 
@@ -354,9 +372,13 @@
   section.appendChild(list);
   section.appendChild(panel);
 
+  // A shared link like #session-3 opens that session and scrolls to the series. On a refresh, the
+  // browser already returns to where the visitor was, so don't scroll (it made the page jump).
+  var nav = window.performance && performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+  var isReload = nav && nav.type === "reload";
   var start = indexFromLink();
   select(start >= 0 ? start : 0, false);
-  if (start >= 0) section.scrollIntoView();
+  if (start >= 0 && !isReload) section.scrollIntoView();
 
   window.addEventListener("hashchange", function () {
     var i = indexFromLink();

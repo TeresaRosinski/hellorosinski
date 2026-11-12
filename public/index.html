@@ -39,6 +39,7 @@
       <div class="nav-links" id="nav-links">
         <a href="#ai-learning">AI Learning Series</a>
         <a href="#contact">Contact</a>
+        <a href="Teresa-Rosinski-Resume.pdf" target="_blank" rel="noopener">Résumé<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
       </div>
     </div>
   </nav>
@@ -54,6 +55,11 @@
       <span class="hero-role">Learner</span>
     </p>
     <p class="hero-sub">I empower people to reach their goals, through digital tools I build and live workshops I lead, including helping teams learn to use AI.</p>
+    <!-- Hero buttons: the two next steps. Edit the text or where they go here. -->
+    <div class="hero-actions">
+      <a class="button button-primary" href="#ai-learning">Explore my work</a>
+      <a class="button button-secondary" href="#contact">Let's talk</a>
+    </div>
   </header>
 
   <main id="main">
@@ -71,20 +77,34 @@
   <!-- Content first, then the script that builds the series section from it.
        These sit before the footer on purpose: the footer isn't drawn until the series is built,
        so it doesn't jump down the page as it fills in. -->
-  <!-- GSAP + Flip (animation library, free): smooth session-card and panel transitions.
+  <!-- GSAP + Flip + SplitText (animation library, free): session-card transitions and the
+       word-by-word hero intro. "defer" loads them in the background, so the page draws without
+       waiting for them; they run (in this order) once the page is ready.
        Optional: if these don't load, the series still works, just without the motion. -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="js/hero.js"></script>
+  <script defer src="js/contact.js"></script>
   <script src="js/sessions.js"></script>
   <script src="js/series.js"></script>
 
+  <!-- Contact: where "Let's talk" and the nav's "Contact" land. Edit the text and links here.
+       The "Copy email" button is powered by js/contact.js. -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Let's talk</h2>
+    <p class="contact-lede">Have a role, a project, or a question about learning and AI? I'd love to hear from you.</p>
+    <div class="contact-actions">
+      <a class="button button-on-dark" href="mailto:trosinski89@gmail.com">Email me</a>
+      <button class="button button-on-dark-outline" type="button" data-copy="trosinski89@gmail.com">Copy email</button>
+      <a class="button button-on-dark-outline" href="https://www.linkedin.com/in/teresarosinski/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <a class="button button-on-dark-outline" href="Teresa-Rosinski-Resume.pdf" target="_blank" rel="noopener">Résumé<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
+    </div>
+    <p class="contact-email">trosinski89@gmail.com <span class="contact-status visually-hidden" role="status" aria-live="polite"></span></p>
+  </section>
+
   <!-- Footer: edit the closing note here. -->
-  <footer class="footer" id="contact">
-    <!-- Contact links: add, remove or reorder them here. -->
-    <ul class="footer-links">
-      <li><a href="mailto:trosinski89@gmail.com">Email Teresa</a><span class="footer-email">trosinski89@gmail.com</span></li>
-      <li><a href="https://www.linkedin.com/in/teresarosinski/" target="_blank" rel="noopener">LinkedIn</a></li>
-    </ul>
+  <footer class="footer">
     <p>More projects coming soon. Instructional design, content and interaction design by Teresa; custom code written with AI coding assistance, then reviewed, tested and refined.</p>
   </footer>
 

@@ -81,60 +81,74 @@
 /* ---------- Hero entrance ----------
    One choreography for the whole hero, sharing the flowers' easing so it all moves as one:
    the name rises in and its plum period pops like a seed; each role rises in just before
-   its peony blooms (role, bloom, role, bloom, role); the intro line settles in last.
-   Uses only fade, rise, and a light blur, so nothing on the page shifts around. */
+   its peony blooms (role, bloom, role, bloom, role); then the intro line arrives word by word
+   (js/hero.js, using GSAP SplitText).
+   Everything lifts into place and lingers, arriving crisp (BRAND.md, Motion; tokens in tokens.css).
+   Uses only fade and rise (no blur: it shimmers on low-res screens), so nothing shifts around. */
 
 .hero h1,
-.hero-role,
-.hero-sub {
-  animation: hero-rise var(--duration-enter) var(--ease-settle) both;
+.hero-role {
+  animation: hero-rise var(--duration-linger) var(--ease-settle) both;
 }
 
 .hero-role {
   display: inline-block;
 }
 
+/* Smooth motion on low-res screens: the browser draws these on the graphics card while they
+   animate, so slow sub-pixel movement glides instead of stepping pixel by pixel.
+   js/hero.js switches this off once the entrance has finished, to free the memory. */
+.hero h1,
+.hero-role,
+.hero-flower,
+.hero-word {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
 .hero-role:nth-child(1) { animation-delay: 250ms; }
 .hero-role:nth-child(2) { animation-delay: 850ms; }
 .hero-role:nth-child(3) { animation-delay: 1450ms; }
 
-/* Starts almost (not fully) transparent, so browsers still count it as the page's main content right away. */
+/* The intro line. js/hero.js reveals it word by word after the roles. Until then it sits at 1%
+   (not 0%), so browsers still count it as the page's main content right away.
+   Fallback: if the script doesn't run, the line fades in on its own at 3 seconds. */
 .hero-sub {
-  animation-name: hero-rise-soft;
-  animation-delay: 1100ms;
-  animation-duration: 1100ms;
+  opacity: 0.01;
+  animation: hero-sub-fallback var(--duration-linger) var(--ease-settle) 3s forwards;
 }
 
-/* The plum period after "Teresa" pops in like a seed, echoing the peonies. */
+.hero-sub.is-split {
+  animation: none;
+}
+
+/* The buttons lift in as the intro's word-wave is finishing: the hero's last beat.
+   They're clickable the whole time. */
+.hero-actions {
+  animation: hero-rise var(--duration-linger) var(--ease-settle) 2900ms both;
+}
+
+/* The plum period after "Teresa" grows in like a seed, echoing the peonies. */
 .hero h1 span {
   display: inline-block;
   transform-origin: 50% 85%;
-  animation: hero-seed 700ms var(--ease-pop) 550ms both;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) 550ms both;
 }
 
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(0.45em);
-    filter: blur(6px);
+    transform: translate3d(0, var(--motion-rise), 0);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
-@keyframes hero-rise-soft {
-  from {
-    opacity: 0.01;
-    transform: translateY(0.6em);
-    filter: blur(4px);
-  }
+@keyframes hero-sub-fallback {
   to {
     opacity: 1;
-    transform: none;
-    filter: none;
   }
 }
 
@@ -167,7 +181,7 @@
   vertical-align: -0.16em;
   fill: var(--plum);
   transform-origin: 50% 55%;
-  animation: hero-bloom var(--duration-bloom) var(--ease-settle) 550ms both;
+  animation: hero-bloom var(--duration-linger) var(--ease-settle) 550ms both;
 }
 
 .hero-flower-second {
@@ -195,10 +209,15 @@
 @media (prefers-reduced-motion: reduce) {
   .hero h1,
   .hero h1 span,
+  .hero-actions,
   .hero-role,
   .hero-sub,
   .hero-flower {
     animation: none;
+  }
+
+  .hero-sub {
+    opacity: 1;
   }
 }
 
@@ -217,10 +236,135 @@
   text-wrap: balance;
 }
 
+/* ---------- Hero buttons ---------- */
+
+/* "Explore my work" and "Let's talk" glide down the page, unless a visitor prefers less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+/* Pill buttons (BRAND.md: plum is the primary CTA on light surfaces). */
+.button {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  font: var(--text-button);
+  text-decoration: none;
+  transition: background-color var(--duration-quick) var(--ease-settle),
+              color var(--duration-quick) var(--ease-settle),
+              transform var(--duration-quick) var(--ease-settle);
+}
+
+/* On hover or keyboard focus, every button lifts slightly, so the change is clear even on
+   low-res screens where subtle color shifts are hard to see. */
+@media (prefers-reduced-motion: no-preference) {
+  .button:hover,
+  .button:focus-visible {
+    transform: translateY(calc(var(--space-2) / -4));
+  }
+}
+
+.button-primary {
+  background: var(--plum);
+  color: var(--surface);
+}
+
+.button-primary:hover {
+  background: var(--plum-deep);
+}
+
+/* Outlined: same shape, quieter, so "Explore my work" stays the first choice. */
+.button-secondary {
+  background: var(--surface);
+  color: var(--plum);
+  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--plum);
+}
+
+.button-secondary:hover {
+  background: var(--plum-soft);
+}
+
+/* ---------- Contact ("Let's talk") ----------
+   A full-width deep-plum band (BRAND.md: plum-deep for full-bleed tone sections), so the hero's
+   "Let's talk" button lands somewhere clear. */
+
+.contact {
+  padding: var(--space-16) var(--space-4);
+  background: var(--plum-deep);
+  color: var(--surface);
+  text-align: center;
+  scroll-margin-top: var(--space-12); /* stays clear of the sticky nav */
+}
+
+.contact h2 {
+  font: var(--text-section);
+  margin: 0 0 var(--space-3);
+}
+
+.contact-lede {
+  max-width: var(--measure);
+  margin: 0 auto;
+  font: var(--text-lede);
+  color: var(--plum-soft);
+  text-wrap: balance;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.contact-email {
+  margin: var(--space-4) 0 0;
+  font: var(--text-caption);
+  color: var(--plum-soft);
+}
+
+/* Buttons on the dark band: a solid white primary, and white outlines for the rest. */
+.button-on-dark {
+  background: var(--surface);
+  color: var(--plum-deep);
+}
+
+/* Hover turns it bright plum: a clear color change on the dark band, with dark text still readable. */
+.button-on-dark:hover,
+.button-on-dark:focus-visible {
+  background: var(--plum-bright);
+}
+
+.button-on-dark-outline {
+  border: 0;
+  background: transparent;
+  color: var(--surface);
+  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--surface);
+  cursor: pointer;
+}
+
+.button-on-dark-outline:hover {
+  background: var(--plum);
+}
+
+/* Keyboard focus that shows up on the dark band. */
+.contact :focus-visible {
+  outline-color: var(--plum-bright);
+}
+
 /* ---------- Footer ---------- */
 
 .footer {
-  scroll-margin-top: var(--space-12); /* keeps it clear of the sticky nav when "Contact" is clicked */
   padding: var(--space-6) var(--space-4) var(--space-12);
   background: var(--surface);
   color: var(--ink-soft);
@@ -231,29 +375,4 @@
 .footer p {
   max-width: var(--measure);
   margin-inline: auto;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-2) var(--space-6);
-  margin: 0 0 var(--space-3);
-  padding: 0;
-  list-style: none;
-}
-
-.footer-links a {
-  color: var(--plum);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* The plain email address beside "Email Teresa", so people can copy it. */
-.footer-email {
-  margin-inline-start: var(--space-2);
 }
