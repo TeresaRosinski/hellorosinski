@@ -3,7 +3,7 @@
   Uses GSAP SplitText (loaded in index.html). Timing and easing follow BRAND.md, Motion.
 
   To adjust:
-    START   when the first word begins, in seconds from page load (the roles finish around 1.9s)
+    START   when the first word begins, in seconds from page load (the last role starts at 1.1s)
     Everything else (how long words linger, the gap between them, and the lift) comes from the
     motion tokens in css/tokens.css, so change it there to change all motion together.
 
@@ -15,7 +15,7 @@
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!sub || reduceMotion || typeof gsap === "undefined" || typeof SplitText === "undefined") return;
 
-  var START = 1.9;
+  var START = 1.4;
 
   // Motion tokens from tokens.css, so the words match everything else (BRAND.md, Motion).
   var css = getComputedStyle(document.documentElement);

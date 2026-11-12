@@ -133,7 +133,7 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 | `stagger-words` | `70ms` | The gap between words or small items. |
 
 ### Rhythm
-- **Sequence big beats, wave small ones.** Large beats (name, then each role and its peony, then the intro) are spaced about 600ms apart. Small items within a beat (words, panel sections) overlap as a wave, about 70ms apart.
+- **Sequence big beats, wave small ones.** Large beats (name, then each role and its peony, then the intro) are spaced about 450ms apart, overlapping so each beat starts while the last is still settling. Small items within a beat (words, panel sections) overlap as a wave, about 70ms apart.
 - **Entrances linger; interactions respond.** Anything that answers a click stays quick (`duration-quick`), and content that appears because of it uses `duration-enter`. Only page-load moments use the full linger.
 
 ### Rules
