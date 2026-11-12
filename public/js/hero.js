@@ -4,7 +4,7 @@
 
   To adjust:
     START   when the first word begins, in seconds from page load (the roles finish around 1.9s)
-    Everything else (how long words linger, the gap between them, blur, and lift) comes from the
+    Everything else (how long words linger, the gap between them, and the lift) comes from the
     motion tokens in css/tokens.css, so change it there to change all motion together.
 
   If GSAP doesn't load, or a visitor's system asks for less motion, this does nothing and the
@@ -25,7 +25,6 @@
   }
   var LINGER = seconds("--duration-linger", 2.5);
   var STAGGER = seconds("--stagger-words", 0.07);
-  var BLUR = css.getPropertyValue("--motion-blur").trim() || "1px";
   var RISE = (parseFloat(css.getPropertyValue("--motion-rise")) || 0.55) * 100; // 0.55em, as a % of each word's height
 
   gsap.registerPlugin(SplitText);
@@ -49,7 +48,6 @@
       return gsap.from(self.words, {
         opacity: 0,
         yPercent: RISE,
-        filter: "blur(" + BLUR + ")",
         duration: LINGER,
         ease: "expo.out",  // matches --ease-settle
         stagger: STAGGER,

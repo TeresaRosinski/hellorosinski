@@ -34,7 +34,6 @@
   var QUICK = seconds("--duration-quick", 0.45);   // the sliding highlight and panel height
   var ENTER = seconds("--duration-enter", 1.2);    // the new panel content
   var STAGGER = seconds("--stagger-words", 0.07);
-  var BLUR = css.getPropertyValue("--motion-blur").trim() || "1px";
   var RISE = css.getPropertyValue("--motion-rise").trim() || "0.55em";
 
   // Make an element with an optional class and text.
@@ -354,9 +353,9 @@
     });
     var rise = parseFloat(RISE) * parseFloat(getComputedStyle(panel).fontSize); // em to pixels
     gsap.from(panel.children, {
-      opacity: 0, y: rise, filter: "blur(" + BLUR + ")",
+      opacity: 0, y: rise,
       duration: ENTER, ease: EASE, stagger: STAGGER,
-      clearProps: "opacity,transform,filter"
+      clearProps: "opacity,transform"
     });
   }
 

@@ -84,7 +84,7 @@
    its peony blooms (role, bloom, role, bloom, role); then the intro line arrives word by word
    (js/hero.js, using GSAP SplitText).
    Everything lifts into place and lingers, arriving crisp (BRAND.md, Motion; tokens in tokens.css).
-   Uses only fade, rise, and a faint blur, so nothing on the page shifts around. */
+   Uses only fade and rise (no blur: it shimmers on low-res screens), so nothing shifts around. */
 
 .hero h1,
 .hero-role {
@@ -102,7 +102,7 @@
 .hero-role,
 .hero-flower,
 .hero-word {
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
   backface-visibility: hidden;
 }
 
@@ -133,12 +133,10 @@
   from {
     opacity: 0;
     transform: translate3d(0, var(--motion-rise), 0);
-    filter: blur(var(--motion-blur));
   }
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
