@@ -70,6 +70,8 @@ Two forms, both built from the same system rather than a separate illustration �
 
 - `teresa-mark.png` / `logo-mark.svg` — plum square, white T. 512×512, scales down cleanly to favicon sizes.
 
+**Hero exception: the blooming period.** On the portfolio's hero only, the large "Teresa" ends in the plum peony (`brand/flowers/plum-peony.svg`) instead of the period, and it blooms on load. It's a one-time signature moment; everywhere else (nav, favicon, Rise, slides) the wordmark keeps the classic plum period.
+
 Both forms carry the identity job plum already carries elsewhere in this system — the logo isn't a place to introduce green.
 
 ## Spacing & radius
