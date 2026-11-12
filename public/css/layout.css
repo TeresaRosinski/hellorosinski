@@ -36,7 +36,7 @@
   color: var(--plum);
 }
 
-/* Section links are filled in from the project list in a later step. */
+/* Section links: edit them in index.html, inside the nav. */
 .nav-links {
   display: flex;
   gap: var(--space-6);
@@ -91,6 +91,7 @@
 /* ---------- Footer ---------- */
 
 .footer {
+  scroll-margin-top: var(--space-12); /* keeps it clear of the sticky nav when "Contact" is clicked */
   padding: var(--space-6) var(--space-4) var(--space-12);
   background: var(--surface);
   color: var(--ink-soft);
