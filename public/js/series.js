@@ -14,6 +14,14 @@
   var sessions = SERIES.sessions.slice().sort(function (a, b) { return b.number - a.number; });
   var tabs = [];
 
+  // Motion (see BRAND.md, Motion). GSAP and Flip are optional: without them, or when a visitor's
+  // system asks for less motion, everything still works and simply changes instantly.
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canAnimate = !reduceMotion && typeof gsap !== "undefined" && typeof Flip !== "undefined";
+  if (canAnimate) gsap.registerPlugin(Flip);
+  var EASE = "expo.out";   // matches --ease-settle
+  var QUICK = 0.45;        // seconds; close to --duration-quick, a touch longer for the slide
+
   // Make an element with an optional class and text.
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -66,6 +74,9 @@
 
   // ---------- Session cards ----------
 
+  // A short cue so it's clear the cards switch the panel below.
+  section.appendChild(el("p", "series-cards-cue", "Choose a session to see how it was designed and what happened."));
+
   var list = el("div", "series-cards");
   list.setAttribute("role", "tablist");
   list.setAttribute("aria-label", "Sessions");
@@ -74,6 +85,11 @@
   panel.id = "series-panel";
   panel.setAttribute("role", "tabpanel");
   panel.tabIndex = 0;
+
+  // The plum highlight behind the selected card, with a small pointer down to the panel.
+  // It slides from card to card when the selection changes.
+  var indicator = el("span", "series-card-indicator");
+  indicator.setAttribute("aria-hidden", "true");
 
   sessions.forEach(function (s, i) {
     var tab = el("button", "series-card");
@@ -86,13 +102,13 @@
     tab.appendChild(el("span", "series-card-goal", s.goal));
     if (s.tool) tab.appendChild(el("span", "series-tag series-card-tag", "+ Custom tool I built"));
 
-    tab.addEventListener("click", function () { select(i, true); });
+    tab.addEventListener("click", function () { select(i, true, true); });
     tab.addEventListener("keydown", function (e) {
       var next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: sessions.length - 1 }[e.key];
       if (next === undefined) return;
       e.preventDefault();
       next = (next + sessions.length) % sessions.length;
-      select(next, true);
+      select(next, true, true);
       tabs[next].focus();
     });
 
@@ -295,16 +311,34 @@
 
   // ---------- Choosing a session ----------
 
-  function select(i, updateLink) {
-    tabs.forEach(function (tab, j) {
-      tab.setAttribute("aria-selected", j === i ? "true" : "false");
-      tab.tabIndex = j === i ? 0 : -1;
-    });
-    // Scroll the row (not the page) so the chosen card is in view.
+  // animate: true when a visitor picks a session (not on first load).
+  function select(i, updateLink, animate) {
     var tab = tabs[i];
+    var moving = animate && canAnimate && indicator.parentNode && indicator.parentNode !== tab;
+    var indicatorState = moving ? Flip.getState(indicator) : null;
+    var oldHeight = panel.offsetHeight;
+
+    tabs.forEach(function (t, j) {
+      t.setAttribute("aria-selected", j === i ? "true" : "false");
+      t.tabIndex = j === i ? 0 : -1;
+    });
+    tab.insertBefore(indicator, tab.firstChild);
+    // Scroll the row (not the page) so the chosen card is in view.
     list.scrollLeft = tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2;
     showPanel(sessions[i]);
     if (updateLink) history.replaceState(null, "", "#session-" + sessions[i].number);
+
+    if (!animate || !canAnimate) return;
+    // The highlight slides to the new card.
+    if (indicatorState) Flip.from(indicatorState, { duration: QUICK, ease: EASE });
+    // The panel eases to its new height, and its contents rise in, top to bottom.
+    gsap.fromTo(panel, { height: oldHeight }, {
+      height: panel.offsetHeight, duration: QUICK, ease: EASE,
+      clearProps: "height"
+    });
+    gsap.from(panel.children, {
+      opacity: 0, y: 12, duration: 0.6, ease: EASE, stagger: 0.035, clearProps: "opacity,transform"
+    });
   }
 
   // Which session a link like #session-3 points to, or -1.
@@ -327,7 +361,7 @@
   window.addEventListener("hashchange", function () {
     var i = indexFromLink();
     if (i >= 0) {
-      select(i, false);
+      select(i, false, true);
       section.scrollIntoView();
     }
   });

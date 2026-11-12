@@ -71,6 +71,10 @@
   <!-- Content first, then the script that builds the series section from it.
        These sit before the footer on purpose: the footer isn't drawn until the series is built,
        so it doesn't jump down the page as it fills in. -->
+  <!-- GSAP + Flip (animation library, free): smooth session-card and panel transitions.
+       Optional: if these don't load, the series still works, just without the motion. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
   <script src="js/sessions.js"></script>
   <script src="js/series.js"></script>
 
