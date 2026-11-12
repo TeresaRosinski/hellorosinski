@@ -24,7 +24,7 @@ Keep notes, drafts, and config out of `public/`.
 
 ## Workflow rules
 
-- Never commit directly to `main`. Work on a branch.
+- Never commit directly to `main`. Work on a branch cut from `main`, and open pull requests into `main` (give Teresa a compare link with the base set: `.../compare/main...<branch>?expand=1`).
 - Branch names match the commit type: `feat/decision-tree`, `fix/mobile-nav`, `content/epsilon-summary`.
 - One change per commit. If the message needs "and," split it.
 - Write commit messages in the present tense ("add," "fix," "update").
