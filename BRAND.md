@@ -106,6 +106,31 @@ Widths and line weights, so pages line up and text stays comfortable to read.
 | `border-hairline` | `1px` | Thin dividers, like the line under the nav |
 | `focus-ring` | `3px` | Keyboard focus outline thickness, and its gap from the element |
 
+## Motion
+
+Motion follows the same idea as the flowers: things **rise, sharpen, and bloom** into place, then rest. It should feel calm and confident, never bouncy or busy, and it should help people understand the page faster, never make them wait.
+
+**Personality:** unhurried, organic, purposeful. A fast start and a long, soft finish, like a petal settling.
+
+| Token | Value | Use |
+|---|---|---|
+| `ease-settle` | `cubic-bezier(0.16, 1, 0.3, 1)` | The default for everything: entrances, blooms, panels. In GSAP, `"expo.out"` is the close match. |
+| `ease-pop` | `cubic-bezier(0.34, 1.4, 0.64, 1)` | Small accents only (the plum period). A slight overshoot, used sparingly. |
+| `duration-quick` | `300ms` | State changes: hover, selected card, small UI feedback |
+| `duration-enter` | `900ms` | Text and content entering |
+| `duration-bloom` | `1400ms` | Flower blooms and other signature moments |
+
+**What moves:** opacity, position (rising up to about half a line), scale, rotation, and a light blur. Never width, height, or margins in a way that pushes other content around (it causes layout shift and costs Lighthouse points).
+
+**Rhythm:** sequence things instead of moving them all at once, like the hero's role, bloom, role, bloom, role. Stagger steps of roughly 60ms for many small items, or about 600ms for a few large beats.
+
+**Rules**
+- **Plays once.** No loops, no motion that repeats while someone is reading.
+- **Content works without motion.** Text is readable if scripts fail to load; animation only adds to it.
+- **Respect reduced motion.** When a visitor's system asks for less motion, show the finished state with no animation.
+- **Keep the main content fast.** The largest text on the page starts at 1% opacity, not 0, so it still counts as loaded right away.
+- **GSAP for systems, CSS for single effects.** A one-off entrance is CSS. Coordinated or interactive motion (cards to panel, scroll timelines) uses GSAP with the same easing and durations.
+
 ## Usage by surface
 
 **Portfolio** — plum-led. Green appears once or twice per page at most: a tag, a hover, a small detail. If green starts showing up more than that here, it's taking identity's job.
