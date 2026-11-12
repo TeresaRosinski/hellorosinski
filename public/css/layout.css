@@ -73,9 +73,72 @@
   color: var(--plum);
 }
 
-/* Keeps "Creative Technologist ." together, so lines break between roles, not before a dot. */
+/* Keeps each role and its flower together, so lines break between roles, not before a flower. */
 .hero-role {
   white-space: nowrap;
+}
+
+/* ---------- Hero flowers ----------
+   The flowers between the roles. Each starts as a plum dot (the center), grows its petals,
+   then spins once. Plays once on load; the second flower starts a beat after the first.
+   Colors come from tokens.css. */
+
+.hero-flower {
+  width: 0.95em;
+  height: 0.95em;
+  margin-inline: 0.3em;
+  vertical-align: -0.12em;
+  overflow: visible;
+}
+
+.hero-flower-petals {
+  fill: var(--plum);
+}
+
+.hero-flower-center {
+  fill: var(--plum-bright);
+}
+
+/* Petals grow out of the center, then the whole flower turns once.
+   The flower is drawn around 0,0 (the center dot), so that point is the pivot. */
+.hero-flower-petals,
+.hero-flower-spin {
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+.hero-flower-petals {
+  animation: hero-bloom 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 400ms both;
+}
+
+.hero-flower-spin {
+  animation: hero-spin 900ms ease-in-out 1000ms both;
+}
+
+.hero-flower-second .hero-flower-petals {
+  animation-delay: 650ms;
+}
+
+.hero-flower-second .hero-flower-spin {
+  animation-delay: 1250ms;
+}
+
+@keyframes hero-bloom {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes hero-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* People who ask their system for less motion see the finished flowers, with no animation. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-flower-petals,
+  .hero-flower-spin {
+    animation: none;
+  }
 }
 
 .hero-lede {
