@@ -372,9 +372,13 @@
   section.appendChild(list);
   section.appendChild(panel);
 
+  // A shared link like #session-3 opens that session and scrolls to the series. On a refresh, the
+  // browser already returns to where the visitor was, so don't scroll (it made the page jump).
+  var nav = window.performance && performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+  var isReload = nav && nav.type === "reload";
   var start = indexFromLink();
   select(start >= 0 ? start : 0, false);
-  if (start >= 0) section.scrollIntoView();
+  if (start >= 0 && !isReload) section.scrollIntoView();
 
   window.addEventListener("hashchange", function () {
     var i = indexFromLink();
