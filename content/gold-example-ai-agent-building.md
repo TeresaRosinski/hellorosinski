@@ -43,7 +43,7 @@ By the end of the session, learners can:
 
 **Learning foundations**
 - **Adult learning principles (Knowles):** the opening question started from participants' own work, not from the tool.
-- **Self-determination theory:** *autonomy* (the group vote, then personal choices), *competence* (a working agent in one hour), *connection* (sharing ideas live and sharing agents with colleagues).
+- **Self-determination theory:** *autonomy* (the group vote, then personal choices), *competence* (a working agent in one hour), *relatedness* (sharing ideas live and sharing agents with colleagues).
 - **Worked examples (cognitive load theory):** the template and example answers removed the blank-page problem, so attention went to building.
 - **ADKAR:** strongest at *Desire* and *Knowledge*, with first practice toward *Ability*. *Reinforcement* would come from follow-up, which participants asked for.
 
