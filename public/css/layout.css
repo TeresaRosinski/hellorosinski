@@ -231,11 +231,14 @@
    its peony blooms (role, bloom, role, bloom, role); then the intro line arrives word by word
    (js/hero.js, using GSAP SplitText).
    Everything lifts into place and lingers, arriving crisp (BRAND.md, Motion; tokens in tokens.css).
-   Uses only fade and rise (no blur: it shimmers on low-res screens), so nothing shifts around. */
+   Uses only fade and rise (no blur: it shimmers on low-res screens), so nothing shifts around.
+   "backwards" (not "both"): each animation lets go when it ends, since its last frame matches
+   the normal look. Holding the last frame kept "Teresa." on its own layer, which the browser could
+   drop and repaint late after a resize, so the name blinked out. */
 
 .hero h1,
 .hero-role {
-  animation: hero-rise var(--duration-linger) var(--ease-settle) both;
+  animation: hero-rise var(--duration-linger) var(--ease-settle) backwards;
 }
 
 .hero-role {
@@ -272,14 +275,14 @@
 /* The buttons lift in as the intro's word-wave is finishing: the hero's last beat.
    They're clickable the whole time. */
 .hero-actions {
-  animation: hero-rise var(--duration-linger) var(--ease-settle) 2200ms both;
+  animation: hero-rise var(--duration-linger) var(--ease-settle) 2200ms backwards;
 }
 
 /* The plum period after "Teresa" grows in like a seed, echoing the peonies. */
 .hero h1 span {
   display: inline-block;
   transform-origin: 50% 85%;
-  animation: hero-seed var(--duration-linger) var(--ease-settle) 450ms both;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) 450ms backwards;
 }
 
 @keyframes hero-rise {
@@ -328,7 +331,7 @@
   vertical-align: -0.16em;
   fill: var(--plum);
   transform-origin: 50% 55%;
-  animation: hero-bloom var(--duration-linger) var(--ease-settle) 450ms both;
+  animation: hero-bloom var(--duration-linger) var(--ease-settle) 450ms backwards;
 }
 
 .hero-flower-second {
