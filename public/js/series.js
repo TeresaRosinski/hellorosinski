@@ -181,6 +181,27 @@
     return box;
   }
 
+  // Videos and articles used in the session, each linking to the original.
+  function materialsBlock(materials) {
+    var box = el("div", "series-resource series-materials");
+    box.appendChild(el("h5", "", "Shared in the session"));
+    var list = el("ul", "series-materials-list");
+    materials.forEach(function (m) {
+      var li = el("li", "series-material");
+      if (m.type) li.appendChild(el("span", "series-tag", m.type));
+      var title = el("a", "series-material-title", m.title);
+      title.href = m.url;
+      title.target = "_blank";
+      title.rel = "noopener";
+      title.appendChild(el("span", "", " ↗")).setAttribute("aria-hidden", "true"); // no-break space keeps the arrow with the last word
+      li.appendChild(title);
+      if (m.source) li.appendChild(el("p", "series-meta", m.source));
+      if (m.note) li.appendChild(rich(el("p", "series-material-note"), m.note));
+      list.appendChild(li);
+    });
+    box.appendChild(list);
+    return box;
+  }
 
   // A section label inside the panel, like "The situation".
   function heading(text) {
@@ -290,6 +311,7 @@
     var resources = el("div", s.mentimeter && s.mentimeter.embed ? "series-resources series-resources-stacked" : "series-resources");
     resources.appendChild(mentimeterBlock(s));
     if (s.tool) resources.appendChild(toolBlock(s.tool));
+    if (s.materials && s.materials.length) resources.appendChild(materialsBlock(s.materials));
     panel.appendChild(resources);
     if (s.situation) { heading("The situation"); paragraph(s.situation); }
     if (s.role) { heading("My role"); paragraph(s.role); }

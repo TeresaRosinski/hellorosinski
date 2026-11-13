@@ -46,6 +46,13 @@
                     title, description (optional: one line on what it is and why I built it),
                     objective, builtWith (a list of tech), credit (one line),
                     url ("" shows "coming soon")
+    materials     optional: videos and articles used in the session, shown under "See it" as
+                  "Shared in the session". One entry each: { type, title, source, url, note }
+                    type    a short tag, like "Video" or "Article"
+                    title   the original title, linked to url (opens in a new tab)
+                    source  who published it, like "TED-Ed" or "60 Minutes"
+                    note    optional: one line on how it was used in the session
+                  Link to the original; don't copy or re-host other people's videos.
     nextSteps     what I'd do next time: { label, text }
 
   Template for a new session (paste it inside "sessions: [ ... ]", with a comma between entries):
@@ -76,6 +83,9 @@
         credit: "Designed by Teresa; built with AI coding assistance.",
         url: ""
       },
+      materials: [
+        { type: "Video", title: "", source: "", url: "", note: "" }
+      ],
       nextSteps: [
         { label: "", text: "" }
       ]
@@ -181,6 +191,105 @@ var SERIES = {
       nextSteps: [
         { label: "Focus the closing question on AI:", text: "ask only what people want to learn about AI, since the series went on to focus on it." },
         { label: "End with a quick pulse check:", text: "one rating question on how useful the session felt, so I'd have more than anecdotes to learn from." }
+      ]
+    },
+    {
+      number: 2,
+      title: "Feathers, Frameworks, and Functions: The Arc of Adaptive Learning",
+      goal: "From pigeons to AI: how humans and machines learn.",
+      meta: {
+        format: "Live virtual discussion",
+        date: "October 2023",
+        duration: "60 min",
+        participants: 5,
+        audience: "Creative technology team",
+        tools: ["Mentimeter", "Microsoft Teams"]
+      },
+      situation: "AI in coding was still new. In standups and team meetings, most teammates had few uses for AI, and the tone was generally pessimistic. I planned this session to make AI feel more familiar and less stressful: a shared hour to learn how AI learns and talk it through together.",
+      audience: "Five front-end developers on Epsilon's creative technology team, live on Teams. Teammates in India couldn't join at that time of day.",
+      objectives: [
+        "Give an example of classical or operant conditioning from their own life.",
+        "Explain how some AI learns the way operant conditioning works: by being rewarded for good results.",
+        "Name one reason to stay curious and cautious about AI as it develops."
+      ],
+      designChoices: [
+        {
+          label: "Ask the same question at the start and the end.",
+          text: "The session opened and closed with one poll, to see whether anything changed: *Do you think humans and machines learn in similar ways?* (yes / no / maybe / other)"
+        },
+        {
+          label: "Start with how humans learn.",
+          text: "Before talking about machines, I wanted people to look at how they learn. In my experience, a topic sticks when people connect it to their own lives. A short video by Peggy Andover explained classical and operant conditioning. The question was on screen before it played, so people could take notes: *Can you think of an example of operant or classical conditioning in your life?*",
+          image: {
+            src: "images/session-2/conditioning-answers.jpg",
+            alt: "Mentimeter answers to: Can you think of an example of operant or classical conditioning in your life? Answers: pairing coffee and meditation; I go for runs in the morning and get coffee or tea after; things I do with Diego, I try to focus on positive reinforcement, operant conditioning; when I open a can, the sound makes my cat think it's tuna even if it's beans or something he doesn't like.",
+            caption: "Four examples, all from everyday life.",
+            width: 625,
+            height: 348
+          }
+        },
+        {
+          label: "Let a pigeon make the leap.",
+          text: "Next came a short video on Pablo Escobar's carrier pigeons: a fun story that challenges the idea that only humans learn. If a pigeon can be trained to carry messages, what could a machine be trained to do? So I asked: *What problem would you train an AI algorithm to solve for?*",
+          image: {
+            src: "images/session-2/train-an-ai-answers.jpg",
+            alt: "Mentimeter answers to: What problem would you train an AI algorithm to solve for? Answers: world hunger, politics; optimize time and scheduling but personalized for me; meal prep and grocery shopping lists based on the foods I'll actually eat and cook and that are good for my specific health needs; how to optimize my day by taking in all the data from all of my devices; traffic; healthier, affordable food options; advance medical tech; to know what our pets are thinking.",
+            caption: "Eight ideas, from meal prep to medical tech.",
+            width: 618,
+            height: 355
+          }
+        },
+        {
+          label: "Show the good and the bad, from a trusted source.",
+          text: "To a pessimistic group, talking only about AI's benefits would sound unrealistic, like I was just selling AI. I needed to earn their trust. So I chose Geoffrey Hinton's *60 Minutes* interview, where an AI expert talks about AI's benefits and risks. It also shows how AI learns: robots that were never taught soccer learned to play because they were rewarded each time they scored."
+        },
+        {
+          label: "Give a long video a focus.",
+          text: "The Hinton interview runs 13 minutes and covers a lot. Showing the discussion question first gave people something to listen for: *What threads or connections do you see between the way humans and machines learn?*",
+          image: {
+            src: "images/session-2/threads-answers.jpg",
+            alt: "Mentimeter answers to: What threads or connections do you see between the way humans and machines learn? Answers: we don't know how either one fully works; both still need some sort of human teaching it, it all comes from something a human made; sounds like we both default to being results-based; both develop a neural network based on previous experience.",
+            caption: "What people saw in common between human and machine learning.",
+            width: 640,
+            height: 373
+          }
+        },
+        {
+          label: "Try continuing the discussion in Teams.",
+          text: "The last slide promised one or two follow-up questions in our Teams channel. The experiment was for two groups the live hour didn't serve: people who need time to think before they speak, and teammates in India."
+        }
+      ],
+      results: [
+        {
+          quote: "Both still need some sort of human teaching it, it all comes from something a human made.",
+          source: "a participant, in the live poll, on what connects human and machine learning",
+          highlight: true
+        },
+        { text: "Other answers to that question: *\"We don't know how either one fully works\"* and *\"Sounds like we both default to being results-based.\"*" },
+        { text: "Asked what they would train an AI to solve, people gave 8 ideas, from meal prep for *\"my specific health needs\"* to traffic, medical technology, and *\"what our pets are thinking.\"* None were about our own work." },
+        { text: "All 4 conditioning examples came from everyday life, like a cat who hears a can open and expects tuna." },
+        { text: "The opening poll: 3 *Maybe*, 2 *No*. The closing poll: 3 *Maybe*, 2 *Other*. The poll was anonymous, and I don't know what *Other* meant to people." },
+        { label: "The Teams discussion got no replies,", text: "while every live question got answers. So I didn't repeat the experiment." }
+      ],
+      foundations: [
+        { name: "Adult learning principles (Knowles)", text: "each discussion question asked people to draw on their own experience, from conditioning in their lives to problems they'd want AI to solve." },
+        { name: "Bloom's taxonomy", text: "a first look at the topic, pitched at *understand*: people gave examples from their own lives before comparing human and machine learning." },
+        { name: "ADKAR", text: "an early *Awareness* session. The Hinton interview showed why AI matters, risks included, from a credible expert." }
+      ],
+      mentimeter: {
+        link: "https://www.mentimeter.com/app/presentation/alub5b4dswdaz7am52aap2tfvfnh36wc/view",
+        embed: "https://www.mentimeter.com/app/presentation/alub5b4dswdaz7am52aap2tfvfnh36wc/embed",
+        note: "The full session flow. The live answers are in the screenshots above; the shared deck doesn't show them."
+      },
+      materials: [
+        { type: "Video", title: "The difference between classical and operant conditioning", source: "TED-Ed, Peggy Andover", url: "https://www.youtube.com/watch?v=H6LEcM0E0io", note: "How humans learn: the starting point." },
+        { type: "Video", title: "Pablo Escobar's Use of Carrier Pigeons Has a Fascinating History", source: "Smithsonian Channel", url: "https://www.youtube.com/watch?v=PYQzgyMvsn0", note: "The bridge from people to machines." },
+        { type: "Video", title: "\"Godfather of AI\" Geoffrey Hinton: The 60 Minutes Interview", source: "60 Minutes", url: "https://www.youtube.com/watch?v=qrvK_KuIeJk", note: "How AI learns, and its benefits and risks." }
+      ],
+      nextSteps: [
+        { label: "Tie it back to our work:", text: "add a follow-up question, *What would we need to teach AI to get it to work well for us?*, so the ideas move from personal life to the team's real tasks." },
+        { label: "Make the connection explicit:", text: "after the Hinton interview, ask *Did the robots learn through operant or classical conditioning?* so people link the robots back to how they learn themselves." },
+        { label: "Keep discussion live for this team:", text: "keep reflection inside the live session, since the async thread got no replies." }
       ]
     },
     {
