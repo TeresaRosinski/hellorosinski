@@ -20,7 +20,7 @@ For each theory: what it says in one line, what counts as evidence in a session,
 ## Cognitive load theory / worked examples (Sweller)
 **Idea:** working memory is limited; worked examples, templates, and removing unnecessary steps free attention for the actual learning.
 **Evidence:** templates, example answers, ready-made prompts, chunked steps, deliberately cutting non-essential content.
-**Avoid:** claiming it just because the session was short.
+**Avoid:** claiming it just because the session was short. A question shown *before* a video (to tell people what to watch for) is closer to signaling or a pre-question than to cognitive load; two reviewers flagged that in Session 2, so don't use this theory for it.
 
 ## Scaffolding (Vygotsky's zone of proximal development; Wood, Bruner & Ross)
 **Idea:** support learners to do what they can't yet do alone, then remove the support over time.
@@ -42,7 +42,7 @@ For each theory: what it says in one line, what counts as evidence in a session,
 **Evidence, per stage:**
 - *Awareness:* helping people understand **why the change is needed** (the business reason). Often comes from leadership, not the session.
 - *Desire:* building personal motivation to take part ("what's in it for me", reducing fear, choice).
-- *Knowledge:* knowing how to make the change (instruction, demonstration).
+- *Knowledge:* knowing how to make the change (instruction, demonstration). Concepts about how AI works are not *Knowledge*; a concept-only session with a balanced "why it matters" view is honestly an *Awareness* session (Session 2).
 - *Ability:* actually doing it, with practice, ideally on real work.
 - *Reinforcement:* sustaining the change (recognition, follow-up, check-ins, manager accountability).
 **Avoid:** "what's in it for me" as Awareness (it's Desire); resources or recordings as Reinforcement (they're support); claiming all five stages from one session.
