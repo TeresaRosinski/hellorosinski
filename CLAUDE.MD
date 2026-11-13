@@ -49,6 +49,7 @@ Commit prefixes:
 - Use only the values in `public/css/tokens.css`. Don't introduce new colors, fonts, or sizes. If something seems missing, ask.
 - Read `BRAND.md` before any visual change. Plum and green have different jobs depending on the page.
 - Light mode only. Don't add a dark theme unless asked.
+- Adding a section: add its link to the nav in `public/index.html`, then raise the menu switch point in `public/css/layout.css` ("Nav: small screens") and check the nav at phone width. The switch point is set by hand, so a new link can otherwise crowd the bar.
 
 ## Quality bar
 
