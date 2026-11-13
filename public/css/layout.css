@@ -2,28 +2,31 @@
   Layout: the parts of the page that frame the content (nav, hero, footer).
 */
 
-/* ---------- Nav ---------- */
+/* ---------- Nav ----------
+   Wide screens: "Teresa." on the left; section links and the Résumé button on the right.
+   Small screens: "Teresa.", Résumé and a Menu button; the section links move into the menu.
+   The nav is a size container, so it switches based on its own width (see "Nav: small screens"). */
 
 .nav {
+  container: nav / inline-size;
   position: sticky;
   top: 0;
   z-index: 20;
+  width: 100%;
   background: var(--surface);
   border-bottom: var(--border-hairline) solid var(--surface-mist);
 }
 
-/* No breakpoints: the links sit beside the wordmark when they fit,
-   and drop to their own row underneath when they don't. */
+/* The background spans the whole screen; the contents line up with the page (content-max). */
 .nav-inner {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-2) var(--space-4);
+  gap: var(--space-4);
   min-height: var(--space-12);
   max-width: var(--content-max);
   margin-inline: auto;
-  padding: var(--space-2) var(--space-4);
+  padding-inline: var(--space-4);
 }
 
 /* The wordmark: "Teresa" in Montserrat Bold with a plum period (see BRAND.md, Logo). */
@@ -33,22 +36,38 @@
   font-weight: 700;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-brand span {
   color: var(--plum);
 }
 
-/* Section links: edit them in index.html, inside the nav. */
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* Section links, in the bar. The list is also the small-screen menu (a popover), so this
+   undoes the browser's built-in popover look while the links sit in the bar. */
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-6);
+  gap: var(--space-6);
+  position: static;
+  inset: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: none;
+  color: inherit;
+  list-style: none;
   font: var(--text-label);
 }
 
-/* Each link stays on one line, so "AI Learning Series" never stacks. */
 .nav-links a {
   color: var(--ink-soft);
   text-decoration: none;
@@ -57,6 +76,105 @@
 
 .nav-links a:hover {
   color: var(--plum);
+}
+
+/* Résumé: a small outlined pill (button-secondary), so the one link that opens a document,
+   not a section of this page, stands apart. */
+.nav-resume {
+  padding: var(--space-2) var(--space-4);
+  font: var(--text-label);
+  white-space: nowrap;
+}
+
+/* Menu button: hidden on wide screens. */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  margin-inline-end: calc(var(--space-2) * -1); /* lines the icon up with the page edge */
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  color: var(--plum);
+}
+
+.nav-toggle svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* The icon turns from ☰ to ✕ while the menu is open. */
+.nav-toggle-close,
+.nav:has(.nav-links:popover-open) .nav-toggle-open {
+  display: none;
+}
+
+.nav:has(.nav-links:popover-open) .nav-toggle-close {
+  display: block;
+}
+
+/* ---------- Nav: small screens ----------
+   Switch point: when the nav is narrower than everything in the bar needs (about 440px with
+   today's links, plus room to spare). It's in rem, so people who set a larger text size get
+   the menu sooner. WHEN YOU ADD A SECTION LINK, raise this number: roughly +1rem for every
+   10 characters of link text, plus 1.5rem for the space between links. */
+@container nav (width < 30rem) {
+  .nav-end {
+    gap: var(--space-3);
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links:not(:popover-open) {
+    display: none;
+  }
+
+  /* The open menu: a full-width panel just under the bar, one link per line. */
+  .nav-links:popover-open {
+    position: fixed;
+    inset: calc(var(--space-12) + var(--border-hairline)) 0 auto 0;
+    flex-direction: column;
+    gap: 0;
+    padding-block: var(--space-2);
+    background: var(--surface);
+    border-bottom: var(--border-hairline) solid var(--surface-mist);
+    font: var(--text-button);
+  }
+
+  .nav-links:popover-open a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    color: var(--ink);
+  }
+
+  .nav-links:popover-open a:hover {
+    color: var(--plum);
+  }
+}
+
+/* The menu lifts gently into place when it opens (BRAND.md, Motion: direct feedback is quick). */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-links:popover-open {
+    transition: opacity var(--duration-quick) var(--ease-settle),
+                transform var(--duration-quick) var(--ease-settle);
+  }
+
+  @starting-style {
+    .nav-links:popover-open {
+      opacity: 0;
+      transform: translateY(calc(var(--space-2) * -1));
+    }
+  }
 }
 
 /* ---------- Hero ---------- */

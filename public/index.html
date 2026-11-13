@@ -35,11 +35,22 @@
   <nav class="nav" aria-label="Main">
     <div class="nav-inner">
       <a class="nav-brand" href="#top">Teresa<span>.</span></a>
-      <!-- Nav links: one per section on the page. Add a link here when you add a section. -->
-      <div class="nav-links" id="nav-links">
-        <a href="#ai-learning">AI Learning Series</a>
-        <a href="#contact">Contact</a>
-        <a href="Teresa-Rosinski-Resume.pdf" target="_blank" rel="noopener">Résumé<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
+      <div class="nav-end">
+        <!-- Section links: one per section on the page. Add a link here when you add a section,
+             then check the menu switch point in css/layout.css ("Nav: small screens").
+             Wide screens show these in the bar; small screens show them in the menu (a popover). -->
+        <ul class="nav-links" id="nav-menu" popover>
+          <li><a href="#ai-learning">AI Learning Series</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Résumé stays visible at every screen size. -->
+        <a class="button button-secondary nav-resume" href="Teresa-Rosinski-Resume.pdf" target="_blank" rel="noopener">Résumé<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
+        <!-- Menu button: only shows on small screens. The browser handles opening, closing,
+             the Escape key and telling screen readers whether it's open. -->
+        <button class="nav-toggle" type="button" popovertarget="nav-menu" aria-label="Menu">
+          <svg class="nav-toggle-open" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="nav-toggle-close" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
     </div>
   </nav>
@@ -84,6 +95,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="js/nav.js"></script>
   <script defer src="js/hero.js"></script>
   <script defer src="js/contact.js"></script>
   <script src="js/sessions.js"></script>
