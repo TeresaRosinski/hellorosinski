@@ -188,6 +188,10 @@ var SERIES = {
         embed: "https://www.mentimeter.com/app/presentation/ald7uhkf7x1zuno4rqtvptd9xsfrhrhb/embed",
         note: "The full session, including the live polls and open answers."
       },
+      materials: [
+        { type: "Article", title: "AI resurrection of Brazilian singer for car ad sparks joy and ethical worries", source: "The Guardian, July 2023", url: "https://www.theguardian.com/world/2023/jul/14/brazil-singer-elis-regina-artificial-intelligence-volkswagen", note: "Everyone read it on their own before the discussion." },
+        { type: "Video", title: "VW 70 anos | Gerações | VW Brasil", source: "Volkswagen do Brasil", url: "https://www.youtube.com/watch?v=aMl54-kqphE", note: "The ad that recreated the late singer Elis Regina with AI." }
+      ],
       nextSteps: [
         { label: "Focus the closing question on AI:", text: "ask only what people want to learn about AI, since the series went on to focus on it." },
         { label: "End with a quick pulse check:", text: "one rating question on how useful the session felt, so I'd have more than anecdotes to learn from." }
