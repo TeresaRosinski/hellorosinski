@@ -20,6 +20,7 @@ Ask **one question per message**. Adapt the wording to what she's already said; 
 11. What happened as a result? Quotes, requests, follow-ups, later use, anything.
 12. How many finished / took part / responded? A rough number or "I don't know" is fine. **Never invent one.**
 13. What artifacts exist that can be shared publicly (Mentimeter, slides, tools, screenshots)? When was each made: before, during, or after the session?
+13b. Which videos or articles did people watch or read in the session? Get a link to each (check the Mentimeter deck first; see SKILL.md). These go in the `materials` field.
 
 ## Reflection
 14. If you ran it again, what would you change or add, and why?

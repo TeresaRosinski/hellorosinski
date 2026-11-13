@@ -43,6 +43,9 @@ The authoritative field list is the comment at the top of `public/js/sessions.js
   ],
   foundations: [{ name: "", text: "" }],
   mentimeter: { link: "", embed: "", note: "" },
+  materials: [                    // optional: videos and articles used; shown as "Shared in the session"
+    { type: "Video", title: "", source: "", url: "", note: "" }
+  ],
   tool: { title: "", description: "", objective: "", builtWith: [""], credit: "", url: "" },
   nextSteps: [{ label: "", text: "" }]
 }
