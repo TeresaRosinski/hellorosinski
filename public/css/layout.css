@@ -78,12 +78,34 @@
   color: var(--plum);
 }
 
-/* Résumé: a small outlined pill (button-secondary), so the one link that opens a document,
-   not a section of this page, stands apart. */
-.button.nav-resume { /* ".button" too, so this wins over the full-size button style further down */
-  padding: var(--space-2) var(--space-3);
+/* Résumé: plum text with a small ↗, so the one link that opens a document (not a section of
+   this page) stands apart without adding another pill next to the hero buttons.
+   The padding gives it a comfortable tap target without changing how it looks. */
+.nav-resume {
+  display: inline-flex;
+  align-items: baseline;
+  gap: calc(var(--space-2) / 2);
+  padding-block: var(--space-2);
   font: var(--text-label);
+  color: var(--plum);
+  text-decoration: none;
   white-space: nowrap;
+}
+
+.nav-resume:hover {
+  color: var(--plum-deep);
+}
+
+/* The arrow nudges up and to the right on hover: "this opens somewhere else". */
+.nav-resume-arrow {
+  transition: transform var(--duration-quick) var(--ease-settle);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-resume:hover .nav-resume-arrow,
+  .nav-resume:focus-visible .nav-resume-arrow {
+    transform: translate(calc(var(--space-2) / 4), calc(var(--space-2) / -4));
+  }
 }
 
 /* Menu button: hidden on wide screens. */
