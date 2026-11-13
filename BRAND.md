@@ -142,6 +142,7 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 - **Content works without motion.** Text is readable if scripts fail to load; animation only adds to it.
 - **Respect reduced motion.** When a visitor's system asks for less motion, show the finished state with no animation.
 - **Keep the main content fast.** The largest text on the page starts at 1% opacity, not 0, so it still counts as loaded right away. Readable well before it finishes settling is fine.
+- **Let go when finished.** CSS entrances use `backwards`, not `both` or `forwards`, so they release once they end (their last frame should match the normal look). Only ask the browser for a separate layer (`will-change`) while something is moving. Holding a finished animation kept the hero name on its own layer, and Safari could drop it and redraw it late after a resize, so the name blinked out.
 - **GSAP for systems, CSS for single effects.** A one-off entrance is CSS. Coordinated or interactive motion (cards to panel, word-by-word text, scroll timelines) uses GSAP with the same tokens.
 
 ## Usage by surface

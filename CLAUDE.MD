@@ -59,6 +59,7 @@ Commit prefixes:
 - Videos hosted on Vimeo or YouTube (unlisted) and embedded. Never commit video files.
 - Other people's videos and articles (used in a session) are linked, not embedded or re-hosted: add them to the session's `materials` field in `sessions.js`, which shows them as "Shared in the session."
 - Every page has a `<title>` and a meta description, since these control how links look when shared.
+- Claude's built-in browser is Chromium-based, so it can't catch Safari-only problems. After a change to motion or layout, say so instead of reporting it fully verified, and point Teresa to the resize test and Safari check in the pull request template.
 
 ## Content accuracy
 
