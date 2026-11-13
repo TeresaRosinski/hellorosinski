@@ -12,15 +12,18 @@
   border-bottom: var(--border-hairline) solid var(--surface-mist);
 }
 
+/* No breakpoints: the links sit beside the wordmark when they fit,
+   and drop to their own row underneath when they don't. */
 .nav-inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-2) var(--space-4);
   min-height: var(--space-12);
   max-width: var(--content-max);
   margin-inline: auto;
-  padding-inline: var(--space-4);
+  padding: var(--space-2) var(--space-4);
 }
 
 /* The wordmark: "Teresa" in Montserrat Bold with a plum period (see BRAND.md, Logo). */
@@ -39,13 +42,17 @@
 /* Section links: edit them in index.html, inside the nav. */
 .nav-links {
   display: flex;
-  gap: var(--space-6);
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-6);
   font: var(--text-label);
 }
 
+/* Each link stays on one line, so "AI Learning Series" never stacks. */
 .nav-links a {
   color: var(--ink-soft);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
