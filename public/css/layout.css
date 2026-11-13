@@ -80,8 +80,8 @@
 
 /* Résumé: a small outlined pill (button-secondary), so the one link that opens a document,
    not a section of this page, stands apart. */
-.nav-resume {
-  padding: var(--space-2) var(--space-4);
+.button.nav-resume { /* ".button" too, so this wins over the full-size button style further down */
+  padding: var(--space-2) var(--space-3);
   font: var(--text-label);
   white-space: nowrap;
 }
