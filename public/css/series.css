@@ -429,6 +429,48 @@
   font: var(--text-lede);
 }
 
+/* "Shared in the session": the videos and articles used, side by side when they fit. */
+.series-materials {
+  grid-column: 1 / -1;
+  align-items: stretch;
+}
+
+.series-materials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--content-max) / 4)), 1fr));
+  gap: var(--space-4) var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.series-material {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.series-material-title {
+  font-weight: 600;
+  text-decoration-color: var(--plum-soft);
+  text-underline-offset: 0.2em;
+}
+
+.series-material-title:hover {
+  color: var(--plum);
+  text-decoration-color: currentColor;
+}
+
+.series-material .series-meta,
+.series-material-note {
+  margin: 0;
+}
+
+.series-material-note {
+  font: var(--text-caption);
+}
+
 .series-meta,
 .series-soon {
   font: var(--text-caption);

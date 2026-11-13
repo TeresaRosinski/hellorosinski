@@ -46,6 +46,13 @@
                     title, description (optional: one line on what it is and why I built it),
                     objective, builtWith (a list of tech), credit (one line),
                     url ("" shows "coming soon")
+    materials     optional: videos and articles used in the session, shown under "See it" as
+                  "Shared in the session". One entry each: { type, title, source, url, note }
+                    type    a short tag, like "Video" or "Article"
+                    title   the original title, linked to url (opens in a new tab)
+                    source  who published it, like "TED-Ed" or "60 Minutes"
+                    note    optional: one line on how it was used in the session
+                  Link to the original; don't copy or re-host other people's videos.
     nextSteps     what I'd do next time: { label, text }
 
   Template for a new session (paste it inside "sessions: [ ... ]", with a comma between entries):
@@ -76,6 +83,9 @@
         credit: "Designed by Teresa; built with AI coding assistance.",
         url: ""
       },
+      materials: [
+        { type: "Video", title: "", source: "", url: "", note: "" }
+      ],
       nextSteps: [
         { label: "", text: "" }
       ]
