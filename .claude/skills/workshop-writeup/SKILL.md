@@ -22,6 +22,8 @@ Read `references/interview-questions.md` and work through it **one question per 
 - After each answer, say in one or two lines what it adds (what's strong, what it unlocks), then ask the next question.
 - Ask the follow-ups the guide lists whenever an answer is vague ("How did you know that?", "What were the exact words?").
 - If she shares a Mentimeter link, slides, or screenshots, read them and use them as evidence, but confirm anything you infer from them.
+- **Reading a Mentimeter deck:** open the link in the built-in browser and use `get_page_text` for the slide text. Video slides show no text; their YouTube IDs are in the page HTML (search it for `youtube-nocookie.com/embed/<id>`). Get each video's exact title and channel from YouTube's oEmbed endpoint (`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>&format=json`). Shared decks often show **0 responses**, so live results must come from her screenshots; never read zeros as "no one answered."
+- **Confirm answers that read backwards.** A quick typed answer once said "most people *did* have many use cases" when she meant "did not." If an answer contradicts the rest of what she's said, check it before using it.
 - Stop interviewing when every section of the structure has real material or an honest "we don't know."
 
 ### 2. Draft
@@ -60,7 +62,9 @@ Follow `references/synthesis.md`:
 
 - Save the final write-up to `content/session-N.md` (and delete `content/session-N-draft.md`).
 - Write the proposed `sessions.js` entry into the same file, under a heading "Proposed sessions.js entry", as a code block.
-- **Do not edit `public/js/sessions.js`** until Teresa says the write-up is approved. When she does, follow CLAUDE.md: a `content/<name>` branch **cut from `main`**, one change per commit, and she merges. Give her the pull request link with the base set explicitly: `https://github.com/TeresaRosinski/hellorosinski/compare/main...<branch>?expand=1`. Merging to `main` publishes to hellorosinski.com, so she reviews the preview first.
+- **Do not edit `public/js/sessions.js`** until Teresa says the write-up is approved. Until then the session isn't in the site's code, so it won't show in Live Server or a preview; say so if she asks where it is. When she approves, follow CLAUDE.md: a `content/session-N` branch **cut from `main`**, one change per commit (screenshots; the sessions.js entry; the `content/session-N.md` source), and she merges.
+- **Screenshots:** convert to JPEG with `sips -s format jpeg -s formatOptions 80 in.png --out public/images/session-N/<name>.jpg` (Session 2's came out at 31–36 KB), and set `width` and `height` from `sips -g pixelWidth -g pixelHeight`.
+- **Check it renders:** parse `sessions.js` with node, then open `#session-N` in the `portfolio` preview. If changes don't appear, the browser is serving a cached `sessions.js`; reload it with `fetch(url, {cache: "reload"})` before reloading the page (for Teresa: Cmd+Shift+R). Give her the pull request link with the base set explicitly: `https://github.com/TeresaRosinski/hellorosinski/compare/main...<branch>?expand=1`. Merging to `main` publishes to hellorosinski.com, so she reviews the preview first.
 
 ## Lessons already learned (don't repeat these mistakes)
 
@@ -72,3 +76,13 @@ Follow `references/synthesis.md`:
 - The tool was built *after* the session. Check when artifacts were made before saying they were used in the room.
 - A reviewer flag was once silently kept. That's why the flag checklist exists.
 - "The team set the agenda" overstated a vote. Separate what learners *decided* (a vote) from what they *suggested* and she decided.
+
+From Session 2:
+- **An objective needs an activity that produced evidence.** "Describe one benefit and one risk Hinton raised" had no prompt that asked it, and all three reviewers flagged it. Check each objective against a slide, poll, or answer.
+- **Objectives are often written afterwards.** That's fine, but say so in the review notes, and build them from what learners actually did. The site's header ("By the end of the session, learners can:") is fixed.
+- **Intent goes in "The situation," not in objectives or results.** Her aims (make AI familiar and less stressful, have fun) are real reasons, but nothing measured stress, so the page says "I planned this session to make AI… less stressful," never that it did.
+- **Anonymous before/after polls can't show anyone changed their mind.** Report both counts plainly, say what's unknown (what "Other" meant), and don't make it the headline result.
+- **One unanswered async thread isn't a trait of the team.** Say what happened (live questions got answers; the thread got none) and what she decided.
+- **"What I'd do next" must not imply something was missing.** "Build in reflection time" was wrong because the session already had it; "keep reflection inside the live session" was right.
+- **Shorten an employer-critical phrase, with her OK.** "Like a mouthpiece for the company" became "like I was just selling AI," since Epsilon is named on the page.
+- **Gather the videos and articles used** for the `materials` field during the interview (question 13). Link to the originals; don't re-host them.
