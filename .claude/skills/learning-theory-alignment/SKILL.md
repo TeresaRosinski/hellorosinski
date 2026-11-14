@@ -1,13 +1,13 @@
 ---
 name: learning-theory-alignment
-description: Map a workshop's design choices to adult learning, motivation, and change-management theories (Knowles, Kolb, self-determination theory, cognitive load, scaffolding, social learning, ADKAR, Kirkpatrick, Bloom's), with evidence required for every claim. Use when writing the "Learning foundations" section of a session write-up, when Teresa asks which theories a session aligns with, or when she wants to check a new workshop design for gaps before running it.
+description: Map a workshop's design choices to a closed list of eight sourced theories (Knowles's adult learning, self-determination theory, cognitive load, psychological safety, ADKAR, Kirkpatrick, Bloom's revised taxonomy, ADDIE), with evidence required for every claim. Use when writing the "Learning foundations" section of a session write-up, when Teresa asks which theories a session aligns with, or when she wants to check a new workshop design for gaps before running it.
 ---
 
 # Learning-theory alignment
 
 Connect what Teresa actually did to established theory, honestly. Theory explains *why* her choices worked; it must never be stretched to cover something she didn't do.
 
-Use the reference list in `references/theories.md`. Each theory there says what counts as evidence.
+Use the reference list in `references/theories.md`. Each theory there names its source and says what counts as evidence. It's a closed list: don't claim a theory that isn't on it. If a session seems to fit one that isn't, tell Teresa and suggest adding a source first. The file also lists Teresa's own practices from her training (75/25, show don't tell); use them only as labeled practices in her voice, never as theories.
 
 ## Two modes
 
