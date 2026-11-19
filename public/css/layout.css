@@ -228,7 +228,7 @@
 /* ---------- Hero entrance ----------
    One choreography for the whole hero, sharing the flowers' easing so it all moves as one:
    the name rises in and its plum period pops like a seed; each role rises in just before
-   its peony blooms (role, bloom, role, bloom, role, bloom, role); then the intro line arrives word by word
+   its peony blooms (role, bloom, role, bloom, role); then the intro line arrives word by word
    (js/hero.js, using GSAP SplitText).
    Everything lifts into place and lingers, arriving crisp (BRAND.md, Motion; tokens in tokens.css).
    Uses only fade and rise (no blur: it shimmers on low-res screens), so nothing shifts around.
@@ -259,7 +259,6 @@
 .hero-role:nth-child(1) { animation-delay: 200ms; }
 .hero-role:nth-child(2) { animation-delay: 650ms; }
 .hero-role:nth-child(3) { animation-delay: 1100ms; }
-.hero-role:nth-child(4) { animation-delay: 1550ms; }
 
 /* The intro line. js/hero.js reveals it word by word after the roles. Until then it sits at 1%
    (not 0%), so browsers still count it as the page's main content right away.
@@ -315,7 +314,7 @@
 /* ---------- Hero flowers ----------
    A peony between the roles (drawing: brand/flowers/plum-peony.svg, stored once in index.html).
    On load, each peony opens from its center outward, easing in with a slight settling turn.
-   Plays once; each follows as the one before it finishes. Color comes from tokens.css. */
+   Plays once; the second follows as the first finishes. Color comes from tokens.css. */
 
 /* Holds the reusable drawings; takes no space on the page. */
 .sprite {
@@ -337,10 +336,6 @@
 
 .hero-flower-second {
   animation-delay: 900ms;
-}
-
-.hero-flower-third {
-  animation-delay: 1350ms;
 }
 
 /* Opens from the center outward (like petals unfurling), fading in and turning gently into place. */
