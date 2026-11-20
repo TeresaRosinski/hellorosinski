@@ -153,6 +153,27 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 
 **Standalone tools** — green-led. The button, the active step, the progress fill are all green. Plum shows up once, structurally (a header bar, a nav element), so a tool is still recognizably part of the same system without competing with green for the user's attention while they're trying to get something done.
 
+## Flowers
+
+A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks, not decoration: each one belongs to a single place, so it comes to mean that place.
+
+- **The plum peony is Teresa's personal mark.** It appears on the homepage hero and nowhere else.
+- **Each standalone tool gets its own green flower,** since tools are green-led. One flower per tool, placed once, after the tool's headline, never inside the working area.
+- **The plum flowers are kept for portfolio sections** (for example, an About section or a future course).
+
+| Flower | Colors | Belongs to |
+|---|---|---|
+| Plum peony | `plum` | Teresa: homepage hero |
+| Deep green chrysanthemum | `green-deep` | Product Quiz Planner. Many petals branching from one center, like answers branching into results |
+| Green poppy | `green`, `plum-deep` | Unassigned (suggested: Make it your agent) |
+| Green ruffled peony | `green`, `green-soft` | Unassigned (suggested: the emotional-regulation practice tool) |
+| Plum folk flower | `plum`, `green-bright` | Unassigned (portfolio section) |
+| Plum rosette | `plum`, `plum-deep`, `plum-bright` | Unassigned (portfolio section) |
+
+**Files:** drawings in use live in `brand/flowers/`, slimmed for the web (the originals are 80–140 KB of traced points; slimmed copies are about 5–7 KB). Before adding one to a page, slim it and compare it against the original at full size.
+
+**On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. Keep it on the same line as the word before it, so it never wraps onto a line by itself.
+
 ## Open questions
 
 No dark mode yet — the portfolio is light-only today, and this system matches that rather than inventing a dark theme nobody asked for. Revisit if a surface genuinely needs one.
