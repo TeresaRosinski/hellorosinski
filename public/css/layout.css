@@ -468,57 +468,30 @@
   color: var(--plum);
 }
 
-/* The plum folk flower before the heading (BRAND.md, Flowers: plum flowers mark portfolio sections). */
-.how-i-work-flower {
-  width: 1.1em;
-  height: 0.95em; /* keeps the drawing's proportions (432 × 372) */
-  margin-inline-end: 0.3em;
-  vertical-align: -0.12em;
-}
-
-.how-i-work-flower .flower-petals {
-  fill: var(--plum);
-}
-
-.how-i-work-flower .flower-center {
-  fill: var(--green-bright);
-}
-
 /* ---------- Section blooms ----------
-   A heading marked data-bloom opens its flower and pops its plum period once, when it scrolls
-   into view (js/section-bloom.js says when). Same bloom and seed as the hero, so the page moves
-   as one. Only the flower and period move; the heading text is readable the whole time. */
-
-.how-i-work-flower {
-  transform-origin: 50% 55%;
-}
+   A heading marked data-bloom pops its plum period in once, when it scrolls into view
+   (js/section-bloom.js says when). Same seed as the hero's "Teresa.", so the page moves as one.
+   Only the period moves; the heading text is readable the whole time. */
 
 .how-i-work-period {
   transform-origin: 50% 85%;
 }
 
 /* Waiting to scroll into view. */
-.is-waiting .how-i-work-flower,
 .is-waiting .how-i-work-period {
   opacity: 0;
 }
 
-.is-blooming .how-i-work-flower {
-  animation: hero-bloom var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
-}
-
-/* The period pops in as the flower is opening (450ms later, the hero's beat). */
+/* The period pops in like the seed after "Teresa." */
 .is-blooming .how-i-work-period {
-  animation: hero-seed var(--duration-linger) var(--ease-settle) calc(var(--bloom-delay, 0ms) + 450ms) backwards;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .is-waiting .how-i-work-flower,
   .is-waiting .how-i-work-period {
     opacity: 1;
   }
 
-  .is-blooming .how-i-work-flower,
   .is-blooming .how-i-work-period {
     animation: none;
   }
