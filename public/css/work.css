@@ -10,9 +10,10 @@
   scroll-margin-top: var(--space-12); /* keeps the tiles clear of the sticky nav */
 }
 
-/* "What I do." sits above the tiles, like "How I work." above its cards. */
+/* "What I do." sits above the tiles on the right, answering "How I work." on the left. */
 .work .section-title {
   margin-top: var(--space-6);
+  text-align: right;
 }
 
 /* Tiles can be linked to directly (like #product-finder from the nav). */
