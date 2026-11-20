@@ -444,18 +444,18 @@
   background: var(--plum-soft);
 }
 
-/* ---------- What I do ----------
+/* ---------- How I work ----------
    Three calm deep-plum cards under the hero, one per thing the hero sentence names. Each card is a short
    heading, one sentence, and a link to the section that shows the work. Three across on wide
    screens, stacked on phones. */
 
-.what-i-do {
+.how-i-work {
   max-width: var(--content-max);
   margin-inline: auto;
   padding: 0 var(--space-4) var(--space-16);
 }
 
-.what-i-do-grid {
+.how-i-work-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
@@ -464,7 +464,7 @@
   list-style: none;
 }
 
-.what-i-do-card {
+.how-i-work-card {
   display: flex;
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
@@ -474,21 +474,21 @@
 
 /* On deep plum (like the "Let's talk" band): white headings (17.6:1), soft plum sentences (14.1:1),
    and bright plum links (7.0:1). */
-.what-i-do-card h3 {
+.how-i-work-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
   color: var(--surface);
   text-wrap: balance;
 }
 
-.what-i-do-card p {
+.how-i-work-card p {
   margin: 0 0 var(--space-6);
   font: var(--text-body);
   color: var(--plum-soft);
 }
 
 /* The link sits at the bottom of each card, so the three line up even when the sentences differ. */
-.what-i-do-link {
+.how-i-work-link {
   align-self: flex-start; /* keeps the focus ring around the link text only */
   margin-top: auto;
   font: var(--text-label);
@@ -496,22 +496,22 @@
   text-decoration: none;
 }
 
-.what-i-do-link:hover {
+.how-i-work-link:hover {
   color: var(--surface);
   text-decoration: underline;
 }
 
 /* Keyboard focus that shows up on deep plum (the default plum outline would disappear). */
-.what-i-do-link:focus-visible {
+.how-i-work-link:focus-visible {
   outline-color: var(--plum-bright);
 }
 
 @media (max-width: 48rem) {
-  .what-i-do-grid {
+  .how-i-work-grid {
     grid-template-columns: 1fr;
   }
 
-  .what-i-do-card {
+  .how-i-work-card {
     padding: var(--space-6) var(--space-4);
   }
 }
