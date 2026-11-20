@@ -445,7 +445,7 @@
 }
 
 /* ---------- What I do ----------
-   Three calm soft-green cards under the hero, one per thing the hero sentence names. Each card is a short
+   Three calm deep-green cards under the hero, one per thing the hero sentence names. Each card is a short
    heading, one sentence, and a link to the section that shows the work. Three across on wide
    screens, stacked on phones. */
 
@@ -469,36 +469,41 @@
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--green-soft);
+  background: var(--green-deep);
 }
 
-/* On soft green, headings are deep green and the sentence is ink (ink-soft gray is only 4.13:1 here,
-   below the 4.5:1 minimum). The links stay plum, so the strip still reads as Teresa's. */
+/* On deep green (like the case study tile): white headings (14.1:1), soft green sentences (11.5:1),
+   and bright plum links (5.6:1), so the strip still reads as Teresa's. */
 .what-i-do-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
-  color: var(--green-deep);
+  color: var(--surface);
   text-wrap: balance;
 }
 
 .what-i-do-card p {
-  margin: 0;
+  margin: 0 0 var(--space-6);
   font: var(--text-body);
-  color: var(--ink);
+  color: var(--green-soft);
 }
 
 /* The link sits at the bottom of each card, so the three line up even when the sentences differ. */
 .what-i-do-link {
+  align-self: flex-start; /* keeps the focus ring around the link text only */
   margin-top: auto;
-  padding-top: var(--space-6);
   font: var(--text-label);
-  color: var(--plum);
+  color: var(--plum-bright);
   text-decoration: none;
 }
 
 .what-i-do-link:hover {
-  color: var(--plum-deep);
+  color: var(--surface);
   text-decoration: underline;
+}
+
+/* Keyboard focus that shows up on deep green (the default plum outline would disappear). */
+.what-i-do-link:focus-visible {
+  outline-color: var(--plum-bright);
 }
 
 @media (max-width: 48rem) {
