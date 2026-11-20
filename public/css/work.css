@@ -115,6 +115,30 @@
   fill: var(--green-bright);
 }
 
+/* The flower opens once, like the hero peonies, when it scrolls into view (js/section-bloom.js says
+   when). People who ask for less motion, or whose browser skips the script, see it open already. */
+.tile-flower {
+  transform-origin: 50% 55%;
+}
+
+.is-waiting .tile-flower {
+  opacity: 0;
+}
+
+.is-blooming .tile-flower {
+  animation: hero-bloom var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-waiting .tile-flower {
+    opacity: 1;
+  }
+
+  .is-blooming .tile-flower {
+    animation: none;
+  }
+}
+
 /* ---------- Series tile: deep plum (like "How I work" and "Let's talk").
    On plum-deep: white headline, plum-soft line, plum-bright label. ---------- */
 
