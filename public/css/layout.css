@@ -463,8 +463,25 @@
   text-align: center;
 }
 
-.how-i-work-title span {
+.how-i-work-period {
+  display: inline-block;
   color: var(--plum);
+}
+
+/* The plum folk flower before the heading (BRAND.md, Flowers: plum flowers mark portfolio sections). */
+.how-i-work-flower {
+  width: 1.1em;
+  height: 0.95em; /* keeps the drawing's proportions (432 × 372) */
+  margin-inline-end: 0.3em;
+  vertical-align: -0.12em;
+}
+
+.how-i-work-flower .flower-petals {
+  fill: var(--plum);
+}
+
+.how-i-work-flower .flower-center {
+  fill: var(--green-bright);
 }
 
 .how-i-work-grid {
