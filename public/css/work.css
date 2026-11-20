@@ -161,7 +161,8 @@
   background: var(--surface);
 }
 
-/* Make It Your Agent: a progress bar, then three agent choices with the first one picked. */
+/* Make It Your Agent: a progress bar, then three agent choices with the first one picked.
+   Placeholder shapes are white on mist, like a page still loading; only the picked choice is green. */
 .shape-agent {
   display: grid;
   gap: var(--space-3);
@@ -196,16 +197,14 @@
   width: var(--space-6);
   height: var(--space-6);
   border-radius: 50%;
-  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--ink-soft);
-  opacity: 0.4;
+  background: var(--surface);
 }
 
 .shape-bar {
   width: 55%;
   height: var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--ink-soft);
-  opacity: 0.25;
+  background: var(--surface);
 }
 
 .shape-bar-long {
@@ -223,13 +222,6 @@
 
 .is-picked .shape-dot {
   background: var(--green);
-  box-shadow: none;
-  opacity: 1;
-}
-
-.is-picked .shape-bar {
-  background: var(--green);
-  opacity: 0.5;
 }
 
 /* ---------- Phones ---------- */
