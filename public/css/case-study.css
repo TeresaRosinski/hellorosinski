@@ -1,0 +1,115 @@
+/*
+  Case studies: one band per project, below the AI Learning Series.
+  Reuses the series styles for section labels, lists, the Mentimeter embed and pill buttons
+  (css/series.css), so every project section reads the same way.
+*/
+
+/* A full-width white band (the series band above is gray), content within --content-max. */
+.case {
+  padding-block: var(--space-16);
+  padding-inline: max(var(--space-4), calc((100% - var(--content-max)) / 2));
+  background: var(--surface);
+  scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
+}
+
+.case-head {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.case-eyebrow {
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.case-head h2 {
+  margin: var(--space-2) 0 var(--space-3);
+  font: var(--text-section);
+  text-wrap: balance;
+}
+
+.case-lede {
+  max-width: var(--measure);
+  margin-inline: auto;
+  font: var(--text-lede);
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
+.case-meta {
+  max-width: var(--measure);
+  margin: var(--space-3) auto 0;
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+/* Key gains: four tiles, side by side when they fit, stacked on phones. */
+.case-gains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--content-max) / 5)), 1fr));
+  gap: var(--space-4);
+  margin: 0 0 var(--space-8);
+  padding: 0;
+  list-style: none;
+}
+
+.case-gain {
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-mist);
+}
+
+.case-gain strong {
+  display: block;
+  margin-bottom: var(--space-2);
+  font: var(--text-tile);
+  color: var(--plum);
+}
+
+.case-gain span {
+  font: var(--text-caption);
+}
+
+/* The story: a gray panel, text kept to a readable line length. */
+.case-panel {
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--surface-mist);
+}
+
+.case-panel > p,
+.case-panel > ul,
+.case-panel > ol {
+  max-width: var(--measure);
+}
+
+.case-panel > p + p {
+  margin-top: var(--space-3);
+}
+
+.case-panel h3:first-child {
+  margin-top: 0;
+}
+
+/* Sub-points under a process step. */
+.case-panel ol ul {
+  margin-top: var(--space-2);
+  padding-left: var(--space-6);
+}
+
+/* Inside the gray panel, the resource boxes switch to white so they stand apart. */
+.case-panel .series-resource {
+  background: var(--surface);
+}
+
+/* Phones: less padding inside the panel and its boxes, so the text keeps a comfortable width. */
+@media (max-width: 40rem) {
+  .case-panel {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .case-panel .series-resource {
+    padding: var(--space-4);
+  }
+}
