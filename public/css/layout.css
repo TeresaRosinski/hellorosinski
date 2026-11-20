@@ -455,6 +455,11 @@
   padding: 0 var(--space-4) var(--space-16);
 }
 
+/* "How I work." sits on the left, lined up with the first card; "What I do." answers it on the right. */
+.how-i-work .section-title {
+  text-align: left;
+}
+
 /* Section headings like "How I work." and "What I do.": a section head like "AI Learning Series",
    ending in a plum period that echoes the "Teresa." wordmark. */
 .section-title {
