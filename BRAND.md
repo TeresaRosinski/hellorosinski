@@ -164,7 +164,7 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 | Flower | Colors | Belongs to |
 |---|---|---|
 | Plum peony | `plum` | Teresa: homepage hero |
-| Deep green chrysanthemum | `green-deep` | Product Quiz Planner. Many petals branching from one center, like answers branching into results |
+| Deep green chrysanthemum | `green-deep` | Product Finder Planner. Many petals branching from one center, like answers branching into results |
 | Green poppy | `green`, `plum-deep` | Unassigned (suggested: Make it your agent) |
 | Green ruffled peony | `green`, `green-soft` | Unassigned (suggested: the emotional-regulation practice tool) |
 | Plum folk flower | `plum`, `green-bright` | Unassigned (portfolio section) |
