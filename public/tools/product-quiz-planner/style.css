@@ -34,10 +34,10 @@ input,textarea,select,.element-choice{border-color:var(--ink-soft)}.element-choi
 /* Keep setup before results at every viewport width. */
 .workspace>aside,.workspace>.results{width:100%;min-width:0}aside>input,aside>select,aside>textarea,aside #questions input{max-width:560px}aside .element-picker{max-width:700px}aside .element-choices{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:600px){aside .element-choices{grid-template-columns:1fr}}
 
-.keep-together{white-space:nowrap}
-/* Tool flower: this tool's own bloom, after the headline (see BRAND.md, Flowers).
+/* Tool flower: this tool's own bloom, as its icon beside the tool name in the header (see BRAND.md, Flowers).
    Opens once on load like the homepage peonies; people who ask for less motion see it finished. */
-.tool-flower{display:inline-block;width:.9em;height:.75em;margin-left:.2em;vertical-align:-.05em;fill:var(--green-deep);transform-origin:50% 55%}
+.tag{display:flex;align-items:center;gap:10px}
+.tool-flower{flex:none;width:34px;height:28px;fill:var(--green-deep);transform-origin:50% 55%}
 @media (prefers-reduced-motion:no-preference){
   .tool-flower{animation:tool-bloom var(--duration-linger) var(--ease-settle) 300ms backwards}
 }
