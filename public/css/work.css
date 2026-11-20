@@ -112,6 +112,60 @@
   fill: var(--green-bright);
 }
 
+/* ---------- Series tile: deep plum (like "How I work" and "Let's talk"), with a short list of
+   sessions as its picture. On plum-deep: white headline, plum-soft line, plum-bright label. ---------- */
+
+.tile-plum {
+  background: var(--plum-deep);
+  color: var(--surface);
+}
+
+.tile-plum .tile-eyebrow {
+  color: var(--plum-bright);
+}
+
+.tile-plum .tile-line {
+  color: var(--plum-soft);
+}
+
+.tile-plum :focus-visible {
+  outline-color: var(--plum-bright);
+}
+
+.ui-chip-plum {
+  background: var(--plum-soft);
+  color: var(--plum);
+}
+
+.ui-sessions {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-sessions li {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-mist);
+  font: var(--text-control);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ui-sessions span {
+  display: block;
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+/* The newest session is highlighted, like the selected session card in the series. */
+.ui-sessions li:first-child {
+  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--plum);
+}
+
 /* ---------- Tool tile: a crisp version of the Planner's totals as its "product shot" ---------- */
 
 .tile-ui {
