@@ -14,6 +14,7 @@ Two colors carry the system, and they do different jobs on purpose.
 **Green** has two different jobs depending on the surface:
 
 - On the **portfolio**, green stays supportive — a quiet accent, not a second identity color. Use it for a tag on a climate- or sustainability-relevant project, a link hover state, or one small detail that signs a page without competing with plum.
+  - **One exception: a tool project's case study.** Its heading sits on a full-width `green-deep` band with the tool's flower in `green-bright`, so the section reads as a new chapter and signals "tool." Text on the band: white or `green-soft`, labels in `green-bright` (4.7:1). Keep everything below the band plum-led, and keep to one green band per project.
 - Inside the **standalone tools** (the emotional-regulation practice tool, and anything built after it), green is promoted to the primary interactive color — the button someone clicks, the step marked done, the progress fill. Plum still shows up in a tool's header or one structural element so it still reads as Teresa's work, but green carries the "what do I do next" job that plum, as an identity color, isn't built to carry.
 
 The choice of green isn't arbitrary: it's a real nod to the sustainability focus behind the job search these tools support, and a deliberately grounded, confident color — not a soft or decorative one — set next to the plum.
@@ -159,12 +160,13 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 
 - **The plum peony is Teresa's personal mark.** It appears on the homepage hero and nowhere else.
 - **Each standalone tool gets its own green flower,** since tools are green-led. One flower per tool, placed once: in the header, as the tool's icon right before the tool's name. Never inside the working area.
+- **A tool's flower may appear twice:** in the tool's header, and at the top of that tool's case study band on the portfolio. Both places are the same project, so the flower still means one thing.
 - **The plum flowers are kept for portfolio sections** (for example, an About section or a future course).
 
 | Flower | Colors | Belongs to |
 |---|---|---|
 | Plum peony | `plum` | Teresa: homepage hero |
-| Deep green chrysanthemum | `green-deep` | Product Finder Planner. Many petals branching from one center, like answers branching into results |
+| Deep green chrysanthemum | `green-deep` (`green-bright` on the case study band) | Product Finder Planner and its case study. Many petals branching from one center, like answers branching into results |
 | Green poppy | `green`, `plum-deep` | Unassigned (suggested: Make it your agent) |
 | Green ruffled peony | `green`, `green-soft` | Unassigned (suggested: the emotional-regulation practice tool) |
 | Plum folk flower | `plum`, `green-bright` | Unassigned (portfolio section) |
