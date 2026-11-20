@@ -445,7 +445,7 @@
 }
 
 /* ---------- What I do ----------
-   Three calm cards under the hero, one per thing the hero sentence names. Each card is a short
+   Three calm soft-plum cards under the hero, one per thing the hero sentence names. Each card is a short
    heading, one sentence, and a link to the section that shows the work. Three across on wide
    screens, stacked on phones. */
 
@@ -469,19 +469,22 @@
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--surface-mist);
+  background: var(--plum-soft);
 }
 
+/* On soft plum, headings are deep plum and the sentence is ink (ink-soft gray is only 4.07:1 here,
+   below the 4.5:1 minimum). */
 .what-i-do-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
+  color: var(--plum-deep);
   text-wrap: balance;
 }
 
 .what-i-do-card p {
   margin: 0;
   font: var(--text-body);
-  color: var(--ink-soft);
+  color: var(--ink);
 }
 
 /* The link sits at the bottom of each card, so the three line up even when the sentences differ. */
