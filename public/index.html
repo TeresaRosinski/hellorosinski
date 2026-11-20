@@ -100,20 +100,12 @@
       </ul>
     </section>
 
-    <!-- AI Learning Series: edit the content in js/sessions.js. -->
-    <section class="series" id="ai-learning" aria-labelledby="series-title">
-      <div class="series-head">
-        <h2 id="series-title"></h2>
-        <p id="series-intro"></p>
-      </div>
-    </section>
-
-    <!-- Work tiles: one calm tile per project (styles in css/work.css). Each tile links to the full
-         story on its own page; the product finder case study is in work/product-finder/. -->
-    <section class="work" id="product-finder" aria-labelledby="work-title">
-      <h2 id="work-title" class="visually-hidden">Product finder ads: case study and tool</h2>
+    <!-- What I do: one calm tile per project or tool (styles in css/work.css), two across.
+         Each tile links to the full story; the product finder case study is in work/product-finder/. -->
+    <section class="work" id="what-i-do" aria-labelledby="work-title">
+      <h2 id="work-title" class="section-title" data-bloom>What I do<span class="section-period" aria-hidden="true">.</span></h2>
       <div class="work-grid">
-        <article class="tile tile-green">
+        <article class="tile tile-green" id="product-finder">
           <p class="tile-eyebrow">Case study</p>
           <h3>Saving Days on High&#8209;Value Work</h3>
           <p class="tile-line">3+ days faster per ad, and every team sees the workload before anyone promises it.</p>
@@ -139,6 +131,14 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- AI Learning Series: edit the content in js/sessions.js. -->
+    <section class="series" id="ai-learning" aria-labelledby="series-title">
+      <div class="series-head">
+        <h2 id="series-title"></h2>
+        <p id="series-intro"></p>
       </div>
     </section>
 

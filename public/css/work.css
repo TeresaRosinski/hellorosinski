@@ -10,6 +10,16 @@
   scroll-margin-top: var(--space-12); /* keeps the tiles clear of the sticky nav */
 }
 
+/* "What I do." sits above the tiles, like "How I work." above its cards. */
+.work .section-title {
+  margin-top: var(--space-6);
+}
+
+/* Tiles can be linked to directly (like #product-finder from the nav). */
+.tile {
+  scroll-margin-top: var(--space-16);
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
