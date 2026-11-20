@@ -1,6 +1,6 @@
 ## Saving Days on High-Value Work
 **A planning tool, new training, and reusable code that made a complex ad faster to build and clearer for every team.**
-*My role: Creative Technologist · Epsilon · Self-initiated · 2024–2025 · Built with ChatGPT and Claude*
+*My role: Creative Technologist · Epsilon · Self-initiated · 2024–2025 · Built with ChatGPT, Claude, NotebookLM, HTML, CSS, JavaScript, and SharePoint*
 
 *Product finder ads ask shoppers a couple of questions, then show products that match their answers.*
 
@@ -8,7 +8,7 @@
 - **At least 3 days faster per ad**, out of a typical 10–15 days of build time, by my conservative estimate.
 - **Everyone on the same page:** every role can see how much work a request creates, and what each answer should show, before anything is promised or tested.
 - **Training where there was none:** fewer than half the team had built one, so I created a five-step process and led a workshop.
-- **Used on real client work:** every one of the four or five product finder ads I know were built afterwards.
+- **Used on real client work:** every one of the four or more product finder ads I know were built afterwards.
 
 **The situation**
 At Epsilon, a product finder ad (internally, a *decision tree*) asks a shopper up to two questions. Each combination of answers shows its own set of products, with its own images, text, and links to the client's website. One usually took 10 to 15 days to build, depending on how many sizes the ad came in (from 2 to 14) and what else the client asked for, like animation. These ads brought in high revenue, but teams often avoided them because of the effort.
@@ -27,7 +27,7 @@ My director had said that shortening the timeline was important. My manager doub
    - **notes for the other teams** on the project,
    - **a testing guide** listing what each combination of answers should show and where it should link.
 2. **Created the training.** Drawing on my own experience, I created a five-step process with an example for each step and links to finished projects, so people could read how to build one and see it done. In January 2025, I planned and led a one-hour live virtual workshop, recorded for later viewing, for the five other members of the US Creative Technology team: what a product finder ad is, how to build one, and how to answer the questions we often got about them in meetings.
-3. **Automated the tracking.** I wrote a reusable JavaScript module that tracks every selection a shopper makes. When they make their final choice, it hands those choices to the creative technologist's own code, which plays the final animation with the matching products. Creative technologists set it up by answering the same questions as the Planner, so their time goes to what makes each ad unique, like animation and custom features.
+3. **Automated the tracking.** I wrote a reusable JavaScript module that tracks every selection a shopper makes. When they make their final choice, it hands those choices to the creative technologist's own code, which plays the final animation with the matching products. Creative technologists set it up by answering the same questions as the Planner, so their time goes to what makes each ad unique, like animation and custom features. I also set up a NotebookLM notebook on the module, so creative technologists could ask it questions as they worked.
 
 **Results**
 - **Where the 3 days come from:** at least 2–3 days of coding saved by the tracking module, and at least a day by the Planner. This is a conservative estimate; I believe the real savings are higher.
@@ -36,6 +36,7 @@ My director had said that shortening the timeline was important. My manager doub
 **See it**
 - **Workshop (Mentimeter, an interactive slide tool):** the session I used to train the team. https://www.mentimeter.com/app/presentation/alfgf2232k7gtmmcudrmbk44qvtb2za8/embed
 - **Product Finder Planner (redesigned):** the same calculations as the tool I built at Epsilon, with clearer outputs and a redesigned layout: outputs in tabs instead of one long list, plainer terms, a sharper color palette, and better-balanced type. It uses sample data; the original is internal. Try the example (2 questions, 3 answers each), then add products, a headline, or a fourth answer and watch the count climb. tools/product-finder-planner/
+- **AI notebook (NotebookLM):** the notebook I set up so creative technologists could ask questions about the tracking module as they worked. Opens in NotebookLM, which asks for a Google sign-in. https://notebook.google.com/notebook/77b647b4-8737-40c4-bc68-d5f8266f80a8
 
 **What I'd do next**
 - **Measure it directly:** track build time and the number of fixes found in testing for each ad, before and after, so the savings are measured instead of estimated.
@@ -47,8 +48,10 @@ Notes for review (not for publishing):
 - Correction from Teresa (2026-11-19): developers did NOT rewrite the same code each time (that would have been easier); they created new, time-intensive tracking logic for each treatment. "I moved the code…" also changed to "I wrote one shared piece of code," since nothing shared existed before. Second correction (same day): the module handles selection tracking only, not all the logic a quiz needs; some treatments need more.
 - Planner outputs added from Teresa (2026-11-19): auto-generated starter code developers would otherwise hand-create, cross-team communication notes, and a testing / results guide. What the team notes contained isn't described yet; the recreation could show a sample.
 - Copy edit (2026-11-19): about 90 words cut; Results now explains where the 3 days come from instead of repeating Key gains; "tracking logic" → "tracking code"; no facts changed.
-- Planner is a redesign, not a recreation (Teresa, 2026-11-19): same calculations and outputs as the Epsilon original; new: tabbed outputs (original listed everything vertically), clearer palette (original was light greens and blues on white), better-balanced type. Results (3 days, 4–5 quizzes) belong to the original, not the redesign. Unconfirmed whether the original had the beginner guidance / worked example, so the page doesn't say.
+- Planner is a redesign, not a recreation (Teresa, 2026-11-19): same calculations and outputs as the Epsilon original; new: tabbed outputs (original listed everything vertically), clearer palette (original was light greens and blues on white), better-balanced type. Results (3 days, 4+ client ads) belong to the original, not the redesign. Unconfirmed whether the original had the beginner guidance / worked example, so the page doesn't say.
 - Terminology (Teresa, 2026-11-19): "developer" means the creative technologist, who is on the creative team with art directors and digital producers. Use "creative technologist," never "developer."
+- Where it lives (2026-11-20): the full case study is its own page, public/work/product-finder/index.html; the homepage shows two tiles (case study + Planner) linking to it. Keep this draft and that page in sync.
+- Added 2026-11-20 (Teresa): count is "4+" client ads; Built with = ChatGPT, Claude, NotebookLM, HTML, CSS, JavaScript, SharePoint (tools across all improvements); a NotebookLM notebook on the module let creative technologists ask questions. Notebook is shared publicly (Teresa); NotebookLM asks visitors to sign in with Google, so the card says so.
 - Format name (Teresa, 2026-11-19): "product finder ad," not "product quiz" ("quiz" read as juvenile for $1M+ ads). Introduce it once with "(internally, a decision tree)"; elsewhere say "ad." Résumé updated to match. No dollar figure on the site unless Teresa confirms it is accurate and shareable.
 - Role names (Teresa, 2026-11-19): use "account managers" (not project managers) on both the case study and the Planner.
 - Tracking module removed from "See it" for now (Teresa, 2026-11-19). Ideas for later: a plain flow diagram, a ~15-line illustrative setup snippet, or having the Planner recreation generate the setup. Never post the original (Epsilon's).
