@@ -158,7 +158,7 @@ Things **lift into place and linger.** Motion should feel like a calm, buoyant d
 A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks, not decoration: each one belongs to a single place, so it comes to mean that place.
 
 - **The plum peony is Teresa's personal mark.** It appears on the homepage hero and nowhere else.
-- **Each standalone tool gets its own green flower,** since tools are green-led. One flower per tool, placed once, after the tool's headline, never inside the working area.
+- **Each standalone tool gets its own green flower,** since tools are green-led. One flower per tool, placed once: in the header, as the tool's icon right before the tool's name. Never inside the working area.
 - **The plum flowers are kept for portfolio sections** (for example, an About section or a future course).
 
 | Flower | Colors | Belongs to |
@@ -172,7 +172,7 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 
 **Files:** drawings in use live in `brand/flowers/`, slimmed for the web (the originals are 80–140 KB of traced points; slimmed copies are about 5–7 KB). Before adding one to a page, slim it and compare it against the original at full size.
 
-**On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. Keep it on the same line as the word before it, so it never wraps onto a line by itself.
+**On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. In the header it sits beside the tool name (about 34 × 28px) and stays there on phones, where the name wraps next to it.
 
 ## Open questions
 
