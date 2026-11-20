@@ -1,4 +1,4 @@
-import {calculate} from './model.mjs?v=20261119-client-step';
+import {calculate} from './model.mjs?v=20261119-finder';
 const $=id=>document.getElementById(id);
 let active='summary',model;
 const defaults=()=>({questionCount:2,questions:[{count:3},{count:3}],variables:'',start:1,products:3});
@@ -47,5 +47,5 @@ $('customElements').addEventListener('input',syncElements);
 $('questionCount').addEventListener('change',e=>{state.questionCount=e.target.value;questionFields();update();});['start','products'].forEach(id=>$(id).addEventListener('input',e=>{state[id]=e.target.value;update();}));
 document.querySelectorAll('[role=tab]').forEach((b,i,buttons)=>{b.addEventListener('click',()=>{active=b.dataset.tab;renderOutput();});b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?buttons.length-1:(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;buttons[next].click();buttons[next].focus();}});});
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(outputText());$('copyStatus').textContent='Copied! Ready to paste.';}catch{const area=document.createElement('textarea');area.value=outputText();$('content').replaceChildren(area);area.select();$('copyStatus').textContent='Automatic copy is unavailable. Press Ctrl+C or ⌘C to copy the selected output.';}});
-$('download').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([outputText()],{type:active==='config'?'application/json':'text/plain'}));const a=document.createElement('a');a.href=url;a.download=`product-quiz-${active}.${active==='config'?'json':active==='readme'?'md':'txt'}`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+$('download').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([outputText()],{type:active==='config'?'application/json':'text/plain'}));const a=document.createElement('a');a.href=url;a.download=`product-finder-${active}.${active==='config'?'json':active==='readme'?'md':'txt'}`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
 $('reset').addEventListener('click',()=>{state=defaults();['questionCount','start','products'].forEach(id=>$(id).value=state[id]);$('customElements').value='';elementChoices();questionFields();syncElements();});elementChoices();questionFields();syncElements();

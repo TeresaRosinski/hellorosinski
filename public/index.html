@@ -42,7 +42,7 @@
              Wide screens show these in the bar; small screens show them in the menu (a popover). -->
         <ul class="nav-links" id="nav-menu" popover>
           <li><a href="#ai-learning">AI Learning Series</a></li>
-          <li><a href="#product-quiz">Product Quiz</a></li>
+          <li><a href="#product-finder">Product Finder</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <!-- Résumé stays visible at every screen size. -->
@@ -84,14 +84,14 @@
       </div>
     </section>
 
-    <!-- Product quiz case study. Source copy: content/decision-tree.md. The Planner lives in tools/product-quiz-planner/. -->
-    <section class="case" id="product-quiz" aria-labelledby="product-quiz-title">
+    <!-- Product finder case study. Source copy: content/decision-tree.md. The Planner lives in tools/product-finder-planner/. -->
+    <section class="case" id="product-finder" aria-labelledby="product-finder-title">
       <div class="case-head">
         <p class="case-eyebrow">Case study</p>
-        <h2 id="product-quiz-title">Saving Days on High-Value Work</h2>
+        <h2 id="product-finder-title">Saving Days on High-Value Work</h2>
         <p class="case-lede">A planning tool, new training, and reusable code that made a complex ad faster to build and clearer for every team.</p>
         <p class="case-meta">My role: Creative Technologist · Epsilon · Self-initiated · 2024–2025 · Built with ChatGPT and Claude</p>
-        <p class="case-meta">Product quiz ads ask shoppers a couple of questions, then show products that match their answers.</p>
+        <p class="case-meta">Product finder ads ask shoppers a couple of questions, then show products that match their answers.</p>
       </div>
 
       <h3 class="visually-hidden">Key gains</h3>
@@ -99,39 +99,39 @@
         <li class="case-gain"><strong>3+ days</strong><span>faster per ad, out of a typical 10–15 days of build time (my conservative estimate)</span></li>
         <li class="case-gain"><strong>Every role</strong><span>sees how much work a request creates, and what each answer should show, before anything is promised or tested</span></li>
         <li class="case-gain"><strong>Training</strong><span>where there was none: fewer than half the team had built one, so I created a five-step process and led a workshop</span></li>
-        <li class="case-gain"><strong>4–5 quizzes</strong><span>built with these tools on real client work, every one I know of</span></li>
+        <li class="case-gain"><strong>4–5 client ads</strong><span>built with these tools on real client work, every one I know of</span></li>
       </ul>
 
       <div class="case-panel">
         <h3 class="series-panel-heading">The situation</h3>
-        <p>At Epsilon, a product quiz ad (internally, a <em>decision tree</em>) asks a shopper up to two questions. Each combination of answers shows its own set of products, with its own images, text, and links to the client’s website. One usually took 10 to 15 days to build, depending on how many sizes the ad came in (from 2 to 14) and what else the client asked for, like animation. These ads brought in high revenue, but teams often avoided them because of the effort.</p>
-        <p>My director had said that shortening the timeline was important. My manager doubted it could be done, given how product quizzes work. I decided to try. Over 2024 and 2025, I built improvements on my own, with ChatGPT and Claude.</p>
+        <p>At Epsilon, a product finder ad (internally, a <em>decision tree</em>) asks a shopper up to two questions. Each combination of answers shows its own set of products, with its own images, text, and links to the client’s website. One usually took 10 to 15 days to build, depending on how many sizes the ad came in (from 2 to 14) and what else the client asked for, like animation. These ads brought in high revenue, but teams often avoided them because of the effort.</p>
+        <p>My director had said that shortening the timeline was important. My manager doubted it could be done, given how product finder ads work. I decided to try. Over 2024 and 2025, I built improvements on my own, with ChatGPT and Claude.</p>
 
         <h3 class="series-panel-heading">What was getting in the way</h3>
         <ul class="series-list">
-          <li><strong>A skills gap.</strong> Fewer than half of the eight-person Creative Technology team had built a product quiz, and there was no training: only one long, hard-to-follow page of directions on the internal site, plus finished projects to look at.</li>
-          <li><strong>Promises came before anyone knew the cost.</strong> Art directors and account managers sometimes agreed to client requests without seeing how much work they would create. Small changes multiply: a basic quiz needs 81 pieces of content, and three small additions (more products, a headline, one more answer per question) push it to 320. Each piece means an image to supply, text to write, a file to prepare, and another case to test.</li>
-          <li><strong>Testing was unclear.</strong> People checking a quiz weren’t always sure which answers should show which products, or which page on the client’s site each product should link to.</li>
-          <li><strong>New code for every quiz.</strong> Creative technologists wrote time-intensive tracking code for each one: the code that follows a shopper’s answers and shows the right products.</li>
+          <li><strong>A skills gap.</strong> Fewer than half of the eight-person Creative Technology team had built a product finder ad, and there was no training: only one long, hard-to-follow page of directions on the internal site, plus finished projects to look at.</li>
+          <li><strong>Promises came before anyone knew the cost.</strong> Art directors and account managers sometimes agreed to client requests without seeing how much work they would create. Small changes multiply: a basic product finder ad needs 81 pieces of content, and three small additions (more products, a headline, one more answer per question) push it to 320. Each piece means an image to supply, text to write, a file to prepare, and another case to test.</li>
+          <li><strong>Testing was unclear.</strong> People checking an ad weren’t always sure which answers should show which products, or which page on the client’s site each product should link to.</li>
+          <li><strong>New code for every ad.</strong> Creative technologists wrote time-intensive tracking code for each one: the code that follows a shopper’s answers and shows the right products.</li>
         </ul>
 
         <h3 class="series-panel-heading">My process</h3>
         <ol class="series-list">
-          <li><strong>Built a planning tool.</strong> The Product Quiz Planner lets anyone on a project enter the questions, answers, and what changes with each result, and see right away how much work it creates. It also generates:
+          <li><strong>Built a planning tool.</strong> The Product Finder Planner lets anyone on a project enter the questions, answers, and what changes with each result, and see right away how much work it creates. It also generates:
             <ul>
               <li><strong>starter code</strong> that creative technologists would otherwise write by hand,</li>
               <li><strong>notes for the other teams</strong> on the project,</li>
               <li><strong>a testing guide</strong> listing what each combination of answers should show and where it should link.</li>
             </ul>
           </li>
-          <li><strong>Created the training.</strong> Drawing on my own experience, I created a five-step process with an example for each step and links to finished projects, so people could read how to build a quiz and see it done. In January 2025, I planned and led a one-hour live virtual workshop, recorded for later viewing, for the five other members of the US Creative Technology team: what a product quiz is, how to build one, and how to answer the questions we often got about them in meetings.</li>
+          <li><strong>Created the training.</strong> Drawing on my own experience, I created a five-step process with an example for each step and links to finished projects, so people could read how to build one and see it done. In January 2025, I planned and led a one-hour live virtual workshop, recorded for later viewing, for the five other members of the US Creative Technology team: what a product finder ad is, how to build one, and how to answer the questions we often got about them in meetings.</li>
           <li><strong>Automated the tracking.</strong> I wrote a reusable JavaScript module that tracks every selection a shopper makes. When they make their final choice, it hands those choices to the creative technologist’s own code, which plays the final animation with the matching products. Creative technologists set it up by answering the same questions as the Planner, so their time goes to what makes each ad unique, like animation and custom features.</li>
         </ol>
 
         <h3 class="series-panel-heading">Results</h3>
         <ul class="series-list">
           <li><strong>Where the 3 days come from:</strong> at least 2–3 days of coding saved by the tracking module, and at least a day by the Planner. This is a conservative estimate; I believe the real savings are higher.</li>
-          <li><strong>Tested on real assignments:</strong> supervisors assigned each quiz, so the tools were used on whatever client work came in, not on examples I chose.</li>
+          <li><strong>Tested on real assignments:</strong> supervisors assigned each ad, so the tools were used on whatever client work came in, not on examples I chose.</li>
         </ul>
 
         <h3 class="series-panel-heading">See it</h3>
@@ -140,22 +140,22 @@
             <h4 class="series-panel-heading">Workshop · Mentimeter</h4>
             <p>The session I used to train the team.</p>
             <div class="series-embed-frame">
-              <iframe class="series-embed" src="https://www.mentimeter.com/app/presentation/alfgf2232k7gtmmcudrmbk44qvtb2za8/embed" title="Mentimeter for the product quiz workshop" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+              <iframe class="series-embed" src="https://www.mentimeter.com/app/presentation/alfgf2232k7gtmmcudrmbk44qvtb2za8/embed" title="Mentimeter for the product finder workshop" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
             </div>
           </div>
           <div class="series-resource series-tool">
             <div class="series-tool-info">
               <h4 class="series-panel-heading">Custom tool</h4>
-              <p class="series-tool-title">Product Quiz Planner (redesigned)</p>
-              <p>The same calculations as the tool I built at Epsilon, with clearer outputs and a redesigned layout. It uses sample data; the original is internal. It opens on a basic quiz (81 pieces of content): add products, a headline, or a fourth answer and watch the count climb.</p>
+              <p class="series-tool-title">Product Finder Planner (redesigned)</p>
+              <p>The same calculations as the tool I built at Epsilon, with clearer outputs and a redesigned layout. It uses sample data; the original is internal. It opens on a basic ad (81 pieces of content): add products, a headline, or a fourth answer and watch the count climb.</p>
             </div>
-            <a class="series-button" href="tools/product-quiz-planner/">Try the Planner</a>
+            <a class="series-button" href="tools/product-finder-planner/">Try the Planner</a>
           </div>
         </div>
 
         <h3 class="series-panel-heading">What I’d do next</h3>
         <ul class="series-list">
-          <li><strong>Measure it directly:</strong> track build time and the number of fixes found in testing for each quiz, before and after, so the savings are measured instead of estimated.</li>
+          <li><strong>Measure it directly:</strong> track build time and the number of fixes found in testing for each ad, before and after, so the savings are measured instead of estimated.</li>
           <li><strong>Check who uses the Planner:</strong> ask account managers and art directors whether they use it before client conversations, and track how often it’s opened.</li>
         </ul>
       </div>
