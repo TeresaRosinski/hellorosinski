@@ -445,7 +445,7 @@
 }
 
 /* ---------- What I do ----------
-   Three calm deep-green cards under the hero, one per thing the hero sentence names. Each card is a short
+   Three calm deep-plum cards under the hero, one per thing the hero sentence names. Each card is a short
    heading, one sentence, and a link to the section that shows the work. Three across on wide
    screens, stacked on phones. */
 
@@ -469,11 +469,11 @@
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--green-deep);
+  background: var(--plum-deep);
 }
 
-/* On deep green (like the case study tile): white headings (14.1:1), soft green sentences (11.5:1),
-   and bright plum links (5.6:1), so the strip still reads as Teresa's. */
+/* On deep plum (like the "Let's talk" band): white headings (17.6:1), soft plum sentences (14.1:1),
+   and bright plum links (7.0:1). */
 .what-i-do-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
@@ -484,7 +484,7 @@
 .what-i-do-card p {
   margin: 0 0 var(--space-6);
   font: var(--text-body);
-  color: var(--green-soft);
+  color: var(--plum-soft);
 }
 
 /* The link sits at the bottom of each card, so the three line up even when the sentences differ. */
@@ -501,7 +501,7 @@
   text-decoration: underline;
 }
 
-/* Keyboard focus that shows up on deep green (the default plum outline would disappear). */
+/* Keyboard focus that shows up on deep plum (the default plum outline would disappear). */
 .what-i-do-link:focus-visible {
   outline-color: var(--plum-bright);
 }
