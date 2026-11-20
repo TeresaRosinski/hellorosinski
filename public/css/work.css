@@ -224,6 +224,31 @@
   background: var(--green);
 }
 
+/* Product Finder Planner: a question branching into answers and results, one path in green. */
+.shape-tree {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tree-line {
+  stroke: var(--green-soft);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.tree-node {
+  fill: var(--green-soft);
+}
+
+.tree-line.is-path {
+  stroke: var(--green);
+}
+
+.tree-node.is-path {
+  fill: var(--green);
+}
+
 /* ---------- Phones ---------- */
 
 @media (max-width: 48rem) {
