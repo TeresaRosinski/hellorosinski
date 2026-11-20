@@ -445,14 +445,22 @@
 }
 
 /* ---------- How I work ----------
-   Three calm deep-plum cards under the hero, one per thing the hero sentence names. Each card is a short
-   heading, one sentence, and a link to the section that shows the work. Three across on wide
-   screens, stacked on phones. */
+   A small "How I work" label, then three calm deep-plum cards under the hero: one per step of the
+   method. Each card is a short heading, a sentence or two of proof, and a link to the section that
+   shows the work. Three across on wide screens, stacked on phones. */
 
 .how-i-work {
   max-width: var(--content-max);
   margin-inline: auto;
   padding: 0 var(--space-4) var(--space-16);
+}
+
+/* The label above the cards, in the same style as the tile eyebrows ("Case study", "Custom tool"). */
+.how-i-work-label {
+  margin: 0 0 var(--space-4);
+  font: var(--text-label);
+  text-transform: uppercase;
+  color: var(--plum);
 }
 
 .how-i-work-grid {
