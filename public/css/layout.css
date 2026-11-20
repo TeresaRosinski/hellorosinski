@@ -445,7 +445,7 @@
 }
 
 /* ---------- What I do ----------
-   Three calm soft-plum cards under the hero, one per thing the hero sentence names. Each card is a short
+   Three calm soft-green cards under the hero, one per thing the hero sentence names. Each card is a short
    heading, one sentence, and a link to the section that shows the work. Three across on wide
    screens, stacked on phones. */
 
@@ -469,15 +469,15 @@
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--plum-soft);
+  background: var(--green-soft);
 }
 
-/* On soft plum, headings are deep plum and the sentence is ink (ink-soft gray is only 4.07:1 here,
-   below the 4.5:1 minimum). */
+/* On soft green, headings are deep green and the sentence is ink (ink-soft gray is only 4.13:1 here,
+   below the 4.5:1 minimum). The links stay plum, so the strip still reads as Teresa's. */
 .what-i-do-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
-  color: var(--plum-deep);
+  color: var(--green-deep);
   text-wrap: balance;
 }
 
