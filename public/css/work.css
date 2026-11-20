@@ -166,6 +166,44 @@
   box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--plum);
 }
 
+/* ---------- Agent tool tile: the tool's first step (pick an agent) as its "product shot".
+   Tools are green-led, so the picked agent is marked in green, as it is in the tool. ---------- */
+
+.ui-agents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-agents li {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-mist);
+}
+
+.ui-agents strong {
+  display: block;
+  font: var(--text-control);
+  font-weight: 600;
+}
+
+.ui-agents span {
+  font: var(--text-caption);
+  color: var(--ink-soft);
+}
+
+.ui-agents .is-picked {
+  background: var(--green-soft);
+  box-shadow: inset 0 0 0 calc(var(--border-hairline) * 2) var(--green);
+}
+
+.ui-agents .is-picked span {
+  color: var(--green-deep);
+}
+
 /* ---------- Tool tile: a crisp version of the Planner's totals as its "product shot" ---------- */
 
 .tile-ui {
@@ -267,5 +305,20 @@
 
   .ui-metrics strong {
     font: var(--text-tile-half);
+  }
+
+  /* The agent choices stack as rows. */
+  .ui-agents {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin-top: 0;
+  }
+
+  .ui-agents li {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .ui-sessions {
+    margin-top: 0;
   }
 }
