@@ -169,12 +169,12 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 | Deep green chrysanthemum | `green-deep` (`green-bright` on the case study band) | Product Finder Planner and its case study. Many petals branching from one center, like answers branching into results |
 | Green poppy | `green`, `plum-deep` | Unassigned (suggested: Make it your agent) |
 | Green ruffled peony | `green`, `green-soft` | Unassigned (suggested: the emotional-regulation practice tool) |
-| Plum folk flower | `plum`, `green-bright` | The homepage "How I work." section heading, right before the words (about 1.1em) |
+| Plum folk flower | `plum`, `green-bright` | Unassigned (portfolio section) |
 | Plum rosette | `plum`, `plum-deep`, `plum-bright` | Unassigned (portfolio section) |
 
 **Files:** drawings in use live in `brand/flowers/`, slimmed for the web (the originals are 80–140 KB of traced points; slimmed copies are about 5–7 KB). Before adding one to a page, slim it and compare it against the original at full size.
 
-**On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once with the hero's bloom (`duration-linger`, `ease-settle`): on load in a tool's header, or when a portfolio section heading scrolls into view (`js/section-bloom.js`, which waits until the hero has finished if the heading is already on screen). People who ask for reduced motion see it finished. In the header it sits beside the tool name (about 34 × 28px) and stays there on phones, where the name wraps next to it.
+**On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. In the header it sits beside the tool name (about 34 × 28px) and stays there on phones, where the name wraps next to it.
 
 ## Open questions
 
