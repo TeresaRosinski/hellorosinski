@@ -35,7 +35,7 @@ My director had said that shortening the timeline was important. My manager doub
 
 **See it**
 - **Workshop (Mentimeter, an interactive slide tool):** the session I used to train the team. https://www.mentimeter.com/app/presentation/alfgf2232k7gtmmcudrmbk44qvtb2za8/embed
-- **Product Quiz Planner (redesigned):** the same calculations and outputs as the tool I built at Epsilon, with a clearer layout: outputs in tabs instead of one long list, a sharper color palette, and better-balanced type. It uses sample data; the original is internal. Try the example (2 questions, 3 answers each), then add products, a headline, or a fourth answer and watch the count climb. tools/product-quiz-planner/
+- **Product Quiz Planner (redesigned):** the same calculations as the tool I built at Epsilon, with clearer outputs and a redesigned layout: outputs in tabs instead of one long list, plainer terms, a sharper color palette, and better-balanced type. It uses sample data; the original is internal. Try the example (2 questions, 3 answers each), then add products, a headline, or a fourth answer and watch the count climb. tools/product-quiz-planner/
 
 **What I'd do next**
 - **Measure it directly:** track build time and the number of fixes found in testing for each quiz, before and after, so the savings are measured instead of estimated.
