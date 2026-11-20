@@ -135,6 +135,20 @@
   outline-color: var(--plum-bright);
 }
 
+/* The series' flower: the plum rosette (BRAND.md, Flowers). On deep plum, its outer petals are
+   plum-bright, the inner petals keep plum-deep (they read as cut-outs) and the center is plum. */
+.tile-rosette .rosette-outer {
+  fill: var(--plum-bright);
+}
+
+.tile-rosette .rosette-inner {
+  fill: var(--plum-deep);
+}
+
+.tile-rosette .rosette-center {
+  fill: var(--plum);
+}
+
 /* ---------- Phones ---------- */
 
 @media (max-width: 48rem) {
