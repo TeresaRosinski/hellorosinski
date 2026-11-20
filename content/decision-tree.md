@@ -19,15 +19,15 @@ My director had said that shortening the timeline was important. My manager doub
 - **A skills gap.** Fewer than half the team had built a product quiz, and there was no training: only one long, hard-to-follow page of directions on the internal site, plus finished projects to look at.
 - **Promises came before anyone knew the cost.** Art directors and account managers sometimes agreed to client requests without seeing how much work they would create. Small changes multiply: a basic quiz needs 81 pieces of content, and three small additions (more products, a headline, one more answer per question) push it to 320. Each piece means an image to supply, text to write, a file to prepare, and another case to test.
 - **Testing was unclear.** People checking a quiz weren't always sure which answers should show which products, or which page on the client's site each product should link to.
-- **New code for every quiz.** Developers wrote time-intensive tracking code for each one: the code that follows a shopper's answers and shows the right products.
+- **New code for every quiz.** Creative technologists wrote time-intensive tracking code for each one: the code that follows a shopper's answers and shows the right products.
 
 **My process**
 1. **Built a planning tool.** The Product Quiz Planner lets anyone on a project enter the questions, answers, and what changes with each result, and see right away how much work it creates. It also generates:
-   - **starter code** that developers would otherwise write by hand,
+   - **starter code** that creative technologists would otherwise write by hand,
    - **notes for the other teams** on the project,
    - **a testing guide** listing what each combination of answers should show and where it should link.
 2. **Created the training.** Drawing on my own experience, I created a five-step process with an example for each step and links to finished projects, so people could read how to build a quiz and see it done. In January 2025, I planned and led a one-hour live workshop for the five other members of the US Creative Technology team: what a product quiz is, how to build one, and how to answer the questions we often got about them in meetings.
-3. **Automated the tracking.** I wrote a reusable JavaScript module that tracks every selection a shopper makes. When they make their final choice, it hands those choices to the developer's own code, which plays the final animation with the matching products. Developers set it up by answering the same questions as the Planner, so their time goes to what makes each ad unique, like animation and custom features.
+3. **Automated the tracking.** I wrote a reusable JavaScript module that tracks every selection a shopper makes. When they make their final choice, it hands those choices to the creative technologist's own code, which plays the final animation with the matching products. Creative technologists set it up by answering the same questions as the Planner, so their time goes to what makes each ad unique, like animation and custom features.
 
 **Results**
 - **Where the 3 days come from:** at least 2–3 days of coding saved by the tracking module, and at least a day by the Planner. This is a conservative estimate; I believe the real savings are higher.
@@ -48,6 +48,7 @@ Notes for review (not for publishing):
 - Planner outputs added from Teresa (2026-11-19): auto-generated starter code developers would otherwise hand-create, cross-team communication notes, and a testing / results guide. What the team notes contained isn't described yet; the recreation could show a sample.
 - Copy edit (2026-11-19): about 90 words cut; Results now explains where the 3 days come from instead of repeating Key gains; "tracking logic" → "tracking code"; no facts changed.
 - Planner is a redesign, not a recreation (Teresa, 2026-11-19): same calculations and outputs as the Epsilon original; new: tabbed outputs (original listed everything vertically), clearer palette (original was light greens and blues on white), better-balanced type. Results (3 days, 4–5 quizzes) belong to the original, not the redesign. Unconfirmed whether the original had the beginner guidance / worked example, so the page doesn't say.
+- Terminology (Teresa, 2026-11-19): "developer" means the creative technologist, who is on the creative team with art directors and digital producers. Use "creative technologist," never "developer."
 - Tracking module removed from "See it" for now (Teresa, 2026-11-19). Ideas for later: a plain flow diagram, a ~15-line illustrative setup snippet, or having the Planner recreation generate the setup. Never post the original (Epsilon's).
 - Correction from Teresa (2026-11-19): the five-step process was NOT a rewrite of the old directions; she created it from her own experience. Heading changed from "Rebuilt" to "Created the training."
 - "My process" structure from Teresa (2026-11-19): tool, training, tracking. Outcome words ("enhanced communication / understanding") kept out; each step says what it gave people. Module behavior from Teresa: tracks all selections; on final selection it calls a developer callback with the selections, and the developer's code animates the final frame with the matching products.
