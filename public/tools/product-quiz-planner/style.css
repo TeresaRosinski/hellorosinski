@@ -47,3 +47,39 @@ input,textarea,select,.element-choice{border-color:var(--ink-soft)}.element-choi
   to{clip-path:circle(75% at 50% 55%);transform:none;opacity:1}
 }
 
+
+/* Worked example: answers -> letters -> result -> names. Highlights use tokens only. */
+.ex .ex-step{display:flex;align-items:center;gap:var(--space-2);font-size:1rem;margin:var(--space-6) 0 var(--space-2)}
+.ex .ex-step span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--green);color:var(--surface);font:var(--text-label)}
+.ex p{margin:0 0 var(--space-3)}
+.ex-questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.ex-q{border:1px solid var(--line);border-radius:var(--radius-sm);padding:var(--space-4);background:var(--surface)}
+.ex-q-label{display:block;font:var(--text-label);color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em}
+.ex-q strong{display:block;margin:4px 0 var(--space-3)}
+.ex-q ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ex-q li{display:flex;align-items:center;gap:var(--space-2);padding:6px var(--space-2);border-radius:var(--radius-sm);border:1px solid transparent}
+.ex-q .letter{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:var(--surface-mist);font-weight:600;font-size:13px;flex:none}
+.ex-q li.chosen{background:var(--green-soft);border-color:var(--green);color:var(--green-deep);font-weight:500}
+.ex-q li.chosen .letter{background:var(--green);color:var(--surface)}
+.ex-products{list-style:none;margin:0 0 var(--space-3);padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-3)}
+.ex-product{border:1px solid var(--line);border-radius:var(--radius-sm);padding:var(--space-3);background:var(--surface)}
+.ex-pos{display:block;font:var(--text-label);color:var(--green-deep);margin-bottom:var(--space-2)}
+.ex-product dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px var(--space-2);font-size:13px}
+.ex-product dt{color:var(--ink-soft)}
+.ex-product dd{margin:0;min-width:0}
+.ex-product code{overflow-wrap:anywhere}
+.ex-name{font:600 22px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;display:flex;flex-wrap:wrap;gap:2px;margin:var(--space-2) 0 var(--space-3)!important}
+.ex-name .part{padding:6px 8px;border-radius:6px}
+.part-base{background:var(--surface-mist);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink-soft)}
+.part-q1{background:var(--green-soft);color:var(--green-deep);box-shadow:inset 0 0 0 1px var(--green)}
+.part-q2{background:var(--plum-soft);color:var(--plum-deep);box-shadow:inset 0 0 0 1px var(--plum)}
+.part-pos{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink-soft)}
+.ex-legend{list-style:none;padding:0;margin:0 0 var(--space-4);display:grid;gap:6px;font-size:14px}
+.ex-legend li{display:flex;align-items:center;gap:var(--space-2)}
+.ex-legend .part{font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;padding:4px 6px;border-radius:4px;flex:none;min-width:64px;text-align:center}
+.hl-q1{color:var(--green);font-weight:700}
+.hl-q2{color:var(--plum);font-weight:700}
+.ex-q2 li.chosen{background:var(--plum-soft);border-color:var(--plum);color:var(--plum-deep)}
+.ex-q2 li.chosen .letter{background:var(--plum)}
+@media (max-width:640px){.ex-questions,.ex-products{grid-template-columns:1fr}}
+.nowrap{white-space:nowrap}
