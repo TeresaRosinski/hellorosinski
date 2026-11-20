@@ -106,6 +106,15 @@
   outline-color: var(--green-bright);
 }
 
+/* The tool's flower (BRAND.md, Flowers), cropped by the tile's bottom edge. */
+.tile-flower {
+  display: block;
+  width: min(70%, calc(var(--content-max) / 3));
+  height: auto;
+  margin: 0 auto -18%;
+  fill: var(--green-bright);
+}
+
 /* ---------- Series tile: deep plum (like "How I work" and "Let's talk").
    On plum-deep: white headline, plum-soft line, plum-bright label. ---------- */
 
