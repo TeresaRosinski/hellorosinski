@@ -1,4 +1,4 @@
-import {calculate} from './model.mjs?v=20261119-stacked';
+import {calculate} from './model.mjs?v=20261119-a_b';
 const $=id=>document.getElementById(id);
 let active='summary',model;
 const defaults=()=>({questionCount:2,questions:[{count:3},{count:3}],variables:'',start:1,products:3});
