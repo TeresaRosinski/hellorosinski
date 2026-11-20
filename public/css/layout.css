@@ -445,7 +445,7 @@
 }
 
 /* ---------- How I work ----------
-   A small "How I work" label, then three calm deep-plum cards under the hero: one per step of the
+   A "How I work." heading, then three calm deep-plum cards under the hero: one per step of the
    method. Each card is a short heading, a sentence or two of proof, and a link to the section that
    shows the work. Three across on wide screens, stacked on phones. */
 
@@ -455,11 +455,15 @@
   padding: 0 var(--space-4) var(--space-16);
 }
 
-/* The label above the cards, in the same style as the tile eyebrows ("Case study", "Custom tool"). */
-.how-i-work-label {
-  margin: 0 0 var(--space-4);
-  font: var(--text-label);
-  text-transform: uppercase;
+/* The heading above the cards: a section head like "AI Learning Series", ending in a plum period
+   that echoes the "Teresa." wordmark. */
+.how-i-work-title {
+  margin: 0 0 var(--space-8);
+  font: var(--text-section);
+  text-align: center;
+}
+
+.how-i-work-title span {
   color: var(--plum);
 }
 
