@@ -76,6 +76,30 @@
   </header>
 
   <main id="main">
+    <!-- What I do: three short cards that echo the hero sentence (tools, workshops, AI), each pointing
+         to the section that backs it up. One short heading and one sentence per card.
+         Styles in css/layout.css ("What I do"). -->
+    <section class="what-i-do" aria-labelledby="what-i-do-title">
+      <h2 id="what-i-do-title" class="visually-hidden">What I do</h2>
+      <ul class="what-i-do-grid">
+        <li class="what-i-do-card">
+          <h3>Build digital tools</h3>
+          <p>Like a planner that shows how much work an ad takes before anyone promises it to a client.</p>
+          <a class="what-i-do-link" href="#product-finder">See the tool<span aria-hidden="true"> →</span></a>
+        </li>
+        <li class="what-i-do-card">
+          <h3>Lead live workshops</h3>
+          <p>Nine AI discussion and learning sessions I designed and led for colleagues at Epsilon, 2023 to 2026.</p>
+          <a class="what-i-do-link" href="#ai-learning">See the series<span aria-hidden="true"> →</span></a>
+        </li>
+        <li class="what-i-do-card">
+          <h3>Help teams learn AI</h3>
+          <p>Like a one-hour session designed to take first-timers to building their own AI agent.</p>
+          <a class="what-i-do-link" href="#ai-learning">See the session<span aria-hidden="true"> →</span></a>
+        </li>
+      </ul>
+    </section>
+
     <!-- AI Learning Series: edit the content in js/sessions.js. -->
     <section class="series" id="ai-learning" aria-labelledby="series-title">
       <div class="series-head">

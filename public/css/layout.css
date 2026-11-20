@@ -444,6 +444,70 @@
   background: var(--plum-soft);
 }
 
+/* ---------- What I do ----------
+   Three calm cards under the hero, one per thing the hero sentence names. Each card is a short
+   heading, one sentence, and a link to the section that shows the work. Three across on wide
+   screens, stacked on phones. */
+
+.what-i-do {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: 0 var(--space-4) var(--space-16);
+}
+
+.what-i-do-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.what-i-do-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-mist);
+}
+
+.what-i-do-card h3 {
+  margin: 0 0 var(--space-3);
+  font: var(--text-tile-half);
+  text-wrap: balance;
+}
+
+.what-i-do-card p {
+  margin: 0;
+  font: var(--text-body);
+  color: var(--ink-soft);
+}
+
+/* The link sits at the bottom of each card, so the three line up even when the sentences differ. */
+.what-i-do-link {
+  margin-top: auto;
+  padding-top: var(--space-6);
+  font: var(--text-label);
+  color: var(--plum);
+  text-decoration: none;
+}
+
+.what-i-do-link:hover {
+  color: var(--plum-deep);
+  text-decoration: underline;
+}
+
+@media (max-width: 48rem) {
+  .what-i-do-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .what-i-do-card {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
 /* ---------- Contact ("Let's talk") ----------
    A full-width deep-plum band (BRAND.md: plum-deep for full-bleed tone sections), so the hero's
    "Let's talk" button lands somewhere clear. */
