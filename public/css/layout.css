@@ -144,11 +144,11 @@
 }
 
 /* ---------- Nav: small screens ----------
-   Switch point: when the nav is narrower than everything in the bar needs (about 440px with
+   Switch point: when the nav is narrower than everything in the bar needs (about 490px with
    today's links, plus room to spare). It's in rem, so people who set a larger text size get
    the menu sooner. WHEN YOU ADD A SECTION LINK, raise this number: roughly +1rem for every
    10 characters of link text, plus 1.5rem for the space between links. */
-@container nav (width < 30rem) {
+@container nav (width < 33rem) {
   .nav-end {
     gap: var(--space-3);
   }
