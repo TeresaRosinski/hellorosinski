@@ -7,9 +7,19 @@
 */
 
 .work {
-  padding: var(--space-12) var(--space-3) var(--space-3); /* room at the top for the wave above */
+  /* Room at the top for the wave above, side gutters so tiles never touch the screen edge,
+     and space at the bottom before "Let's talk". */
+  padding: var(--space-12) var(--space-4) var(--space-16);
   background: var(--sand);
   scroll-margin-top: var(--space-12); /* keeps the tiles clear of the sticky nav */
+}
+
+/* The heading and tiles line up with How I work above (content-max), instead of running edge to
+   edge, so the section reads as calm and centered. */
+.work .section-title,
+.work-grid {
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 /* "What I do." sits above the tiles on the right, answering "How I work." on the left. */
@@ -26,7 +36,7 @@
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3);
+  gap: var(--space-6); /* a clear gutter between tiles, so each one stands on its own */
 }
 
 .tile {
@@ -34,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   min-height: calc(var(--space-24) * 6);
-  padding: var(--space-12) var(--space-6) 0;
+  padding: var(--space-16) var(--space-8) 0; /* generous room around the words */
   overflow: hidden;
   text-align: center;
   border-radius: var(--radius-lg);
@@ -279,10 +289,11 @@
 @media (max-width: 48rem) {
   .work-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 
   .tile {
     min-height: calc(var(--space-24) * 5);
-    padding-inline: var(--space-4);
+    padding: var(--space-12) var(--space-6) 0;
   }
 }
