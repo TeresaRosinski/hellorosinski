@@ -7,9 +7,11 @@
 */
 
 .work {
-  /* How big the cards are, compared with the full content width (1 = full width). Change this one
-     number to make every card bigger or smaller; the heading lines up with the cards either way. */
-  --tile-scale: 0.8;
+  /* How wide the cards are, compared with the full content width (1 = full width). Change this one
+     number to make every card wider or narrower; the heading lines up with the cards either way.
+     Card height is set separately (min-height in .tile), and the pictures are capped, so widening
+     the cards doesn't make them taller. */
+  --tile-scale: 0.88;
 
   /* Room at the top for the wave above, side gutters so tiles never touch the screen edge,
      and space at the bottom before "Let's talk". */
@@ -47,7 +49,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(var(--space-24) * 6 * var(--tile-scale));
+  min-height: calc(var(--space-24) * 4.8); /* about 460px; set apart from --tile-scale, so wider tiles don't get taller */
   padding: var(--space-16) var(--space-8) 0; /* generous room around the words */
   overflow: hidden;
   text-align: center;
@@ -87,7 +89,7 @@
 .tile-image {
   width: 100%;
   margin-top: auto;
-  padding-top: var(--space-8);
+  padding-top: var(--space-6);
 }
 
 /* ---------- Case study tile: deep green (BRAND.md: one green band per tool case study) ---------- */
@@ -125,7 +127,7 @@
 /* The tool's flower (BRAND.md, Flowers), cropped by the tile's bottom edge. */
 .tile-flower {
   display: block;
-  width: min(70%, calc(var(--content-max) / 3));
+  width: min(70%, calc(var(--space-24) * 2.4)); /* capped, so a wider tile doesn't get taller */
   height: auto;
   margin: 0 auto -18%;
   fill: var(--green-bright);
@@ -194,7 +196,7 @@
    (BRAND.md), so each panel has one green pop. ---------- */
 
 .tile-ui {
-  width: 92%;
+  width: min(92%, calc(var(--space-24) * 3.2)); /* capped, so a wider tile doesn't get taller */
   margin: 0 auto;
   padding: var(--space-4) var(--space-6); /* compact, so the sketch doesn't make its tile tall */
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -299,7 +301,7 @@
   }
 
   .tile {
-    min-height: calc(var(--space-24) * 5 * var(--tile-scale));
+    min-height: calc(var(--space-24) * 4);
     padding: var(--space-12) var(--space-6) 0;
   }
 }
