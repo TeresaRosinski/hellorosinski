@@ -153,3 +153,10 @@
   gap: var(--space-3);
   padding: 0 var(--space-4) var(--space-16);
 }
+
+/* On the series page, the buttons continue the series' grey band, so they read as its ending
+   instead of floating between the band and the footer. */
+.case-next-on-mist {
+  margin-top: calc(-1 * var(--space-8));
+  background: var(--surface-mist);
+}
