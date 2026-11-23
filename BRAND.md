@@ -15,7 +15,6 @@ Two colors carry the system, and they do different jobs on purpose.
 
 - On the **portfolio**, green stays supportive — a quiet accent, not a second identity color. Use it for a tag on a climate- or sustainability-relevant project, a link hover state, or one small detail that signs a page without competing with plum.
   - **One exception: a tool project's case study.** Its heading sits on a full-width `green-deep` band with the tool's flower in `green-bright`, so the section reads as a new chapter and signals "tool." Text on the band: white or `green-soft`, labels in `green-bright` (4.7:1). Keep everything below the band plum-led, and keep to one green band per project.
-  - **The hero leaves** (see Flowers, Leaves) are the other exception: green growth around Teresa's arch, on the homepage hero only.
 - Inside the **standalone tools** (the emotional-regulation practice tool, and anything built after it), green is promoted to the primary interactive color — the button someone clicks, the step marked done, the progress fill. Plum still shows up in a tool's header or one structural element so it still reads as Teresa's work, but green carries the "what do I do next" job that plum, as an identity color, isn't built to carry.
 
 The choice of green isn't arbitrary: it's a real nod to the sustainability focus behind the job search these tools support, and a deliberately grounded, confident color — not a soft or decorative one — set next to the plum.
@@ -213,16 +212,6 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 **Homepage tiles ("What I do"):** each tile gets one visual with no words in it, rising from its bottom edge. Dark tiles (a project's story) carry that project's flower; light tiles (a tool) carry a simple sketch of the tool drawn in plain shapes, with one green pop. Words in a picture compete with the tile's own text, so leave them out.
 
 **On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. In the header it sits beside the tool name (about 34 × 28px) and stays there on phones, where the name wraps next to it.
-
-### Leaves
-
-Green leaves grow around the hero arch on the homepage: a tall frond on the arch's lower left and a sprig on its lower right. They say "growth" next to Teresa's peony, and they're the one place green sits beside the plum identity mark.
-
-- **Style:** original cut-paper drawings, like the flowers: paired leaflets on a curved stem. Drawn for this site, not traced from stock art. (A broad leaf with cut-out veins was tried in front and removed: its solid shape competed with the peony.)
-- **Colors:** two greens only: `green-bright` for the left frond, `green` for the right sprig, so the pair has depth.
-- **Placement:** rising from the arch's base and overlapping its edge, so they read as growing around it. Homepage hero only; don't repeat them elsewhere, or they stop meaning "growth around Teresa."
-- **Motion:** they grow up from the stem once on load (`hero-grow`, `duration-linger`, `ease-settle`), after the arch rises and before the peony opens. Reduced motion shows them finished.
-- **Files:** inline in `public/index.html` (`.hero-leaves`), styled in `css/layout.css` ("Hero leaves").
 
 ## Open questions
 
