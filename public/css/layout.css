@@ -528,19 +528,59 @@
 }
 
 /* ---------- How I work ----------
-   A "How I work." heading, then three calm deep-plum cards under the hero: one per step of the
-   method. Each card is a short heading, a sentence or two of proof, and a link to the section that
-   shows the work. Three across on wide screens, stacked on phones. */
+   A full-width deep-plum band with paper grain (BRAND.md, Texture), joined to the linen above and
+   below by soft wave edges (BRAND.md, Shapes: a wave joins two sections). Inside: a "How I work."
+   heading, then three numbered steps of the method. Each step is a short heading, a sentence or two
+   of proof, and a link to the section that shows the work. Three across on wide screens, stacked
+   on phones. */
 
 .how-i-work {
-  max-width: var(--content-max);
-  margin-inline: auto;
-  padding: 0 var(--space-4) var(--space-16);
+  position: relative;
+  z-index: 1; /* the lower wave overlaps the top of "What I do" */
+  margin-top: var(--space-12);
+  padding: var(--space-12) var(--space-4) var(--space-16);
+  background: var(--texture-grain), var(--plum-deep);
+  background-blend-mode: soft-light, normal;
+  color: var(--surface);
 }
 
-/* "How I work." sits on the left, lined up with the first card; "What I do." answers it on the right. */
+/* The wave edges: the band's own color, cut to a wave shape and set just above and below it. */
+.how-i-work::before,
+.how-i-work::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--space-12);
+  background: inherit; /* same color and grain as the band, so the seam doesn't show */
+  background-blend-mode: inherit;
+  -webkit-mask: var(--wave) center / 100% 100% no-repeat;
+  mask: var(--wave) center / 100% 100% no-repeat;
+}
+
+.how-i-work::before {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,26 C180,2 360,48 600,26 C840,4 1020,44 1200,18 L1200,48 L0,48 Z'/%3E%3C/svg%3E");
+  bottom: calc(100% - 1px);
+}
+
+.how-i-work::after {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,24 C1020,46 840,6 620,22 C400,40 200,4 0,24 Z'/%3E%3C/svg%3E");
+  top: calc(100% - 1px);
+}
+
+.how-i-work-inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+/* "How I work." sits on the left, lined up with the first step; "What I do." answers it on the right.
+   On the deep band the heading is white and its period bright plum. */
 .how-i-work .section-title {
   text-align: left;
+}
+
+.how-i-work .section-period {
+  color: var(--plum-bright);
 }
 
 /* Section headings like "How I work." and "What I do.": a section head like "AI Learning Series",
@@ -594,12 +634,35 @@
   list-style: none;
 }
 
+/* Each step: a faint lighter panel on the band, outlined in bright plum, numbered in order. */
+.how-i-work-grid {
+  counter-reset: step;
+}
+
 .how-i-work-card {
   display: flex;
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
-  border-radius: var(--radius-md);
-  background: var(--plum-deep);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--linen) 6%, transparent);
+  box-shadow: inset 0 0 0 var(--border-hairline) color-mix(in srgb, var(--plum-bright) 30%, transparent);
+  counter-increment: step;
+}
+
+/* The step number, in a small soft blob (BRAND.md, Shapes). */
+.how-i-work-card::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: var(--space-12);
+  height: var(--space-12);
+  margin-bottom: var(--space-4);
+  border-radius: 58% 42% 55% 45% / 48% 58% 42% 52%;
+  background: var(--plum-bright);
+  color: var(--plum-deep);
+  font: var(--text-button);
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 /* On deep plum (like the "Let's talk" band): white headings (17.6:1), soft plum sentences (14.1:1),
@@ -643,6 +706,11 @@
 
   .how-i-work-card {
     padding: var(--space-6) var(--space-4);
+  }
+
+  .how-i-work::before,
+  .how-i-work::after {
+    height: var(--space-6);
   }
 }
 

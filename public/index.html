@@ -84,11 +84,13 @@
 
   <main id="main">
     <!-- How I work: my method in three steps (find the need, build the fix, teach it until it sticks),
-         each with one piece of proof and a link to the section that backs it up.
-         One short heading and one or two sentences per card. Styles in css/layout.css ("How I work"). -->
+         each with one piece of proof and a link to the section that backs it up. The steps are numbered
+         in order automatically. One short heading and one or two sentences per step.
+         Styles in css/layout.css ("How I work"): a deep plum band with wave edges and paper grain. -->
     <section class="how-i-work" aria-labelledby="how-i-work-title">
+      <div class="how-i-work-inner">
       <h2 id="how-i-work-title" class="section-title" data-bloom>How I work<span class="section-period" aria-hidden="true">.</span></h2>
-      <ul class="how-i-work-grid">
+      <ol class="how-i-work-grid">
         <li class="how-i-work-card">
           <h3>Start with what people need</h3>
           <p>My AI series began with one question to my team: <em>What do we want to learn together?</em></p>
@@ -104,7 +106,8 @@
           <p>Before my agent-building workshop, only 3 of 19 people polled had built an AI agent. Everyone who followed along left with one.</p>
           <a class="how-i-work-link" href="work/ai-learning-series/#session-9">See the session<span aria-hidden="true"> →</span></a>
         </li>
-      </ul>
+      </ol>
+      </div>
     </section>
 
     <!-- What I do: one calm tile per project or tool (styles in css/work.css), two across.
