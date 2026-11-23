@@ -8,9 +8,12 @@ The site is plain HTML, CSS, and JavaScript. There is no build step and no frame
 
 - `public/`: everything that gets published. Only files in here go live.
   - `public/css/tokens.css`: brand tokens (colors, fonts, spacing, radius). The only source of design values.
+  - `public/work/<name>/`: one page per project (the AI Learning Series, the Product Finder case study). The homepage keeps a tile for each in "What I do" and links to its page, so it stays short. Work pages share one nav ("What I do", "Contact"), so keep them matching.
+  - `public/js/sessions.js`: the AI Learning Series content. Image and tool paths start with `/` (`/images/session-N/…`, `/tools/…`) because the series page sits two folders down.
 - `wrangler.jsonc`: Cloudflare Worker deploy settings. Don't change it without asking; a mistake here can break deploys or branch previews.
 - `BRAND.md`: why the brand looks the way it does. Read it before any visual change.
-- `content/`: drafts and writing references (not published). `content/gold-example-ai-agent-building.md` is the benchmark for how a session write-up should read.- `CLAUDE.md`: this file.
+- `content/`: drafts and writing references (not published). `content/gold-example-ai-agent-building.md` is the benchmark for how a session write-up should read.
+- `CLAUDE.md`: this file.
 
 Keep notes, drafts, and config out of `public/`.
 

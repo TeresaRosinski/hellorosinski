@@ -36,7 +36,7 @@ The authoritative field list is the comment at the top of `public/js/sessions.js
   objectives: [""],
   designChoices: [
     { label: "", text: "", steps: [{ text: "", items: [""] }],
-      image: { src: "images/session-N/name.jpg", alt: "", caption: "", width: 0, height: 0 } }
+      image: { src: "/images/session-N/name.jpg", alt: "", caption: "", width: 0, height: 0 } }
   ],
   results: [
     { label: "", text: "", quote: "", source: "", highlight: true }
@@ -54,7 +54,7 @@ The authoritative field list is the comment at the top of `public/js/sessions.js
 - Escape double quotes inside strings (`\"`).
 - Use `*asterisks*` for italics; nothing else is formatted.
 - Leave out optional fields that have no real content rather than filling them.
-- Images go in `public/images/session-N/`, compressed (aim for under about 60 KB), with `width` and `height` set.
+- Images go in `public/images/session-N/` (`src` starts with `/images/`, and a tool `url` on this site with `/tools/`, so they work from the series page), compressed (aim for under about 60 KB), with `width` and `height` set.
 
 ## Where things are saved
 - While reviewing: `content/session-N-draft.md`
