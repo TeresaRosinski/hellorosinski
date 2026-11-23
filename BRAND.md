@@ -216,10 +216,10 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 
 ### Leaves
 
-Green leaves grow around the hero arch on the homepage: a frond and a broad leaf on the arch's lower left, a small sprig on its lower right. They say "growth" next to Teresa's peony, and they're the one place green sits beside the plum identity mark.
+Green leaves grow around the hero arch on the homepage: a tall frond on the arch's lower left and a sprig on its lower right. They say "growth" next to Teresa's peony, and they're the one place green sits beside the plum identity mark.
 
-- **Style:** original cut-paper drawings, like the flowers. The broad leaf has its midrib and side veins cut out; the fronds are paired leaflets on a curved stem. Drawn for this site, not traced from stock art.
-- **Colors:** two greens only: `green` for the broad leaf and the sprig, `green-bright` for the frond behind, so the cluster has depth.
+- **Style:** original cut-paper drawings, like the flowers: paired leaflets on a curved stem. Drawn for this site, not traced from stock art. (A broad leaf with cut-out veins was tried in front and removed: its solid shape competed with the peony.)
+- **Colors:** two greens only: `green-bright` for the left frond, `green` for the right sprig, so the pair has depth.
 - **Placement:** rising from the arch's base and overlapping its edge, so they read as growing around it. Homepage hero only; don't repeat them elsewhere, or they stop meaning "growth around Teresa."
 - **Motion:** they grow up from the stem once on load (`hero-grow`, `duration-linger`, `ease-settle`), after the arch rises and before the peony opens. Reduced motion shows them finished.
 - **Files:** inline in `public/index.html` (`.hero-leaves`), styled in `css/layout.css` ("Hero leaves").
