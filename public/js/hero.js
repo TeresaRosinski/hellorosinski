@@ -32,7 +32,7 @@
 
   // Once everything has landed, let the browser stop treating the hero as "about to animate".
   function releaseLayers() {
-    gsap.set(".hero h1, .hero-role, .hero-flower, .hero-word", { willChange: "auto", backfaceVisibility: "visible" });
+    gsap.set(".hero h1, .hero-role, .hero-divider, .hero-flower, .hero-word", { willChange: "auto", backfaceVisibility: "visible" });
   }
 
   // Start on schedule however long the page took to get here.

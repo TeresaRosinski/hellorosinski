@@ -7,9 +7,25 @@
 */
 
 .work {
-  padding: var(--space-3);
-  background: var(--surface);
+  /* How wide the cards are, compared with the full content width (1 = full width). Change this one
+     number to make every card wider or narrower; the heading lines up with the cards either way.
+     Card height is set separately (min-height in .tile), and the pictures are capped, so widening
+     the cards doesn't make them taller. */
+  --tile-scale: 0.88;
+
+  /* Room at the top for the wave above, side gutters so tiles never touch the screen edge,
+     and space at the bottom before "Let's talk". */
+  padding: var(--space-12) var(--space-4) var(--space-16);
+  background: var(--sand);
   scroll-margin-top: var(--space-12); /* keeps the tiles clear of the sticky nav */
+}
+
+/* The heading and tiles sit in a centered column (a little narrower than How I work above,
+   set by --tile-scale), instead of running edge to edge, so the section reads as calm. */
+.work .section-title,
+.work-grid {
+  max-width: calc(var(--content-max) * var(--tile-scale));
+  margin-inline: auto;
 }
 
 /* "What I do." sits above the tiles on the right, answering "How I work." on the left. */
@@ -26,18 +42,19 @@
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3);
+  gap: var(--space-6); /* a clear gutter between tiles, so each one stands on its own */
 }
 
 .tile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(var(--space-24) * 6);
-  padding: var(--space-12) var(--space-6) 0;
+  min-height: calc(var(--space-24) * 4.8); /* about 460px; set apart from --tile-scale, so wider tiles don't get taller */
+  padding: var(--space-16) var(--space-8) 0; /* generous room around the words */
   overflow: hidden;
   text-align: center;
-  background: var(--surface-mist);
+  border-radius: var(--radius-lg);
+  background: var(--linen);
 }
 
 .tile-eyebrow {
@@ -46,16 +63,17 @@
   color: var(--plum);
 }
 
+/* Half-width tiles use the half-width headline size (BRAND.md, Typography: "Tile — half"). */
 .tile h3 {
   margin: var(--space-2) 0;
-  font: var(--text-tile);
+  font: var(--text-tile-half);
   text-wrap: balance;
 }
 
 .tile-line {
   max-width: 34ch;
   font: var(--text-lede);
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-wrap: balance;
 }
 
@@ -71,7 +89,7 @@
 .tile-image {
   width: 100%;
   margin-top: auto;
-  padding-top: var(--space-8);
+  padding-top: var(--space-6);
 }
 
 /* ---------- Case study tile: deep green (BRAND.md: one green band per tool case study) ---------- */
@@ -109,7 +127,7 @@
 /* The tool's flower (BRAND.md, Flowers), cropped by the tile's bottom edge. */
 .tile-flower {
   display: block;
-  width: min(70%, calc(var(--content-max) / 3));
+  width: min(70%, calc(var(--space-24) * 2.4)); /* capped, so a wider tile doesn't get taller */
   height: auto;
   margin: 0 auto -18%;
   fill: var(--green-bright);
@@ -178,25 +196,25 @@
    (BRAND.md), so each panel has one green pop. ---------- */
 
 .tile-ui {
-  width: 92%;
+  width: min(92%, calc(var(--space-24) * 3.2)); /* capped, so a wider tile doesn't get taller */
   margin: 0 auto;
-  padding: var(--space-6);
+  padding: var(--space-4) var(--space-6); /* compact, so the sketch doesn't make its tile tall */
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background: var(--surface);
+  background: var(--sand);
 }
 
 /* Make It Your Agent: a progress bar, then three agent choices with the first one picked.
-   Placeholder shapes are white on mist, like a page still loading; only the picked choice is green. */
+   Placeholder shapes are sand on linen, like a page still loading; only the picked choice is green. */
 .shape-agent {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .shape-progress {
   height: var(--space-2);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   border-radius: var(--radius-pill);
-  background: var(--surface-mist);
+  background: var(--linen);
 }
 
 .shape-progress span {
@@ -210,25 +228,25 @@
 .shape-choice {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-4);
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
-  background: var(--surface-mist);
+  background: var(--linen);
 }
 
 .shape-dot {
   flex: none;
-  width: var(--space-6);
-  height: var(--space-6);
+  width: var(--space-4);
+  height: var(--space-4);
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--sand);
 }
 
 .shape-bar {
   width: 55%;
   height: var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--surface);
+  background: var(--sand);
 }
 
 .shape-bar-long {
@@ -248,21 +266,24 @@
   background: var(--green);
 }
 
-/* Product Finder Planner: a question branching into answers and results, one path in green. */
+/* Product Finder Planner: a question branching into answers and results, one path in green.
+   The other branches are green-bright (2.5:1 on the sand panel; green-soft disappeared there at
+   1.0:1), and the picked path is dark green (6.5:1), so it still reads as the one that stands out. */
 .shape-tree {
   display: block;
-  width: 100%;
+  width: 80%; /* a little smaller than the panel, so the tile stays compact */
   height: auto;
+  margin-inline: auto;
 }
 
 .tree-line {
-  stroke: var(--green-soft);
+  stroke: var(--green-bright);
   stroke-width: 4;
   stroke-linecap: round;
 }
 
 .tree-node {
-  fill: var(--green-soft);
+  fill: var(--green-bright);
 }
 
 .tree-line.is-path {
@@ -278,10 +299,11 @@
 @media (max-width: 48rem) {
   .work-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 
   .tile {
-    min-height: calc(var(--space-24) * 5);
-    padding-inline: var(--space-4);
+    min-height: calc(var(--space-24) * 4);
+    padding: var(--space-12) var(--space-6) 0;
   }
 }

@@ -9,9 +9,24 @@
   box-sizing: border-box;
 }
 
+/* Page roles: which neutral each job uses. Most pages are still white and mist; a page whose
+   <body> has class="page-warm" (the homepage, for now) switches to linen, sand and warm grey text
+   (BRAND.md, Color: warm neutrals). To warm another page, add the class to its <body>. */
+:root {
+  --page-ground: var(--surface);     /* the page background, and the nav and footer on it */
+  --page-ground-alt: var(--surface-mist); /* thin lines and soft fills that sit on the page */
+  --text-soft: var(--ink-soft);      /* secondary text: intros, captions, footer */
+}
+
+.page-warm {
+  --page-ground: var(--linen);
+  --page-ground-alt: var(--sand);
+  --text-soft: var(--ink-warm);
+}
+
 body {
   margin: 0;
-  background: var(--surface);
+  background: var(--page-ground);
   color: var(--ink);
   font: var(--text-body);
   -webkit-font-smoothing: antialiased;

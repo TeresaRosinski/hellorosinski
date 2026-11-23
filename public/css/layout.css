@@ -13,8 +13,8 @@
   top: 0;
   z-index: 20;
   width: 100%;
-  background: var(--surface);
-  border-bottom: var(--border-hairline) solid var(--surface-mist);
+  background: var(--page-ground);
+  border-bottom: var(--border-hairline) solid var(--page-ground-alt);
 }
 
 /* The background spans the whole screen; the contents line up with the page (content-max). */
@@ -69,7 +69,7 @@
 }
 
 .nav-links a {
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -168,8 +168,8 @@
     flex-direction: column;
     gap: 0;
     padding-block: var(--space-2);
-    background: var(--surface);
-    border-bottom: var(--border-hairline) solid var(--surface-mist);
+    background: var(--page-ground);
+    border-bottom: var(--border-hairline) solid var(--page-ground-alt);
     font: var(--text-button);
   }
 
@@ -199,11 +199,22 @@
   }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero ----------
+   Text on the left, the arch on the right. On phones they stack: text first, then a smaller arch. */
 
 .hero {
-  padding: var(--space-24) var(--space-4);
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  gap: var(--space-12);
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-16) var(--space-4) var(--space-24);
+}
+
+.hero-copy {
+  min-width: 0;
+  container: hero-copy / inline-size; /* lets the roles stack when this column gets narrow */
 }
 
 .hero h1 {
@@ -216,8 +227,15 @@
   color: var(--plum);
 }
 
+/* The small plum dot after a role: the same seed as the period after "Teresa." */
 .hero-divider {
-  color: var(--plum);
+  display: inline-block;
+  width: 0.32em;
+  height: 0.32em;
+  margin-inline: 0.55em 0.2em;
+  vertical-align: 0.12em;
+  border-radius: 50%;
+  background: var(--plum);
 }
 
 /* Keeps each role and its flower together, so lines break between roles, not before a flower. */
@@ -250,6 +268,7 @@
    js/hero.js switches this off once the entrance has finished, to free the memory. */
 .hero h1,
 .hero-role,
+.hero-divider,
 .hero-flower,
 .hero-word {
   will-change: transform, opacity;
@@ -311,10 +330,57 @@
   }
 }
 
-/* ---------- Hero flowers ----------
-   A peony between the roles (drawing: brand/flowers/plum-peony.svg, stored once in index.html).
-   On load, each peony opens from its center outward, easing in with a slight settling turn.
-   Plays once; the second follows as the first finishes. Color comes from tokens.css. */
+/* Each role's dot pops in like the seed after "Teresa.", just after its role arrives. */
+.hero-divider {
+  transform-origin: 50% 50%;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) 450ms backwards;
+}
+
+.hero-divider-second {
+  animation-delay: 900ms;
+}
+
+/* ---------- Hero arch ----------
+   A tall arch in plum at 12% with a thin inner arch line (BRAND.md, Shapes: an arch frames a
+   picture). It holds the peony (drawing: brand/flowers/plum-peony.svg, stored once in index.html)
+   until there's a photo. On load the peony opens from its center outward, after the roles, with a
+   slight settling turn. Plays once. Colors come from tokens.css. */
+/* Holds the arch (and, later, anything placed around it). */
+.hero-art {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--space-24) * 4);
+  justify-self: center;
+}
+
+.hero-arch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-pill) var(--radius-pill) var(--radius-lg) var(--radius-lg);
+  background: var(--plum-12);
+  animation: hero-rise var(--duration-linger) var(--ease-settle) 300ms backwards;
+}
+
+.hero-arch::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-4) var(--space-4) auto;
+  height: 72%;
+  border: calc(var(--border-hairline) * 1.5) solid var(--plum-24);
+  border-bottom: 0;
+  border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+}
+
+/* A photo placed in the arch fills it and is cropped by its shape. */
+.hero-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* Holds the reusable drawings; takes no space on the page. */
 .sprite {
@@ -325,17 +391,12 @@
 }
 
 .hero-flower {
-  width: 1.2em;
-  height: 1.02em;
-  margin-inline: 0.35em;
-  vertical-align: -0.16em;
+  position: relative; /* sits above the inner arch line */
+  width: 66%;
+  aspect-ratio: 439 / 372; /* the peony drawing's own shape */
   fill: var(--plum);
   transform-origin: 50% 55%;
-  animation: hero-bloom var(--duration-linger) var(--ease-settle) 450ms backwards;
-}
-
-.hero-flower-second {
-  animation-delay: 900ms;
+  animation: hero-bloom var(--duration-linger) var(--ease-settle) 1300ms backwards;
 }
 
 /* Opens from the center outward (like petals unfurling), fading in and turning gently into place. */
@@ -361,6 +422,8 @@
   .hero h1 span,
   .hero-actions,
   .hero-role,
+  .hero-divider,
+  .hero-arch,
   .hero-sub,
   .hero-flower {
     animation: none;
@@ -374,15 +437,13 @@
 .hero-lede {
   font: var(--text-lede);
   max-width: var(--measure);
-  margin-inline: auto;
   text-wrap: balance;
 }
 
 .hero-sub {
   margin-top: var(--space-3);
-  margin-inline: auto;
   max-width: var(--measure-narrow);
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-wrap: balance;
 }
 
@@ -398,9 +459,44 @@
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--space-3);
   margin-top: var(--space-8);
+}
+
+/* When the three roles don't fit on one line (on phones, and in the narrower two-column layouts),
+   each gets its own line and the dots step aside: a dot left hanging at the end of a line looks
+   like a stray mark. 31rem is about the width the three roles need on one line. */
+@container hero-copy (width < 31rem) {
+  .hero-role {
+    display: block;
+  }
+
+  .hero-divider {
+    display: none;
+  }
+}
+
+/* Phones and narrow tablets: one column, centered like a title card, with a smaller arch below. */
+@media (max-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    padding-block: var(--space-12) var(--space-16);
+    text-align: center;
+  }
+
+  .hero-lede,
+  .hero-sub {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-art {
+    max-width: calc(var(--space-24) * 2.5);
+  }
 }
 
 /* Pill buttons (BRAND.md: plum is the primary CTA on light surfaces). */
@@ -443,21 +539,71 @@
 .button-secondary:hover {
   background: var(--plum-soft);
 }
-
-/* ---------- How I work ----------
-   A "How I work." heading, then three calm deep-plum cards under the hero: one per step of the
-   method. Each card is a short heading, a sentence or two of proof, and a link to the section that
-   shows the work. Three across on wide screens, stacked on phones. */
-
-.how-i-work {
-  max-width: var(--content-max);
-  margin-inline: auto;
-  padding: 0 var(--space-4) var(--space-16);
+/* On warm pages the outline shows the linen behind it, instead of a white pill on linen. */
+.page-warm .button-secondary {
+  background: transparent;
+}
+.page-warm .button-secondary:hover {
+  background: var(--plum-12);
 }
 
-/* "How I work." sits on the left, lined up with the first card; "What I do." answers it on the right. */
+/* ---------- How I work ----------
+   A full-width soft-black (ink) band with paper grain (BRAND.md, Texture), joined to the linen above and
+   below by soft wave edges (BRAND.md, Shapes: a wave joins two sections). Inside: a "How I work."
+   heading, then three numbered steps of the method. Each step is a short heading, a sentence or two
+   of proof, and a link to the section that shows the work. Three across on wide screens, stacked
+   on phones. */
+
+.how-i-work {
+  position: relative;
+  z-index: 1; /* the lower wave overlaps the top of "What I do" */
+  margin-top: var(--space-12);
+  padding: var(--space-12) var(--space-4) var(--space-16);
+  background: var(--texture-grain), var(--ink); /* soft black, so the method reads apart from the plum Let's talk band */
+  background-blend-mode: soft-light, normal;
+  color: var(--surface);
+}
+
+/* The wave edges: the band's own color, cut to a wave shape and set just above and below it.
+   The "Let's talk" band uses the same edges (see "Contact"). */
+.how-i-work::before,
+.how-i-work::after,
+.contact::before,
+.contact::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--space-12);
+  background: inherit; /* same color and grain as the band, so the seam doesn't show */
+  background-blend-mode: inherit;
+  -webkit-mask: var(--wave) center / 100% 100% no-repeat;
+  mask: var(--wave) center / 100% 100% no-repeat;
+}
+
+.how-i-work::before {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,26 C180,2 360,48 600,26 C840,4 1020,44 1200,18 L1200,48 L0,48 Z'/%3E%3C/svg%3E");
+  bottom: calc(100% - 1px);
+}
+
+.how-i-work::after {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,24 C1020,46 840,6 620,22 C400,40 200,4 0,24 Z'/%3E%3C/svg%3E");
+  top: calc(100% - 1px);
+}
+
+.how-i-work-inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+/* "How I work." sits on the left, lined up with the first step; "What I do." answers it on the right.
+   On the deep band the heading is white and its period bright plum. */
 .how-i-work .section-title {
   text-align: left;
+}
+
+.how-i-work .section-period {
+  color: var(--plum-bright);
 }
 
 /* Section headings like "How I work." and "What I do.": a section head like "AI Learning Series",
@@ -511,16 +657,39 @@
   list-style: none;
 }
 
+/* Each step: a faint lighter panel on the band, outlined in bright plum, numbered in order. */
+.how-i-work-grid {
+  counter-reset: step;
+}
+
 .how-i-work-card {
   display: flex;
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
-  border-radius: var(--radius-md);
-  background: var(--plum-deep);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--linen) 6%, transparent);
+  box-shadow: inset 0 0 0 var(--border-hairline) color-mix(in srgb, var(--plum-bright) 30%, transparent);
+  counter-increment: step;
 }
 
-/* On deep plum (like the "Let's talk" band): white headings (17.6:1), soft plum sentences (14.1:1),
-   and bright plum links (7.0:1). */
+/* The step number, in a small soft blob (BRAND.md, Shapes). */
+.how-i-work-card::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: var(--space-12);
+  height: var(--space-12);
+  margin-bottom: var(--space-4);
+  border-radius: 58% 42% 55% 45% / 48% 58% 42% 52%;
+  background: var(--plum-bright);
+  color: var(--plum-deep);
+  font: var(--text-button);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* On soft black (ink): white headings (16.8:1), soft plum sentences (13.5:1),
+   and bright plum links (6.7:1). */
 .how-i-work-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
@@ -548,7 +717,7 @@
   text-decoration: underline;
 }
 
-/* Keyboard focus that shows up on deep plum (the default plum outline would disappear). */
+/* Keyboard focus that shows up on the dark band (the default plum outline would disappear). */
 .how-i-work-link:focus-visible {
   outline-color: var(--plum-bright);
 }
@@ -561,6 +730,13 @@
   .how-i-work-card {
     padding: var(--space-6) var(--space-4);
   }
+
+  .how-i-work::before,
+  .how-i-work::after,
+  .contact::before,
+  .contact::after {
+    height: var(--space-6);
+  }
 }
 
 /* ---------- Contact ("Let's talk") ----------
@@ -568,11 +744,29 @@
    "Let's talk" button lands somewhere clear. */
 
 .contact {
+  position: relative; /* holds the wave edges (shared with How I work, above) */
   padding: var(--space-16) var(--space-4);
-  background: var(--plum-deep);
+  background: var(--texture-grain), var(--plum-deep); /* paper grain, like the How I work band */
+  background-blend-mode: soft-light, normal;
   color: var(--surface);
   text-align: center;
-  scroll-margin-top: var(--space-12); /* stays clear of the sticky nav */
+  scroll-margin-top: calc(var(--space-12) * 2); /* stays clear of the sticky nav, wave included */
+}
+
+/* Wave edges like How I work's, with the curves shifted so the two bands don't look stamped. */
+.contact::before {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C220,44 420,4 640,22 C860,40 1040,6 1200,28 L1200,48 L0,48 Z'/%3E%3C/svg%3E");
+  bottom: calc(100% - 1px);
+}
+
+.contact::after {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,20 C980,44 780,4 560,24 C340,44 160,6 0,26 Z'/%3E%3C/svg%3E");
+  top: calc(100% - 1px);
+}
+
+/* The footer under the band gets room for the lower wave. */
+.contact + .footer {
+  padding-top: calc(var(--space-12) + var(--space-6));
 }
 
 .contact h2 {
@@ -631,12 +825,38 @@
   outline-color: var(--plum-bright);
 }
 
+/* ---------- Scroll tint ----------
+   On the homepage, the page ground shifts tone as sections reach the middle of the screen
+   (js/scroll-tint.js says when; data-tone in index.html says which). The nav and footer share the
+   ground, so they shift with it. The fade uses duration-enter, so it feels like light changing,
+   not a slide changing. */
+.page-warm[data-tone="plum"] {
+  --page-ground: var(--plum-06);
+}
+
+.page-warm[data-tone="green"] {
+  --page-ground: var(--green-08);
+}
+
+/* Once the script is running, "What I do" lets the tinted ground show through (instead of sand). */
+.has-tint .work {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-warm,
+  .page-warm .nav,
+  .page-warm .footer {
+    transition: background-color var(--duration-enter) var(--ease-settle);
+  }
+}
+
 /* ---------- Footer ---------- */
 
 .footer {
   padding: var(--space-6) var(--space-4) var(--space-12);
-  background: var(--surface);
-  color: var(--ink-soft);
+  background: var(--page-ground);
+  color: var(--text-soft);
   font: var(--text-caption);
   text-align: center;
 }
