@@ -25,6 +25,9 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 | `surface-mist` | `#F5F5F7` | Alternating section background; default tile ground |
 | `ink` | `#1D1D1F` | Primary text, headlines |
 | `ink-soft` | `#6E6E73` | Secondary text — captions, intros, footer |
+| `linen` | `#FBF7F3` | Warm page ground; replaces `surface` on warm pages |
+| `sand` | `#F3EBE4` | Warm alternate section; replaces `surface-mist` on warm pages |
+| `ink-warm` | `#655A5F` | Warm secondary text; replaces `ink-soft` on warm pages (6.2:1 on linen, 5.6:1 on sand) |
 | `plum` | `#5B2152` | Primary brand color — identity: hero accent, nav hover, primary CTA on light surfaces |
 | `plum-deep` | `#2A0F27` | Darkest plum — full-bleed tone sections |
 | `plum-soft` | `#EFE3EC` | Soft plum tint — gentle backgrounds, badges |
@@ -34,6 +37,26 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 | `green-soft` | `#E3EAE1` | Tool backgrounds, completed-step fill, success banners |
 | `green-bright` | `#6FA179` | Hover/active state on dark tool surfaces — too light for small text directly on white, so keep it to non-text use or large/bold text there |
 | `error` | `#A3302E` | Error messages and invalid input in tools — a status color, never decorative |
+
+### Warm neutrals
+
+White and mist are cool, Apple-style greys, and next to plum they read as clinical. The warm neutrals give the same jobs a faint plum lean, so a page feels calm and handmade instead of stark: `linen` for the page, `sand` for an alternate section, `ink-warm` for secondary text. Swap `ink-soft` for `ink-warm` whenever the ground is sand: `ink-soft` drops to 4.3:1 there, below the 4.5:1 minimum.
+
+The homepage is warm first (its `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`). The work pages and tools move over later.
+
+### Strength steps
+
+Plum and green, mixed into linen at set strengths. They give a page more variety without adding colors: a tinted ground, a shape behind a picture, a soft fill.
+
+| Token | Value | Use |
+|---|---|---|
+| `plum-06` | `#F1EAE9` | Plum at 6%: a tinted page ground (the homepage's scroll tint) |
+| `plum-12` | `#E8DDE0` | Plum at 12%: an arch or shape behind a picture |
+| `plum-24` | `#D5C4CC` | Plum at 24%: a thin line or small shape on `plum-12` |
+| `green-08` | `#ECEAE5` | Green at 8%: a tinted ground near a tool |
+| `green-16` | `#DDDED7` | Green at 16%: a shape near a tool |
+
+Steps are grounds and shapes, never text. Ink on every step is above 10:1.
 
 ## Typography
 
@@ -106,6 +129,18 @@ Widths and line weights, so pages line up and text stays comfortable to read.
 | `measure-narrow` | `46ch` | Line length for supporting paragraphs |
 | `border-hairline` | `1px` | Thin dividers, like the line under the nav |
 | `focus-ring` | `3px` | Keyboard focus outline thickness, and its gap from the element |
+
+## Shapes & texture
+
+Organic shapes soften the page, but each one has a single job, so soft never turns into messy.
+
+- **Arch** frames a picture: the hero peony today, and a photo of Teresa later. A tall rectangle with a fully rounded top (`radius-pill` on the top corners, `radius-lg` on the bottom), filled `plum-12`, with a thin inner arch line in `plum-24`.
+- **Wave** joins two sections, in place of a straight edge. It's cut from the section's own color and grain, so the seam doesn't show. Use it where a deep band meets a light one.
+- **Blob** sits behind something small, like a step number. It never holds running text.
+
+**Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep` and `green-deep` bands. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
+
+**Scroll tint** (homepage): the page ground shifts from linen to `plum-06` around How I work and the first tiles, then to `green-08` at the tool tiles. Only the ground changes, so text contrast never moves. It fades over `duration-enter`; people who ask for less motion see the tones switch at once. Keep it to these three tones: more turns into a light show.
 
 ## Motion
 
