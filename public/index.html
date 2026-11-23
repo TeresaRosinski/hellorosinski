@@ -55,21 +55,30 @@
     </div>
   </nav>
 
-  <!-- Hero: edit the intro text here. -->
+  <!-- Hero: edit the intro text here. Text on the left, an arch on the right (stacked on phones).
+       The arch holds the peony for now; it's also where a photo of Teresa can go later. -->
   <header class="hero" id="top">
-    <h1>Teresa<span>.</span></h1>
-    <!-- Each role stays on one line, with a peony after it. On load, each peony opens from its center
-         (styles in css/layout.css, "Hero flowers"). Screen readers skip the flowers. -->
-    <p class="hero-lede">
-      <span class="hero-role">Creative Technologist<span class="hero-divider" aria-hidden="true"><svg class="hero-flower" focusable="false"><use href="#flower-peony"/></svg></span></span>
-      <span class="hero-role">Educator<span class="hero-divider" aria-hidden="true"><svg class="hero-flower hero-flower-second" focusable="false"><use href="#flower-peony"/></svg></span></span>
-      <span class="hero-role">Agile Problem-Solver</span>
-    </p>
-    <p class="hero-sub">I empower people to reach their goals, through digital tools I build and live workshops I lead, including helping teams learn to use AI.</p>
-    <!-- Hero buttons: the two next steps. Edit the text or where they go here. -->
-    <div class="hero-actions">
-      <a class="button button-primary" href="#what-i-do">Explore my work</a>
-      <a class="button button-secondary" href="#contact">Let's talk</a>
+    <div class="hero-copy">
+      <h1>Teresa<span>.</span></h1>
+      <!-- Each role stays on one line, with a small plum dot after it that pops in like the seed
+           after "Teresa." (styles in css/layout.css, "Hero entrance"). Screen readers skip the dots. -->
+      <p class="hero-lede">
+        <span class="hero-role">Creative Technologist<span class="hero-divider" aria-hidden="true"></span></span>
+        <span class="hero-role">Educator<span class="hero-divider hero-divider-second" aria-hidden="true"></span></span>
+        <span class="hero-role">Agile Problem-Solver</span>
+      </p>
+      <p class="hero-sub">I empower people to reach their goals, through digital tools I build and live workshops I lead, including helping teams learn to use AI.</p>
+      <!-- Hero buttons: the two next steps. Edit the text or where they go here. -->
+      <div class="hero-actions">
+        <a class="button button-primary" href="#what-i-do">Explore my work</a>
+        <a class="button button-secondary" href="#contact">Let's talk</a>
+      </div>
+    </div>
+    <!-- The arch (BRAND.md, Shapes: an arch frames a picture). Decorative, so screen readers skip it.
+         To use a photo instead: replace the <svg> with <img src="images/teresa.jpg" alt="Teresa Rosinski">
+         and remove aria-hidden from the <div>; the arch crops it. Styles in css/layout.css ("Hero arch"). -->
+    <div class="hero-arch" aria-hidden="true">
+      <svg class="hero-flower" focusable="false"><use href="#flower-peony"/></svg>
     </div>
   </header>
 

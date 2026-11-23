@@ -199,11 +199,21 @@
   }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero ----------
+   Text on the left, the arch on the right. On phones they stack: text first, then a smaller arch. */
 
 .hero {
-  padding: var(--space-24) var(--space-4);
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  gap: var(--space-12);
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-16) var(--space-4) var(--space-24);
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .hero h1 {
@@ -216,8 +226,15 @@
   color: var(--plum);
 }
 
+/* The small plum dot after a role: the same seed as the period after "Teresa." */
 .hero-divider {
-  color: var(--plum);
+  display: inline-block;
+  width: 0.32em;
+  height: 0.32em;
+  margin-inline: 0.55em 0.2em;
+  vertical-align: 0.12em;
+  border-radius: 50%;
+  background: var(--plum);
 }
 
 /* Keeps each role and its flower together, so lines break between roles, not before a flower. */
@@ -250,6 +267,7 @@
    js/hero.js switches this off once the entrance has finished, to free the memory. */
 .hero h1,
 .hero-role,
+.hero-divider,
 .hero-flower,
 .hero-word {
   will-change: transform, opacity;
@@ -311,10 +329,51 @@
   }
 }
 
-/* ---------- Hero flowers ----------
-   A peony between the roles (drawing: brand/flowers/plum-peony.svg, stored once in index.html).
-   On load, each peony opens from its center outward, easing in with a slight settling turn.
-   Plays once; the second follows as the first finishes. Color comes from tokens.css. */
+/* Each role's dot pops in like the seed after "Teresa.", just after its role arrives. */
+.hero-divider {
+  transform-origin: 50% 50%;
+  animation: hero-seed var(--duration-linger) var(--ease-settle) 450ms backwards;
+}
+
+.hero-divider-second {
+  animation-delay: 900ms;
+}
+
+/* ---------- Hero arch ----------
+   A tall arch in plum at 12% with a thin inner arch line (BRAND.md, Shapes: an arch frames a
+   picture). It holds the peony (drawing: brand/flowers/plum-peony.svg, stored once in index.html)
+   until there's a photo. On load the peony opens from its center outward, after the roles, with a
+   slight settling turn. Plays once. Colors come from tokens.css. */
+.hero-arch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: calc(var(--space-24) * 4);
+  aspect-ratio: 4 / 5;
+  justify-self: center;
+  overflow: hidden;
+  border-radius: var(--radius-pill) var(--radius-pill) var(--radius-lg) var(--radius-lg);
+  background: var(--plum-12);
+  animation: hero-rise var(--duration-linger) var(--ease-settle) 300ms backwards;
+}
+
+.hero-arch::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-4) var(--space-4) auto;
+  height: 72%;
+  border: calc(var(--border-hairline) * 1.5) solid var(--plum-24);
+  border-bottom: 0;
+  border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+}
+
+/* A photo placed in the arch fills it and is cropped by its shape. */
+.hero-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* Holds the reusable drawings; takes no space on the page. */
 .sprite {
@@ -325,17 +384,12 @@
 }
 
 .hero-flower {
-  width: 1.2em;
-  height: 1.02em;
-  margin-inline: 0.35em;
-  vertical-align: -0.16em;
+  position: relative; /* sits above the inner arch line */
+  width: 66%;
+  aspect-ratio: 439 / 372; /* the peony drawing's own shape */
   fill: var(--plum);
   transform-origin: 50% 55%;
-  animation: hero-bloom var(--duration-linger) var(--ease-settle) 450ms backwards;
-}
-
-.hero-flower-second {
-  animation-delay: 900ms;
+  animation: hero-bloom var(--duration-linger) var(--ease-settle) 1300ms backwards;
 }
 
 /* Opens from the center outward (like petals unfurling), fading in and turning gently into place. */
@@ -361,6 +415,8 @@
   .hero h1 span,
   .hero-actions,
   .hero-role,
+  .hero-divider,
+  .hero-arch,
   .hero-sub,
   .hero-flower {
     animation: none;
@@ -374,13 +430,11 @@
 .hero-lede {
   font: var(--text-lede);
   max-width: var(--measure);
-  margin-inline: auto;
   text-wrap: balance;
 }
 
 .hero-sub {
   margin-top: var(--space-3);
-  margin-inline: auto;
   max-width: var(--measure-narrow);
   color: var(--text-soft);
   text-wrap: balance;
@@ -398,9 +452,31 @@
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--space-3);
   margin-top: var(--space-8);
+}
+
+/* Phones and narrow tablets: one column, centered like a title card, with a smaller arch below. */
+@media (max-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    padding-block: var(--space-12) var(--space-16);
+    text-align: center;
+  }
+
+  .hero-lede,
+  .hero-sub {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-arch {
+    max-width: calc(var(--space-24) * 2.5);
+  }
 }
 
 /* Pill buttons (BRAND.md: plum is the primary CTA on light surfaces). */
