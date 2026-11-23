@@ -376,9 +376,9 @@
 }
 
 /* ---------- Hero leaves ----------
-   Green leaves growing from the arch's base (BRAND.md, Leaves): a frond and a broad leaf on the
-   lower left, a small sprig on the lower right. Original cut-paper drawings in two greens, overlapping
-   the arch's edge so they read as growing around it, not pasted beside it.
+   Green leaves growing from the arch's base (BRAND.md, Leaves): a tall frond on the lower left and a
+   sprig on the lower right. Original cut-paper drawings in two greens, overlapping the arch's edge so
+   they read as growing around it, not pasted beside it.
    On load they grow up from their base, after the arch rises and before the peony opens. */
 .hero-leaves {
   position: absolute;
@@ -389,14 +389,14 @@
 }
 
 .hero-leaves-left {
-  left: -22%; /* stays clear of the intro text beside it */
-  width: 50%;
-  transform-origin: 91% 98%; /* where the stems meet */
+  left: -12%; /* stays clear of the intro text beside it */
+  width: 40%;
+  transform-origin: 83% 98%; /* where the stem starts */
 }
 
 .hero-leaves-right {
   right: -4%; /* stays inside the page's side margin, so the page never scrolls sideways */
-  width: 28%;
+  width: 40%;
   transform-origin: 6% 98%;
   animation-delay: 1000ms;
 }
