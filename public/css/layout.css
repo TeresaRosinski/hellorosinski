@@ -720,7 +720,8 @@
 
 .contact {
   padding: var(--space-16) var(--space-4);
-  background: var(--plum-deep);
+  background: var(--texture-grain), var(--plum-deep); /* paper grain, like the How I work band */
+  background-blend-mode: soft-light, normal;
   color: var(--surface);
   text-align: center;
   scroll-margin-top: var(--space-12); /* stays clear of the sticky nav */
