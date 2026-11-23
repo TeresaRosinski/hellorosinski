@@ -12,6 +12,12 @@
   --ink: #1D1D1F;
   --ink-soft: #6E6E73;
 
+  /* Color: warm neutrals (BRAND.md, Color). Warmer than white and mist, with a faint plum lean.
+     Used on the homepage first; the rest of the site moves over later. */
+  --linen: #FBF7F3;    /* warm page ground; plum on it is 11.0:1 */
+  --sand: #F3EBE4;     /* warm alternate section; plum on it is 10.0:1 */
+  --ink-warm: #655A5F; /* warm secondary text: 6.2:1 on linen, 5.6:1 on sand (ink-soft drops to 4.3:1 on sand) */
+
   /* Color: plum (identity) */
   --plum: #5B2152;
   --plum-deep: #2A0F27;
@@ -23,6 +29,18 @@
   --green-deep: #1F2F22;
   --green-soft: #E3EAE1;
   --green-bright: #6FA179; /* not for small text on white */
+
+  /* Color: strength steps. Plum and green mixed into linen at set strengths, for grounds and
+     shapes (never text), so pages get variety without new colors. Ink on every step is above 10:1. */
+  --plum-06: #F1EAE9;
+  --plum-12: #E8DDE0;
+  --plum-24: #D5C4CC;
+  --green-08: #ECEAE5;
+  --green-16: #DDDED7;
+
+  /* Texture: paper grain, for deep color sections only (plum-deep, green-deep). Layer it over the
+     color with background-blend-mode: soft-light. On light grounds it just looks dusty. */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
   /* Color: status */
   --error: #A3302E; /* error messages and invalid input in tools; 6.95:1 on white */
