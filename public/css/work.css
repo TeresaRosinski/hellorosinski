@@ -266,7 +266,9 @@
   background: var(--green);
 }
 
-/* Product Finder Planner: a question branching into answers and results, one path in green. */
+/* Product Finder Planner: a question branching into answers and results, one path in green.
+   The other branches are green-bright (2.5:1 on the sand panel; green-soft disappeared there at
+   1.0:1), and the picked path is dark green (6.5:1), so it still reads as the one that stands out. */
 .shape-tree {
   display: block;
   width: 80%; /* a little smaller than the panel, so the tile stays compact */
@@ -275,13 +277,13 @@
 }
 
 .tree-line {
-  stroke: var(--green-soft);
+  stroke: var(--green-bright);
   stroke-width: 4;
   stroke-linecap: round;
 }
 
 .tree-node {
-  fill: var(--green-soft);
+  fill: var(--green-bright);
 }
 
 .tree-line.is-path {
