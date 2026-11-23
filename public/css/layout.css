@@ -214,6 +214,7 @@
 
 .hero-copy {
   min-width: 0;
+  container: hero-copy / inline-size; /* lets the roles stack when this column gets narrow */
 }
 
 .hero h1 {
@@ -509,9 +510,10 @@
   margin-top: var(--space-8);
 }
 
-/* Phones: the three roles don't fit on one line, so each gets its own line and the dots step
-   aside (a dot left hanging at the end of a line looks like a stray mark). */
-@media (max-width: 36rem) {
+/* When the three roles don't fit on one line (on phones, and in the narrower two-column layouts),
+   each gets its own line and the dots step aside: a dot left hanging at the end of a line looks
+   like a stray mark. 31rem is about the width the three roles need on one line. */
+@container hero-copy (width < 31rem) {
   .hero-role {
     display: block;
   }
