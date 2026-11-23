@@ -1,6 +1,7 @@
 /*
-  Section blooms: when a section heading marked with data-bloom scrolls into view, its plum period
-  pops in like the seed after "Teresa." in the hero. Plays once per heading.
+  Section blooms: when an element marked with data-bloom scrolls into view, it blooms once.
+  A section heading's plum period pops in like the seed after "Teresa." in the hero, and a tile's
+  flower opens like the hero peonies. Plays once per element.
   The animations themselves live in css/layout.css ("Section blooms"); this only says when.
 
   To adjust:
@@ -32,7 +33,9 @@
 
       // Once the period has landed, let go of the animation (BRAND.md, Motion).
       heading.addEventListener("animationend", function (event) {
-        if (event.animationName === "hero-seed") heading.classList.remove("is-blooming");
+        if (event.animationName === "hero-seed" || event.animationName === "hero-bloom") {
+          heading.classList.remove("is-blooming");
+        }
       });
     });
   }, { threshold: THRESHOLD });

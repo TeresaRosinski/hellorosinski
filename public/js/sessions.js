@@ -13,7 +13,7 @@
     summary     optional: a few sentences under the intro, like how it started and grew
 
   Each session (every field except number, title and goal is optional):
-    number        shown as "Session 9"; also its link, like hellorosinski.com/#session-9
+    number        shown as "Session 9"; also its link, like hellorosinski.com/work/ai-learning-series/#session-9
     title         the card and panel heading
     goal          one-line promise, shown on the card and under the panel heading
     meta          the facts line under the promise, shown in this order:
@@ -30,7 +30,8 @@
                     image   optional: a slide or screenshot shown under the choice:
                             { src, alt, caption, width, height }. Keep images in
                             public/images/session-N/, compressed, with alt text that says
-                            what the image shows.
+                            what the image shows. Start src with /images/ so it works
+                            from any page.
     results       what happened, one entry each. Use any of:
                     label      optional bold lead-in, like "Afterwards:"
                     text       the result in my words
@@ -45,7 +46,7 @@
     tool          optional: leave it out if the session has no tool
                     title, description (optional: one line on what it is and why I built it),
                     objective, builtWith (a list of tech), credit (one line),
-                    url ("" shows "coming soon")
+                    url ("" shows "coming soon"; a page on this site starts with /, like /tools/…)
     materials     optional: videos and articles used in the session, shown under "See it" as
                   "Shared in the session". One entry each: { type, title, source, url, note }
                     type    a short tag, like "Video" or "Article"
@@ -134,7 +135,7 @@ var SERIES = {
             { text: "*Can AI-generated art and performances evoke the same emotional connections and artistic value as those created by living artists?* (open answers)" }
           ],
           image: {
-            src: "images/session-1/reaction-word-cloud.jpg",
+            src: "/images/session-1/reaction-word-cloud.jpg",
             alt: "Mentimeter word cloud for: What was your initial reaction to the idea of using AI to recreate the likeness and performance of a deceased person? Answers: concerning, cool, copyrights, curious, engaging, futuristic, innovative, intelligent, precedence, questioning, realistic, recreate, uncanny.",
             caption: "First reactions, from excitement to concern.",
             width: 514,
@@ -149,7 +150,7 @@ var SERIES = {
           label: "Ask the team what to learn next.",
           text: "In the last 15 minutes, the team suggested topics and voted on how and how often to meet.",
           image: {
-            src: "images/session-1/topics-word-cloud.jpg",
+            src: "/images/session-1/topics-word-cloud.jpg",
             alt: "Mentimeter word cloud for: What are 3 (or more) topics, ideas, or things you'd be curious to discuss as a team? Answers include ai, ai generated code, ai use cases, ad industry, augmented reality, big data, css, javascript, javascript frameworks, our competition, python, team pain points, the qr code, third party cookies, topics in codepen emails, and ui current trends.",
             caption: "The 16 topics the team suggested.",
             width: 786,
@@ -225,7 +226,7 @@ var SERIES = {
           label: "Start with how humans learn.",
           text: "Before talking about machines, I wanted people to look at how they learn. In my experience, a topic sticks when people connect it to their own lives. A short video by Peggy Andover explained classical and operant conditioning. The question was on screen before it played, so people could take notes: *Can you think of an example of operant or classical conditioning in your life?*",
           image: {
-            src: "images/session-2/conditioning-answers.jpg",
+            src: "/images/session-2/conditioning-answers.jpg",
             alt: "Mentimeter answers to: Can you think of an example of operant or classical conditioning in your life? Answers: pairing coffee and meditation; I go for runs in the morning and get coffee or tea after; things I do with Diego, I try to focus on positive reinforcement, operant conditioning; when I open a can, the sound makes my cat think it's tuna even if it's beans or something he doesn't like.",
             caption: "Four examples, all from everyday life.",
             width: 625,
@@ -236,7 +237,7 @@ var SERIES = {
           label: "Let a pigeon make the leap.",
           text: "Next came a short video on Pablo Escobar's carrier pigeons: a fun story that challenges the idea that only humans learn. If a pigeon can be trained to carry messages, what could a machine be trained to do? So I asked: *What problem would you train an AI algorithm to solve for?*",
           image: {
-            src: "images/session-2/train-an-ai-answers.jpg",
+            src: "/images/session-2/train-an-ai-answers.jpg",
             alt: "Mentimeter answers to: What problem would you train an AI algorithm to solve for? Answers: world hunger, politics; optimize time and scheduling but personalized for me; meal prep and grocery shopping lists based on the foods I'll actually eat and cook and that are good for my specific health needs; how to optimize my day by taking in all the data from all of my devices; traffic; healthier, affordable food options; advance medical tech; to know what our pets are thinking.",
             caption: "Eight ideas, from meal prep to medical tech.",
             width: 618,
@@ -251,7 +252,7 @@ var SERIES = {
           label: "Give a long video a focus.",
           text: "The Hinton interview runs 13 minutes and covers a lot. Showing the discussion question first gave people something to listen for: *What threads or connections do you see between the way humans and machines learn?*",
           image: {
-            src: "images/session-2/threads-answers.jpg",
+            src: "/images/session-2/threads-answers.jpg",
             alt: "Mentimeter answers to: What threads or connections do you see between the way humans and machines learn? Answers: we don't know how either one fully works; both still need some sort of human teaching it, it all comes from something a human made; sounds like we both default to being results-based; both develop a neural network based on previous experience.",
             caption: "What people saw in common between human and machine learning.",
             width: 640,
@@ -325,7 +326,7 @@ var SERIES = {
           label: "Reframe \"agent\" as \"assistant.\"",
           text: "In the opening word cloud, the most common answers were \"assistant\" and \"helper,\" next to \"suspicious,\" \"insecurity,\" \"confusion,\" and \"Agent Smith from The Matrix.\" The next question built on the helpful side: *If you could have an assistant help you with anything, what would it be?* Answers appeared live on screen, then people unmuted to share.",
           image: {
-            src: "images/session-9/word-cloud.jpg",
+            src: "/images/session-9/word-cloud.jpg",
             alt: "Mentimeter word cloud for the question: When you hear \"AI Agents\", what thoughts come to mind? The largest words are assistant and helper. Other answers include personal assistant, quick help, task helper, automation, suspicious, confusion, insecurity, hallucinations, clippy, James Bond, the Matrix and Agent Smith from the Matrix.",
             caption: "The opening word cloud, with participants' anonymous answers.",
             width: 786,
@@ -336,7 +337,7 @@ var SERIES = {
           label: "Let the group choose.",
           text: "In a 60-second live poll, participants chose between three agents: a *Skill Sidekick* to help you improve something you want to learn, a *Deadline Therapist* for those \"how is this due tomorrow?\" moments, or a *Creative Partner* for ideas, writing, or design inspiration. The Skill Sidekick won. We built it together, and each person made it their own.",
           image: {
-            src: "images/session-9/agent-vote.jpg",
+            src: "/images/session-9/agent-vote.jpg",
             alt: "Mentimeter ranking results for: Out of these options, which Agent would you like to create? First, a Skill Sidekick to help you improve something you want to learn. Second, a Deadline Therapist for those how-is-this-due-tomorrow moments. Third, a Creative Partner for ideas, writing, or design inspiration.",
             caption: "The group's ranking: the Skill Sidekick came first.",
             width: 786,
@@ -364,7 +365,7 @@ var SERIES = {
             { text: "Tested their agents: asked them questions, reviewed the answers, and updated the instructions to better match the output they wanted." }
           ],
           image: {
-            src: "images/session-9/skill-sidekick-examples.jpg",
+            src: "/images/session-9/skill-sidekick-examples.jpg",
             alt: "Slide titled Skill Sidekick listing example answers: when I'm learning something new, when I don't understand a concept, when I'm stuck on a problem, when I want to practice a skill, when I need help studying, when I want to improve at something, when I make mistakes and need help fixing them, when I need help understanding code, when I want to review something, when I want to get better over time.",
             caption: "Example answers for *When would this agent be helpful?*, shown for the Skill Sidekick.",
             width: 786,
@@ -421,7 +422,7 @@ var SERIES = {
         objective: "Generate agent instructions with Copilot and a guided prompt.",
         builtWith: ["HTML", "CSS", "JavaScript", "Claude"],
         credit: "Designed by Teresa; built with AI coding assistance.",
-        url: "tools/make-it-your-agent/"
+        url: "/tools/make-it-your-agent/"
       },
       nextSteps: [
         {

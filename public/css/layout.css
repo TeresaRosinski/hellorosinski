@@ -455,15 +455,20 @@
   padding: 0 var(--space-4) var(--space-16);
 }
 
-/* The heading above the cards: a section head like "AI Learning Series", ending in a plum period
-   that echoes the "Teresa." wordmark. */
-.how-i-work-title {
+/* "How I work." sits on the left, lined up with the first card; "What I do." answers it on the right. */
+.how-i-work .section-title {
+  text-align: left;
+}
+
+/* Section headings like "How I work." and "What I do.": a section head like "AI Learning Series",
+   ending in a plum period that echoes the "Teresa." wordmark. */
+.section-title {
   margin: 0 0 var(--space-8);
   font: var(--text-section);
   text-align: center;
 }
 
-.how-i-work-period {
+.section-period {
   display: inline-block;
   color: var(--plum);
 }
@@ -473,26 +478,26 @@
    (js/section-bloom.js says when). Same seed as the hero's "Teresa.", so the page moves as one.
    Only the period moves; the heading text is readable the whole time. */
 
-.how-i-work-period {
+.section-period {
   transform-origin: 50% 85%;
 }
 
 /* Waiting to scroll into view. */
-.is-waiting .how-i-work-period {
+.is-waiting .section-period {
   opacity: 0;
 }
 
 /* The period pops in like the seed after "Teresa." */
-.is-blooming .how-i-work-period {
+.is-blooming .section-period {
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .is-waiting .how-i-work-period {
+  .is-waiting .section-period {
     opacity: 1;
   }
 
-  .is-blooming .how-i-work-period {
+  .is-blooming .section-period {
     animation: none;
   }
 }

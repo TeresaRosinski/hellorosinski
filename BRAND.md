@@ -170,9 +170,11 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 | Green poppy | `green`, `plum-deep` | Unassigned (suggested: Make it your agent) |
 | Green ruffled peony | `green`, `green-soft` | Unassigned (suggested: the emotional-regulation practice tool) |
 | Plum folk flower | `plum`, `green-bright` | Unassigned (portfolio section) |
-| Plum rosette | `plum`, `plum-deep`, `plum-bright` | Unassigned (portfolio section) |
+| Plum rosette | `plum`, `plum-deep`, `plum-bright` (on `plum-deep`: outer petals `plum-bright`, center `plum`) | AI Learning Series: its tile in "What I do" on the homepage. Many sessions circling one center, like the series growing around one question |
 
 **Files:** drawings in use live in `brand/flowers/`, slimmed for the web (the originals are 80–140 KB of traced points; slimmed copies are about 5–7 KB). Before adding one to a page, slim it and compare it against the original at full size.
+
+**Homepage tiles ("What I do"):** each tile gets one visual with no words in it, rising from its bottom edge. Dark tiles (a project's story) carry that project's flower; light tiles (a tool) carry a simple sketch of the tool drawn in plain shapes, with one green pop. Words in a picture compete with the tile's own text, so leave them out.
 
 **On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. In the header it sits beside the tool name (about 34 × 28px) and stays there on phones, where the name wraps next to it.
 
