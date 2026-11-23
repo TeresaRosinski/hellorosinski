@@ -783,6 +783,32 @@
   outline-color: var(--plum-bright);
 }
 
+/* ---------- Scroll tint ----------
+   On the homepage, the page ground shifts tone as sections reach the middle of the screen
+   (js/scroll-tint.js says when; data-tone in index.html says which). The nav and footer share the
+   ground, so they shift with it. The fade uses duration-enter, so it feels like light changing,
+   not a slide changing. */
+.page-warm[data-tone="plum"] {
+  --page-ground: var(--plum-06);
+}
+
+.page-warm[data-tone="green"] {
+  --page-ground: var(--green-08);
+}
+
+/* Once the script is running, "What I do" lets the tinted ground show through (instead of sand). */
+.has-tint .work {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-warm,
+  .page-warm .nav,
+  .page-warm .footer {
+    transition: background-color var(--duration-enter) var(--ease-settle);
+  }
+}
+
 /* ---------- Footer ---------- */
 
 .footer {
