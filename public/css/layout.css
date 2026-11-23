@@ -548,7 +548,7 @@
 }
 
 /* ---------- How I work ----------
-   A full-width deep-plum band with paper grain (BRAND.md, Texture), joined to the linen above and
+   A full-width soft-black (ink) band with paper grain (BRAND.md, Texture), joined to the linen above and
    below by soft wave edges (BRAND.md, Shapes: a wave joins two sections). Inside: a "How I work."
    heading, then three numbered steps of the method. Each step is a short heading, a sentence or two
    of proof, and a link to the section that shows the work. Three across on wide screens, stacked
@@ -559,7 +559,7 @@
   z-index: 1; /* the lower wave overlaps the top of "What I do" */
   margin-top: var(--space-12);
   padding: var(--space-12) var(--space-4) var(--space-16);
-  background: var(--texture-grain), var(--plum-deep);
+  background: var(--texture-grain), var(--ink); /* soft black, so the method reads apart from the plum Let's talk band */
   background-blend-mode: soft-light, normal;
   color: var(--surface);
 }
@@ -688,8 +688,8 @@
   font-weight: 700;
 }
 
-/* On deep plum (like the "Let's talk" band): white headings (17.6:1), soft plum sentences (14.1:1),
-   and bright plum links (7.0:1). */
+/* On soft black (ink): white headings (16.8:1), soft plum sentences (13.5:1),
+   and bright plum links (6.7:1). */
 .how-i-work-card h3 {
   margin: 0 0 var(--space-3);
   font: var(--text-tile-half);
@@ -717,7 +717,7 @@
   text-decoration: underline;
 }
 
-/* Keyboard focus that shows up on deep plum (the default plum outline would disappear). */
+/* Keyboard focus that shows up on the dark band (the default plum outline would disappear). */
 .how-i-work-link:focus-visible {
   outline-color: var(--plum-bright);
 }
