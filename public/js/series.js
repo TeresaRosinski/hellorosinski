@@ -337,7 +337,10 @@
         .concat(s.results.filter(function (r) { return !r.highlight; }));
       bulletList(ordered, "series-results", result);
     }
-    if (s.foundations && s.foundations.length) {
+    // Learning foundations are hidden for now (Teresa wants to understand the theories
+    // better first). The entries stay in sessions.js; set this to true to show them again.
+    var showFoundations = false;
+    if (showFoundations && s.foundations && s.foundations.length) {
       bulletList(s.foundations, "series-list", function (f) { return leadIn("li", "", f.name + ":", f.text); }, fold("Learning foundations"));
     }
     if (s.nextSteps && s.nextSteps.length) {

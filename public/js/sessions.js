@@ -40,6 +40,7 @@
                     highlight  true to make it the standout result (use for one at most)
     foundations   learning theories the session aligns with: { name, text } where text says
                   which design choice matches. Only claim what a design choice backs up.
+                  Hidden on the site for now (showFoundations in series.js).
     mentimeter    link:  the public view link ("" shows "coming soon")
                   embed: the embed link, if it has one ("" shows a button to the link instead)
                   note:  optional one line about what's in it
