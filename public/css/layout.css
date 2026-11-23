@@ -456,6 +456,18 @@
   margin-top: var(--space-8);
 }
 
+/* Phones: the three roles don't fit on one line, so each gets its own line and the dots step
+   aside (a dot left hanging at the end of a line looks like a stray mark). */
+@media (max-width: 36rem) {
+  .hero-role {
+    display: block;
+  }
+
+  .hero-divider {
+    display: none;
+  }
+}
+
 /* Phones and narrow tablets: one column, centered like a title card, with a smaller arch below. */
 @media (max-width: 48rem) {
   .hero {
