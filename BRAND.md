@@ -25,9 +25,9 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 | `surface-mist` | `#F5F5F7` | Alternating section background; default tile ground |
 | `ink` | `#1D1D1F` | Primary text, headlines |
 | `ink-soft` | `#6E6E73` | Secondary text — captions, intros, footer |
-| `linen` | `#FBF7F3` | Warm page ground; replaces `surface` on warm pages |
+| `linen` | `#FDFAF7` | Warm page ground; replaces `surface` on warm pages |
 | `sand` | `#F3EBE4` | Warm alternate section; replaces `surface-mist` on warm pages |
-| `ink-warm` | `#655A5F` | Warm secondary text; replaces `ink-soft` on warm pages (6.2:1 on linen, 5.6:1 on sand) |
+| `ink-warm` | `#655A5F` | Warm secondary text; replaces `ink-soft` on warm pages (6.3:1 on linen, 5.6:1 on sand) |
 | `plum` | `#5B2152` | Primary brand color — identity: hero accent, nav hover, primary CTA on light surfaces |
 | `plum-deep` | `#2A0F27` | Darkest plum — full-bleed tone sections |
 | `plum-soft` | `#EFE3EC` | Soft plum tint — gentle backgrounds, badges |
@@ -50,11 +50,11 @@ Plum and green, mixed into linen at set strengths. They give a page more variety
 
 | Token | Value | Use |
 |---|---|---|
-| `plum-06` | `#F1EAE9` | Plum at 6%: a tinted page ground (the homepage's scroll tint) |
-| `plum-12` | `#E8DDE0` | Plum at 12%: an arch or shape behind a picture |
-| `plum-24` | `#D5C4CC` | Plum at 24%: a thin line or small shape on `plum-12` |
-| `green-08` | `#ECEAE5` | Green at 8%: a tinted ground near a tool |
-| `green-16` | `#DDDED7` | Green at 16%: a shape near a tool |
+| `plum-06` | `#F3EDED` | Plum at 6%: a tinted page ground (the homepage's scroll tint) |
+| `plum-12` | `#EAE0E3` | Plum at 12%: an arch or shape behind a picture |
+| `plum-24` | `#D6C6CF` | Plum at 24%: a thin line or small shape on `plum-12` |
+| `green-08` | `#EEEDE9` | Green at 8%: a tinted ground near a tool |
+| `green-16` | `#DFE0DA` | Green at 16%: a shape near a tool |
 
 Steps are grounds and shapes, never text. Ink on every step is above 10:1.
 
