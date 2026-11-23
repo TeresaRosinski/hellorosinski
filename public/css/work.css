@@ -8,7 +8,7 @@
 
 .work {
   padding: var(--space-3);
-  background: var(--surface);
+  background: var(--sand);
   scroll-margin-top: var(--space-12); /* keeps the tiles clear of the sticky nav */
 }
 
@@ -37,7 +37,8 @@
   padding: var(--space-12) var(--space-6) 0;
   overflow: hidden;
   text-align: center;
-  background: var(--surface-mist);
+  border-radius: var(--radius-lg);
+  background: var(--linen);
 }
 
 .tile-eyebrow {
@@ -55,7 +56,7 @@
 .tile-line {
   max-width: 34ch;
   font: var(--text-lede);
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-wrap: balance;
 }
 
@@ -182,11 +183,11 @@
   margin: 0 auto;
   padding: var(--space-6);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background: var(--surface);
+  background: var(--sand);
 }
 
 /* Make It Your Agent: a progress bar, then three agent choices with the first one picked.
-   Placeholder shapes are white on mist, like a page still loading; only the picked choice is green. */
+   Placeholder shapes are sand on linen, like a page still loading; only the picked choice is green. */
 .shape-agent {
   display: grid;
   gap: var(--space-3);
@@ -196,7 +197,7 @@
   height: var(--space-2);
   margin-bottom: var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--surface-mist);
+  background: var(--linen);
 }
 
 .shape-progress span {
@@ -213,7 +214,7 @@
   gap: var(--space-4);
   padding: var(--space-4);
   border-radius: var(--radius-md);
-  background: var(--surface-mist);
+  background: var(--linen);
 }
 
 .shape-dot {
@@ -221,14 +222,14 @@
   width: var(--space-6);
   height: var(--space-6);
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--sand);
 }
 
 .shape-bar {
   width: 55%;
   height: var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--surface);
+  background: var(--sand);
 }
 
 .shape-bar-long {
