@@ -564,9 +564,12 @@
   color: var(--surface);
 }
 
-/* The wave edges: the band's own color, cut to a wave shape and set just above and below it. */
+/* The wave edges: the band's own color, cut to a wave shape and set just above and below it.
+   The "Let's talk" band uses the same edges (see "Contact"). */
 .how-i-work::before,
-.how-i-work::after {
+.how-i-work::after,
+.contact::before,
+.contact::after {
   content: "";
   position: absolute;
   left: 0;
@@ -729,7 +732,9 @@
   }
 
   .how-i-work::before,
-  .how-i-work::after {
+  .how-i-work::after,
+  .contact::before,
+  .contact::after {
     height: var(--space-6);
   }
 }
@@ -739,12 +744,29 @@
    "Let's talk" button lands somewhere clear. */
 
 .contact {
+  position: relative; /* holds the wave edges (shared with How I work, above) */
   padding: var(--space-16) var(--space-4);
   background: var(--texture-grain), var(--plum-deep); /* paper grain, like the How I work band */
   background-blend-mode: soft-light, normal;
   color: var(--surface);
   text-align: center;
-  scroll-margin-top: var(--space-12); /* stays clear of the sticky nav */
+  scroll-margin-top: calc(var(--space-12) * 2); /* stays clear of the sticky nav, wave included */
+}
+
+/* Wave edges like How I work's, with the curves shifted so the two bands don't look stamped. */
+.contact::before {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C220,44 420,4 640,22 C860,40 1040,6 1200,28 L1200,48 L0,48 Z'/%3E%3C/svg%3E");
+  bottom: calc(100% - 1px);
+}
+
+.contact::after {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,20 C980,44 780,4 560,24 C340,44 160,6 0,26 Z'/%3E%3C/svg%3E");
+  top: calc(100% - 1px);
+}
+
+/* The footer under the band gets room for the lower wave. */
+.contact + .footer {
+  padding-top: calc(var(--space-12) + var(--space-6));
 }
 
 .contact h2 {
