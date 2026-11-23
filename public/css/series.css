@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.series-head h2 {
+.series-head h1 {
   font: var(--text-section);
   margin-bottom: var(--space-3);
 }
