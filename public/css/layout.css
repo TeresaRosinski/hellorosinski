@@ -344,14 +344,20 @@
    picture). It holds the peony (drawing: brand/flowers/plum-peony.svg, stored once in index.html)
    until there's a photo. On load the peony opens from its center outward, after the roles, with a
    slight settling turn. Plays once. Colors come from tokens.css. */
+/* Holds the arch and the leaves around it. The leaves reach a little past the arch's sides. */
+.hero-art {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--space-24) * 4);
+  justify-self: center;
+}
+
 .hero-arch {
   position: relative;
   display: grid;
   place-items: center;
   width: 100%;
-  max-width: calc(var(--space-24) * 4);
   aspect-ratio: 4 / 5;
-  justify-self: center;
   overflow: hidden;
   border-radius: var(--radius-pill) var(--radius-pill) var(--radius-lg) var(--radius-lg);
   background: var(--plum-12);
@@ -366,6 +372,52 @@
   border: calc(var(--border-hairline) * 1.5) solid var(--plum-24);
   border-bottom: 0;
   border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+}
+
+/* ---------- Hero leaves ----------
+   Green leaves growing from the arch's base (BRAND.md, Leaves): a frond and a broad leaf on the
+   lower left, a small sprig on the lower right. Original cut-paper drawings in two greens, overlapping
+   the arch's edge so they read as growing around it, not pasted beside it.
+   On load they grow up from their base, after the arch rises and before the peony opens. */
+.hero-leaves {
+  position: absolute;
+  bottom: -2%;
+  height: auto;
+  pointer-events: none;
+  animation: hero-grow var(--duration-linger) var(--ease-settle) 800ms backwards;
+}
+
+.hero-leaves-left {
+  left: -22%; /* stays clear of the intro text beside it */
+  width: 50%;
+  transform-origin: 91% 98%; /* where the stems meet */
+}
+
+.hero-leaves-right {
+  right: -4%; /* stays inside the page's side margin, so the page never scrolls sideways */
+  width: 28%;
+  transform-origin: 6% 98%;
+  animation-delay: 1000ms;
+}
+
+.leaf-light {
+  fill: var(--green-bright);
+}
+
+.leaf-dark {
+  fill: var(--green);
+}
+
+/* Grows up from the stem: fades in, unfurls from a little smaller and turned, then settles. */
+@keyframes hero-grow {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* A photo placed in the arch fills it and is cropped by its shape. */
@@ -417,6 +469,7 @@
   .hero-role,
   .hero-divider,
   .hero-arch,
+  .hero-leaves,
   .hero-sub,
   .hero-flower {
     animation: none;
@@ -486,7 +539,7 @@
     justify-content: center;
   }
 
-  .hero-arch {
+  .hero-art {
     max-width: calc(var(--space-24) * 2.5);
   }
 }
