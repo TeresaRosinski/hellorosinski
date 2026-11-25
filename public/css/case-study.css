@@ -162,6 +162,11 @@
   .case-gains {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  /* Stacked blobs are wide and short, so they need less room above and below the text. */
+  .case-gain {
+    padding-block: var(--space-8);
+  }
 }
 
 /* The story: a panel on the alternate ground (sand on warm pages), text kept to a readable line length. */
