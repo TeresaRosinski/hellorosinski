@@ -600,7 +600,7 @@
 /* Overprint words (BRAND.md, Texture): "Need, Build, Teach" set huge and faint behind the steps,
    like a riso poster printed slightly out of line. Each word is printed twice, bright plum and
    bright green, a few pixels apart; where they cross, the two inks add up (screen) the way light
-   inks do on dark paper. The grain cuts into the letters so they read as printed, not digital.
+   inks do on dark paper.
    Kept faint so every sentence on the cards still clears its contrast (see BRAND.md). */
 .how-i-work-backdrop {
   position: absolute;
