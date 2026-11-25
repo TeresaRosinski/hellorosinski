@@ -599,15 +599,16 @@
 /* Overprint words (BRAND.md, Texture): "Need, Build, Teach" under the steps, huge and faint, one
    word per line, drifting left, right, left within the cards' width like a riso poster printed slightly
    out of line. Each word is printed twice, bright plum and bright green, a few pixels apart; where
-   they cross, the two inks add up (screen) the way light inks do on dark paper. */
+   they cross, the two inks add up (screen) the way light inks do on dark paper. Each word ends in a
+   full-strength bright plum period, like "Teresa." and the section headings: the words whisper, the
+   dots carry the brand. The faintness lives in the ink colors (14%), not on the whole block, so the
+   dots can stay bright. */
 .how-i-work-poster {
   display: flex;
   flex-direction: column;
   max-width: var(--content-max); /* same width as the cards, so no word passes their edges */
   margin: var(--space-12) auto calc(-1 * var(--space-8));
   overflow: hidden;
-  opacity: 0.14;
-  isolation: isolate; /* the two inks blend with each other, not with the page */
   font: var(--text-poster);
   text-transform: uppercase;
   white-space: nowrap;
@@ -615,30 +616,43 @@
   user-select: none;
 }
 
-.how-i-work-poster span {
+.how-i-work-poster > span {
   position: relative;
-  color: var(--plum-bright);
+  color: color-mix(in srgb, var(--plum-bright) 14%, transparent);
 }
 
-/* The second ink, a little off register. */
-.how-i-work-poster span::after {
+/* The second ink, a little off register (the word only, so each dot stays one clean ink). */
+.how-i-work-poster > span::after {
   content: attr(data-word);
   position: absolute;
   left: 0.05em;
   top: 0.04em;
-  color: var(--green-bright);
+  color: color-mix(in srgb, var(--green-bright) 14%, transparent);
   mix-blend-mode: screen;
 }
 
+.how-i-work-dot {
+  color: var(--plum-bright);
+  font-style: normal;
+}
+
 /* Alternate the words left, right, left, so they drift across the band like a poster.
-   The right-hand word leaves room for its green ink, so that stays inside the cards' edge too. */
-.how-i-work-poster span:nth-child(1) { align-self: flex-start; }
-.how-i-work-poster span:nth-child(2) { align-self: flex-end; margin-right: 0.05em; }
-.how-i-work-poster span:nth-child(3) { align-self: flex-start; }
+   The right-hand word ends on its dot, flush with the cards' right edge. */
+.how-i-work-poster > span:nth-child(1) { align-self: flex-start; }
+.how-i-work-poster > span:nth-child(2) { align-self: flex-end; }
+.how-i-work-poster > span:nth-child(3) { align-self: flex-start; }
 
 /* Wider screens have room to step the last word in a little. */
 @media (min-width: 48rem) {
-  .how-i-work-poster span:nth-child(3) { margin-left: 0.4em; }
+  .how-i-work-poster > span:nth-child(3) { margin-left: 0.4em; }
+}
+
+/* Phones: size the words so the widest, "TEACH." (about 3.95em), fits between the cards' edges,
+   up to the poster size. */
+@media (max-width: 48rem) {
+  .how-i-work-poster {
+    font-size: min(96px, calc((100vw - 2 * var(--space-4)) / 3.95));
+  }
 }
 
 /* "How I work." sits on the left, lined up with the first step; "What I do." answers it on the right.
