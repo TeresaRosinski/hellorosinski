@@ -116,8 +116,8 @@
   list-style: none;
 }
 
-/* Each gain sits in a soft organic blob (BRAND.md, Shapes: blob), each one a little different, like
-   cut paper. The text is centered with generous padding so it stays clear of the curved edges. */
+/* Each gain sits in a soft, squarish blob (BRAND.md, Shapes: blob), each one a little different,
+   like cut paper. The text is centered with generous padding so it stays clear of the curved edges. */
 .case-gain {
   display: flex;
   flex-direction: column;
@@ -126,19 +126,19 @@
   text-align: center;
   text-wrap: balance;
   background: var(--page-ground-alt); /* sand on warm pages */
-  border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
+  border-radius: 38% 30% 36% 32% / 32% 38% 30% 36%;
 }
 
 .case-gain:nth-child(2) {
-  border-radius: 44% 56% 46% 54% / 54% 44% 56% 46%;
+  border-radius: 30% 38% 32% 36% / 36% 30% 38% 32%;
 }
 
 .case-gain:nth-child(3) {
-  border-radius: 52% 48% 60% 40% / 42% 58% 44% 56%;
+  border-radius: 36% 32% 40% 28% / 30% 36% 32% 38%;
 }
 
 .case-gain:nth-child(4) {
-  border-radius: 46% 54% 42% 58% / 56% 46% 54% 44%;
+  border-radius: 32% 36% 28% 40% / 38% 32% 36% 30%;
 }
 
 .case-gain strong {
