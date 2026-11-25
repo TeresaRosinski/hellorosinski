@@ -4,10 +4,10 @@
   (css/series.css), so every project section reads the same way.
 */
 
-/* A full-width white band (the series band above is gray), content within --content-max. */
+/* A full-width band on the page ground (linen on warm pages), content within --content-max. */
 .case {
   padding-block: 0 var(--space-16);
-  background: var(--surface);
+  background: var(--page-ground);
   scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
 }
 
@@ -64,7 +64,7 @@
   max-width: var(--measure);
   margin-inline: auto;
   font: var(--text-lede);
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-wrap: balance;
 }
 
@@ -72,7 +72,7 @@
   max-width: var(--measure);
   margin: var(--space-3) auto 0;
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Key gains: four tiles, side by side when they fit, stacked on phones. */
@@ -96,7 +96,7 @@
   padding: var(--space-12) max(var(--space-8), 12%); /* wider blobs get wider margins, clear of the curves */
   text-align: center;
   text-wrap: balance;
-  background: var(--surface-mist);
+  background: var(--page-ground-alt); /* sand on warm pages */
   border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
 }
 
@@ -135,11 +135,11 @@
   }
 }
 
-/* The story: a gray panel, text kept to a readable line length. */
+/* The story: a panel on the alternate ground (sand on warm pages), text kept to a readable line length. */
 .case-panel {
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
-  background: var(--surface-mist);
+  background: var(--page-ground-alt);
 }
 
 .case-panel > p,
@@ -162,9 +162,9 @@
   padding-left: var(--space-6);
 }
 
-/* Inside the gray panel, the resource boxes switch to white so they stand apart. */
+/* Inside the panel, the resource boxes switch to the card ground (linen on warm pages) so they stand apart. */
 .case-panel .series-resource {
-  background: var(--surface);
+  background: var(--card-ground);
 }
 
 /* Phones: less padding inside the panel and its boxes, so the text keeps a comfortable width. */
