@@ -697,12 +697,36 @@
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
+/* The How I work poster's periods pop in the same way, one after another: Need. Build. Teach. */
+.how-i-work-dot {
+  display: inline-block;
+  transform-origin: 50% 85%;
+}
+
+.is-waiting .how-i-work-dot {
+  opacity: 0;
+}
+
+.is-blooming .how-i-work-dot {
+  animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
+}
+
+.is-blooming > span:nth-child(2) .how-i-work-dot {
+  animation-delay: calc(var(--bloom-delay, 0ms) + var(--duration-quick));
+}
+
+.is-blooming > span:nth-child(3) .how-i-work-dot {
+  animation-delay: calc(var(--bloom-delay, 0ms) + 2 * var(--duration-quick));
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .is-waiting .section-period {
+  .is-waiting .section-period,
+  .is-waiting .how-i-work-dot {
     opacity: 1;
   }
 
-  .is-blooming .section-period {
+  .is-blooming .section-period,
+  .is-blooming .how-i-work-dot {
     animation: none;
   }
 }
