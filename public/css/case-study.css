@@ -171,11 +171,10 @@
   }
 }
 
-/* The story: a panel on the alternate ground (sand on warm pages), text kept to a readable line length. */
+/* The story: set straight on the page like an article (no panel fill), lined up with the gains
+   above, text kept to a readable line length. */
 .case-panel {
-  padding: var(--space-8) var(--space-6);
-  border-radius: var(--radius-lg);
-  background: var(--page-ground-alt);
+  padding: var(--space-8) 0;
 }
 
 .case-panel > p,
@@ -198,15 +197,16 @@
   padding-left: var(--space-6);
 }
 
-/* Inside the panel, the resource boxes switch to the card ground (linen on warm pages) so they stand apart. */
+/* The tool and notebook boxes get a faint green fill, so they stand apart from the page as
+   things to open (ink text on green-08 is 14.4:1). */
 .case-panel .series-resource {
-  background: var(--card-ground);
+  background: var(--green-08);
 }
 
 /* Phones: less padding inside the panel and its boxes, so the text keeps a comfortable width. */
 @media (max-width: 40rem) {
   .case-panel {
-    padding: var(--space-6) var(--space-4);
+    padding-block: var(--space-6);
   }
 
   .case-panel .series-resource {
