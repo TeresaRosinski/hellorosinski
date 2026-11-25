@@ -31,11 +31,14 @@
       heading.classList.remove("is-waiting");
       heading.classList.add("is-blooming");
 
-      // Once the period has landed, let go of the animation (BRAND.md, Motion).
+      // Once the period has landed, let go of the animation (BRAND.md, Motion). Some elements pop
+      // several in a row (the How I work poster's three periods), so wait for the last one.
       heading.addEventListener("animationend", function (event) {
-        if (event.animationName === "hero-seed" || event.animationName === "hero-bloom") {
-          heading.classList.remove("is-blooming");
-        }
+        if (event.animationName !== "hero-seed" && event.animationName !== "hero-bloom") return;
+        var stillRunning = heading.getAnimations
+          ? heading.getAnimations({ subtree: true }).some(function (a) { return a.playState === "running"; })
+          : false;
+        if (!stillRunning) heading.classList.remove("is-blooming");
       });
     });
   }, { threshold: THRESHOLD });
