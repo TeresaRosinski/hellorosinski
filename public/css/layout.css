@@ -596,13 +596,14 @@
   margin-inline: auto;
 }
 
-/* Overprint words (BRAND.md, Texture): "Listen, Build, Teach" under the steps, huge and faint, one
-   word per line, centered, like a riso poster printed slightly out of line. Each word is printed
-   twice, bright plum and bright green, a few pixels apart; where they cross, the two inks add up
-   (screen) the way light inks do on dark paper. Between the words sit full-strength bright plum dots,
-   like the dots between the roles in the hero: the words whisper, the dots carry the brand. The
-   faintness lives in the ink colors (14%), not on the whole block, so the dots can stay bright. */
+/* Poster words (BRAND.md, Texture): "Listen, Build, Teach" under the steps, huge, one word per line,
+   centered, over an arch of tulips (the hero's arch shape, so the two rhyme). Each letter is a bright
+   plum outline with a translucent plum center, so the tulips show through where the words cross the
+   arch. Between the words sit full-strength bright plum dots, like the dots between the roles in the
+   hero. Decoration only: the whole poster is hidden from screen readers. */
 .how-i-work-poster {
+  position: relative;
+  isolation: isolate; /* keeps the arch behind the words, inside the poster */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -617,18 +618,28 @@
 }
 
 .how-i-work-poster > span {
-  position: relative;
-  color: color-mix(in srgb, var(--plum-bright) 14%, transparent);
+  color: color-mix(in srgb, var(--plum) 40%, transparent); /* tints the tulips; nearly black on the band */
+  -webkit-text-stroke: calc(var(--border-hairline) * 1.5) var(--plum-bright);
 }
 
-/* The second ink, a little off register (the word only, so each dot stays one clean ink). */
-.how-i-work-poster > span::after {
-  content: attr(data-word);
+/* The tulip arch: centered behind the words, as tall as the stack, cut to the hero arch's shape. */
+.how-i-work-arch {
   position: absolute;
-  left: 0.05em;
-  top: 0.04em;
-  color: color-mix(in srgb, var(--green-bright) 14%, transparent);
-  mix-blend-mode: screen;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  height: 94%;
+  aspect-ratio: 2 / 3; /* the photo's own shape */
+  overflow: hidden;
+  border-radius: var(--radius-pill) var(--radius-pill) var(--radius-lg) var(--radius-lg);
+  transform: translate(-50%, -50%);
+}
+
+.how-i-work-arch img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* The dot between two words: a period-sized circle (sized in em, so it grows with the words). */
