@@ -592,25 +592,22 @@
 }
 
 .how-i-work-inner {
-  position: relative; /* sits above the overprint words */
   max-width: var(--content-max);
   margin-inline: auto;
 }
 
-/* Overprint words (BRAND.md, Texture): "Need, Build, Teach" set huge and faint behind the steps,
-   like a riso poster printed slightly out of line. Each word is printed twice, bright plum and
-   bright green, a few pixels apart; where they cross, the two inks add up (screen) the way light
-   inks do on dark paper.
-   Kept faint so every sentence on the cards still clears its contrast (see BRAND.md). */
-.how-i-work-backdrop {
-  position: absolute;
-  inset: 0;
+/* Overprint words (BRAND.md, Texture): "Need, Build, Teach" in their own row under the steps,
+   running edge to edge like a riso poster printed slightly out of line. Each word is printed twice,
+   bright plum and bright green, a few pixels apart; where they cross, the two inks add up (screen)
+   the way light inks do on dark paper. Nothing sits on top of them, so they can be bolder than a
+   background. On phones they stack, one per line. */
+.how-i-work-poster {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 0.22em;
+  margin: var(--space-12) calc(-1 * var(--space-4)) calc(-1 * var(--space-8)); /* bleeds to the band's edges */
   overflow: hidden;
-  padding-block: var(--space-8);
-  opacity: 0.14;
+  opacity: 0.32;
   isolation: isolate; /* the two inks blend with each other, not with the page */
   font: var(--text-poster);
   text-transform: uppercase;
@@ -619,25 +616,31 @@
   user-select: none;
 }
 
-.how-i-work-backdrop span {
+.how-i-work-poster span {
   position: relative;
   color: var(--plum-bright);
 }
 
 /* The second ink, a little off register. */
-.how-i-work-backdrop span::after {
+.how-i-work-poster span::after {
   content: attr(data-word);
   position: absolute;
-  left: 0.05em;
-  top: 0.04em;
+  left: 0.08em;
+  top: 0.05em;
   color: var(--green-bright);
   mix-blend-mode: screen;
 }
 
-/* Alternate the words left, right, left, so they drift across the band like a poster. */
-.how-i-work-backdrop span:nth-child(1) { align-self: flex-start; margin-left: -0.06em; }
-.how-i-work-backdrop span:nth-child(2) { align-self: flex-end; margin-right: -0.04em; }
-.how-i-work-backdrop span:nth-child(3) { align-self: flex-start; margin-left: 0.4em; }
+/* Phones: one word per line, drifting left, right, left like a poster. */
+@media (max-width: 48rem) {
+  .how-i-work-poster {
+    flex-direction: column;
+    gap: 0;
+    padding-inline: var(--space-4);
+  }
+
+  .how-i-work-poster span:nth-child(2) { align-self: flex-end; }
+}
 
 /* "How I work." sits on the left, lined up with the first step; "What I do." answers it on the right.
    On the deep band the heading is white and its period bright plum. */
@@ -710,9 +713,7 @@
   flex-direction: column;
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
-  /* Half solid: on the plain band it looks the same as a faint linen wash, but it dims the overprint
-     words behind the text so the bright plum links stay above 4.5:1 where both inks cross. */
-  background: color-mix(in srgb, color-mix(in srgb, var(--linen) 6%, var(--ink)) 50%, color-mix(in srgb, var(--linen) 6%, transparent));
+  background: color-mix(in srgb, var(--linen) 6%, transparent);
   box-shadow: inset 0 0 0 var(--border-hairline) color-mix(in srgb, var(--plum-bright) 30%, transparent);
   counter-increment: step;
 }
