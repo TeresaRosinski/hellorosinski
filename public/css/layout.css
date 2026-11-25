@@ -596,7 +596,7 @@
   margin-inline: auto;
 }
 
-/* Overprint words (BRAND.md, Texture): "Need, Build, Teach" under the steps, huge and faint, one
+/* Overprint words (BRAND.md, Texture): "Listen, Build, Teach" under the steps, huge and faint, one
    word per line, drifting left, right, left within the cards' width like a riso poster printed slightly
    out of line. Each word is printed twice, bright plum and bright green, a few pixels apart; where
    they cross, the two inks add up (screen) the way light inks do on dark paper. Each word ends in a
@@ -647,11 +647,11 @@
   .how-i-work-poster > span:nth-child(3) { margin-left: 0.4em; }
 }
 
-/* Phones: size the words so the widest, "TEACH." (about 3.95em), fits between the cards' edges,
+/* Phones: size the words so the widest, "LISTEN." (about 4em), fits between the cards' edges,
    up to the poster size. */
 @media (max-width: 48rem) {
   .how-i-work-poster {
-    font-size: min(96px, calc((100vw - 2 * var(--space-4)) / 3.95));
+    font-size: min(96px, calc((100vw - 2 * var(--space-4)) / 4.02));
   }
 }
 
@@ -697,7 +697,7 @@
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
-/* The How I work poster's periods pop in the same way, one after another: Need. Build. Teach. */
+/* The How I work poster's periods pop in the same way, one after another: Listen. Build. Teach. */
 .how-i-work-dot {
   display: inline-block;
   transform-origin: 50% 85%;
