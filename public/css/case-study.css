@@ -23,18 +23,18 @@
 }
 
 /* A tool project's heading sits on a full-width deep green band with the tool's flower, so it
-   reads as a new chapter after the AI Learning Series (BRAND.md, Flowers). Like the deep bands on
-   the homepage, it carries paper grain and ends in a wave (BRAND.md, Shapes & texture).
+   reads as a new chapter after the AI Learning Series (BRAND.md, Flowers). It ends in a wave like the
+   deep bands on the homepage, but stays flat (no grain) so it matches the case study card on the
+   homepage exactly (BRAND.md, Shapes & texture).
    Text contrast on green-deep: white 14.1:1, green-soft 11.5:1, green-bright 4.7:1. */
 .case-head-tool {
   position: relative;
   margin-bottom: calc(var(--space-12) + var(--space-8)); /* room for the wave */
-  background: var(--texture-grain), var(--green-deep);
-  background-blend-mode: soft-light, normal;
+  background: var(--green-deep);
   color: var(--surface);
 }
 
-/* The wave under the band: the band's own color and grain, cut to a wave shape. */
+/* The wave under the band: the band's own color, cut to a wave shape. */
 .case-head-tool::after {
   content: "";
   position: absolute;
