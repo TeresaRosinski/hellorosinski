@@ -3,11 +3,12 @@
   Content comes from js/sessions.js; series.js builds the markup.
 */
 
-/* A full-width gray band; the side padding keeps the content within --content-max. */
+/* A full-width band on the alternate ground (sand on warm pages); the side padding keeps the
+   content within --content-max. */
 .series {
   padding-block: var(--space-16);
   padding-inline: max(var(--space-4), calc((100% - var(--content-max)) / 2));
-  background: var(--surface-mist);
+  background: var(--page-ground-alt);
   scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
 }
 
@@ -25,7 +26,7 @@
   max-width: var(--measure);
   margin-inline: auto;
   font: var(--text-lede);
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-wrap: balance;
 }
 
@@ -69,7 +70,7 @@
   padding: var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--card-ground);
   color: var(--ink);
   font: var(--text-body);
   text-align: left;
@@ -98,7 +99,7 @@
 
 .series-card-goal {
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Pushes the "Tool" tag to the bottom so tags line up across cards. */
@@ -131,12 +132,12 @@
 
 /* The selected session. */
 .series-card[aria-selected="true"] {
-  background: var(--surface);
+  background: var(--card-ground);
   color: var(--surface);
 }
 
 .series-card[aria-selected="true"]:hover {
-  background: var(--surface);
+  background: var(--card-ground);
 }
 
 .series-card[aria-selected="true"] .series-card-number,
@@ -145,7 +146,7 @@
 }
 
 .series-card[aria-selected="true"] .series-tag {
-  background: var(--surface);
+  background: var(--card-ground);
 }
 
 /* ---------- Tags ("Tool" on cards, tech in "Built with") ---------- */
@@ -174,7 +175,7 @@
   margin-top: var(--space-6);
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
-  background: var(--surface);
+  background: var(--card-ground);
 }
 
 .series-panel-title {
@@ -195,7 +196,7 @@
 /* The facts line under the promise: format, date, length, participants, tools. */
 .series-panel-meta {
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Section labels like "The situation" and "Design choices". */
@@ -305,14 +306,14 @@
   display: block;
   width: 100%;
   height: auto;
-  border: var(--border-hairline) solid var(--surface-mist);
+  border: var(--border-hairline) solid var(--page-ground-alt);
   border-radius: var(--radius-sm);
 }
 
 .series-figure figcaption {
   margin-top: var(--space-2);
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Results: plain list, with quotes set off and one standout result. */
@@ -339,7 +340,7 @@
 .series-quote figcaption {
   margin-top: calc(var(--space-2) / 2);
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .series-result-highlight {
@@ -374,7 +375,7 @@
   gap: var(--space-3);
   padding: var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--surface-mist);
+  background: var(--page-ground-alt);
 }
 
 .series-resource h5 {
@@ -474,7 +475,7 @@
 .series-meta,
 .series-soon {
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* 16:9 for the slide, plus room for Mentimeter's control bar so the player doesn't scroll. */

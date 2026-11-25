@@ -16,12 +16,14 @@
   --page-ground: var(--surface);     /* the page background, and the nav and footer on it */
   --page-ground-alt: var(--surface-mist); /* thin lines and soft fills that sit on the page */
   --text-soft: var(--ink-soft);      /* secondary text: intros, captions, footer */
+  --card-ground: var(--surface);     /* cards and panels that sit on the alternate ground */
 }
 
 .page-warm {
   --page-ground: var(--linen);
   --page-ground-alt: var(--sand);
   --text-soft: var(--ink-warm);
+  --card-ground: var(--linen);
 }
 
 body {
