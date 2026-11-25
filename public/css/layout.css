@@ -597,13 +597,14 @@
 }
 
 /* Overprint words (BRAND.md, Texture): "Need, Build, Teach" under the steps, huge and faint, one
-   word per line, drifting left, right, left across the full band like a riso poster printed slightly
+   word per line, drifting left, right, left within the cards' width like a riso poster printed slightly
    out of line. Each word is printed twice, bright plum and bright green, a few pixels apart; where
    they cross, the two inks add up (screen) the way light inks do on dark paper. */
 .how-i-work-poster {
   display: flex;
   flex-direction: column;
-  margin: var(--space-12) calc(-1 * var(--space-4)) calc(-1 * var(--space-8)); /* bleeds to the band's edges */
+  max-width: var(--content-max); /* same width as the cards, so no word passes their edges */
+  margin: var(--space-12) auto calc(-1 * var(--space-8));
   overflow: hidden;
   opacity: 0.14;
   isolation: isolate; /* the two inks blend with each other, not with the page */
@@ -629,10 +630,16 @@
   mix-blend-mode: screen;
 }
 
-/* Alternate the words left, right, left, so they drift across the band like a poster. */
-.how-i-work-poster span:nth-child(1) { align-self: flex-start; margin-left: -0.06em; }
-.how-i-work-poster span:nth-child(2) { align-self: flex-end; margin-right: -0.04em; }
-.how-i-work-poster span:nth-child(3) { align-self: flex-start; margin-left: 0.4em; }
+/* Alternate the words left, right, left, so they drift across the band like a poster.
+   The right-hand word leaves room for its green ink, so that stays inside the cards' edge too. */
+.how-i-work-poster span:nth-child(1) { align-self: flex-start; }
+.how-i-work-poster span:nth-child(2) { align-self: flex-end; margin-right: 0.05em; }
+.how-i-work-poster span:nth-child(3) { align-self: flex-start; }
+
+/* Wider screens have room to step the last word in a little. */
+@media (min-width: 48rem) {
+  .how-i-work-poster span:nth-child(3) { margin-left: 0.4em; }
+}
 
 /* "How I work." sits on the left, lined up with the first step; "What I do." answers it on the right.
    On the deep band the heading is white and its period bright plum. */
