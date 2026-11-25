@@ -76,19 +76,40 @@
 }
 
 /* Key gains: four tiles, side by side when they fit, stacked on phones. */
+/* Four across on wide screens, two by two in the middle, one column on phones, so no blob is ever
+   left alone on a row. */
 .case-gains {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--content-max) / 5)), 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
   margin: 0 0 var(--space-8);
   padding: 0;
   list-style: none;
 }
 
+/* Each gain sits in a soft organic blob (BRAND.md, Shapes: blob), each one a little different, like
+   cut paper. The text is centered with generous padding so it stays clear of the curved edges. */
 .case-gain {
-  padding: var(--space-6);
-  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-12) max(var(--space-8), 12%); /* wider blobs get wider margins, clear of the curves */
+  text-align: center;
+  text-wrap: balance;
   background: var(--surface-mist);
+  border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
+}
+
+.case-gain:nth-child(2) {
+  border-radius: 44% 56% 46% 54% / 54% 44% 56% 46%;
+}
+
+.case-gain:nth-child(3) {
+  border-radius: 52% 48% 60% 40% / 42% 58% 44% 56%;
+}
+
+.case-gain:nth-child(4) {
+  border-radius: 46% 54% 42% 58% / 56% 46% 54% 44%;
 }
 
 .case-gain strong {
@@ -100,6 +121,18 @@
 
 .case-gain span {
   font: var(--text-caption);
+}
+
+@media (max-width: 60rem) {
+  .case-gains {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 30rem) {
+  .case-gains {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* The story: a gray panel, text kept to a readable line length. */
