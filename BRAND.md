@@ -136,7 +136,7 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 - **Arch** frames a picture: the hero peony today, and a photo of Teresa later. A tall rectangle with a fully rounded top (`radius-pill` on the top corners, `radius-lg` on the bottom), filled `plum-12`, with a thin inner arch line in `plum-24`.
 - **Wave** joins two sections, in place of a straight edge. It's cut from the section's own color and grain, so the seam doesn't show. Use it where a deep band meets a light one.
-- **Blob** sits behind something small, like a step number. It never holds running text.
+- **Blob** sits behind something small, like a step number. It may also hold a short stat (a big number and a line or two, like the key gains on a case study), centered with generous padding so text stays clear of the curves. Give each blob in a set a slightly different shape, like cut paper. Never put a paragraph in one.
 
 **Deep bands on the homepage:** How I work is soft black (`ink`) and Let's talk is `plum-deep`, both with grain and wave edges. Two different darks give the page rhythm: the method reads apart from the invitation. Bright plum carries the accents on both (step numbers, links, the period), so the soft black band still reads as Teresa's. On `ink`: white 16.8:1, `plum-soft` 13.5:1, `plum-bright` 6.7:1.
 
