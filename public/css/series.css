@@ -235,8 +235,10 @@
   background: var(--card-ground);
 }
 
+/* The session title leads the panel: the full tile size, a clear step above the goal line. */
 .series-panel-title {
-  font: var(--text-tile-half);
+  font: var(--text-tile);
+  text-wrap: balance;
   margin-bottom: var(--space-2);
 }
 
