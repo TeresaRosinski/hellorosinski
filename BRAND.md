@@ -42,7 +42,7 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 
 White and mist are cool, Apple-style greys, and next to plum they read as clinical. The warm neutrals give the same jobs a faint plum lean, so a page feels calm and handmade instead of stark: `linen` for the page, `sand` for an alternate section, `ink-warm` for secondary text. Swap `ink-soft` for `ink-warm` whenever the ground is sand: `ink-soft` drops to 4.3:1 there, below the 4.5:1 minimum.
 
-The homepage and the AI Learning Series page are warm (their `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`: page ground, alternate ground, card ground and secondary text). The Product Finder case study and the tools move over later.
+Every portfolio page is warm: the homepage, the AI Learning Series and the Product Finder case study (each `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`: page ground, alternate ground, card ground and secondary text). The standalone tools move over later.
 
 ### Strength steps
 
@@ -140,7 +140,7 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 **Deep bands on the homepage:** How I work is soft black (`ink`) and Let's talk is `plum-deep`, both with grain and wave edges. Two different darks give the page rhythm: the method reads apart from the invitation. Bright plum carries the accents on both (step numbers, links, the period), so the soft black band still reads as Teresa's. On `ink`: white 16.8:1, `plum-soft` 13.5:1, `plum-bright` 6.7:1.
 
-**Deep band on a work page:** the AI Learning Series opens on a full-width `plum-deep` band with grain and a wave underneath, holding the title and intro. The sessions sit below it on sand, in linen cards and panels.
+**Deep bands on work pages:** each work page opens on a full-width deep band with grain and a wave underneath, holding the title and intro. The AI Learning Series uses `plum-deep`, and the sessions sit below it on sand, in linen cards and panels. The Product Finder case study uses `green-deep` (a tool project), with its key gains in sand blobs and the story in a sand panel on linen.
 
 **Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep`, `green-deep` and `ink` bands. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
 
