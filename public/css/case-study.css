@@ -105,7 +105,7 @@
 }
 
 /* Key gains: four tiles, side by side when they fit, stacked on phones. */
-/* Four across on wide screens, two by two in the middle, one column on phones, so no blob is ever
+/* Four across on wide screens, two by two in the middle, one column on phones, so no tile is ever
    left alone on a row. */
 .case-gains {
   display: grid;
@@ -116,38 +116,19 @@
   list-style: none;
 }
 
-/* Each gain sits in a soft, squarish blob (BRAND.md, Shapes: blob), each one a little different,
-   like cut paper. The text is centered with generous padding so it stays clear of the curved edges.
-   Fresh green, a light nod to the tool: green numbers 6.2:1, ink text 13.7:1 on green-soft. */
+/* Each gain is a soft square tile on the same ground as the story panel below (sand on warm
+   pages), so the numbers and the story read as one piece. */
 .case-gain {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--space-12) max(var(--space-8), 12%); /* wider blobs get wider margins, clear of the curves */
-  text-align: center;
-  text-wrap: balance;
-  background: var(--green-soft);
-  color: var(--ink);
-  border-radius: 38% 30% 36% 32% / 32% 38% 30% 36%;
-}
-
-.case-gain:nth-child(2) {
-  border-radius: 30% 38% 32% 36% / 36% 30% 38% 32%;
-}
-
-.case-gain:nth-child(3) {
-  border-radius: 36% 32% 40% 28% / 30% 36% 32% 38%;
-}
-
-.case-gain:nth-child(4) {
-  border-radius: 32% 36% 28% 40% / 38% 32% 36% 30%;
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--page-ground-alt);
 }
 
 .case-gain strong {
   display: block;
   margin-bottom: var(--space-2);
   font: var(--text-tile);
-  color: var(--green);
+  color: var(--plum);
 }
 
 .case-gain span {
@@ -164,17 +145,14 @@
   .case-gains {
     grid-template-columns: minmax(0, 1fr);
   }
-
-  /* Stacked blobs are wide and short, so they need less room above and below the text. */
-  .case-gain {
-    padding-block: var(--space-8);
-  }
 }
 
-/* The story: set straight on the page like an article (no panel fill), lined up with the gains
-   above, text kept to a readable line length. */
+/* The story: a panel on the same ground as the gain tiles (sand on warm pages), text kept to a
+   readable line length. */
 .case-panel {
-  padding: var(--space-8) 0;
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--page-ground-alt);
 }
 
 .case-panel > p,
@@ -197,16 +175,16 @@
   padding-left: var(--space-6);
 }
 
-/* The tool and notebook boxes get a faint green fill, so they stand apart from the page as
-   things to open (ink text on green-08 is 14.4:1). */
+/* Inside the panel, the tool and notebook boxes switch to the card ground (linen on warm pages)
+   so they stand apart. */
 .case-panel .series-resource {
-  background: var(--green-08);
+  background: var(--card-ground);
 }
 
 /* Phones: less padding inside the panel and its boxes, so the text keeps a comfortable width. */
 @media (max-width: 40rem) {
   .case-panel {
-    padding-block: var(--space-6);
+    padding: var(--space-6) var(--space-4);
   }
 
   .case-panel .series-resource {
