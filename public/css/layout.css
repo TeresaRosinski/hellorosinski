@@ -596,16 +596,16 @@
   margin-inline: auto;
 }
 
-/* Overprint words (BRAND.md, Texture): "Need, Build, Teach" in their own row under the steps,
-   running edge to edge like a riso poster printed slightly out of line. Each word is printed twice,
-   bright plum and bright green, a few pixels apart; where they cross, the two inks add up (screen)
-   the way light inks do on dark paper. Nothing sits on top of them, so they can be bolder than a
-   background. On phones they stack, one per line. */
+/* Overprint words (BRAND.md, Texture): "Need, Build, Teach" under the steps, one word per line,
+   stepping down left, middle, right like the method itself, set like a riso poster printed slightly
+   out of line. Each word is printed twice, bright plum and bright green, a few pixels apart; where
+   they cross, the two inks add up (screen) the way light inks do on dark paper. Nothing sits on top
+   of them, so they can be bolder than a background. */
 .how-i-work-poster {
   display: flex;
-  justify-content: center;
-  gap: 0.22em;
-  margin: var(--space-12) calc(-1 * var(--space-4)) calc(-1 * var(--space-8)); /* bleeds to the band's edges */
+  flex-direction: column;
+  max-width: var(--content-max);
+  margin: var(--space-12) auto calc(-1 * var(--space-8));
   overflow: hidden;
   opacity: 0.32;
   isolation: isolate; /* the two inks blend with each other, not with the page */
@@ -631,16 +631,10 @@
   mix-blend-mode: screen;
 }
 
-/* Phones: one word per line, drifting left, right, left like a poster. */
-@media (max-width: 48rem) {
-  .how-i-work-poster {
-    flex-direction: column;
-    gap: 0;
-    padding-inline: var(--space-4);
-  }
-
-  .how-i-work-poster span:nth-child(2) { align-self: flex-end; }
-}
+/* Step down across the band: first word left, second in the middle, third right. */
+.how-i-work-poster span:nth-child(1) { align-self: flex-start; }
+.how-i-work-poster span:nth-child(2) { align-self: center; }
+.how-i-work-poster span:nth-child(3) { align-self: flex-end; }
 
 /* "How I work." sits on the left, lined up with the first step; "What I do." answers it on the right.
    On the deep band the heading is white and its period bright plum. */
