@@ -42,7 +42,7 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 
 White and mist are cool, Apple-style greys, and next to plum they read as clinical. The warm neutrals give the same jobs a faint plum lean, so a page feels calm and handmade instead of stark: `linen` for the page, `sand` for an alternate section, `ink-warm` for secondary text. Swap `ink-soft` for `ink-warm` whenever the ground is sand: `ink-soft` drops to 4.3:1 there, below the 4.5:1 minimum.
 
-The homepage is warm first (its `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`). The work pages and tools move over later.
+The homepage and the AI Learning Series page are warm (their `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`: page ground, alternate ground, card ground and secondary text). The Product Finder case study and the tools move over later.
 
 ### Strength steps
 
@@ -136,9 +136,11 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 - **Arch** frames a picture: the hero peony today, and a photo of Teresa later. A tall rectangle with a fully rounded top (`radius-pill` on the top corners, `radius-lg` on the bottom), filled `plum-12`, with a thin inner arch line in `plum-24`.
 - **Wave** joins two sections, in place of a straight edge. It's cut from the section's own color and grain, so the seam doesn't show. Use it where a deep band meets a light one.
+- **Blob** sits behind something small, like a step number. It never holds running text.
 
 **Deep bands on the homepage:** How I work is soft black (`ink`) and Let's talk is `plum-deep`, both with grain and wave edges. Two different darks give the page rhythm: the method reads apart from the invitation. Bright plum carries the accents on both (step numbers, links, the period), so the soft black band still reads as Teresa's. On `ink`: white 16.8:1, `plum-soft` 13.5:1, `plum-bright` 6.7:1.
-- **Blob** sits behind something small, like a step number. It never holds running text.
+
+**Deep band on a work page:** the AI Learning Series opens on a full-width `plum-deep` band with grain and a wave underneath, holding the title and intro. The sessions sit below it on sand, in linen cards and panels.
 
 **Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep`, `green-deep` and `ink` bands. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
 
