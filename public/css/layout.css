@@ -597,15 +597,15 @@
 }
 
 /* Overprint words (BRAND.md, Texture): "Listen, Build, Teach" under the steps, huge and faint, one
-   word per line, drifting left, right, left within the cards' width like a riso poster printed slightly
-   out of line. Each word is printed twice, bright plum and bright green, a few pixels apart; where
-   they cross, the two inks add up (screen) the way light inks do on dark paper. Each word ends in a
-   full-strength bright plum period, like "Teresa." and the section headings: the words whisper, the
-   dots carry the brand. The faintness lives in the ink colors (14%), not on the whole block, so the
-   dots can stay bright. */
+   word per line, centered, like a riso poster printed slightly out of line. Each word is printed
+   twice, bright plum and bright green, a few pixels apart; where they cross, the two inks add up
+   (screen) the way light inks do on dark paper. Between the words sit full-strength bright plum dots,
+   like the dots between the roles in the hero: the words whisper, the dots carry the brand. The
+   faintness lives in the ink colors (14%), not on the whole block, so the dots can stay bright. */
 .how-i-work-poster {
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: var(--content-max); /* same width as the cards, so no word passes their edges */
   margin: var(--space-12) auto calc(-1 * var(--space-8));
   overflow: hidden;
@@ -631,27 +631,20 @@
   mix-blend-mode: screen;
 }
 
+/* The dot between two words: a period-sized circle (sized in em, so it grows with the words). */
 .how-i-work-dot {
-  color: var(--plum-bright);
-  font-style: normal;
+  width: 0.2em;
+  height: 0.2em;
+  margin-block: 0.05em 0.11em; /* a touch higher, so it looks centered between the words' letters */
+  border-radius: 50%;
+  background: var(--plum-bright);
 }
 
-/* Alternate the words left, right, left, so they drift across the band like a poster.
-   The right-hand word ends on its dot, flush with the cards' right edge. */
-.how-i-work-poster > span:nth-child(1) { align-self: flex-start; }
-.how-i-work-poster > span:nth-child(2) { align-self: flex-end; }
-.how-i-work-poster > span:nth-child(3) { align-self: flex-start; }
-
-/* Wider screens have room to step the last word in a little. */
-@media (min-width: 48rem) {
-  .how-i-work-poster > span:nth-child(3) { margin-left: 0.4em; }
-}
-
-/* Phones: size the words so the widest, "LISTEN." (about 4em), fits between the cards' edges,
+/* Phones: size the words so the widest, "LISTEN" (about 3.8em), fits between the cards' edges,
    up to the poster size. */
 @media (max-width: 48rem) {
   .how-i-work-poster {
-    font-size: min(96px, calc((100vw - 2 * var(--space-4)) / 4.02));
+    font-size: min(96px, calc((100vw - 2 * var(--space-4)) / 3.85));
   }
 }
 
@@ -697,10 +690,9 @@
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
-/* The How I work poster's periods pop in the same way, one after another: Listen. Build. Teach. */
+/* The How I work poster's dots pop in the same way, one after another, down the poster. */
 .how-i-work-dot {
-  display: inline-block;
-  transform-origin: 50% 85%;
+  transform-origin: 50% 50%;
 }
 
 .is-waiting .how-i-work-dot {
@@ -711,12 +703,8 @@
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
-.is-blooming > span:nth-child(2) .how-i-work-dot {
+.is-blooming > .how-i-work-dot:nth-of-type(2) {
   animation-delay: calc(var(--bloom-delay, 0ms) + var(--duration-quick));
-}
-
-.is-blooming > span:nth-child(3) .how-i-work-dot {
-  animation-delay: calc(var(--bloom-delay, 0ms) + 2 * var(--duration-quick));
 }
 
 @media (prefers-reduced-motion: reduce) {
