@@ -4,10 +4,10 @@
   (css/series.css), so every project section reads the same way.
 */
 
-/* A full-width white band (the series band above is gray), content within --content-max. */
+/* A full-width band on the page ground (linen on warm pages), content within --content-max. */
 .case {
   padding-block: 0 var(--space-16);
-  background: var(--surface);
+  background: var(--page-ground);
   scroll-margin-top: var(--space-12); /* keeps the heading clear of the sticky nav */
 }
 
@@ -23,11 +23,40 @@
 }
 
 /* A tool project's heading sits on a full-width deep green band with the tool's flower, so it
-   reads as a new chapter after the AI Learning Series (BRAND.md, Flowers). Text contrast on
-   green-deep: white 14.1:1, green-soft 11.5:1, green-bright 4.7:1. */
+   reads as a new chapter after the AI Learning Series (BRAND.md, Flowers). It ends in a wave like the
+   deep bands on the homepage, but stays flat (no grain) so it matches the case study card on the
+   homepage exactly (BRAND.md, Shapes & texture).
+   Text contrast on green-deep: white 14.1:1, green-soft 11.5:1, green-bright 4.7:1. */
 .case-head-tool {
+  position: relative;
+  margin-bottom: calc(var(--space-12) + var(--space-8)); /* room for the wave */
   background: var(--green-deep);
   color: var(--surface);
+}
+
+/* The wave under the band: the band's own color, cut to a wave shape. */
+.case-head-tool::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  height: var(--space-12);
+  background: inherit;
+  background-blend-mode: inherit;
+  -webkit-mask: var(--wave) center / 100% 100% no-repeat;
+  mask: var(--wave) center / 100% 100% no-repeat;
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,20 C980,44 780,4 560,24 C340,44 160,6 0,26 Z'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 48rem) {
+  .case-head-tool {
+    margin-bottom: calc(var(--space-6) + var(--space-8));
+  }
+
+  .case-head-tool::after {
+    height: var(--space-6);
+  }
 }
 
 .case-head-tool .case-eyebrow {
@@ -64,7 +93,7 @@
   max-width: var(--measure);
   margin-inline: auto;
   font: var(--text-lede);
-  color: var(--ink-soft);
+  color: var(--text-soft);
   text-wrap: balance;
 }
 
@@ -72,23 +101,27 @@
   max-width: var(--measure);
   margin: var(--space-3) auto 0;
   font: var(--text-caption);
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 /* Key gains: four tiles, side by side when they fit, stacked on phones. */
+/* Four across on wide screens, two by two in the middle, one column on phones, so no tile is ever
+   left alone on a row. */
 .case-gains {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--content-max) / 5)), 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
   margin: 0 0 var(--space-8);
   padding: 0;
   list-style: none;
 }
 
+/* Each gain is a soft square tile on the same ground as the story panel below (sand on warm
+   pages), so the numbers and the story read as one piece. */
 .case-gain {
   padding: var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--surface-mist);
+  background: var(--page-ground-alt);
 }
 
 .case-gain strong {
@@ -102,11 +135,24 @@
   font: var(--text-caption);
 }
 
-/* The story: a gray panel, text kept to a readable line length. */
+@media (max-width: 60rem) {
+  .case-gains {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 30rem) {
+  .case-gains {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* The story: a panel on the same ground as the gain tiles (sand on warm pages), text kept to a
+   readable line length. */
 .case-panel {
   padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
-  background: var(--surface-mist);
+  background: var(--page-ground-alt);
 }
 
 .case-panel > p,
@@ -129,9 +175,10 @@
   padding-left: var(--space-6);
 }
 
-/* Inside the gray panel, the resource boxes switch to white so they stand apart. */
+/* Inside the panel, the tool and notebook boxes switch to the card ground (linen on warm pages)
+   so they stand apart. */
 .case-panel .series-resource {
-  background: var(--surface);
+  background: var(--card-ground);
 }
 
 /* Phones: less padding inside the panel and its boxes, so the text keeps a comfortable width. */

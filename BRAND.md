@@ -42,7 +42,7 @@ The choice of green isn't arbitrary: it's a real nod to the sustainability focus
 
 White and mist are cool, Apple-style greys, and next to plum they read as clinical. The warm neutrals give the same jobs a faint plum lean, so a page feels calm and handmade instead of stark: `linen` for the page, `sand` for an alternate section, `ink-warm` for secondary text. Swap `ink-soft` for `ink-warm` whenever the ground is sand: `ink-soft` drops to 4.3:1 there, below the 4.5:1 minimum.
 
-The homepage and the AI Learning Series page are warm (their `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`: page ground, alternate ground, card ground and secondary text). The Product Finder case study and the tools move over later.
+Every portfolio page is warm: the homepage, the AI Learning Series and the Product Finder case study (each `<body>` has `class="page-warm"`, which switches the page roles in `css/base.css`: page ground, alternate ground, card ground and secondary text). The standalone tools move over later.
 
 ### Strength steps
 
@@ -136,13 +136,13 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 - **Arch** frames a picture: the hero peony today, and a photo of Teresa later. A tall rectangle with a fully rounded top (`radius-pill` on the top corners, `radius-lg` on the bottom), filled `plum-12`, with a thin inner arch line in `plum-24`.
 - **Wave** joins two sections, in place of a straight edge. It's cut from the section's own color and grain, so the seam doesn't show. Use it where a deep band meets a light one.
-- **Blob** sits behind something small, like a step number. It never holds running text.
+- **Blob** sits behind something small, like a step number. It may also hold a short stat (a big number and a line or two), centered with generous padding so text stays clear of the curves. Give each blob in a set a slightly different shape, like cut paper. Never put a paragraph in one.
 
 **Deep bands on the homepage:** How I work is soft black (`ink`) and Let's talk is `plum-deep`, both with grain and wave edges. Two different darks give the page rhythm: the method reads apart from the invitation. Bright plum carries the accents on both (step numbers, links, the period), so the soft black band still reads as Teresa's. On `ink`: white 16.8:1, `plum-soft` 13.5:1, `plum-bright` 6.7:1.
 
-**Deep band on a work page:** the AI Learning Series opens on a full-width `plum-deep` band with grain and a wave underneath, holding the title and intro. The sessions sit below it on sand, in linen cards and panels.
+**Deep bands on work pages:** each work page opens on a full-width deep band with a wave underneath, holding the title and intro. The AI Learning Series uses `plum-deep` with grain, and the sessions sit below it on sand, in linen cards and panels. The Product Finder case study uses flat `green-deep` (a tool project; no grain, so it matches its card on the homepage exactly), with its key gains in soft square sand tiles (`radius-md`) that match the sand story panel below, so the numbers and the story read as one piece.
 
-**Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep`, `green-deep` and `ink` bands. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
+**Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep` and `ink` bands and shapes. The case study's `green-deep` band stays flat to match its homepage card. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
 
 **Scroll tint** (homepage): the page ground shifts from linen to `plum-06` around How I work and the first tiles, then to `green-08` at the tool tiles. Only the ground changes, so text contrast never moves. It fades over `duration-enter`; people who ask for less motion see the tones switch at once. Keep it to these three tones: more turns into a light show.
 
