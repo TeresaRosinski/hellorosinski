@@ -144,6 +144,8 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 **Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep` and `ink` bands and shapes. The case study's `green-deep` band stays flat to match its homepage card. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
 
+**Overprint words** (How I work only): the three steps echoed as huge, faint words (NEED, BUILD, TEACH) behind the cards, like a riso poster printed slightly out of line. Each word is set twice in `text-poster`, `plum-bright` and `green-bright` a few pixels apart, the two inks screened together at 14% strength. Light inks on a dark band, so the misregistration reads without a new color. They're decoration only (`aria-hidden`). The cards are half solid so the words dim behind the text: `plum-bright` links stay at 4.6:1 even where both inks cross. Keep it to this one band: on every deep band it stops being a moment.
+
 **Scroll tint** (homepage): the page ground shifts from linen to `plum-06` around How I work and the first tiles, then to `green-08` at the tool tiles. Only the ground changes, so text contrast never moves. It fades over `duration-enter`; people who ask for less motion see the tones switch at once. Keep it to these three tones: more turns into a light show.
 
 ## Motion
