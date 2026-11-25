@@ -215,6 +215,14 @@ A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks
 
 **Homepage tiles ("What I do"):** each tile gets one visual with no words in it, rising from its bottom edge. Dark tiles (a project's story) carry that project's flower; light tiles (a tool) carry a simple sketch of the tool drawn in plain shapes, with one green pop. Words in a picture compete with the tile's own text, so leave them out.
 
+One exception: a tool's tile may hold a **mini-demo** instead of a sketch, when trying the tool in a few clicks says more than a picture would. The Product Finder Planner tile does this: three switches change a sample brief, and two counts (original brief → with your changes) show how many pieces of content the ad needs. Rules for a mini-demo:
+
+- Label it "Mini-demo" in the tile's label style, in green, so visitors know they can touch it.
+- Its numbers come from the tool's own code, never a separate copy of the math, so the card and the tool always agree.
+- Green-led like the tool: green switches and the changed count in green; the tile's own buttons stay plum.
+- Real controls (`role="switch"` buttons) and a polite live region for the changing count.
+- Keep it to a few controls and one result. The tile's single button ("Try your own brief") leads to the full tool.
+
 **On a page:** inline the drawing once, mark it `aria-hidden="true"`, and set its color with a token in CSS. It may open once on load with the hero's bloom (`duration-linger`, `ease-settle`); people who ask for reduced motion see it finished. In the header it sits beside the tool name (about 34 × 28px) and stays there on phones, where the name wraps next to it.
 
 ## Open questions

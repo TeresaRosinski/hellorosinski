@@ -147,15 +147,35 @@
         <article class="tile" data-tone="green">
           <p class="tile-eyebrow">Custom tool</p>
           <h3>Product Finder Planner</h3>
-          <p class="tile-line">See how much work a product finder ad takes before anyone promises it to a client.</p>
+          <p class="tile-line">Spot a ballooning brief before the work begins.</p>
           <div class="tile-actions">
-            <a class="button button-primary" href="tools/product-finder-planner/">Try it</a>
-            <a class="button button-secondary" href="work/product-finder/">How I built it</a>
+            <a class="button button-primary" href="tools/product-finder-planner/">Try your own brief</a>
           </div>
-          <!-- A wordless sketch of a product finder: one question branches into three answers and nine
-               results, with one path picked out in green. -->
-          <div class="tile-image" aria-hidden="true">
-            <div class="tile-ui"><svg class="shape-tree" viewBox="0 0 360 174" focusable="false"><line class="tree-line" x1="180" y1="22" x2="60" y2="88"/><line class="tree-line" x1="60" y1="88" x2="20" y2="152"/><line class="tree-line" x1="60" y1="88" x2="60" y2="152"/><line class="tree-line" x1="60" y1="88" x2="100" y2="152"/><line class="tree-line" x1="180" y1="88" x2="140" y2="152"/><line class="tree-line" x1="180" y1="88" x2="180" y2="152"/><line class="tree-line" x1="180" y1="22" x2="300" y2="88"/><line class="tree-line" x1="300" y1="88" x2="260" y2="152"/><line class="tree-line" x1="300" y1="88" x2="300" y2="152"/><line class="tree-line" x1="300" y1="88" x2="340" y2="152"/><line class="tree-line is-path" x1="180" y1="22" x2="180" y2="88"/><line class="tree-line is-path" x1="180" y1="88" x2="220" y2="152"/><circle class="tree-node" cx="20" cy="152" r="8"/><circle class="tree-node" cx="60" cy="152" r="8"/><circle class="tree-node" cx="100" cy="152" r="8"/><circle class="tree-node" cx="60" cy="88" r="10"/><circle class="tree-node" cx="140" cy="152" r="8"/><circle class="tree-node" cx="180" cy="152" r="8"/><circle class="tree-node is-path" cx="220" cy="152" r="8"/><circle class="tree-node is-path" cx="180" cy="88" r="10"/><circle class="tree-node" cx="260" cy="152" r="8"/><circle class="tree-node" cx="300" cy="152" r="8"/><circle class="tree-node" cx="340" cy="152" r="8"/><circle class="tree-node" cx="300" cy="88" r="10"/><circle class="tree-node is-path" cx="180" cy="22" r="12"/></svg></div>
+          <!-- Mini-demo: three switches change a sample brief, and the count shows how many pieces of
+               content the ad would need. The numbers come from the Planner's own calculation
+               (tools/product-finder-planner/model.mjs), worked out by js/planner-demo.js, so the card and
+               the tool always agree. Start: 2 questions × 3 answers, 3 products, 3 parts (image, name,
+               price) = 81. Edit the switch labels here; edit what each switch changes in js/planner-demo.js.
+               Styles in css/work.css ("Planner mini-demo"). -->
+          <div class="tile-image">
+            <div class="tile-ui planner-demo" role="group" aria-labelledby="planner-demo-label">
+              <p class="planner-demo-label" id="planner-demo-label">Mini-demo</p>
+              <button class="planner-switch" type="button" role="switch" aria-checked="false" data-change="products">
+                <span>More products</span><span class="planner-switch-track" aria-hidden="true"></span>
+              </button>
+              <button class="planner-switch" type="button" role="switch" aria-checked="false" data-change="headline">
+                <span>Add a headline</span><span class="planner-switch-track" aria-hidden="true"></span>
+              </button>
+              <button class="planner-switch" type="button" role="switch" aria-checked="false" data-change="answers">
+                <span>One more answer per question</span><span class="planner-switch-track" aria-hidden="true"></span>
+              </button>
+              <div class="planner-counts">
+                <p class="planner-count"><strong data-count="original">81</strong><span>Original brief</span></p>
+                <span class="planner-arrow" aria-hidden="true">→</span>
+                <p class="planner-count planner-count-new" aria-live="polite"><strong data-count="changed">81</strong><span>With your changes</span></p>
+              </div>
+              <p class="planner-demo-note">Pieces of content the team creates for each iteration of this ad. Each one is an image or a line of text.</p>
+            </div>
           </div>
         </article>
         <article class="tile tile-green" id="product-finder" data-tone="green">
@@ -184,6 +204,7 @@
   <script defer src="js/contact.js"></script>
   <script defer src="js/section-bloom.js"></script>
   <script defer src="js/scroll-tint.js"></script>
+  <script type="module" src="js/planner-demo.js"></script>
 
   <!-- Contact: where "Let's talk" and the nav's "Contact" land. Edit the text and links here.
        The "Copy email" button is powered by js/contact.js. -->
