@@ -118,8 +118,7 @@
 
 /* Each gain sits in a soft, squarish blob (BRAND.md, Shapes: blob), each one a little different,
    like cut paper. The text is centered with generous padding so it stays clear of the curved edges.
-   Soft black with paper grain, like the How I work band on the homepage. On ink: bright plum
-   numbers 6.7:1, soft plum text 13.5:1. */
+   Fresh green, a light nod to the tool: green numbers 6.2:1, ink text 13.7:1 on green-soft. */
 .case-gain {
   display: flex;
   flex-direction: column;
@@ -127,9 +126,8 @@
   padding: var(--space-12) max(var(--space-8), 12%); /* wider blobs get wider margins, clear of the curves */
   text-align: center;
   text-wrap: balance;
-  background: var(--texture-grain), var(--ink);
-  background-blend-mode: soft-light, normal;
-  color: var(--plum-soft);
+  background: var(--green-soft);
+  color: var(--ink);
   border-radius: 38% 30% 36% 32% / 32% 38% 30% 36%;
 }
 
@@ -149,7 +147,7 @@
   display: block;
   margin-bottom: var(--space-2);
   font: var(--text-tile);
-  color: var(--plum-bright);
+  color: var(--green);
 }
 
 .case-gain span {
