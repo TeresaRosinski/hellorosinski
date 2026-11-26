@@ -666,7 +666,7 @@
 .how-i-work-words {
   position: relative; /* above the peony */
   z-index: 1;
-  top: calc(16% - 0.36em); /* sets the letters' baseline about two-thirds down the poster, where the
+  top: calc(12% - 0.36em); /* sets the letters' baseline about two-thirds down the poster, where the
                               petal crosses just the bottom of the letters at every width */
   display: flex;
   justify-content: center;
@@ -710,7 +710,7 @@
     align-items: center;
     gap: 0;
     top: 0;
-    margin-bottom: 1.25em; /* room under the words, so the petal (which grows with the poster's
+    margin-bottom: 1.45em; /* room under the words, so the petal (which grows with the poster's
                            height) lands on the bottom of "Teach." instead of covering it */
     font-size: min(var(--size-poster), 100cqi / 3.6); /* "Listen." is about 3.5em wide */
   }
