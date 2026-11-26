@@ -596,66 +596,104 @@
   margin-inline: auto;
 }
 
-/* Poster words (BRAND.md, Texture): "Listen, Build, Teach" under the steps, huge, one word per line,
-   centered, over an arch of tulips (the hero's arch shape, so the two rhyme). Each letter is a bright
-   plum outline with a translucent plum center, so the tulips show through where the words cross the
-   arch. Between the words sit full-strength bright plum dots, like the dots between the roles in the
-   hero. Decoration only: the whole poster is hidden from screen readers. */
+/* Poster words (BRAND.md, Texture): "Listen. Build. Teach." under the steps, huge, in linen, across a
+   plum peony. The words sit on one line on wide screens and stack on phones. Each period is bright
+   plum, echoing the "Teresa." wordmark, and pops in like the section periods.
+   The peony's black background melts into the band: "lighten" keeps whichever is lighter, the band
+   or the photo, so the photo's black gives way to the band's soft black and grain, and only the
+   flower shows. Decoration only: the whole poster is hidden from screen readers. */
 .how-i-work-poster {
   position: relative;
-  isolation: isolate; /* keeps the arch behind the words, inside the poster */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: var(--content-max); /* same width as the cards, so no word passes their edges */
+  display: grid;
+  place-items: center;
+  max-width: calc(var(--content-max) * 1.3); /* the peony spreads a little past the cards */
+  aspect-ratio: 3 / 1; /* the peony's own shape */
   margin: var(--space-12) auto calc(-1 * var(--space-8));
-  overflow: hidden;
-  font: var(--text-poster);
-  text-transform: uppercase;
-  white-space: nowrap;
+  container-type: inline-size; /* lets the words size to the poster's width (cqi) */
+  overflow: hidden; /* on phones the peony and petal are cropped to the poster */
   pointer-events: none;
   user-select: none;
 }
 
-.how-i-work-poster > span {
-  color: color-mix(in srgb, var(--plum) 40%, transparent); /* tints the tulips; nearly black on the band */
-  -webkit-text-stroke: calc(var(--border-hairline) * 1.5) var(--plum-bright);
-}
-
-/* The tulip arch: centered behind the words, as tall as the stack, cut to the hero arch's shape. */
-.how-i-work-arch {
+.how-i-work-poster > img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  height: 94%;
-  aspect-ratio: 2 / 3; /* the photo's own shape */
-  overflow: hidden;
-  border-radius: var(--radius-pill) var(--radius-pill) var(--radius-lg) var(--radius-lg);
-  transform: translate(-50%, -50%);
-}
-
-.how-i-work-arch img {
-  display: block;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  mix-blend-mode: lighten;
 }
 
-/* The dot between two words: a period-sized circle (sized in em, so it grows with the words). */
-.how-i-work-dot {
-  width: 0.2em;
-  height: 0.2em;
-  margin-block: 0.05em 0.11em; /* a touch higher, so it looks centered between the words' letters */
-  border-radius: 50%;
-  background: var(--plum-bright);
+/* The front petal, cut out of the same picture and laid over the words so the flower seems to wrap
+   around them. Its frame matches the peony's exactly (3:1, as tall as the poster, centered), so the
+   petal sits right on top of the petal in the photo at every width. */
+.how-i-work-petal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2; /* above the words */
+  height: 100%;
+  aspect-ratio: 3 / 1;
+  transform: translateX(-50%);
 }
 
-/* Phones: size the words so the widest, "LISTEN" (about 3.8em), fits between the cards' edges,
-   up to the poster size. */
+.how-i-work-petal img {
+  position: absolute;
+  left: 24.4%;   /* where the petal sits in the full 2172 x 724 picture: 530px in, */
+  top: 51.1%;    /* 370px down, */
+  width: 51.57%; /* 1120px wide */
+  height: auto;
+}
+
+.how-i-work-words {
+  position: relative; /* above the peony */
+  z-index: 1;
+  top: 0.14em; /* high enough that the petal crosses only the bottom of the letters */
+  display: flex;
+  justify-content: center;
+  gap: 0.22em;
+  margin: 0;
+  font: var(--text-poster);
+  max-width: var(--content-max); /* the words stay within the cards' width */
+  font-size: min(var(--size-poster), 100cqi / 10.6); /* the whole line is about 10.5em wide */
+  color: var(--linen);
+  white-space: nowrap;
+}
+
+.how-i-work-period {
+  display: inline-block;
+  font-style: normal;
+  color: var(--plum-bright);
+}
+
+/* Phones: one word per line, sized so the widest, "Listen.", fits between the cards' edges. The
+   peony fills the taller poster, cropped to its center. */
 @media (max-width: 48rem) {
   .how-i-work-poster {
-    font-size: min(96px, calc((100vw - 2 * var(--space-4)) / 3.85));
+    aspect-ratio: auto;
+    padding-block: var(--space-8);
+  }
+
+  /* The crop cuts through petals at the sides, so fade the photo out toward its edges. */
+  .how-i-work-poster > img {
+    -webkit-mask-image: radial-gradient(farthest-side, #000 72%, transparent);
+    mask-image: radial-gradient(farthest-side, #000 72%, transparent);
+  }
+
+  /* The same fade for the petal, sized to the poster rather than to its wider frame. */
+  .how-i-work-petal {
+    -webkit-mask-image: radial-gradient(50cqi 50% at 50% 50%, #000 72%, transparent);
+    mask-image: radial-gradient(50cqi 50% at 50% 50%, #000 72%, transparent);
+  }
+
+  .how-i-work-words {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    top: 0;
+    margin-bottom: 1.5em; /* room under the words, so the petal (which grows with the poster's
+                           height) lands on the bottom of "Teach." instead of covering it */
+    font-size: min(var(--size-poster), 100cqi / 3.6); /* "Listen." is about 3.5em wide */
   }
 }
 
@@ -701,31 +739,35 @@
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
-/* The How I work poster's dots pop in the same way, one after another, down the poster. */
-.how-i-work-dot {
-  transform-origin: 50% 50%;
+/* The How I work poster's periods pop in the same way, one after another, across the poster. */
+.how-i-work-period {
+  transform-origin: 50% 85%;
 }
 
-.is-waiting .how-i-work-dot {
+.is-waiting .how-i-work-period {
   opacity: 0;
 }
 
-.is-blooming .how-i-work-dot {
+.is-blooming .how-i-work-period {
   animation: hero-seed var(--duration-linger) var(--ease-settle) var(--bloom-delay, 0ms) backwards;
 }
 
-.is-blooming > .how-i-work-dot:nth-of-type(2) {
+.is-blooming .how-i-work-words > :nth-child(2) .how-i-work-period {
   animation-delay: calc(var(--bloom-delay, 0ms) + var(--duration-quick));
+}
+
+.is-blooming .how-i-work-words > :nth-child(3) .how-i-work-period {
+  animation-delay: calc(var(--bloom-delay, 0ms) + 2 * var(--duration-quick));
 }
 
 @media (prefers-reduced-motion: reduce) {
   .is-waiting .section-period,
-  .is-waiting .how-i-work-dot {
+  .is-waiting .how-i-work-period {
     opacity: 1;
   }
 
   .is-blooming .section-period,
-  .is-blooming .how-i-work-dot {
+  .is-blooming .how-i-work-period {
     animation: none;
   }
 }

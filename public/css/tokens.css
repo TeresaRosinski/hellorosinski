@@ -54,7 +54,8 @@
   --text-section: 700 40px/1.1 var(--font-display);
   --text-tile: 700 32px/1.1 var(--font-display);
   --text-tile-half: 700 26px/1.15 var(--font-display);
-  --text-poster: 800 clamp(96px, 17vw, 200px)/0.9 var(--font-display); /* overprint poster words on a deep band (decoration only, never for reading) */
+  --size-poster: 96px; /* the poster words at full size; they shrink to fit narrower screens */
+  --text-poster: 800 var(--size-poster)/0.95 var(--font-display); /* poster words on a deep band (decoration only, never for reading) */
 
   /* Type: body and UI (Inter) */
   --text-lede: 500 20px/1.35 var(--font-body);
