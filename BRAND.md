@@ -144,71 +144,22 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 **Paper grain** (`--texture-grain` in `tokens.css`) goes on deep color sections only: `plum-deep` and `ink` bands and shapes. The case study's `green-deep` band stays flat to match its homepage card. Layer it over the color with `background-blend-mode: soft-light`. On light grounds it just looks dusty, so leave linen and sand flat.
 
-**Poster words** (How I work only): the three steps echoed as huge words (LISTEN, BUILD, TEACH) under the cards, one word per line, centered, in `text-poster`, within the cards' width. Behind them stands an arch of purple tulips (a photo, `images/how-i-work/tulips.jpg`), cut to the hero arch's shape so the two arches rhyme down the page. Each letter is a `plum-bright` outline with a `plum` center at 40%: over the photo the letters become tinted windows onto the tulips; over the band they read as dark plum lined in bright plum. Between the words sit two full-strength `plum-bright` dots, like the dots between the roles in the hero. When the poster scrolls into view, the dots pop in like the section periods, one after another (`duration-quick` apart); people who ask for less motion see them in place. Decoration only (`aria-hidden`). What we learned getting here: a two-ink misregistered print (plum and green offset) strained the eyes at this size, since the two inks are complements at similar brightness; and words behind the cards read as broken and dragged the links below 4.5:1. Keep to one ink per letter, keep text off them, and keep it to this one band.
+**Poster words** (How I work only): the three steps echoed as "Listen. Build. Teach." under the cards, in `text-poster` and `linen`, on one line on wide screens and one word per line on phones, never wider than the cards. Behind them blooms a photo-like plum peony (`images/how-i-work/peony.webp`); its front petal is cut out (`petal.png`) and laid over the words, so the flower seems to wrap around them, crossing only the bottom of the letters so every word still reads. The photo's black background melts into the band with `mix-blend-mode: lighten`, so only the flower shows over the band's soft black and grain; on phones, where the crop cuts through petals, both layers fade out toward the edges. Each period is `plum-bright`, echoing the "Teresa." wordmark, and they pop in like the section periods, one after another (`duration-quick` apart); people who ask for less motion see them in place. Decoration only (`aria-hidden`). What we learned getting here: a two-ink misregistered print (plum and green offset) strained the eyes; words behind the cards read as broken and dragged the links below 4.5:1; and outlined, see-through letters were hard to read over a photo. Keep the letters solid and light, keep text off them, and keep it to this one band.
 
-**The tulip photo** is the only photographed flower on the site, used only here. The drawn flowers each mean one project; the tulips mean nothing beyond the method poster, so don't reuse them elsewhere. Photo by Anya Chernykh on Unsplash (Unsplash License; credit kept in the HTML comment).
-
-**Scroll tint** (homepage): the page ground shifts from linen to `plum-06` around How I work and the first tiles, then to `green-08` at the tool tiles. Only the ground changes, so text contrast never moves. It fades over `duration-enter`; people who ask for less motion see the tones switch at once. Keep it to these three tones: more turns into a light show.
-
-## Motion
-
-Things **lift into place and linger.** Motion should feel like a calm, buoyant drift: elements arrive **crisp and clear** (no blur at all), rise a little, and take their time to settle, so they feel unhurried and premium. It should help people understand the page faster, never make them wait.
-
-**Personality:** calm, buoyant, crisp, deliberate. Closer to a film's title card than an app's UI.
-
-### The four qualities (and the words to ask for them)
-
-| Quality | What it means | Ask for more with | Setting |
-|---|---|---|---|
-| **Linger** | A long settle. With `ease-settle`, most movement happens early, then the element glides slowly into its final spot. | "longer settle", "more linger" | duration |
-| **Crisp** | Arrives fully in focus, with no blur. Reads as confident and editorial. (Even a 1px blur shimmered on low-res screens, so it's gone.) | "crisper", "less dreamy" | no blur |
-| **Lift** | Rises just enough that you notice it floating up (about half its own height). | "more lift", "more float" | rise distance |
-| **Wave** | Items start close together but each settles slowly, so many move at once and a group arrives as one gentle wave, not tick, tick, tick. | "more wave" (shorter gap) or "more cadence" (longer gap) | stagger compared with duration |
-
-### Tokens
-
-| Token | Value | Use |
-|---|---|---|
-| `ease-settle` | `cubic-bezier(0.16, 1, 0.3, 1)` | The default for everything. In GSAP, `"expo.out"`. |
-| `duration-linger` | `2000ms` | Page-load entrances: hero text, words, flowers. The signature feel. |
-| `duration-enter` | `1200ms` | Content appearing after someone clicks (a session panel). Lingers, but doesn't make them wait. |
-| `duration-quick` | `450ms` | Direct feedback to a click or key: the sliding card highlight, hover. Must feel instant to the hand. |
-| `motion-rise` | `0.55em` (or `55%` of a word's height) | How far things lift into place. |
-| `stagger-words` | `70ms` | The gap between words or small items. |
-
-### Rhythm
-- **Sequence big beats, wave small ones.** Large beats (name, then each role and its peony, then the intro) are spaced about 450ms apart, overlapping so each beat starts while the last is still settling. Small items within a beat (words, panel sections) overlap as a wave, about 70ms apart.
-- **Entrances linger; interactions respond.** Anything that answers a click stays quick (`duration-quick`), and content that appears because of it uses `duration-enter`. Only page-load moments use the full linger.
-
-### Rules
-- **Plays once.** No loops, no motion that repeats while someone is reading.
-- **What moves:** opacity, position, scale, and rotation. No blur: it redraws every frame and shimmers on low-res screens. Never width, height, or margins in a way that pushes other content around (it causes layout shift and costs Lighthouse points).
-- **Content works without motion.** Text is readable if scripts fail to load; animation only adds to it.
-- **Respect reduced motion.** When a visitor's system asks for less motion, show the finished state with no animation.
-- **Keep the main content fast.** The largest text on the page starts at 1% opacity, not 0, so it still counts as loaded right away. Readable well before it finishes settling is fine.
-- **Let go when finished.** CSS entrances use `backwards`, not `both` or `forwards`, so they release once they end (their last frame should match the normal look). Only ask the browser for a separate layer (`will-change`) while something is moving. Holding a finished animation kept the hero name on its own layer, and Safari could drop it and redraw it late after a resize, so the name blinked out.
-- **GSAP for systems, CSS for single effects.** A one-off entrance is CSS. Coordinated or interactive motion (cards to panel, word-by-word text, scroll timelines) uses GSAP with the same tokens.
-
-## Usage by surface
-
-**Portfolio** — plum-led. Green appears once or twice per page at most: a tag, a hover, a small detail. If green starts showing up more than that here, it's taking identity's job.
-
-**Rise course modules** — plum in the header or one accent element so a module still reads as Teresa's; otherwise mostly neutral (ink, surface, mist) for the actual instructional content, which needs to stay out of the brand's way. Green is reserved specifically for progress and completion — a finished step, a correct answer — never used decoratively.
-
-**Standalone tools** — green-led. The button, the active step, the progress fill are all green. Plum shows up once, structurally (a header bar, a nav element), so a tool is still recognizably part of the same system without competing with green for the user's attention while they're trying to get something done.
+**The poster peony** is the only photo-like flower on the site, used only here. Teresa generated it (and the cut-out petal) with ChatGPT; that's noted in the HTML comment.
 
 ## Flowers
 
 A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks, not decoration: each one belongs to a single place, so it comes to mean that place.
 
-- **The plum peony is Teresa's personal mark.** It appears on the homepage hero and nowhere else.
+- **The plum peony is Teresa's personal mark.** It appears in two places: drawn, in the homepage hero, and as a photo-like peony behind the How I work poster words. Both are about Teresa, so it still means one thing. Nowhere else.
 - **Each standalone tool gets its own green flower,** since tools are green-led. One flower per tool, placed once: in the header, as the tool's icon right before the tool's name. Never inside the working area.
 - **A tool's flower may appear twice:** in the tool's header, and at the top of that tool's case study band on the portfolio. Both places are the same project, so the flower still means one thing.
 - **The plum flowers are kept for portfolio sections** (for example, an About section or a future course).
 
 | Flower | Colors | Belongs to |
 |---|---|---|
-| Plum peony | `plum` | Teresa: homepage hero |
+| Plum peony | `plum` | Teresa: homepage hero (drawn), and the How I work poster (photo-like) |
 | Deep green chrysanthemum | `green-deep` (`green-bright` on the case study band) | Product Finder Planner and its case study. Many petals branching from one center, like answers branching into results |
 | Green poppy | `green`, `plum-deep` | Unassigned (suggested: Make it your agent) |
 | Green ruffled peony | `green`, `green-soft` | Unassigned (suggested: the emotional-regulation practice tool) |
