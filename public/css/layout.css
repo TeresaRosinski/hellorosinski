@@ -624,31 +624,50 @@
   mix-blend-mode: lighten;
 }
 
-/* The front petal, cut out of the same picture and laid over the words so the flower seems to wrap
-   around them. Its frame matches the peony's exactly (3:1, as tall as the poster, centered), so the
-   petal sits right on top of the petal in the photo at every width. */
-.how-i-work-petal {
+/* The front petal: a second copy of the peony, cut along the top edge of its front petals and laid
+   over the words, so the flower seems to wrap around them. It's the same picture, so the petal
+   matches the flower exactly. Its frame matches the peony's (3:1, as tall as the poster, centered),
+   and it has its own soft-black ground, so it blends with "lighten" exactly like the peony below
+   instead of with the words. The outline was traced on the 2000 x 667 picture; only its top edge
+   shows, where it crosses the letters. */
+.how-i-work-front {
   position: absolute;
   top: 0;
   left: 50%;
   z-index: 2; /* above the words */
   height: 100%;
   aspect-ratio: 3 / 1;
+  isolation: isolate;
+  background: var(--texture-grain), var(--ink);
+  background-blend-mode: soft-light, normal;
   transform: translateX(-50%);
+  clip-path: polygon(
+    27% 100%, 27.4% 62.97%, 27.8% 58.77%, 28.15% 57.12%,
+    28.6% 58.77%, 29% 63.12%, 29.95% 65.82%, 31.4% 68.67%,
+    33% 71.81%, 34.5% 74.21%, 36.75% 69.42%, 38.35% 67.47%,
+    39.95% 65.52%, 41.55% 63.42%, 43.65% 61.47%, 45% 60.72%,
+    46.6% 58.92%, 48.2% 57.72%, 49.95% 57.27%, 51.4% 58.62%,
+    53% 61.02%, 54.6% 63.42%, 55.95% 65.52%, 57% 66.27%,
+    58.35% 66.72%, 59.95% 66.87%, 61.75% 65.22%, 63.65% 63.42%,
+    65% 62.67%, 67.65% 61.92%, 69.55% 62.22%, 70.85% 63.87%,
+    71.65% 66.27%, 71.65% 68.67%, 71.4% 71.81%, 69.8% 75.86%,
+    67.65% 79.91%, 67.5% 100%
+  );
 }
 
-.how-i-work-petal img {
+.how-i-work-front img {
   position: absolute;
-  left: 24.4%;   /* where the petal sits in the full 2172 x 724 picture: 530px in, */
-  top: 51.1%;    /* 370px down, */
-  width: 51.57%; /* 1120px wide */
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
 }
 
 .how-i-work-words {
   position: relative; /* above the peony */
   z-index: 1;
-  top: 0.14em; /* high enough that the petal crosses only the bottom of the letters */
+  top: calc(16% - 0.36em); /* sets the letters' baseline about two-thirds down the poster, where the
+                              petal crosses just the bottom of the letters at every width */
   display: flex;
   justify-content: center;
   gap: 0.22em;
@@ -680,8 +699,8 @@
     mask-image: radial-gradient(farthest-side, #000 72%, transparent);
   }
 
-  /* The same fade for the petal, sized to the poster rather than to its wider frame. */
-  .how-i-work-petal {
+  /* The same fade for the front petal, sized to the poster rather than to its wider frame. */
+  .how-i-work-front {
     -webkit-mask-image: radial-gradient(50cqi 50% at 50% 50%, #000 72%, transparent);
     mask-image: radial-gradient(50cqi 50% at 50% 50%, #000 72%, transparent);
   }
@@ -691,7 +710,7 @@
     align-items: center;
     gap: 0;
     top: 0;
-    margin-bottom: 1.5em; /* room under the words, so the petal (which grows with the poster's
+    margin-bottom: 1.25em; /* room under the words, so the petal (which grows with the poster's
                            height) lands on the bottom of "Teach." instead of covering it */
     font-size: min(var(--size-poster), 100cqi / 3.6); /* "Listen." is about 3.5em wide */
   }
