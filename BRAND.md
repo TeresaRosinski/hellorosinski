@@ -148,6 +148,55 @@ Organic shapes soften the page, but each one has a single job, so soft never tur
 
 **The poster peony** is the only photo-like flower on the site, used only here. Teresa generated it (and the cut-out petal) with ChatGPT; that's noted in the HTML comment.
 
+**Scroll tint** (homepage): the page ground shifts from linen to `plum-06` around How I work and the first tiles, then to `green-08` at the tool tiles. Only the ground changes, so text contrast never moves. It fades over `duration-enter`; people who ask for less motion see the tones switch at once. Keep it to these three tones: more turns into a light show.
+
+## Motion
+
+Things **lift into place and linger.** Motion should feel like a calm, buoyant drift: elements arrive **crisp and clear** (no blur at all), rise a little, and take their time to settle, so they feel unhurried and premium. It should help people understand the page faster, never make them wait.
+
+**Personality:** calm, buoyant, crisp, deliberate. Closer to a film's title card than an app's UI.
+
+### The four qualities (and the words to ask for them)
+
+| Quality | What it means | Ask for more with | Setting |
+|---|---|---|---|
+| **Linger** | A long settle. With `ease-settle`, most movement happens early, then the element glides slowly into its final spot. | "longer settle", "more linger" | duration |
+| **Crisp** | Arrives fully in focus, with no blur. Reads as confident and editorial. (Even a 1px blur shimmered on low-res screens, so it's gone.) | "crisper", "less dreamy" | no blur |
+| **Lift** | Rises just enough that you notice it floating up (about half its own height). | "more lift", "more float" | rise distance |
+| **Wave** | Items start close together but each settles slowly, so many move at once and a group arrives as one gentle wave, not tick, tick, tick. | "more wave" (shorter gap) or "more cadence" (longer gap) | stagger compared with duration |
+
+### Tokens
+
+| Token | Value | Use |
+|---|---|---|
+| `ease-settle` | `cubic-bezier(0.16, 1, 0.3, 1)` | The default for everything. In GSAP, `"expo.out"`. |
+| `duration-linger` | `2000ms` | Page-load entrances: hero text, words, flowers. The signature feel. |
+| `duration-enter` | `1200ms` | Content appearing after someone clicks (a session panel). Lingers, but doesn't make them wait. |
+| `duration-quick` | `450ms` | Direct feedback to a click or key: the sliding card highlight, hover. Must feel instant to the hand. |
+| `motion-rise` | `0.55em` (or `55%` of a word's height) | How far things lift into place. |
+| `stagger-words` | `70ms` | The gap between words or small items. |
+
+### Rhythm
+- **Sequence big beats, wave small ones.** Large beats (name, then each role and its peony, then the intro) are spaced about 450ms apart, overlapping so each beat starts while the last is still settling. Small items within a beat (words, panel sections) overlap as a wave, about 70ms apart.
+- **Entrances linger; interactions respond.** Anything that answers a click stays quick (`duration-quick`), and content that appears because of it uses `duration-enter`. Only page-load moments use the full linger.
+
+### Rules
+- **Plays once.** No loops, no motion that repeats while someone is reading.
+- **What moves:** opacity, position, scale, and rotation. No blur: it redraws every frame and shimmers on low-res screens. Never width, height, or margins in a way that pushes other content around (it causes layout shift and costs Lighthouse points).
+- **Content works without motion.** Text is readable if scripts fail to load; animation only adds to it.
+- **Respect reduced motion.** When a visitor's system asks for less motion, show the finished state with no animation.
+- **Keep the main content fast.** The largest text on the page starts at 1% opacity, not 0, so it still counts as loaded right away. Readable well before it finishes settling is fine.
+- **Let go when finished.** CSS entrances use `backwards`, not `both` or `forwards`, so they release once they end (their last frame should match the normal look). Only ask the browser for a separate layer (`will-change`) while something is moving. Holding a finished animation kept the hero name on its own layer, and Safari could drop it and redraw it late after a resize, so the name blinked out.
+- **GSAP for systems, CSS for single effects.** A one-off entrance is CSS. Coordinated or interactive motion (cards to panel, word-by-word text, scroll timelines) uses GSAP with the same tokens.
+
+## Usage by surface
+
+**Portfolio** — plum-led. Green appears once or twice per page at most: a tag, a hover, a small detail. If green starts showing up more than that here, it's taking identity's job.
+
+**Rise course modules** — plum in the header or one accent element so a module still reads as Teresa's; otherwise mostly neutral (ink, surface, mist) for the actual instructional content, which needs to stay out of the brand's way. Green is reserved specifically for progress and completion — a finished step, a correct answer — never used decoratively.
+
+**Standalone tools** — green-led. The button, the active step, the progress fill are all green. Plum shows up once, structurally (a header bar, a nav element), so a tool is still recognizably part of the same system without competing with green for the user's attention while they're trying to get something done.
+
 ## Flowers
 
 A set of flat, cut-paper flowers, each drawn in brand tokens only. They're marks, not decoration: each one belongs to a single place, so it comes to mean that place.
